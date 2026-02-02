@@ -1,0 +1,1456 @@
+[
+  {
+    "id": 1,
+    "url": "https://www.overcomingbias.com/p/should_predictihtml",
+    "title": "Should Prediction Markets Be Charities?",
+    "author": "Peter McCluskey",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2006-12-11",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "information aggregation",
+      "NEW: public goods problem",
+      "regulatory arbitrage"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Argues that prediction markets aimed at informing voters should operate as nonprofits rather than for-profit businesses. Points out that valuable political information rarely correlates with profitable trading opportunities, and charitable structures face less regulatory scrutiny.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 2,
+    "url": "https://arxiv.org/abs/2306.04305",
+    "title": "Self-Resolving Prediction Markets for Unverifiable Outcomes",
+    "author": "Siddarth Srinivasan, Ezra Karger, Yiling Chen",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2023-06-07",
+    "primary_category": "Design",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "self-resolving markets",
+      "proper scoring rules",
+      "incentive compatibility",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Proposes a mechanism for prediction markets where outcomes cannot be objectively verified. Uses the last reporter's prediction as a reference point, creating incentives for truthful reporting through negative cross-entropy payments. Proves truthful reporting is a perfect Bayesian equilibrium.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 3,
+    "url": "https://alternativeassets.substack.com/p/prediction-markets-explained",
+    "title": "Prediction Markets Explained",
+    "author": "Stefan von Imhof",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2024-02-04",
+    "primary_category": "Fundamentals",
+    "content_type": "Explainer",
+    "difficulty": "None",
+    "concepts": [
+      "event contracts",
+      "price discovery"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Explains how prediction markets work and debunks the common misconception that market prices equal probabilities. Breaks down why risk-free rates, opportunity costs, and spreads create systematic price deviations from true beliefs.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 4,
+    "url": "https://ampbura.substack.com/p/deep-dive-8-decentralized-prediction",
+    "title": "Deep Dive #8 | Decentralized Prediction Markets",
+    "author": "Amp Burapachaisri",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2024-02-23",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "information aggregation",
+      "price discovery"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Introduction to decentralized prediction markets with a SWOT analysis of Polymarket. Covers how the platform works, its regulatory positioning, liquidity constraints, and growth opportunities.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 5,
+    "url": "https://worksinprogress.co/issue/why-prediction-markets-arent-popular/",
+    "title": "Why Prediction Markets Aren't Popular",
+    "author": "Nick Whitaker, J. Zachary Mazlish",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2024-05-17",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "liquidity provision",
+      "no-trade theorem",
+      "market making",
+      "hedging",
+      "forecasting accuracy"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Argues that prediction markets' unpopularity isn't due to regulation but fundamental demand-side issues. Markets need savers, gamblers, or sharps to function, but prediction markets attract none: they're zero-sum (no savers), have long resolution times (no gamblers), and are too small for professional traders (no sharps).",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 6,
+    "url": "https://frankmuci.substack.com/p/polymarket-settles-bet-against-its",
+    "title": "Polymarket Settles Bet Against Its Own Rules",
+    "author": "Frank Muci",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2024-08-08",
+    "primary_category": "Platforms",
+    "content_type": "Case Study",
+    "difficulty": "None",
+    "concepts": [
+      "oracle design",
+      "dispute resolution",
+      "UMA protocol",
+      "corruption value multiple"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Case study of Polymarket's Venezuelan election market, where UMA token-holders overrode the platform's own resolution rules to declare opposition candidate Gonzalez the winner despite official results. Highlights conflicts of interest when oracle voters can also bet on outcomes.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 7,
+    "url": "https://newsletter.asxn.xyz/p/polymarket-an-election-driven-success",
+    "title": "Polymarket: An Election-Driven Success Story",
+    "author": "ASXN",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2024-08-10",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "conditional tokens",
+      "network effects",
+      "election markets"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Analysis of Polymarket's growth trajectory and business model. Notes that 99.2% of trading volume concentrates in political markets and two-thirds of cumulative volume occurred in the last six months, raising questions about sustainability beyond election cycles.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 8,
+    "url": "https://paragraph.com/@mechanism.institute/prediction-markets",
+    "title": "Mechanisms for Prediction Markets",
+    "author": "Raye Hadi, Sofia Cossar, Ori Shimony",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2024-08-22",
+    "primary_category": "Design",
+    "content_type": "Explainer",
+    "difficulty": "Some",
+    "concepts": [
+      "conditional tokens",
+      "oracle design",
+      "dispute resolution",
+      "liquidity provision",
+      "order book"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Technical explainer of how onchain prediction markets work, using Polymarket as the primary case study. Covers the Gnosis Conditional Token Framework, Central Limit Order Books vs AMMs, UMA Oracle dispute resolution mechanics, and liquidity incentive programs.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 9,
+    "url": "https://paragraph.com/@filarm/the-art-of-forecasting",
+    "title": "The Art of Forecasting",
+    "author": "fil",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2024-09-30",
+    "primary_category": "Fundamentals",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "information aggregation",
+      "wisdom of crowds",
+      "election markets",
+      "forecasting accuracy"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Compares prediction markets with traditional polls and expert commentary along two axes: grassroots vs top-down and expertise density. Uses the 2024 Biden-Trump race to show how Polymarket priced in Biden's withdrawal probability while polls measured only head-to-head support.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 10,
+    "url": "https://www.shoal.gg/p/prediction-markets",
+    "title": "Polymarket and the Proliferation of Prediction Markets",
+    "author": "Alex Nardi",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2024-10-08",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "conditional tokens",
+      "oracle design",
+      "dispute resolution",
+      "network effects",
+      "liquidity provision"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Research report on Polymarket's growth (35x increase in weekly active users from May to September 2024) and competitive positioning. Covers technical infrastructure (Gnosis CTF, UMA oracles, PolyLend), participant biases, and oracle complications like the Venezuelan election dispute.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 13,
+    "url": "https://medium.com/quantum-economics/my-polymarket-conspiracy-theory",
+    "title": "My Polymarket Conspiracy Theory",
+    "author": "Lou Kerner",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2024-10-20",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "oracle design",
+      "dispute resolution",
+      "election markets",
+      "corruption value multiple"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Speculates on how Polymarket's 2024 presidential election market could be manipulated through its oracle system. Argues that Fox News was chosen as an oracle despite being unlikely to call the election for a non-Trump candidate, and that UMA token holders could sway disputed resolution votes given UMA's small market cap.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 11,
+    "url": "https://research.mintventures.fund/2024/10/09/Unveiling-Polymarket-The-Positioning-Expansion-and-Shadows-of-Crypto-Prediction-Markets/",
+    "title": "Unveiling Polymarket: The Positioning, Expansion, and Shadows of Crypto Prediction Markets",
+    "author": "Lydia Wu",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "publish_date": "2024-10-09",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "network effects",
+      "price discovery",
+      "election markets"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "PredictIt",
+      "Iowa Electronic Markets"
+    ],
+    "editorial_blurb": "Characterizes Polymarket as a crypto media/creator economy platform rather than just an event-trading platform. Notes the 166:1 ratio of monthly visits to MAU suggests significant non-trading visitors, and that Polymarket users are older and less focused on maximizing risk-reward compared to typical crypto traders.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 12,
+    "url": "https://dirtroads.substack.com/p/63-crypto-prediction-markets",
+    "title": "Crypto Prediction Markets",
+    "author": "Luca Prosperi",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2024-10-11",
+    "primary_category": "Design",
+    "content_type": "Explainer",
+    "difficulty": "Some",
+    "concepts": [
+      "wisdom of crowds",
+      "oracle design",
+      "information aggregation",
+      "liquidity provision"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Augur"
+    ],
+    "editorial_blurb": "Technical primer on prediction market design, from wisdom of crowds theory to decentralized oracle mechanisms. Argues prediction markets could systematize event probabilities to expand financial markets like derivatives did historically, but current implementations face challenges in liquidity fragmentation, oracle incentives, and complexity.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 14,
+    "url": "https://www.decentralised.co/p/financialisation-of-social-networks",
+    "title": "Financialisation of Social Networks",
+    "author": "Joel John",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2024-10-23",
+    "primary_category": "Applications",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "network effects",
+      "info finance"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Frames prediction markets as predecessors to financialized social networks. Uses Polymarket (which briefly hit #1 in app stores) as evidence that linking user views to financial stakes creates engagement through capital formation rather than pure attention capture. Argues these platforms are stress-testing primitives for Web3 social infrastructure.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 15,
+    "url": "https://dirtroads.substack.com/p/64-prediction-markets-ii-spoiling",
+    "title": "Prediction Markets (II): Spoiling the Election Love Story",
+    "author": "Luca Prosperi",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2024-11-02",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "liquidity provision",
+      "corruption value multiple",
+      "election markets",
+      "oracle design"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Critical analysis of prediction market reliability during the 2024 US election. Documents how four coordinated accounts controlled 23% of Polymarket's open interest, 41% of volume appeared to be wash trading, and argues current platforms lack the structural conditions for reliable forecasting.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 16,
+    "url": "https://vitalik.eth.limo/general/2024/11/09/infofinance.html",
+    "title": "From Prediction Markets to Info Finance",
+    "author": "Vitalik Buterin",
+    "author_twitter": "@VitalikButerin",
+    "source_type": "Blog",
+    "publish_date": "2024-11-09",
+    "primary_category": "Applications",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "info finance",
+      "information aggregation",
+      "futarchy",
+      "decision markets"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Argues that prediction markets represent one application within a broader 'info finance' ecosystem. Proposes these mechanisms can improve governance, scientific research, journalism, and social media through information-pricing mechanisms that go beyond simple betting.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 17,
+    "url": "https://a16zcrypto.com/posts/podcast/prediction-markets-information-aggregation-mechanisms/",
+    "title": "Prediction Markets and Beyond",
+    "author": "Alex Tabarrok, Scott Duke Kominers, Sonal Chokshi",
+    "author_twitter": null,
+    "source_type": "Podcast",
+    "publish_date": "2024-11-21",
+    "primary_category": "Fundamentals",
+    "content_type": "Podcast",
+    "difficulty": "None",
+    "concepts": [
+      "information aggregation",
+      "futarchy"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Podcast discussion separating hype from reality in prediction markets. Covers foundational mechanics, comparative advantages over pollsters and experts, and future applications including corporate decision-making, scientific reproducibility, and governance innovations.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 18,
+    "url": "https://rnikhil.com/2024/12/18/prediction-market-crypto",
+    "title": "No, You Can't Bet on Everything and That's Okay",
+    "author": "Nikhil R",
+    "author_twitter": "@rnikhilcom",
+    "source_type": "Blog",
+    "publish_date": "2024-12-18",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "liquidity provision",
+      "market making"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Betfair"
+    ],
+    "editorial_blurb": "Argues prediction markets face fundamental barriers to scaling beyond sports and elections due to misaligned incentives: speculators demand rapid resolutions (42% of election volume in final week), investors prefer wealth-building assets over locked capital, and market makers need consistent retail flow that doesn't exist for niche topics.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 19,
+    "url": "https://x.com/michael_lwy/status/1877211555496079683",
+    "title": "Why Prediction Markets Are Broken (And How to Fix Them)",
+    "author": "michaellwy",
+    "author_twitter": "@michael_lwy",
+    "source_type": "Twitter",
+    "publish_date": "2025-01-09",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "oracle design",
+      "dispute resolution",
+      "UMA protocol",
+      "corruption value multiple",
+      "conditional tokens"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Post-mortem of Polymarket's US government shutdown market, where the market resolved 'Yes' to a shutdown that never happened. Traces the failure to structural issues in oracle design: token holders who can trade and vote, retroactive rule changes, and a corruption cost lower than the value at stake.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 20,
+    "url": "https://x.com/michael_lwy/status/1884570344184578081",
+    "title": "10 Predictions About Prediction Markets",
+    "author": "michaellwy",
+    "author_twitter": "@michael_lwy",
+    "source_type": "Twitter",
+    "publish_date": "2025-01-29",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "oracle design",
+      "decision markets",
+      "conditional tokens"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Outlines 10 trends and feature ideas for prediction markets including shorter duration markets, modular dispute resolution, AI as arbiters and participants, market segmentation, yield-bearing stablecoin integration, and conditional markets that allow betting on if-then outcomes.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 21,
+    "url": "https://www.lesswrong.com/posts/LBC2TnHK8cZAimdWF/will-jesus-christ-return-in-an-election-year",
+    "title": "Will Jesus Christ Return in an Election Year?",
+    "author": null,
+    "author_twitter": null,
+    "source_type": "Forum Post",
+    "publish_date": "2025-03-25",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "price discovery",
+      "liquidity provision"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Examines the paradox of a Polymarket on Jesus Christ's return trading at 3% with over $100k wagered. Identifies two mysteries: why no one arbitrages the mispricing (requires ~$1M lockup for minimal 1% return), and why anyone bets 'Yes' at all (true believers, resolution gaming, or novelty value).",
+    "fetch_status": "web"
+  },
+  {
+    "id": 22,
+    "url": "https://www.lesswrong.com/posts/opzJP7QHgyHzMth5o/prediction-markets-are-mediocre",
+    "title": "Prediction Markets Are Mediocre",
+    "author": null,
+    "author_twitter": null,
+    "source_type": "Forum Post",
+    "publish_date": "2025-04-05",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "decision markets",
+      "forecasting accuracy"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Challenges the conception that prediction markets serve as effective policy tools. Argues that conditional prediction markets proposing 'Will X lead to consequence Y?' fail to translate probability assessments into meaningful policy guidance despite being their central theoretical appeal.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 23,
+    "url": null,
+    "title": null,
+    "author": null,
+    "author_twitter": null,
+    "source_type": null,
+    "publish_date": null,
+    "primary_category": null,
+    "content_type": null,
+    "difficulty": null,
+    "concepts": [],
+    "platforms_mentioned": [],
+    "editorial_blurb": null,
+    "fetch_status": "unpublished"
+  },
+  {
+    "id": 24,
+    "url": "https://x.com/michael_lwy/status/1925890768654254571",
+    "title": "The Risk Behind Arbitrage in Prediction Markets",
+    "author": "michaellwy",
+    "author_twitter": "@michael_lwy",
+    "source_type": "Twitter",
+    "publish_date": "2025-05-23",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "arbitrage",
+      "arbitrage",
+      "oracle design",
+      "dispute resolution"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Explains why apparent arbitrage opportunities between Polymarket and Kalshi often aren't risk-free. Different rule definitions, resolution criteria, and oracle systems mean seemingly identical markets can resolve differently. Argues prediction markets are fundamentally non-fungible due to differing referee systems, leading to permanent landscape fragmentation.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 25,
+    "url": "https://x.com/voliti_co/status/1946232456459255869",
+    "title": "How to Offer Prediction Market Parlays Without Fragmenting Liquidity",
+    "author": "Chicken",
+    "author_twitter": "@voliti_co",
+    "source_type": "Twitter",
+    "publish_date": "2025-07-18",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "parlays",
+      "liquidity provision",
+      "NEW: covariance markets"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Proposes 'covariance markets' as a solution to offering joint probability bets (parlays) without fragmenting liquidity. Instead of creating separate markets for all AND/OR combinations, a single covariance market between two base markets enables all 8 joint combinations while maintaining concentrated liquidity.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 26,
+    "url": "https://x.com/michael_lwy/status/1948400467886891314",
+    "title": "The TikTok Moment for Prediction Markets",
+    "author": "michaellwy",
+    "author_twitter": "@michael_lwy",
+    "source_type": "Twitter",
+    "publish_date": "2025-07-24",
+    "primary_category": "Applications",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "network effects",
+      "info finance"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Argues prediction markets should shift from edge-seeking tools for professionals to identity-signaling social platforms. Proposes a TikTok-like feed where bets become public expressions of belief, removing the friction of intent and transforming markets from information tools into social spaces.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 27,
+    "url": "https://x.com/curiouscamilo/status/1948155161827836149",
+    "title": "Thoughts on Polymarket Network Effects",
+    "author": "Camilo",
+    "author_twitter": "@curiouscamilo",
+    "source_type": "Twitter",
+    "publish_date": "2025-07-24",
+    "primary_category": "Business",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "network effects",
+      "platform competition"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Argues Polymarket has reached escape velocity in network effects. Notes that zero trading fees isn't a bug but a growth feature, and that with every news cycle the platform trojan-horses itself into the conversation. Sees Polymarket becoming vital infrastructure for future financial markets.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 28,
+    "url": "https://x.com/aradtski/status/1949977296523145695",
+    "title": "Prediction Markets: The 'Oracle Problem' Is Not the Problem",
+    "author": "Aradtski",
+    "author_twitter": "@aradtski",
+    "source_type": "Twitter",
+    "publish_date": "2025-07-29",
+    "primary_category": "Design",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "oracle design",
+      "resolution criteria"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Argues the Oracle Problem for prediction markets is actually a definition problem, not a trustlessness problem. Lists 12+ Polymarket controversies where contention arose from ambiguous event definitions, not oracle failures. Proposes that proprietary centralized oracles with platform stake are preferable to decentralized mercenary capital.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 29,
+    "url": "https://x.com/masonnystrom/status/1950395287975186715",
+    "title": "Prediction Markets GTM Approaches",
+    "author": "Mason Nystrom",
+    "author_twitter": "@masonnystrom",
+    "source_type": "Twitter",
+    "publish_date": "2025-07-31",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "platform competition",
+      "parlays"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Identifies three characteristics successful prediction markets will focus on: high leverage (parlays, perps, intraday events), highly frequent markets (for retention), and high market outcome values (for capital attraction). Notes the prediction market wars have only begun.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 30,
+    "url": "https://antidiluvian.substack.com/p/many-prediction-markets-would-be",
+    "title": "Many Prediction Markets Would Be Better Off as Batched Auctions",
+    "author": "Will Howard",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2025-08-02",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "batched auctions",
+      "order book",
+      "price discovery"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Argues prediction markets should adopt batched auction mechanisms instead of continuous limit order books. Claims no practical social benefit exists from sub-second reaction times, and batching would redirect trader effort toward meaningful questions while reducing zero-sum speed competition.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 31,
+    "url": "https://x.com/socialgraphvc/status/1952808508396552534",
+    "title": "Next Gen Prediction Markets",
+    "author": "Social Graph Ventures",
+    "author_twitter": "@socialgraphvc",
+    "source_type": "Twitter",
+    "publish_date": "2025-08-06",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "futarchy",
+      "platform competition",
+      "oracle design"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Limitless Exchange",
+      "Hedgehog Markets"
+    ],
+    "editorial_blurb": "VC landscape analysis covering incumbents (Polymarket vs Kalshi metrics) and emerging players (Limitless, Onit, Hedgehog, Inertia). Explores advanced concepts including futarchy (MetaDAO), conditional DeFi markets, and beauty contest games. Outlines investment criteria: prosumer appeal, category focus, permissionless market creation, and parlay support.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 32,
+    "url": "https://x.com/klos/status/1954094865991500104",
+    "title": "The Cambrian Explosion of Prediction Markets",
+    "author": "klos",
+    "author_twitter": "@klos",
+    "source_type": "Twitter",
+    "publish_date": "2025-08-09",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "platform competition"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Augur",
+      "Manifold",
+      "Azuro"
+    ],
+    "editorial_blurb": "Comprehensive survey of 20+ prediction market projects organized by X follower count. Categorizes into real-money platforms (Polymarket, Kalshi, Augur), play-money (Manifold), defunct (Veil), and protocols (Azuro). Highlights novel mechanisms like quiz-based markets, perpetual info markets, and social betting.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 33,
+    "url": "https://reducibleerrors.com/prediction-markets/",
+    "title": "Predicting Our Own Demise",
+    "author": "Agustin Lebron",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2025-08-17",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "reflexivity",
+      "hedging",
+      "market making"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Skeptical take arguing prediction markets are dangerous policy despite theoretical appeal. Claims they lack heterogeneous risk preferences necessary for efficiency, relying instead on continuous retail losses. Warns that large-scale prediction markets exhibit reflexivity, potentially incentivizing manipulation toward negative, sensational outcomes.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 34,
+    "url": "https://www.paradigm.xyz/2025/08/opportunity-markets",
+    "title": "Opportunity Markets",
+    "author": "Dave White, Matt Liston",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "publish_date": "2025-08-18",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "decision markets",
+      "NEW: opportunity markets",
+      "liquidity provision"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Introduces 'opportunity markets' where prices remain hidden from everyone except the sponsor during an opportunity window. Designed to let institutions discover high-probability opportunities (talent scouting, research commercialization) before competitors can access the signal, solving the public goods problem of price discovery.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 35,
+    "url": "https://x.com/Baheet_/status/1965758390430208066",
+    "title": "The Game Theory Behind Prediction Markets",
+    "author": "Baheet",
+    "author_twitter": "@Baheet_",
+    "source_type": "Twitter",
+    "publish_date": "2025-09-10",
+    "primary_category": "Fundamentals",
+    "content_type": "Explainer",
+    "difficulty": "Some",
+    "concepts": [
+      "LMSR (logarithmic market scoring rule)",
+      "incentive compatibility",
+      "proper scoring rules",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Educational thread on the game-theoretic foundations of prediction markets. Explains why truth-telling is the dominant strategy through incentive compatibility, details how LMSR works as a proper scoring rule, and argues prediction market builders need economists and game theory experts on their teams.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 36,
+    "url": "https://x.com/Baheet_/status/1967186769356488828",
+    "title": "A Technical Typology of Prediction Markets: Mechanics and Tradeoffs",
+    "author": "Baheet",
+    "author_twitter": "@Baheet_",
+    "source_type": "Twitter",
+    "publish_date": "2025-09-14",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "oracle design",
+      "resolution criteria"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Limitless Exchange",
+      "Myriad Markets"
+    ],
+    "editorial_blurb": "Comprehensive technical typology covering how prediction markets differ in outcome resolution (oracle-based vs self-resolving), trading mechanics, and design tradeoffs. Draws from established platforms and emerging ones to help users and developers navigate the ecosystem's diversity and associated risks.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 37,
+    "url": "https://x.com/semajeth/status/1966144230826414225",
+    "title": "The Liquidity Problem in Prediction Markets: Part 0",
+    "author": "semaji.eth",
+    "author_twitter": "@semajeth",
+    "source_type": "Twitter",
+    "publish_date": "2025-09-11",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "liquidity provision",
+      "market making",
+      "adverse selection"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Limitless Exchange"
+    ],
+    "editorial_blurb": "Introduction to a series arguing prediction market mass adoption is threatened by structural barriers to market maker participation. Claims binary markets are frequently unhedgeable and suffer from adverse selection, making them a professional market maker's nightmare compared to options or crypto.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 38,
+    "url": "https://x.com/semajeth/status/1967598604006134024",
+    "title": "The Liquidity Problem in Prediction Markets, Part I: Adverse Selection and Market Making",
+    "author": "semaji.eth",
+    "author_twitter": "@semajeth",
+    "source_type": "Twitter",
+    "publish_date": "2025-09-15",
+    "primary_category": "Microstructure",
+    "content_type": "Explainer",
+    "difficulty": "Extensive",
+    "concepts": [
+      "adverse selection",
+      "market making",
+      "toxic flow"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Educational deep-dive on adverse selection and market making fundamentals. Uses the classic Jane Street coffee interview question to illustrate why conditional on someone trading with you, you should be less confident your trade was good. Explains how market makers profit from retail flow while avoiding toxic informed counterparties.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 39,
+    "url": "https://x.com/semajeth/status/1975211193418563697",
+    "title": "The Liquidity Problem in Prediction Markets, Part II: Adverse Selection in Prediction Markets",
+    "author": "semaji.eth",
+    "author_twitter": "@semajeth",
+    "source_type": "Twitter",
+    "publish_date": "2025-10-06",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "adverse selection",
+      "gap risk",
+      "market making",
+      "toxic flow"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Limitless Exchange"
+    ],
+    "editorial_blurb": "Applies adverse selection concepts specifically to prediction markets. Compares market making difficulty across Indian options (easy), crypto (medium), and prediction markets (legendary). Argues gap risk is effectively worse than any other asset class because informed counterparties can have near-perfect information and take out entire order books.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 40,
+    "url": "https://tim0x.substack.com/p/why-prediction-markets-are-where",
+    "title": "Why Prediction Markets Are Where They Are",
+    "author": "Tim.0x",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-01-05",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "liquidity provision",
+      "parlays",
+      "oracle design"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Argues Polymarket and Kalshi have achieved product-market fit but remain stuck at a local maxima. Identifies three barriers: insufficient liquidity (small trades can materially reprice markets), lack of competitive parity with sportsbooks on parlays, and inability to resolve complex outcomes like the Time Person of the Year market resolving to 'other'.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 41,
+    "url": "https://bpb-us-e1.wpmucdn.com/sites.harvard.edu/dist/b/845/files/2025/01/aim10.pdf",
+    "title": "Designing Markets for Prediction",
+    "author": "Yiling Chen, David M. Pennock",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2025-01-14",
+    "primary_category": "Design",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "LMSR (logarithmic market scoring rule)",
+      "proper scoring rules",
+      "information aggregation",
+      "peer prediction"
+    ],
+    "platforms_mentioned": [
+      "Iowa Electronic Markets"
+    ],
+    "editorial_blurb": "Academic survey of prediction mechanism design from a mechanism design perspective. Covers scoring rules, market scoring rules (LMSR), cost-function-based market makers, dynamic parimutuel markets, incentive compatibility, combinatorial markets, and peer prediction systems for subjective events where ground truth doesn't exist.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 42,
+    "url": "https://docsend.com/view/atcc6k258s4umq6s",
+    "title": "The Definitive Guide to Prediction Markets",
+    "author": "Four Pillars",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "publish_date": "2025-01-15",
+    "primary_category": "Fundamentals",
+    "content_type": "Explainer",
+    "difficulty": "Some",
+    "concepts": [
+      "information aggregation",
+      "oracle design",
+      "liquidity provision",
+      "platform competition"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Comprehensive 57-page guide covering prediction market fundamentals, tech stack (blockchain, collateral, market engines, oracles), current state (Polymarket vs Kalshi regulatory and product divergence), emerging builders across market engines and consumer apps, and open questions including oracle collusion, long-dated capital costs, and leverage.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 43,
+    "url": "https://blog.shanemac.com/the-future-of-prediction-markets-lives-in-group-chats/",
+    "title": "The Future of Prediction Markets Lives in Group Chats",
+    "author": "Shane Mac",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2025-11-30",
+    "primary_category": "Applications",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "network effects"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Argues prediction markets should be embedded in chat interfaces rather than standalone apps. Points to Base App, World Chat, and XMTP as examples of chat-native prediction experiences. Claims the competitive advantage belongs to whoever controls both the chat interface and the AI coaching intelligence.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 44,
+    "url": "https://www.galaxy.com/insights/research/prediction-markets-impact-markets-decision-markets-futarchy",
+    "title": "Prediction Markets' Next Frontier: Impact and Decision Markets",
+    "author": "Zack Pokorny",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "publish_date": "2026-01-12",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "decision markets",
+      "futarchy",
+      "NEW: impact markets",
+      "conditional tokens"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Argues prediction markets' next phase involves Impact Markets (pricing assets conditional on events, e.g., 'BTC price if Fed cuts 75bp') and Decision Markets (using conditional valuations to automate governance). Claims Impact Markets enable true economic hedging by collapsing multi-step inference into direct price discovery.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 45,
+    "url": "https://medium.com/inception-capital/the-prediction-market-primitive-e48a055676bf",
+    "title": "The Prediction Market Primitive",
+    "author": "Hiroki Kotabe",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2024-04-04",
+    "primary_category": "Applications",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "AI agents",
+      "liquidity provision"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Proposes using AI as the linchpin to scale prediction markets to billions of users. Envisions an AI quartet: content creators (generating markets), event recommenders (personalization), liquidity allocators, and information aggregators. Argues this enables prediction markets at microscopic scale, making them personally relevant.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 46,
+    "url": "https://a16zcrypto.com/posts/podcast/prediction-markets-explained/",
+    "title": "Prediction Markets \u2014 Everything You Need to Know",
+    "author": "Sonal Chokshi, Alex Tabarrok, Scott Kominers",
+    "author_twitter": null,
+    "source_type": "Podcast",
+    "publish_date": "2025-09-25",
+    "primary_category": "Fundamentals",
+    "content_type": "Podcast",
+    "difficulty": "None",
+    "concepts": [
+      "information aggregation",
+      "wisdom of crowds",
+      "oracle design"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Comprehensive podcast covering prediction market fundamentals: information aggregation via Hayek's price signals, thick vs thin markets, when markets work (elections, scientific replication) and when they struggle, the oracle problem, and applications to corporate forecasting and futarchy governance.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 47,
+    "url": "https://x.com/outpxce/status/2013397772074905950",
+    "title": "On Prediction Markets",
+    "author": "outpxce",
+    "author_twitter": "@outpxce",
+    "source_type": "Twitter",
+    "publish_date": "2026-01-20",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "market making",
+      "portfolio sizing",
+      "Kelly criterion",
+      "adverse selection"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "First-person account from a seven-figure prediction market trader. Covers strategy as a 'bond mule' (locking capital for small premiums on near-resolution markets), OSINT information sources (non-English media, Telegram), fractional Kelly sizing, and trading personality-driven markets. Notes edge has compressed as space matured.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 48,
+    "url": "https://x.com/Ranger_Global/status/2008177990971122003",
+    "title": "Liquidity in Prediction Markets and the Rise of a New Asset Class",
+    "author": "Ranger Global",
+    "author_twitter": "@Ranger_Global",
+    "source_type": "Twitter",
+    "publish_date": "2026-01-05",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "liquidity provision",
+      "order book",
+      "market making"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Limitless Exchange"
+    ],
+    "editorial_blurb": "Argues price prediction markets (short-term expiries like 'will BTC close above $100k?') represent a new asset class. Compares AMM vs CLOB mechanics, notes Limitless achieves 50-400bps spreads (better than onchain options at 1000+bps). Outlines how prediction markets enable synthetic covered calls, structured hedging, and volatility expression.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 49,
+    "url": "https://arxiv.org/pdf/2510.15205",
+    "title": "Toward Black\u2013Scholes for Prediction Markets",
+    "author": "Shaw Dalen, Daedalus Research Team",
+    "author_twitter": "@DaedalusRsch",
+    "source_type": "Academic Paper",
+    "publish_date": "2025-10-17",
+    "primary_category": "Design",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "LMSR (logarithmic market scoring rule)",
+      "market making",
+      "belief volatility",
+      "derivatives"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Proposes a unified stochastic kernel (logit jump-diffusion) for prediction markets analogous to Black-Scholes for options. Treats traded probability as a risk-neutral martingale, exposing belief volatility, jump intensity, and correlation as quotable risk factors. Defines derivative instruments (variance swaps, correlation swaps, first-passage notes) for hedging belief risk.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 50,
+    "url": "https://blog.monad.xyz/blog/self-resolving-prediction-markets",
+    "title": "Explainer on Self-Resolving Prediction Markets",
+    "author": "michaellwy",
+    "author_twitter": "@michael_lwy",
+    "source_type": "Blog",
+    "publish_date": "2025-11-11",
+    "primary_category": "Design",
+    "content_type": "Explainer",
+    "difficulty": "Some",
+    "concepts": [
+      "self-resolving markets",
+      "peer prediction",
+      "incentive compatibility",
+      "proper scoring rules"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Explains the SKC (Srinivasan, Karger, Chen) mechanism for prediction markets on unverifiable outcomes. Markets resolve using crowd consensus as the outcome, with delta-based scoring rewarding participants for moving markets toward final consensus. Enables markets for subjective questions lacking ground truth.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 51,
+    "url": "https://x.com/jeff__opinion/article/1957611486991487486",
+    "title": "Meta Pool: A Unified Infrastructure for Liquidity and Resolution Trust in Prediction Markets",
+    "author": "Jeff Opinion",
+    "author_twitter": "@jeff__opinion",
+    "source_type": "Twitter",
+    "publish_date": "2025-08-19",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "liquidity provision",
+      "oracle design",
+      "arbitrage",
+      "conditional tokens"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Proposes Meta Pool, a cross-chain infrastructure to unify prediction market liquidity across fragmented platforms. Introduces resolution-aware meta-pools for swapping semantically similar tokens with different oracles, CredibilityTokens for trading oracle trustworthiness, and ConvergenceTokens for hedging divergence risk. Estimates $3.4-8.5M in annual efficiency losses from current fragmentation.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 52,
+    "url": "https://blog.monad.xyz/blog/perpetual-attention-markets",
+    "title": "Perpetual Attention Markets",
+    "author": "michaellwy",
+    "author_twitter": "@michael_lwy",
+    "source_type": "Blog",
+    "publish_date": "2025-12-15",
+    "primary_category": "Applications",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "attention markets",
+      "derivatives",
+      "info finance"
+    ],
+    "platforms_mentioned": [
+      "Trendle"
+    ],
+    "editorial_blurb": "Examines Trendle, a perpetual attention market that treats social engagement as a tradable index. Covers the two-layer architecture (attention index + market layer), anti-gaming mechanisms (normalization, deseasonalization, quantile clipping), and funding rates that penalize crowded positions. Frames attention as 'the only scarce resource in the digital age.'",
+    "fetch_status": "web"
+  },
+  {
+    "id": 53,
+    "url": "https://x.com/aaronjmars/article/1993094222195400863",
+    "title": "Risks of Prediction Markets",
+    "author": "aaronjmars",
+    "author_twitter": "@aaronjmars",
+    "source_type": "Twitter",
+    "publish_date": "2025-11-25",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "reflexivity",
+      "information asymmetry",
+      "NEW: social coercion"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Taxonomy categorizing prediction markets by susceptibility to three manipulation vectors: information asymmetry (insiders know outcome), reflexivity (market signals influence outcome), and social coercion (participants can directly cause outcome). Argues a market's manipulation profile determines whether you're trading on information edge, narrative momentum, or ability to cause the outcome.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 54,
+    "url": "https://x.com/aaronjmars/article/1991975420669915328",
+    "title": "A Small Prediction Market Design Taxonomy",
+    "author": "aaronjmars",
+    "author_twitter": "@aaronjmars",
+    "source_type": "Twitter",
+    "publish_date": "2025-11-22",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "futarchy",
+      "decision markets",
+      "parlays",
+      "hyperstition markets",
+      "NEW: no-loss prediction markets"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Trendle"
+    ],
+    "editorial_blurb": "Comprehensive taxonomy of 14 prediction market mechanism types beyond standard binary markets. Covers bonding curve markets, opinion markets (beauty contests), opportunity markets (private prices), hyperstition markets (self-fulfilling coordination), futarchy (MetaDAO), perpetual markets, quantum markets (capital-efficient parallel conditionals), and no-loss PMs. Each design optimizes for different goals: accuracy, speed, coordination, or outcome manifestation.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 55,
+    "url": "https://x.com/TideMarkets/article/2008508916616098086",
+    "title": "Manifesto: Make Precision Pay",
+    "author": "Tide",
+    "author_twitter": "@TideMarkets",
+    "source_type": "Twitter",
+    "publish_date": "2026-01-06",
+    "primary_category": "Design",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "forecasting accuracy",
+      "price discovery",
+      "information aggregation",
+      "distribution markets"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Manifesto arguing binary yes/no prediction markets are incomplete\u2014they flatten nuanced beliefs into coin flips and pay the same whether you were barely right or sharply right. Proposes distribution-native markets that reward precision: pay more for being closer to the actual outcome. Cites 130x volume growth from early 2024 to late 2025 as the category's credibility moment.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 56,
+    "url": "https://x.com/functionspaceHQ/article/2014809461647671570",
+    "title": "Information Vectors: An Intro to Composable Beliefs",
+    "author": "functionSPACE",
+    "author_twitter": "@functionspaceHQ",
+    "source_type": "Twitter",
+    "publish_date": "2026-01-24",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "information aggregation",
+      "liquidity provision",
+      "price discovery",
+      "NEW: composable beliefs",
+      "distribution markets"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Argues binary event contracts fragment liquidity and flatten beliefs into 1-bit structures\u2014achieving 8-bit resolution requires 256 separate markets. Proposes treating beliefs as vectors over probability distributions on a shared liquidity surface. Traders express full distributions and are rewarded for variance compression (reducing entropy), not just final outcome correctness.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 57,
+    "url": "https://x.com/hyperstiti0ns/article/1994422160790536299",
+    "title": "Stop Predicting. Start Manipulating.",
+    "author": "HYPERSTITIONS",
+    "author_twitter": "@hyperstiti0ns",
+    "source_type": "Twitter",
+    "publish_date": "2025-11-28",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "reflexivity",
+      "futarchy",
+      "decision markets",
+      "hyperstition markets"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Argues prediction markets treat reflexivity as a bug, but hyperstition markets weaponize it as a feature. Where prediction markets ask 'what will happen?', hyperstition markets ask 'what can we make happen?' Positions this as futarchy with execution built in\u2014betting YES means coordinating action toward manifestation. The market discovers the price of coordination through dynamic subsidies.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 58,
+    "url": "https://www.galaxy.com/insights/research/prediction-markets-leverage-ai-agents-defi",
+    "title": "The Shape of Prediction Markets to Come",
+    "author": "Will Owens",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "publish_date": "2026-01-19",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "AI agents",
+      "derivatives",
+      "decision markets",
+      "liquidity provision",
+      "platform competition"
+    ],
+    "platforms_mentioned": ["Polymarket", "Kalshi"],
+    "editorial_blurb": "Galaxy research report on prediction markets evolving from niche speculation to mainstream financial infrastructure. Covers Polymarket ($9B valuation, 1.6M users) and Kalshi (top finance iOS app), emerging leverage mechanisms (Space, Gondor), AI as interface layer for fragmented venues, and convergence toward derivatives—event contracts as hedges, collateral, and composable financial primitives.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 59,
+    "url": "https://a16zcrypto.substack.com/p/how-ai-judges-can-scale-prediction",
+    "title": "What to Do When Prediction Markets Fail",
+    "author": "Andy Hall",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-01-24",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "oracle design",
+      "dispute resolution",
+      "AI agents",
+      "resolution criteria"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Argues the hardest PM problem isn't pricing but deciding what actually happened. Proposes cryptographically-committed LLMs as resolution judges—trading human bias and conflicts of interest for more tractable technical vulnerabilities. Cites Polymarket disputes (Venezuela election, Ukraine map, government shutdown) as evidence current systems fail at scale.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 60,
+    "url": "https://arxiv.org/abs/2508.03474",
+    "title": "Unravelling the Probabilistic Forest: Arbitrage in Prediction Markets",
+    "author": "Oriol Saguillo, Vahid Ghafouri, Lucianna Kiffer, Guillermo Suarez-Tangil",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2025-08-05",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "arbitrage",
+      "cross-platform arbitrage",
+      "price discovery"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Examines mispricing inefficiencies on Polymarket, identifying two categories of arbitrage opportunities: those within single markets and those spanning multiple related markets. Using blockchain transaction analysis, the researchers estimate approximately $40 million in profits were extracted through exploitation of these pricing inconsistencies.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 61,
+    "url": "https://arxiv.org/abs/2503.03312",
+    "title": "How Manipulable Are Prediction Markets?",
+    "author": "Itzhak Rasooly, Roberto Rozzi",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2025-03-05",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "NEW: market manipulation",
+      "price discovery",
+      "information aggregation",
+      "liquidity provision"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Large-scale field experiment testing prediction market manipulation across 817 markets. Randomly shocked prices and tracked effects over 60 days with hourly data. Finds markets can be manipulated with effects persisting for months, though they gradually fade. Markets with more traders, higher volume, and external probability estimates prove more resistant.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 62,
+    "url": "https://x.com/TideMarkets/article/2016912289941827801",
+    "title": "What If We're Capturing the Wrong Signal?",
+    "author": "Jo",
+    "author_twitter": "@jolimmmm",
+    "source_type": "Twitter",
+    "publish_date": "2026-01-29",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "wisdom of crowds",
+      "superforecasting",
+      "calibration",
+      "information aggregation",
+      "price discovery",
+      "distribution markets"
+    ],
+    "platforms_mentioned": [
+      "PredictIt",
+      "Hyperliquid"
+    ],
+    "editorial_blurb": "Questions whether prediction markets are capturing the right signal. Argues binary yes/no markets flatten complex beliefs into coin flips, losing the precision that separates superforecasters from average predictors. Uses the 2024 French trader whale ($30M moving election odds) and a Vanderbilt study (PredictIt's 93% accuracy vs 67% on high-volume platforms) to argue that more liquidity doesn't mean better signal.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 63,
+    "url": "https://x.com/Ranger_Global/article/2016867581743747447",
+    "title": "Prediction Market Biases Revealed in 72 Million Trades",
+    "author": "Ranger Global",
+    "author_twitter": "@Ranger_Global",
+    "source_type": "Twitter",
+    "publish_date": "2026-01-29",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: longshot bias",
+      "market making",
+      "price discovery",
+      "retail flow"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Summarizes research analyzing 72 million Kalshi trades. Identifies three persistent biases: longshot bias (5c contracts win only 4.18% of the time), maker-taker asymmetry (makers outperform at 80 of 99 price levels), and YES/NO asymmetry (YES buyers average -1.02% returns vs +0.83% for NO buyers). Finance markets are most efficient (0.17% spread) while crypto is least (2.69%).",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 64,
+    "url": "https://x.com/marvellousdefi/article/2015779074317209696",
+    "title": "The Uncomfortable Truth Prediction Market Builders Must Accept",
+    "author": "Marvellous",
+    "author_twitter": "@marvellousdefi",
+    "source_type": "Twitter",
+    "publish_date": "2026-01-26",
+    "primary_category": "Business",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "network effects",
+      "platform competition",
+      "go-to-market"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Limitless Exchange"
+    ],
+    "editorial_blurb": "Argues prediction market builders face a binary choice: compete for venue liquidity against entrenched incumbents (Polymarket, Kalshi) or build decision-support tools for power users. Claims the most valuable layer is not the marketplace but analytics and tooling that helps traders surface mispriced probabilities, model correlated outcomes, and improve conviction sizing.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 65,
+    "url": "https://x.com/0xnagu/article/2016620973391564951",
+    "title": "The Option Value of Waiting in Prediction Markets",
+    "author": "0xnagu",
+    "author_twitter": "@0xnagu",
+    "source_type": "Twitter",
+    "publish_date": "2026-01-28",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "adverse selection",
+      "liquidity provision",
+      "market making",
+      "information aggregation",
+      "NEW: LOX (log-odds excess lateness)"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Builds a formal framework to decompose why prediction markets have late volume: is it because information arrives late (hazard), or because early entry is punished by adverse selection (toxicity)? Introduces LOX, a metric computed from on-chain trades that measures whether new entrants hesitate more than volume alone would predict. Explains why boxing markets cluster with news markets despite being categorized as sports.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 66,
+    "url": "https://x.com/akshayraj_v0/article/2016909929920233802",
+    "title": "Prediction Markets as an Asset Class",
+    "author": "Akshay",
+    "author_twitter": "@akshayraj_v0",
+    "source_type": "Twitter",
+    "publish_date": "2026-01-29",
+    "primary_category": "Business",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "information aggregation",
+      "platform competition"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Argues prediction markets are becoming a legitimate asset class with potentially the largest TAM, since anything with uncertainty and future resolution is tradable. Notes the category has reached an inflection point with professionals entering, but lacks proper tooling that mature asset classes have (Bloomberg for stocks, Axiom for memecoins). Makes the case for dedicated prediction market terminals.",
+    "fetch_status": "pdf"
+  }
+]

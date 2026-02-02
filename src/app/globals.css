@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Source+Sans+3:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Clean warm palette */
+    --background: 0 0% 100%;
+    --foreground: 20 15% 15%;
+
+    --card: 30 20% 99%;
+    --card-foreground: 20 15% 15%;
+
+    --muted: 30 10% 94%;
+    --muted-foreground: 20 10% 40%;
+
+    --accent: 30 15% 95%;
+    --accent-foreground: 20 15% 20%;
+
+    --border: 30 10% 88%;
+
+    --primary: 24 75% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 15% 46%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Category colors - clear, distinct */
+    --cat-fundamentals: 210 60% 50%;
+    --cat-design: 270 50% 55%;
+    --cat-microstructure: 35 70% 50%;
+    --cat-platforms: 150 50% 40%;
+    --cat-applications: 340 55% 55%;
+    --cat-business: 190 55% 45%;
+    --cat-commentary: 25 25% 50%;
+
+    /* Difficulty colors - neutral tones to avoid clashing with categories */
+    --diff-beginner: 160 25% 55%;
+    --diff-intermediate: 45 30% 55%;
+    --diff-advanced: 10 45% 58%;
+
+    --radius: 0.375rem;
+
+    /* Typography scale */
+    --font-serif: 'Newsreader', Georgia, serif;
+    --font-sans: 'Source Sans 3', system-ui, sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    line-height: 1.65;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Subtle scrollbar for sidebar */
+.scrollbar-subtle {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.scrollbar-subtle:hover {
+  scrollbar-color: hsl(var(--muted-foreground) / 0.2) transparent;
+}
+
+.scrollbar-subtle::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-subtle::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-subtle::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 2px;
+}
+
+.scrollbar-subtle:hover::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.2);
+}
+
+/* Selection styling */
+::selection {
+  background: hsl(var(--primary) / 0.15);
+  color: hsl(var(--foreground));
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid hsl(var(--primary) / 0.5);
+  outline-offset: 2px;
+}
+
+/* Typography utilities */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Smooth height transitions */
+.collapse-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.2s ease-out;
+}
+
+.collapse-content.open {
+  grid-template-rows: 1fr;
+}
+
+.collapse-content > div {
+  overflow: hidden;
+}
+
+/* Staggered animation for list items */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-list-item {
+  animation: fadeSlideIn 0.3s ease-out forwards;
+  opacity: 0;
+}
