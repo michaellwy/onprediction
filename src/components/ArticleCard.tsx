@@ -199,12 +199,15 @@ export function ArticleCard({
                 "group-hover:text-foreground"
               )}
             >
-              <span className="flex items-center gap-1.5">
-                <span className="line-clamp-2 sm:line-clamp-1">{article.title}</span>
+              <span className="line-clamp-2 sm:line-clamp-1">
+                {article.title}
                 {isNewArticle(article.publish_date) && (
-                  <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-serif font-semibold leading-none rounded-full bg-primary/10 text-primary italic">
-                    New
-                  </span>
+                  <>
+                    {" "}
+                    <span className="inline-block align-middle px-1.5 py-0.5 text-[10px] font-sans font-semibold leading-none rounded-full bg-primary/10 text-primary translate-y-[-1px]">
+                      New
+                    </span>
+                  </>
                 )}
               </span>
             </h3>
