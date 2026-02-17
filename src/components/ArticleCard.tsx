@@ -199,7 +199,7 @@ export function ArticleCard({
                 "group-hover:text-foreground"
               )}
             >
-              <span className="line-clamp-2 sm:line-clamp-1">
+              <span className={isExpanded ? "" : "line-clamp-2 sm:line-clamp-1"}>
                 {article.title}
                 {isNewArticle(article.publish_date) && (
                   <>
