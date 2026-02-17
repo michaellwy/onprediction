@@ -200,15 +200,12 @@ export function ArticleCard({
               )}
             >
               <span className={isExpanded ? "" : "line-clamp-2 sm:line-clamp-1"}>
-                {article.title}
                 {isNewArticle(article.publish_date) && (
-                  <>
-                    {" "}
-                    <span className="inline-block align-middle px-1.5 py-0.5 text-[10px] font-sans font-semibold leading-none rounded-full bg-primary/10 text-primary translate-y-[-1px]">
-                      New
-                    </span>
-                  </>
+                  <span className="inline-block align-middle mr-1.5 px-1.5 py-0.5 text-[10px] font-sans font-semibold leading-none rounded-full bg-primary/10 text-primary translate-y-[-1px]">
+                    New
+                  </span>
                 )}
+                {article.title}
               </span>
             </h3>
             {/* Mobile-only: author + date subtitle */}
