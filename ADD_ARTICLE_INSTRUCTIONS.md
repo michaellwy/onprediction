@@ -1,36 +1,44 @@
 # Adding New Articles to the Database
 
+## Files That MUST Be Updated
+
+Every new article requires updates to **both** of these files:
+
+1. **`articles_database.json`** — full article metadata (JSON)
+2. **`prediction-market-reading-list.csv`** — lightweight index (CSV)
+
+After updating both, run `npm run sync:concepts` to sync any new concept definitions.
+
+---
+
 ## When User Provides a New Link
 
 1. **Fetch the content** using `WebFetch` with the URL
 2. **Determine the next article ID** by checking the last entry in `articles_database.json`
-3. **Add entry to CSV** (`Prediction Market Reading list - Sheet1.csv`):
+3. **Add entry to `articles_database.json`** — analyze content and populate all fields (refer to `prompt.md` for schema and field options). Set `fetch_status` to `"web"`.
+4. **Add entry to `prediction-market-reading-list.csv`** with format:
    ```
-   ID,Title,Date (DD/MM/YYYY),Author,URL
+   ID,Title,Date (D/M/YYYY),Author,URL
    ```
-4. **Analyze content** and add entry to JSON (refer to `prompt.md` for schema and field options)
-5. Set `fetch_status` to `"web"`
-6. **Update `concept_definitions.json`** — for any concept prefixed with `NEW:` in the article's `concepts` array, add a corresponding entry to `concept_definitions.json` with a concise one-sentence definition. Keep definitions lowercase-keyed and consistent in style with existing entries.
-7. **Strip `NEW:` prefixes** — once the definition is added, remove the `NEW:` prefix from the concept in `articles_database.json` so it becomes a canonical concept.
-8. **Update `src/lib/concepts.ts`** — add the new concept to the `conceptToCluster` mapping with the appropriate cluster. This is what the frontend uses to display and categorize concepts.
+5. **Run `npm run sync:concepts`** — this auto-populates any missing concept definitions in `concept_definitions.json`
 
 ## When User Adds a New PDF
 
 1. **Find the PDF** in `/articles/` folder (pattern: `{ID}-{title}.pdf`)
-2. **Extract text** using pdfplumber:
-   ```python
-   import pdfplumber
-   with pdfplumber.open(filepath) as pdf:
-       for page in pdf.pages:
-           text = page.extract_text()
-   ```
+2. **Read the PDF** using the Read tool (it supports PDFs natively)
 3. **Determine article ID** from the PDF filename prefix
-4. **Add entry to CSV** with extracted metadata
-5. **Analyze content** and add entry to JSON (refer to `prompt.md` for schema and field options)
-6. Set `fetch_status` to `"pdf"`
-7. **Update `concept_definitions.json`** — for any concept prefixed with `NEW:` in the article's `concepts` array, add a corresponding entry to `concept_definitions.json` with a concise one-sentence definition. Keep definitions lowercase-keyed and consistent in style with existing entries.
-8. **Strip `NEW:` prefixes** — once the definition is added, remove the `NEW:` prefix from the concept in `articles_database.json` so it becomes a canonical concept.
-9. **Update `src/lib/concepts.ts`** — add the new concept to the `conceptToCluster` mapping with the appropriate cluster. This is what the frontend uses to display and categorize concepts.
+4. **Add entry to `articles_database.json`** — analyze content and populate all fields (refer to `prompt.md` for schema and field options). Set `fetch_status` to `"pdf"`.
+5. **Add entry to `prediction-market-reading-list.csv`** with format:
+   ```
+   ID,Title,Date (D/M/YYYY),Author,URL
+   ```
+6. **Run `npm run sync:concepts`** — this auto-populates any missing concept definitions in `concept_definitions.json`
+
+## Concept Handling
+
+- Use existing concepts from the database when possible (check `concept_definitions.json`)
+- If a genuinely new concept is needed, add it to the article's `concepts` array — `npm run sync:concepts` will detect it and prompt for a definition
+- After syncing, verify the new concept appears in `src/lib/concepts.ts` `conceptToCluster` mapping; if not, add it manually with the appropriate cluster
 
 ## Reference
 

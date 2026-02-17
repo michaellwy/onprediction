@@ -1498,5 +1498,132 @@
     "platforms_mentioned": ["Polymarket"],
     "editorial_blurb": "Provides a quantitative framework for distinguishing gambling from systematic trading on prediction markets, including a five-point diagnostic and three trader archetypes classified by profitability. Explains why Polymarket's CLOB creates renewable structural arbitrage by design, and covers Kelly position sizing, adverse selection measurement via fill quality, and probability term structure as tools for building a repeatable edge.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 69,
+    "url": "https://panteraresearchlab.xyz/research/the-super-bowl-of-prediction-markets-kalshi-and-polymarkets-battle-for-price-vs-liquidity/",
+    "title": "The Super Bowl of Prediction Markets: Kalshi and Polymarket's Battle for Price vs Liquidity",
+    "author": "Ally Zach, Danning Sui",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "publish_date": "2026-02-05",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Some",
+    "concepts": [
+      "price discovery",
+      "liquidity provision",
+      "order book",
+      "market making",
+      "platform competition"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Compares Kalshi and Polymarket's NFL game markets during the 2025 season. Finds Kalshi reprices faster (median 7-second lead) while Polymarket has deeper liquidity requiring 3-4x more volume to move prices comparably. Uses Kyle-style market impact analysis to quantify the price discovery vs. liquidity depth tradeoff between centralized and on-chain order book architectures.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 70,
+    "url": "https://x.com/a1research__/article/2022340314770375024",
+    "title": "Prediction Markets: The Path to $1 Trillion and What Needs to Happen Next",
+    "author": "Sakshi Mishra",
+    "author_twitter": "@a1research__",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-14",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "platform competition",
+      "liquidity provision",
+      "parlays",
+      "gap risk",
+      "oracle design"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Hyperliquid",
+      "Limitless Exchange"
+    ],
+    "editorial_blurb": "Bottoms-up TAM analysis arguing prediction markets can reach $85-200B annual volume by 2028 through sports betting capture (5-20%), event-driven financial hedging, and emerging categories. Covers five infrastructure challenges that must be solved: liquidity sustainability (subsidized MM transitioning to self-sustaining), discovery/UX, trade expressiveness (leverage faces gap risk unique to binary markets), permissionless market creation, and multi-tier oracle resolution. Identifies 2026 World Cup and midterms as critical stress tests.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 71,
+    "url": "https://x.com/mikhryc0x/article/2020802941091741972",
+    "title": "How Prediction Markets Turn Into Risk Instruments",
+    "author": "Mike",
+    "author_twitter": "@mikhryc0x",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-09",
+    "primary_category": "Applications",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "hedging",
+      "attention markets",
+      "conditional tokens",
+      "cross-platform arbitrage",
+      "parlays"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Limitless Exchange",
+      "Myriad Markets",
+      "Trendle"
+    ],
+    "editorial_blurb": "Argues prediction markets are evolving a second layer analogous to derivatives built on stock exchanges. Covers three hedging use cases: crypto risk hedging via binary price markets, attention markets (Trendle) as sentiment hedges against binary positions, and cross-platform hedging enabled by DeFi composability (Gondor lending against PM positions, DFlow tokenizing Kalshi contracts as SPL tokens). Identifies liquidity fragmentation, execution risk, and UX as barriers to mainstream hedging adoption.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 72,
+    "url": "https://freesystems.substack.com/p/building-the-truth-machine",
+    "title": "Building the Truth Machine",
+    "author": "Andy Hall, Elliot Paschal",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-02-13",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "liquidity provision",
+      "forecasting accuracy",
+      "platform competition",
+      "AI agents",
+      "hedging"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket",
+      "PredictIt"
+    ],
+    "editorial_blurb": "Six-month empirical analysis of political prediction market quality across Kalshi and Polymarket. Finds only 1.3% of political markets are liquid enough to be manipulation-resistant, bid-ask spreads exceed 20% on most contracts, and only 53% of resolved US elections appeared on both platforms. Proposes a four-part blueprint: stock relevant questions, cross-subsidize political liquidity from sports profits, deploy AI market makers where human interest is insufficient, and standardize contract definitions across platforms.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 73,
+    "url": "https://x.com/benfielding/article/2023130119708242317",
+    "title": "Prediction Markets are the Agentic Bazaar",
+    "author": "Ben Fielding",
+    "author_twitter": "@benfielding",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-16",
+    "primary_category": "Applications",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "AI agents",
+      "info finance",
+      "information aggregation",
+      "oracle design"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Argues prediction markets are the natural marketplace for sovereign AI agents to trade their core commodity: information. Frames decentralized PMs as the 'bazaar' where agents monetize alpha through positions, market creators earn fees from surfacing unanswered questions, and reproducible computation enables incorruptible AI judges for dispute resolution. Positions this as an alternative to centralized AI lab alignment\u2014market incentives align agents through financial participation rather than top-down instruction.",
+    "fetch_status": "pdf"
   }
 ]

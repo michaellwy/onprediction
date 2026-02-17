@@ -100,12 +100,12 @@ export function FilterSidebar({
 }: FilterSidebarProps) {
   return (
     <aside className={cn("space-y-1", className)}>
-      {/* Bookmarks Toggle */}
-      <div className="py-3 border-b border-border/50">
+      {/* Bookmarks Toggle & Clear Filters */}
+      <div className="py-3 border-b border-border/50 flex items-center justify-between">
         <button
           type="button"
           onClick={onToggleBookmarksOnly}
-          className="w-full flex items-center gap-3 cursor-pointer group text-left"
+          className="flex items-center gap-3 cursor-pointer group text-left"
         >
           <div
             className={cn(
@@ -128,28 +128,22 @@ export function FilterSidebar({
             Saved only
           </span>
         </button>
-      </div>
-
-      {/* Clear Filters */}
-      <AnimatePresence>
-        {activeFilterCount > 0 && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="border-b border-border/50 overflow-hidden"
-          >
-            <button
+        <AnimatePresence>
+          {activeFilterCount > 0 && (
+            <motion.button
               type="button"
               onClick={onClearAll}
-              className="w-full flex items-center gap-2 py-3 text-xs text-muted-foreground hover:text-foreground transition-colors"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
             >
               <RotateCcw className="w-3 h-3" />
-              <span>Clear all filters ({activeFilterCount})</span>
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <span>Clear ({activeFilterCount})</span>
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* Category Filter */}
       <FilterSection
@@ -249,7 +243,7 @@ function FilterCheckbox({
     if (buttonRef.current && tooltip) {
       const rect = buttonRef.current.getBoundingClientRect();
       setTooltipPos({
-        top: rect.top - 8,
+        top: rect.bottom + 8,
         left: rect.left + rect.width / 2,
       });
     }
@@ -315,10 +309,10 @@ function FilterCheckbox({
           style={{
             top: tooltipPos.top,
             left: tooltipPos.left,
-            transform: 'translate(-50%, -100%)',
+            transform: 'translate(-50%, 0)',
           }}
         >
-          <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-foreground" />
+          <div className="absolute bottom-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-b-foreground" />
           {tooltip}
         </div>,
         document.body
