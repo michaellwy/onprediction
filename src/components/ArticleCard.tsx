@@ -267,24 +267,6 @@ export function ArticleCard({
                 transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
               >
               <div className="px-4 pb-4 pl-4 sm:pl-14">
-                {/* Category + difficulty labels — desktop only */}
-                <div className="hidden sm:flex items-center gap-2 text-[13px] text-foreground/50 mb-1.5">
-                  {article.primary_category && (
-                    <span className="flex items-center gap-1.5">
-                      <span className={cn("w-1.5 h-1.5 rounded-full", categoryColor)} />
-                      {article.primary_category}
-                    </span>
-                  )}
-                  {difficulty && (
-                    <>
-                      <span>·</span>
-                      <span className={cn("font-semibold", difficulty.color)}>
-                        {article.difficulty === "None" ? "No prerequisites" : article.difficulty === "Some" ? "Some background" : "Advanced"}
-                      </span>
-                    </>
-                  )}
-                </div>
-
                 {/* Mobile actions — upvote + bookmark */}
                 <div className="flex sm:hidden items-center gap-3 mb-3">
                   <button

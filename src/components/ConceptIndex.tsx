@@ -115,7 +115,7 @@ export function ConceptIndex({ graphData, initialConcept }: ConceptIndexProps) {
         <button
           onClick={toggleSort}
           className={cn(
-            "flex items-center gap-1.5 px-2.5 h-11 sm:h-8 rounded-md text-[13px] shrink-0",
+            "flex items-center gap-1.5 px-2.5 h-8 rounded-md text-[13px] shrink-0",
             "border border-border/50 text-muted-foreground",
             "hover:text-foreground hover:border-border transition-colors"
           )}

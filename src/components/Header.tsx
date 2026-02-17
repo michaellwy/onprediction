@@ -24,17 +24,25 @@ export function Header() {
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-lg bg-primary/10 group-hover:bg-primary/15 flex items-center justify-center transition-colors">
-              <span className="font-serif text-primary font-semibold text-sm">
-                OP
-              </span>
-            </div>
+            <svg
+              viewBox="0 0 32 32"
+              className="w-10 h-10 text-primary shrink-0 group-hover:rotate-180 transition-transform duration-500"
+              aria-hidden="true"
+            >
+              <rect
+                x="7.5" y="7.5"
+                width="17" height="17"
+                rx="4"
+                transform="rotate(45 16 16)"
+                fill="currentColor"
+              />
+            </svg>
             <div>
-              <h1 className="font-serif text-base font-semibold text-foreground leading-none">
+              <h1 className="font-display text-xl font-semibold text-foreground leading-none tracking-tight">
                 On Prediction
               </h1>
-              <p className="text-[10px] text-muted-foreground tracking-wide uppercase">
-                For builders & researchers
+              <p className="text-xs text-muted-foreground tracking-wide mt-0.5">
+                Curated content for builders, investors & researchers
               </p>
             </div>
           </Link>

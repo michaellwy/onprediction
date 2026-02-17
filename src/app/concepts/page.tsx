@@ -12,7 +12,7 @@ function ConceptsContent() {
 
   return (
     <div className="min-h-[calc(100vh-56px)] bg-background">
-      <div className="px-4 sm:px-6 py-6 max-w-6xl mx-auto w-full">
+      <div className="px-4 sm:px-6 py-4 max-w-6xl mx-auto w-full">
         <ConceptIndex graphData={graphData} initialConcept={initialConcept} />
       </div>
     </div>
