@@ -3,7 +3,7 @@
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, ArrowUpDown, ExternalLink } from "lucide-react";
+import { Search, X, ArrowUpDown, ExternalLink } from "lucide-react";
 import { ConceptGraphData, ConceptNode } from "@/types/concept";
 import { conceptDefinitions } from "@/lib/concepts";
 import { getArticles } from "@/lib/articles";
@@ -11,14 +11,16 @@ import { cn } from "@/lib/utils";
 
 interface ConceptIndexProps {
   graphData: ConceptGraphData;
+  initialConcept?: string;
 }
 
 type SortOption = "frequency" | "alphabetical";
 
-export function ConceptIndex({ graphData }: ConceptIndexProps) {
-  const [search, setSearch] = useState("");
+export function ConceptIndex({ graphData, initialConcept }: ConceptIndexProps) {
+  const [search, setSearch] = useState(initialConcept ?? "");
   const [sortBy, setSortBy] = useState<SortOption>("frequency");
   const [hoveredConcept, setHoveredConcept] = useState<string | null>(null);
+  const initialConceptApplied = useRef(false);
 
   const articles = useMemo(() => getArticles(), []);
   const articleMap = useMemo(() => {
@@ -45,13 +47,38 @@ export function ConceptIndex({ graphData }: ConceptIndexProps) {
     }
 
     if (sortBy === "frequency") {
-      nodes.sort((a, b) => b.frequency - a.frequency);
+      nodes.sort((a, b) => b.frequency - a.frequency || a.name.localeCompare(b.name));
     } else {
       nodes.sort((a, b) => a.name.localeCompare(b.name));
     }
 
     return nodes;
   }, [graphData.nodes, search, sortBy]);
+
+  // Auto-expand the initial concept from URL param on mount
+  useEffect(() => {
+    if (!initialConcept || initialConceptApplied.current) return;
+    initialConceptApplied.current = true;
+
+    const match = graphData.nodes.find(
+      (n) => n.name.toLowerCase() === initialConcept.toLowerCase()
+    );
+    if (match) {
+      setHoveredConcept(match.id);
+    }
+  }, [initialConcept, graphData.nodes]);
+
+  // Close hover panel on outside tap
+  useEffect(() => {
+    function handleOutsideClick(e: MouseEvent) {
+      const target = e.target as HTMLElement;
+      // Don't close if clicking inside a hover panel or concept row
+      if (target.closest("[data-concept-row]") || target.closest("[data-hover-panel]")) return;
+      setHoveredConcept(null);
+    }
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
 
   const toggleSort = () => {
     setSortBy((s) => (s === "frequency" ? "alphabetical" : "frequency"));
@@ -61,26 +88,34 @@ export function ConceptIndex({ graphData }: ConceptIndexProps) {
     <div className="space-y-4">
       {/* Search + Sort */}
       <div className="flex items-center gap-3">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground/50" />
+        <div className="relative max-w-xs flex-1">
+          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground/50" />
           <input
             type="text"
             placeholder="Search concepts..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className={cn(
-              "w-full h-9 pl-9 pr-4 rounded-md text-sm",
+              "w-full h-8 pl-8 pr-8 rounded-md text-base sm:text-[13px]",
               "bg-transparent border border-border/50",
               "placeholder:text-muted-foreground/50",
               "focus:outline-none focus:border-border focus:ring-1 focus:ring-border/50",
               "transition-colors"
             )}
           />
+          {search && (
+            <button
+              onClick={() => setSearch("")}
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-0.5 rounded-sm text-muted-foreground/50 hover:text-muted-foreground transition-colors"
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
+          )}
         </div>
         <button
           onClick={toggleSort}
           className={cn(
-            "flex items-center gap-1.5 px-3 h-9 rounded-md text-sm shrink-0",
+            "flex items-center gap-1.5 px-2.5 h-11 sm:h-8 rounded-md text-[13px] shrink-0",
             "border border-border/50 text-muted-foreground",
             "hover:text-foreground hover:border-border transition-colors"
           )}
@@ -113,6 +148,11 @@ export function ConceptIndex({ graphData }: ConceptIndexProps) {
                 prev === node.id ? null : prev
               );
             }}
+            onToggle={() => {
+              setHoveredConcept((prev) =>
+                prev === node.id ? null : node.id
+              );
+            }}
           />
         ))}
       </div>
@@ -132,6 +172,7 @@ function ConceptRow({
   isHovered,
   onHoverStart,
   onHoverEnd,
+  onToggle,
 }: {
   node: ConceptNode;
   articleMap: Map<
@@ -141,6 +182,7 @@ function ConceptRow({
   isHovered: boolean;
   onHoverStart: () => void;
   onHoverEnd: () => void;
+  onToggle: () => void;
 }) {
   const [panelPos, setPanelPos] = useState<{
     top: number;
@@ -164,13 +206,15 @@ function ConceptRow({
     });
   }, [node.articles, articleMap]);
 
-  // Position the panel
+  // Position the panel, clamped to viewport
   const updatePanelPos = useCallback(() => {
     if (ref.current) {
       const rect = ref.current.getBoundingClientRect();
+      const panelWidth = Math.min(320, window.innerWidth - 24);
+      const clampedLeft = Math.min(rect.left, Math.max(12, window.innerWidth - panelWidth - 12));
       setPanelPos({
         top: rect.bottom + 4,
-        left: rect.left,
+        left: clampedLeft,
       });
     }
   }, []);
@@ -195,8 +239,10 @@ function ConceptRow({
     <div
       ref={ref}
       className="break-inside-avoid"
+      data-concept-row
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
+      onClick={onToggle}
     >
       <div
         className={cn(
@@ -216,9 +262,6 @@ function ConceptRow({
           )}
         >
           {node.name}
-        </span>
-        <span className="text-[12px] text-muted-foreground/50">
-          ({node.articles.length})
         </span>
       </div>
 
@@ -270,7 +313,8 @@ function HoverPanel({
       transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className="fixed z-[9998] w-80 bg-card border border-border/60 rounded-xl shadow-xl"
+      data-hover-panel
+      className="fixed z-[9998] w-[min(320px,calc(100vw-24px))] bg-card border border-border/60 rounded-xl shadow-xl"
       style={{
         top: panelPos.top,
         left: panelPos.left,

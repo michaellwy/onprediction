@@ -74,7 +74,8 @@ export function filterArticles(
 
 export function sortArticles(
   articles: Article[],
-  sortOption: SortOption
+  sortOption: SortOption,
+  upvoteCounts?: Map<number, number>
 ): Article[] {
   const sorted = [...articles];
 
@@ -95,6 +96,19 @@ export function sortArticles(
         return (
           new Date(a.publish_date).getTime() -
           new Date(b.publish_date).getTime()
+        );
+      });
+    case "upvotes-desc":
+      return sorted.sort((a, b) => {
+        const countA = upvoteCounts?.get(a.id) ?? 0;
+        const countB = upvoteCounts?.get(b.id) ?? 0;
+        if (countB !== countA) return countB - countA;
+        // Secondary sort: newer first
+        if (!a.publish_date) return 1;
+        if (!b.publish_date) return -1;
+        return (
+          new Date(b.publish_date).getTime() -
+          new Date(a.publish_date).getTime()
         );
       });
     case "title-asc":

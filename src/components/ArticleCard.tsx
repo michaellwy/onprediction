@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ExternalLink, Star } from "lucide-react";
+import { ArrowUp, Bookmark, ChevronRight, ExternalLink } from "lucide-react";
+import Link from "next/link";
 import { Article, Category, Difficulty } from "@/types/article";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +11,9 @@ interface ArticleCardProps {
   article: Article;
   isBookmarked: boolean;
   onToggleBookmark: () => void;
+  upvoteCount: number;
+  isUpvoted: boolean;
+  onToggleUpvote: () => void;
   index?: number;
   isExpanded?: boolean;
   onToggleExpand?: () => void;
@@ -67,6 +71,9 @@ export function ArticleCard({
   article,
   isBookmarked,
   onToggleBookmark,
+  upvoteCount,
+  isUpvoted,
+  onToggleUpvote,
   index = 0,
   isExpanded: controlledExpanded,
   onToggleExpand,
@@ -97,10 +104,13 @@ export function ArticleCard({
           isExpanded && "bg-accent/20"
         )}
       >
-        {/* Category indicator line */}
+        {/* Category bar — always visible on mobile */}
+        <div className={cn("absolute left-0 top-0 bottom-0 w-[3px] sm:hidden", categoryColor)} />
+
+        {/* Category bar — animated on desktop */}
         <motion.div
           className={cn(
-            "absolute left-0 top-0 w-[3px] origin-top",
+            "absolute left-0 top-0 w-[3px] origin-top hidden sm:block",
             categoryColor
           )}
           initial={false}
@@ -114,19 +124,48 @@ export function ArticleCard({
 
         {/* Main row */}
         <div
-          className="flex items-center gap-4 py-3 px-4 cursor-pointer"
+          className="flex items-center gap-3 sm:gap-4 py-2.5 sm:py-3 px-4 cursor-pointer"
           onClick={toggleExpand}
         >
-          {/* Bookmark star */}
+          {/* Upvote button — desktop only */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleUpvote();
+            }}
+            className={cn(
+              "shrink-0 hidden sm:flex items-center gap-0.5 p-0.5 -m-0.5 rounded transition-colors",
+              isUpvoted
+                ? "text-emerald-600"
+                : upvoteCount > 0
+                  ? "text-emerald-600/60 hover:text-emerald-600/80"
+                  : "text-muted-foreground/30 hover:text-muted-foreground/60"
+            )}
+            aria-label={isUpvoted ? "Remove upvote" : "Upvote article"}
+          >
+            <ArrowUp
+              className={cn(
+                "h-4 w-4 transition-all duration-150",
+                isUpvoted && "text-emerald-600"
+              )}
+            />
+            {upvoteCount > 0 && (
+              <span className="text-xs tabular-nums min-w-[1ch]">
+                {upvoteCount}
+              </span>
+            )}
+          </button>
+
+          {/* Bookmark — desktop only */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               onToggleBookmark();
             }}
-            className="shrink-0 p-0.5 -m-0.5 rounded transition-colors"
-            aria-label={isBookmarked ? "Remove from saved" : "Save article"}
+            className="shrink-0 hidden sm:flex p-0.5 -m-0.5 rounded transition-colors"
+            aria-label={isBookmarked ? "Remove bookmark" : "Bookmark article"}
           >
-            <Star
+            <Bookmark
               className={cn(
                 "h-4 w-4 transition-all duration-150",
                 isBookmarked
@@ -136,24 +175,50 @@ export function ArticleCard({
             />
           </button>
 
-          {/* Category dot */}
+          {/* Category dot — desktop only */}
           <span
-            className={cn("w-2 h-2 rounded-full shrink-0", categoryColor)}
+            className={cn("hidden sm:block w-2 h-2 rounded-full shrink-0", categoryColor)}
             title={article.primary_category || ""}
           />
 
-          {/* Title */}
-          <h3
-            className={cn(
-              "flex-1 min-w-0 font-serif text-base leading-snug transition-colors duration-150",
-              isExpanded ? "text-foreground" : "text-foreground/90",
-              "group-hover:text-foreground"
-            )}
-          >
-            <span className="line-clamp-1">{article.title}</span>
-          </h3>
+          {/* Title + mobile metadata */}
+          <div className="flex-1 min-w-0">
+            <h3
+              className={cn(
+                "font-serif text-[15px] sm:text-base leading-snug transition-colors duration-150",
+                isExpanded ? "text-foreground" : "text-foreground/90",
+                "group-hover:text-foreground"
+              )}
+            >
+              <span className="line-clamp-2 sm:line-clamp-1">{article.title}</span>
+            </h3>
+            {/* Mobile-only: author + date subtitle */}
+            <div className="sm:hidden flex items-center gap-1.5 mt-0.5">
+              {article.author && (
+                <span className="text-[11px] text-foreground/40 truncate">
+                  {article.author}
+                </span>
+              )}
+              {article.author && article.publish_date && (
+                <span className="text-[11px] text-foreground/25 shrink-0">·</span>
+              )}
+              {article.publish_date && (
+                <span className="text-[11px] text-foreground/40 shrink-0">
+                  {formatRelativeDate(article.publish_date)}
+                </span>
+              )}
+              {upvoteCount > 0 && (
+                <>
+                  <span className="text-[11px] text-foreground/25 shrink-0">·</span>
+                  <span className="text-[11px] text-emerald-600/50 shrink-0">
+                    {upvoteCount} {upvoteCount === 1 ? "upvote" : "upvotes"}
+                  </span>
+                </>
+              )}
+            </div>
+          </div>
 
-          {/* Difficulty indicator */}
+          {/* Difficulty indicator — desktop only */}
           {difficulty && (
             <span
               className={cn(
@@ -166,13 +231,13 @@ export function ArticleCard({
             </span>
           )}
 
-          {/* Author */}
+          {/* Author — desktop only */}
           <span className="hidden md:block text-[14px] text-foreground/55 truncate max-w-[180px] shrink-0">
             {article.author}
           </span>
 
-          {/* Date */}
-          <span className="text-[13px] text-foreground/45 w-16 text-right shrink-0 tabular-nums">
+          {/* Date — desktop only */}
+          <span className="hidden sm:block text-[13px] text-foreground/45 w-16 text-right shrink-0 tabular-nums">
             {formatRelativeDate(article.publish_date)}
           </span>
 
@@ -201,9 +266,64 @@ export function ArticleCard({
                 exit={{ clipPath: "inset(0 0 100% 0)" }}
                 transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
               >
-              <div className="px-4 pb-4 pl-14">
+              <div className="px-4 pb-4 pl-4 sm:pl-14">
+                {/* Category + difficulty labels — desktop only */}
+                <div className="hidden sm:flex items-center gap-2 text-[13px] text-foreground/50 mb-1.5">
+                  {article.primary_category && (
+                    <span className="flex items-center gap-1.5">
+                      <span className={cn("w-1.5 h-1.5 rounded-full", categoryColor)} />
+                      {article.primary_category}
+                    </span>
+                  )}
+                  {difficulty && (
+                    <>
+                      <span>·</span>
+                      <span className={cn("font-semibold", difficulty.color)}>
+                        {article.difficulty === "None" ? "No prerequisites" : article.difficulty === "Some" ? "Some background" : "Advanced"}
+                      </span>
+                    </>
+                  )}
+                </div>
+
+                {/* Mobile actions — upvote + bookmark */}
+                <div className="flex sm:hidden items-center gap-3 mb-3">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onToggleUpvote();
+                    }}
+                    className={cn(
+                      "flex items-center gap-1.5 h-8 px-3 rounded-md text-xs font-medium transition-colors",
+                      isUpvoted
+                        ? "bg-emerald-500/10 text-emerald-600"
+                        : "bg-foreground/[0.05] text-foreground/60 active:bg-foreground/[0.1]"
+                    )}
+                  >
+                    <ArrowUp className="h-3.5 w-3.5" />
+                    {isUpvoted ? "Upvoted" : "Upvote"}
+                    {upvoteCount > 0 && (
+                      <span className="tabular-nums">({upvoteCount})</span>
+                    )}
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onToggleBookmark();
+                    }}
+                    className={cn(
+                      "flex items-center gap-1.5 h-8 px-3 rounded-md text-xs font-medium transition-colors",
+                      isBookmarked
+                        ? "bg-amber-500/10 text-amber-600"
+                        : "bg-foreground/[0.05] text-foreground/60 active:bg-foreground/[0.1]"
+                    )}
+                  >
+                    <Bookmark className={cn("h-3.5 w-3.5", isBookmarked && "fill-amber-500")} />
+                    {isBookmarked ? "Saved" : "Save"}
+                  </button>
+                </div>
+
                 {/* Date + source + read link */}
-                <div className="flex items-center gap-2 text-[13px] text-foreground/50 mb-2">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-foreground/50 mb-2">
                   {article.publish_date && (
                     <span>{formatFullDate(article.publish_date)}</span>
                   )}
@@ -240,14 +360,19 @@ export function ArticleCard({
                 {/* Concepts as compact tags */}
                 {article.concepts.length > 0 && (
                   <div className="flex flex-wrap gap-1.5">
-                    {article.concepts.slice(0, 5).map((concept, idx) => (
-                      <span
-                        key={`${concept}-${idx}`}
-                        className="px-2 py-0.5 text-[12px] font-medium text-foreground/60 bg-foreground/[0.06] rounded"
-                      >
-                        {concept.replace("NEW: ", "")}
-                      </span>
-                    ))}
+                    {article.concepts.slice(0, 5).map((concept, idx) => {
+                      const displayName = concept.replace("NEW: ", "");
+                      return (
+                        <Link
+                          key={`${concept}-${idx}`}
+                          href={`/concepts?c=${encodeURIComponent(displayName)}`}
+                          onClick={(e) => e.stopPropagation()}
+                          className="px-2 py-0.5 text-[12px] font-medium text-foreground/60 bg-foreground/[0.06] rounded hover:bg-foreground/[0.12] hover:text-foreground/80 transition-colors"
+                        >
+                          {displayName}
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
               </div>

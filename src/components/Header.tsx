@@ -1,19 +1,30 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AuthButton } from "@/components/AuthButton";
+import { SubmitArticleModal } from "@/components/SubmitArticleModal";
 
 export function Header() {
   const pathname = usePathname();
+  const [submitOpen, setSubmitOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close menu on route change
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
-    <header className="shrink-0 z-30 bg-background/95 backdrop-blur-sm border-b border-border/50">
+    <header className="shrink-0 z-30 bg-gradient-to-b from-accent/40 to-background border-b border-border/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-8 h-8 rounded-lg bg-primary/10 group-hover:bg-primary/15 flex items-center justify-center transition-colors">
               <span className="font-serif text-primary font-semibold text-sm">
                 OP
               </span>
@@ -28,31 +39,121 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Navigation */}
-          <nav className="flex items-center gap-6">
+          {/* Desktop Navigation */}
+          <nav className="hidden sm:flex items-center gap-2">
             <Link
               href="/"
               className={cn(
-                "text-sm font-medium transition-colors",
+                "relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
                 pathname === "/"
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
               )}
             >
               Readings
+              {pathname === "/" && (
+                <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary/70" />
+              )}
             </Link>
             <Link
               href="/concepts"
               className={cn(
-                "text-sm font-medium transition-colors",
+                "relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
                 pathname === "/concepts"
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
               )}
             >
               Concepts
+              {pathname === "/concepts" && (
+                <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary/70" />
+              )}
             </Link>
+
+            <div className="h-4 w-px bg-border mx-2" />
+
+            <button
+              onClick={() => setSubmitOpen(true)}
+              className="px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 rounded-md transition-colors"
+            >
+              Submit
+            </button>
+            <AuthButton />
           </nav>
+
+          {/* Mobile Navigation */}
+          <div className="flex sm:hidden items-center gap-2">
+            <AuthButton />
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="flex items-center justify-center w-11 h-11 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/60 transition-colors"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+            >
+              {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
+
+          {/* Mobile Menu Overlay */}
+          {menuOpen && (
+            <div
+              className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-40 sm:hidden"
+              onClick={() => setMenuOpen(false)}
+            />
+          )}
+
+          {/* Mobile Menu Sheet */}
+          <div
+            className={cn(
+              "fixed inset-y-0 right-0 w-64 bg-background border-l border-border z-50 sm:hidden",
+              "transform transition-transform duration-200 ease-out",
+              menuOpen ? "translate-x-0" : "translate-x-full"
+            )}
+          >
+            <div className="flex items-center justify-between p-4 border-b border-border">
+              <span className="font-serif text-base font-semibold text-foreground">Menu</span>
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-center w-11 h-11 -mr-2 rounded-md text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <nav className="p-2">
+              <Link
+                href="/"
+                className={cn(
+                  "flex items-center h-11 px-3 rounded-md text-sm font-medium transition-colors",
+                  pathname === "/"
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
+                )}
+              >
+                Readings
+              </Link>
+              <Link
+                href="/concepts"
+                className={cn(
+                  "flex items-center h-11 px-3 rounded-md text-sm font-medium transition-colors",
+                  pathname === "/concepts"
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
+                )}
+              >
+                Concepts
+              </Link>
+              <button
+                onClick={() => {
+                  setSubmitOpen(true);
+                  setMenuOpen(false);
+                }}
+                className="flex items-center h-11 px-3 rounded-md text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors w-full text-left"
+              >
+                Submit
+              </button>
+            </nav>
+          </div>
+
+          <SubmitArticleModal open={submitOpen} onOpenChange={setSubmitOpen} />
         </div>
       </div>
     </header>

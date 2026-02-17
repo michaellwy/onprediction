@@ -44,7 +44,7 @@ export type ContentType =
   | "Case Study"
   | "Podcast";
 
-export type SortOption = "date-desc" | "date-asc" | "title-asc" | "title-desc";
+export type SortOption = "date-desc" | "date-asc" | "upvotes-desc" | "title-asc" | "title-desc";
 
 export type DateRange = "all" | "year" | "6months" | "month";
 

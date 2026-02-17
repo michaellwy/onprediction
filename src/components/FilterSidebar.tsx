@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { RotateCcw } from "lucide-react";
+import { Bookmark, RotateCcw } from "lucide-react";
 
 // Animated checkmark that draws itself
 function AnimatedCheck({ className }: { className?: string }) {
@@ -48,6 +48,8 @@ interface FilterSidebarProps {
   onToggleBookmarksOnly: () => void;
   onClearAll: () => void;
   activeFilterCount: number;
+  isAuthenticated?: boolean;
+  onSignInPrompt?: () => void;
   className?: string;
 }
 
@@ -96,6 +98,8 @@ export function FilterSidebar({
   onToggleBookmarksOnly,
   onClearAll,
   activeFilterCount,
+  isAuthenticated,
+  onSignInPrompt,
   className,
 }: FilterSidebarProps) {
   return (
@@ -104,28 +108,22 @@ export function FilterSidebar({
       <div className="py-3 border-b border-border/50 flex items-center justify-between">
         <button
           type="button"
-          onClick={onToggleBookmarksOnly}
-          className="flex items-center gap-3 cursor-pointer group text-left"
+          onClick={isAuthenticated ? onToggleBookmarksOnly : onSignInPrompt}
+          className="flex items-center gap-2.5 cursor-pointer group text-left"
         >
-          <div
+          <Bookmark
             className={cn(
-              "w-3.5 h-3.5 rounded-full flex items-center justify-center shrink-0 transition-colors duration-150",
+              "w-4 h-4 shrink-0 transition-all duration-150",
               filters.bookmarksOnly
-                ? "bg-amber-500"
-                : "bg-amber-500/40 group-hover:bg-amber-500/60"
+                ? "fill-amber-500 text-amber-500"
+                : "text-muted-foreground/40 group-hover:text-muted-foreground/60"
             )}
-          >
-            <AnimatePresence>
-              {filters.bookmarksOnly && (
-                <AnimatedCheck className="w-2.5 h-2.5 text-white" />
-              )}
-            </AnimatePresence>
-          </div>
+          />
           <span className={cn(
             "text-[15px] transition-colors",
             filters.bookmarksOnly ? "text-foreground font-medium" : "text-foreground/70 group-hover:text-foreground"
           )}>
-            Saved only
+            Bookmarks
           </span>
         </button>
         <AnimatePresence>
@@ -136,7 +134,7 @@ export function FilterSidebar({
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer ml-auto"
             >
               <RotateCcw className="w-3 h-3" />
               <span>Clear ({activeFilterCount})</span>
@@ -208,7 +206,7 @@ export function FilterSidebar({
               key={range.value}
               onClick={() => onSetDateRange(range.value)}
               className={cn(
-                "w-full text-left px-2 py-1.5 rounded text-[15px] transition-colors",
+                "w-full text-left px-2 py-2.5 sm:py-1.5 rounded text-[15px] transition-colors",
                 filters.dateRange === range.value
                   ? "bg-primary/15 text-primary font-medium"
                   : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
@@ -262,14 +260,14 @@ function FilterCheckbox({
         ref={buttonRef}
         type="button"
         onClick={onChange}
-        className="w-full flex items-center gap-3 cursor-pointer group py-1.5 px-1 -mx-1 rounded hover:bg-muted/50 transition-colors text-left"
+        className="w-full flex items-center gap-3 cursor-pointer group py-2.5 sm:py-1.5 px-1 -mx-1 rounded hover:bg-muted/50 transition-colors text-left"
       >
         {colorIndicator ? (
           <div
             className={cn(
               "w-3.5 h-3.5 rounded-full flex items-center justify-center shrink-0 transition-opacity duration-150",
               colorIndicator,
-              !checked && "opacity-50 group-hover:opacity-70"
+              !checked && "opacity-80 group-hover:opacity-100"
             )}
           >
             <AnimatePresence>
@@ -336,7 +334,7 @@ function DifficultyCheckbox({
     <button
       type="button"
       onClick={onChange}
-      className="w-full flex items-center gap-3 cursor-pointer group py-1.5 px-1 -mx-1 rounded hover:bg-muted/50 transition-colors text-left"
+      className="w-full flex items-center gap-3 cursor-pointer group py-2.5 sm:py-1.5 px-1 -mx-1 rounded hover:bg-muted/50 transition-colors text-left"
     >
       <div
         className={cn(

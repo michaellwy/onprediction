@@ -14,6 +14,7 @@ interface SortDropdownProps {
 const sortOptions: { value: SortOption; label: string }[] = [
   { value: "date-desc", label: "Newest first" },
   { value: "date-asc", label: "Oldest first" },
+  { value: "upvotes-desc", label: "Most upvoted" },
   { value: "title-asc", label: "Title A–Z" },
   { value: "title-desc", label: "Title Z–A" },
 ];
@@ -42,13 +43,14 @@ export function SortDropdown({ value, onChange }: SortDropdownProps) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "flex items-center gap-2 px-3 py-1.5 rounded-md text-sm transition-colors",
+          "flex items-center gap-2 px-3 h-9 rounded-md text-sm transition-colors",
           "text-muted-foreground hover:text-foreground",
           "border border-transparent hover:border-border",
           isOpen && "border-border text-foreground"
         )}
       >
-        <span>{selectedOption?.label}</span>
+        <span className="sm:hidden">Sort</span>
+        <span className="hidden sm:inline">{selectedOption?.label}</span>
         <ChevronDown
           className={cn(
             "h-3.5 w-3.5 transition-transform duration-150",
@@ -77,7 +79,7 @@ export function SortDropdown({ value, onChange }: SortDropdownProps) {
                   setIsOpen(false);
                 }}
                 className={cn(
-                  "w-full flex items-center gap-2 px-3 py-1.5 text-sm text-left transition-colors",
+                  "w-full flex items-center gap-2 px-3 py-2.5 sm:py-1.5 text-sm text-left transition-colors",
                   option.value === value
                     ? "text-foreground bg-accent/50"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent/30"
