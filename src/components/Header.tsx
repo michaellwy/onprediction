@@ -38,7 +38,7 @@ export function Header() {
               />
             </svg>
             <div className="min-w-0">
-              <h1 className="font-display text-base sm:text-xl font-semibold text-foreground leading-none tracking-tight">
+              <h1 className="font-display text-lg sm:text-xl font-semibold text-foreground leading-none tracking-tight">
                 On Prediction
               </h1>
               <p className="text-[10px] sm:text-xs text-muted-foreground tracking-wide mt-0.5 truncate">
@@ -90,8 +90,7 @@ export function Header() {
           </nav>
 
           {/* Mobile Navigation */}
-          <div className="flex sm:hidden items-center gap-2">
-            <AuthButton />
+          <div className="flex sm:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="flex items-center justify-center w-11 h-11 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/60 transition-colors"
@@ -112,7 +111,7 @@ export function Header() {
           {/* Mobile Menu Sheet */}
           <div
             className={cn(
-              "fixed inset-y-0 right-0 w-64 bg-background border-l border-border z-50 sm:hidden",
+              "fixed inset-y-0 right-0 w-64 bg-background border-l border-border z-50 sm:hidden flex flex-col",
               "transform transition-transform duration-200 ease-out",
               menuOpen ? "translate-x-0" : "translate-x-full"
             )}
@@ -159,6 +158,9 @@ export function Header() {
                 Submit
               </button>
             </nav>
+            <div className="mt-auto p-4 border-t border-border">
+              <AuthButton />
+            </div>
           </div>
 
           <SubmitArticleModal open={submitOpen} onOpenChange={setSubmitOpen} />
