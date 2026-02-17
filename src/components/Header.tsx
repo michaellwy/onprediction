@@ -23,10 +23,10 @@ export function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group min-w-0">
             <svg
               viewBox="0 0 32 32"
-              className="w-10 h-10 text-primary shrink-0 group-hover:rotate-180 transition-transform duration-500"
+              className="w-7 h-7 sm:w-10 sm:h-10 text-primary shrink-0 group-hover:rotate-180 transition-transform duration-500"
               aria-hidden="true"
             >
               <rect
@@ -37,11 +37,11 @@ export function Header() {
                 fill="currentColor"
               />
             </svg>
-            <div>
-              <h1 className="font-display text-xl font-semibold text-foreground leading-none tracking-tight">
+            <div className="min-w-0">
+              <h1 className="font-display text-base sm:text-xl font-semibold text-foreground leading-none tracking-tight">
                 On Prediction
               </h1>
-              <p className="text-xs text-muted-foreground tracking-wide mt-0.5">
+              <p className="text-[10px] sm:text-xs text-muted-foreground tracking-wide mt-0.5 truncate">
                 Curated content for builders, investors & researchers
               </p>
             </div>
