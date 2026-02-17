@@ -21,7 +21,7 @@ export function Header() {
   return (
     <header className="shrink-0 z-30 bg-gradient-to-b from-accent/40 to-background border-b border-border/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group min-w-0">
             <svg
