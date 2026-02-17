@@ -111,7 +111,7 @@ export function Header() {
           {/* Mobile Menu Sheet */}
           <div
             className={cn(
-              "fixed inset-y-0 right-0 w-64 bg-background border-l border-border z-50 sm:hidden flex flex-col",
+              "fixed inset-y-0 right-0 w-64 bg-background border-l border-border z-50 sm:hidden",
               "transform transition-transform duration-200 ease-out",
               menuOpen ? "translate-x-0" : "translate-x-full"
             )}
@@ -157,10 +157,10 @@ export function Header() {
               >
                 Submit
               </button>
+              <div className="px-3 pt-2">
+                <AuthButton />
+              </div>
             </nav>
-            <div className="mt-auto p-4 border-t border-border">
-              <AuthButton />
-            </div>
           </div>
 
           <SubmitArticleModal open={submitOpen} onOpenChange={setSubmitOpen} />
