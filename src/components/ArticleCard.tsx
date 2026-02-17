@@ -202,7 +202,7 @@ export function ArticleCard({
               <span className="flex items-center gap-1.5">
                 <span className="line-clamp-2 sm:line-clamp-1">{article.title}</span>
                 {isNewArticle(article.publish_date) && (
-                  <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold leading-none rounded-full bg-primary/10 text-primary">
+                  <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-serif font-semibold leading-none rounded-full bg-primary/10 text-primary italic">
                     New
                   </span>
                 )}
