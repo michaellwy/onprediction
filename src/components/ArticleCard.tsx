@@ -57,6 +57,15 @@ function formatRelativeDate(dateString: string | null): string {
   return `${Math.floor(diffDays / 365)}y ago`;
 }
 
+function isNewArticle(dateString: string | null): boolean {
+  if (!dateString) return false;
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffMs = now.getTime() - date.getTime();
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  return diffDays >= 0 && diffDays <= 7;
+}
+
 function formatFullDate(dateString: string | null): string {
   if (!dateString) return "";
   const date = new Date(dateString);
@@ -190,7 +199,14 @@ export function ArticleCard({
                 "group-hover:text-foreground"
               )}
             >
-              <span className="line-clamp-2 sm:line-clamp-1">{article.title}</span>
+              <span className="line-clamp-2 sm:line-clamp-1">
+                {article.title}
+                {isNewArticle(article.publish_date) && (
+                  <span className="inline-flex ml-1.5 align-middle px-1.5 py-0.5 text-[10px] font-semibold leading-none rounded-full bg-primary/10 text-primary">
+                    New
+                  </span>
+                )}
+              </span>
             </h3>
             {/* Mobile-only: author + date subtitle */}
             <div className="sm:hidden flex items-center gap-1.5 mt-0.5">
