@@ -12,7 +12,7 @@
     "difficulty": "None",
     "concepts": [
       "information aggregation",
-      "NEW: public goods problem",
+      "public goods problem",
       "regulatory arbitrage"
     ],
     "platforms_mentioned": [],
@@ -539,7 +539,7 @@
     "concepts": [
       "parlays",
       "liquidity provision",
-      "NEW: covariance markets"
+      "covariance markets"
     ],
     "platforms_mentioned": [],
     "editorial_blurb": "Proposes 'covariance markets' as a solution to offering joint probability bets (parlays) without fragmenting liquidity. Instead of creating separate markets for all AND/OR combinations, a single covariance market between two base markets enables all 8 joint combinations while maintaining concentrated liquidity.",
@@ -736,7 +736,7 @@
     "difficulty": "Extensive",
     "concepts": [
       "decision markets",
-      "NEW: opportunity markets",
+      "opportunity markets",
       "liquidity provision"
     ],
     "platforms_mentioned": [],
@@ -962,7 +962,7 @@
     "concepts": [
       "decision markets",
       "futarchy",
-      "NEW: impact markets",
+      "impact markets",
       "conditional tokens"
     ],
     "platforms_mentioned": [],
@@ -1157,7 +1157,7 @@
     "concepts": [
       "reflexivity",
       "information asymmetry",
-      "NEW: social coercion"
+      "social coercion"
     ],
     "platforms_mentioned": [],
     "editorial_blurb": "Taxonomy categorizing prediction markets by susceptibility to three manipulation vectors: information asymmetry (insiders know outcome), reflexivity (market signals influence outcome), and social coercion (participants can directly cause outcome). Argues a market's manipulation profile determines whether you're trading on information edge, narrative momentum, or ability to cause the outcome.",
@@ -1179,7 +1179,7 @@
       "decision markets",
       "parlays",
       "hyperstition markets",
-      "NEW: no-loss prediction markets"
+      "no-loss prediction markets"
     ],
     "platforms_mentioned": [
       "Polymarket",
@@ -1225,7 +1225,7 @@
       "information aggregation",
       "liquidity provision",
       "price discovery",
-      "NEW: composable beliefs",
+      "composable beliefs",
       "distribution markets"
     ],
     "platforms_mentioned": [],
@@ -1330,7 +1330,7 @@
     "content_type": "Research Paper",
     "difficulty": "Extensive",
     "concepts": [
-      "NEW: market manipulation",
+      "market manipulation",
       "price discovery",
       "information aggregation",
       "liquidity provision"
@@ -1377,7 +1377,7 @@
     "content_type": "Analysis",
     "difficulty": "Some",
     "concepts": [
-      "NEW: longshot bias",
+      "longshot bias",
       "market making",
       "price discovery",
       "retail flow"
@@ -1428,7 +1428,7 @@
       "liquidity provision",
       "market making",
       "information aggregation",
-      "NEW: LOX (log-odds excess lateness)"
+      "LOX (log-odds excess lateness)"
     ],
     "platforms_mentioned": [],
     "editorial_blurb": "Builds a formal framework to decompose why prediction markets have late volume: is it because information arrives late (hazard), or because early entry is punished by adverse selection (toxicity)? Introduces LOX, a metric computed from on-chain trades that measures whether new entrants hesitate more than volume alone would predict. Explains why boxing markets cluster with news markets despite being categorized as sports.",
@@ -1451,6 +1451,52 @@
     ],
     "platforms_mentioned": [],
     "editorial_blurb": "Argues prediction markets are becoming a legitimate asset class with potentially the largest TAM, since anything with uncertainty and future resolution is tradable. Notes the category has reached an inflection point with professionals entering, but lacks proper tooling that mature asset classes have (Bloomberg for stocks, Axiom for memecoins). Makes the case for dedicated prediction market terminals.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 67,
+    "url": "https://x.com/Nekt_0/article/2019107985079816395",
+    "title": "All Types of Arbitrage on Prediction Markets",
+    "author": "Nekt0",
+    "author_twitter": "@Nekt_0",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-05",
+    "primary_category": "Microstructure",
+    "content_type": "Explainer",
+    "difficulty": "None",
+    "concepts": [
+      "arbitrage",
+      "cross-platform arbitrage",
+      "hedging",
+      "resolution criteria",
+      "time arbitrage",
+      "orderflow arbitrage"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Catalogs eight distinct arbitrage strategies available on prediction markets: classic YES+NO mispricing, cross-platform, range, conditional, time, hedged, resolution, and orderflow arbitrage. Each type includes concrete examples with dollar amounts and specific risk factors to watch for.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 68,
+    "url": "https://x.com/RohOnChain/article/2020565633453412751",
+    "title": "Why Prediction Markets Aren't Gambling? (The Math)",
+    "author": "Roan",
+    "author_twitter": "@RohOnChain",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-09",
+    "primary_category": "Microstructure",
+    "content_type": "Explainer",
+    "difficulty": "Some",
+    "concepts": [
+      "arbitrage",
+      "adverse selection",
+      "Kelly criterion",
+      "order book",
+      "information aggregation",
+      "forecasting accuracy"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Provides a quantitative framework for distinguishing gambling from systematic trading on prediction markets, including a five-point diagnostic and three trader archetypes classified by profitability. Explains why Polymarket's CLOB creates renewable structural arbitrage by design, and covers Kelly position sizing, adverse selection measurement via fill quality, and probability term structure as tools for building a repeatable edge.",
     "fetch_status": "pdf"
   }
 ]

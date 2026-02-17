@@ -1,5 +1,6 @@
 import { getArticles } from "./articles";
 import { ConceptNode, ConceptEdge, ConceptGraphData } from "@/types/concept";
+import defs from "../../concept_definitions.json";
 
 export type ConceptCluster =
   | "oracle"
@@ -38,6 +39,8 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "retail flow": "liquidity",
   "arbitrage": "liquidity",
   "cross-platform arbitrage": "liquidity",
+  "time arbitrage": "liquidity",
+  "orderflow arbitrage": "liquidity",
   "Kelly criterion": "liquidity",
   "portfolio sizing": "liquidity",
   "hedging": "liquidity",
@@ -94,6 +97,8 @@ const conceptToCluster: Record<string, ConceptCluster> = {
 export function getConceptCluster(concept: string): ConceptCluster {
   return conceptToCluster[concept] || "information"; // default to information
 }
+
+export const conceptDefinitions: Record<string, string> = defs;
 
 function normalizeConcept(concept: string): string {
   return concept.replace(/^NEW:\s*/i, "").trim();
