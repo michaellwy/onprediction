@@ -6,7 +6,7 @@ import { Providers } from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "On Prediction",
-  description: "Prediction market reading list for builders & researchers",
+  description: "Curated content for builders, investors & researchers",
 };
 
 export default function RootLayout({
