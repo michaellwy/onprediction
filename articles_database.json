@@ -1625,5 +1625,50 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Argues prediction markets are the natural marketplace for sovereign AI agents to trade their core commodity: information. Frames decentralized PMs as the 'bazaar' where agents monetize alpha through positions, market creators earn fees from surfacing unanswered questions, and reproducible computation enables incorruptible AI judges for dispute resolution. Positions this as an alternative to centralized AI lab alignment\u2014market incentives align agents through financial participation rather than top-down instruction.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 74,
+    "url": "https://www.oddchain.com/p/semantics-for-10-million-when-is-an-invasion-an-invasion-polymarket",
+    "title": "Semantics for $10 Million: When Is an Invasion an Invasion?",
+    "author": "OddChain",
+    "author_twitter": "@theoddchain",
+    "source_type": "Substack",
+    "publish_date": "2026-01-23",
+    "primary_category": "Platforms",
+    "content_type": "Case Study",
+    "difficulty": "Some",
+    "concepts": [
+      "resolution criteria",
+      "dispute resolution",
+      "oracle design",
+      "corruption value multiple"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Examines a $10 million Polymarket dispute over whether events in Venezuela constitute an 'invasion,' exposing how semantic ambiguity in market resolution criteria can create massive financial consequences. Raises fundamental questions about who controls truth determination when contract language is open to interpretation.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 75,
+    "url": "https://www.humaninvariant.com/blog/pm-ordering",
+    "title": "The Case For Alternative Ordering Mechanisms in Prediction Markets",
+    "author": "Human Invariant",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2025-11-12",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "batched auctions",
+      "market making",
+      "bid-ask spread",
+      "adverse selection",
+      "continuous double auction"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Argues that First-Come-First-Served order matching in prediction markets creates perverse incentives: latency wars between traders and defensive spread widening by market makers. Proposes priority batch auctions that process cancellations before maker orders before taker orders, allowing market makers to quote tighter spreads and improving price quality for all participants.",
+    "fetch_status": "web"
   }
 ]

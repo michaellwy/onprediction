@@ -41,6 +41,8 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "cross-platform arbitrage": "liquidity",
   "time arbitrage": "liquidity",
   "orderflow arbitrage": "liquidity",
+  "bid-ask spread": "liquidity",
+  "continuous double auction": "liquidity",
   "Kelly criterion": "liquidity",
   "portfolio sizing": "liquidity",
   "hedging": "liquidity",
