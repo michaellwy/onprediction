@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUp, Bookmark, ChevronRight, ExternalLink } from "lucide-react";
+import { ArrowUp, Bookmark, ChevronRight, ExternalLink, Link2 } from "lucide-react";
 import Link from "next/link";
 import { Article, Category, Difficulty } from "@/types/article";
 import { cn } from "@/lib/utils";
+import { copyShareLink } from "@/lib/share";
 
 interface ArticleCardProps {
   article: Article;
@@ -17,6 +18,7 @@ interface ArticleCardProps {
   index?: number;
   isExpanded?: boolean;
   onToggleExpand?: () => void;
+  onShareCopied?: () => void;
 }
 
 const categoryColors: Record<Category, string> = {
@@ -86,6 +88,7 @@ export function ArticleCard({
   index = 0,
   isExpanded: controlledExpanded,
   onToggleExpand,
+  onShareCopied,
 }: ArticleCardProps) {
   const [internalExpanded, setInternalExpanded] = useState(false);
 
@@ -103,6 +106,7 @@ export function ArticleCard({
 
   return (
     <article
+      data-article-id={article.id}
       className="animate-list-item group"
       style={{ animationDelay: `${Math.min(index * 30, 300)}ms` }}
     >
@@ -346,6 +350,19 @@ export function ArticleCard({
                       </a>
                     </>
                   )}
+                  <span>·</span>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      copyShareLink(article.id).then((ok) => {
+                        if (ok) onShareCopied?.();
+                      });
+                    }}
+                    className="inline-flex items-center gap-1 text-foreground/50 hover:text-foreground/70 font-medium transition-colors"
+                  >
+                    Share
+                    <Link2 className="h-3 w-3" />
+                  </button>
                 </div>
 
                 {/* Blurb - the hero content */}
