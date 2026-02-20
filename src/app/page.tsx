@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Search, X, ChevronsUpDown, ChevronsDownUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   getArticles,
   getUniqueCategories,
@@ -22,7 +24,11 @@ const articles = getArticles();
 const categories = getUniqueCategories();
 const sourceTypes = getUniqueSourceTypes();
 
-export default function Home() {
+function HomeContent() {
+  const searchParams = useSearchParams();
+  const articleParam = searchParams.get("article");
+  const sharedArticleId = articleParam ? parseInt(articleParam, 10) : null;
+
   const {
     filters,
     sortOption,
@@ -48,6 +54,12 @@ export default function Home() {
   const [searchExpanded, setSearchExpanded] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const showSearchInput = searchExpanded || !!filters.searchQuery;
+  const [showToast, setShowToast] = useState(false);
+
+  const handleShareCopied = useCallback(() => {
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 2000);
+  }, []);
 
   const handleToggleUpvote = useCallback(
     (articleId: number) => {
@@ -207,6 +219,8 @@ export default function Home() {
                   onToggleUpvote={handleToggleUpvote}
                   allExpanded={allExpanded}
                   expandResetKey={expandResetKey}
+                  sharedArticleId={sharedArticleId}
+                  onShareCopied={handleShareCopied}
                 />
               )}
 
@@ -232,6 +246,29 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {/* Toast notification */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.2 }}
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-foreground text-background text-sm font-medium shadow-lg"
+          >
+            Link copied
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense>
+      <HomeContent />
+    </Suspense>
   );
 }

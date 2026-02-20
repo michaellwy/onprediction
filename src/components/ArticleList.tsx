@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useCallback } from "react";
+import { useMemo, useState, useCallback, useEffect } from "react";
 import { FileQuestion } from "lucide-react";
 import { Article, FilterState, SortOption } from "@/types/article";
 import { filterArticles, sortArticles } from "@/lib/filters";
@@ -17,6 +17,8 @@ interface ArticleListProps {
   onToggleUpvote: (articleId: number) => void;
   allExpanded: boolean;
   expandResetKey: number;
+  sharedArticleId?: number | null;
+  onShareCopied?: () => void;
 }
 
 export function ArticleList({
@@ -30,12 +32,14 @@ export function ArticleList({
   onToggleUpvote,
   allExpanded,
   expandResetKey,
+  sharedArticleId,
+  onShareCopied,
 }: ArticleListProps) {
   // Track IDs that override the allExpanded state, keyed by reset
-  const [overrideState, setOverrideState] = useState<{ key: number; ids: Set<number> }>({
+  const [overrideState, setOverrideState] = useState<{ key: number; ids: Set<number> }>(() => ({
     key: expandResetKey,
-    ids: new Set()
-  });
+    ids: new Set(sharedArticleId != null ? [sharedArticleId] : [])
+  }));
 
   // Get current overrides, clearing if reset key changed
   const overrideIds = overrideState.key === expandResetKey ? overrideState.ids : new Set<number>();
@@ -57,6 +61,17 @@ export function ArticleList({
     const isOverridden = overrideIds.has(id);
     return allExpanded ? !isOverridden : isOverridden;
   }, [allExpanded, overrideIds]);
+
+  // Scroll to shared article on mount
+  useEffect(() => {
+    if (sharedArticleId == null) return;
+    const timer = setTimeout(() => {
+      const el = document.querySelector(`[data-article-id="${sharedArticleId}"]`);
+      el?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [sharedArticleId]);
+
   const filteredAndSortedArticles = useMemo(() => {
     const filtered = filterArticles(articles, filters, bookmarks);
     return sortArticles(filtered, sortOption, upvoteCounts);
@@ -92,6 +107,7 @@ export function ArticleList({
           index={index}
           isExpanded={isCardExpanded(article.id)}
           onToggleExpand={() => toggleExpand(article.id)}
+          onShareCopied={onShareCopied}
         />
       ))}
     </div>
