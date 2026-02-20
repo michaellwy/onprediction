@@ -58,6 +58,7 @@
   "self-resolving markets": "Markets whose resolution depends on on-chain or automatically verifiable data, needing no human oracle.",
   "social coercion": "Pressure on market participants to trade based on social conformity rather than genuine private beliefs.",
   "superforecasting": "Techniques and traits of forecasters who consistently outperform base rates and prediction markets.",
+  "temporal arbitrage": "Profiting from swings in probability estimates as a prediction market converges toward its binary resolution, trading volatility rather than the final outcome.",
   "time arbitrage": "Profiting from a delay between when information becomes known and when the prediction market price adjusts to reflect it.",
   "toxic flow": "Order flow from informed traders that systematically moves against the market maker's positions.",
   "UMA protocol": "Optimistic oracle system where outcomes are assumed correct unless disputed, using economic bonds for security.",

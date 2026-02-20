@@ -1670,5 +1670,76 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Argues that First-Come-First-Served order matching in prediction markets creates perverse incentives: latency wars between traders and defensive spread widening by market makers. Proposes priority batch auctions that process cancellations before maker orders before taker orders, allowing market makers to quote tighter spreads and improving price quality for all participants.",
     "fetch_status": "web"
+  },
+  {
+    "id": 76,
+    "url": "https://x.com/njokuScript/article/2010080717729046613",
+    "title": "Prediction Markets: A New Kind of Asset Class",
+    "author": "njokuScript",
+    "author_twitter": "@njokuScript",
+    "source_type": "Twitter",
+    "publish_date": "2026-01-11",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "gap risk",
+      "derivatives",
+      "price discovery",
+      "regulatory arbitrage",
+      "liquidity provision",
+      "NEW: temporal arbitrage"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Frames prediction markets as crypto's first truly native financial primitive, one that couldn't scale on traditional finance rails due to regulatory chokepoints. Traces the historical pattern where financial innovations move from 'gambling' to infrastructure, and argues that margin and derivatives layers are the missing pieces that will unlock institutional capital. Highlights the unique properties of prediction market positions: time-bounded decay and binary convergence to truth, which create a distinct trading mechanic the author calls temporal arbitrage.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 77,
+    "url": "https://reachavci.substack.com/p/is-ai-any-good-at-predicting",
+    "title": "Is AI Any Good at Predicting?",
+    "author": "Mehmet Avci",
+    "author_twitter": "@reachavci",
+    "source_type": "Substack",
+    "publish_date": "2026-02-02",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "AI agents",
+      "information asymmetry",
+      "forecasting accuracy",
+      "price discovery"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Examines early results from the Prediction Arena experiment, where six AI models trade real money on Kalshi. Five of six are underwater after three weeks, suggesting that raw information processing isn't enough to generate edge. Argues that successful prediction market traders profit from embodied, local knowledge (monitoring flights, calling embassies) rather than synthesizing public information, a domain where AI remains fundamentally constrained."
+  },
+  {
+    "id": 78,
+    "url": "https://reachavci.substack.com/p/the-nielsen-moment-for-prediction",
+    "title": "The Nielsen Moment for Prediction Markets",
+    "author": "Mehmet Avci",
+    "author_twitter": "@reachavci",
+    "source_type": "Substack",
+    "publish_date": "2026-01-12",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "network effects",
+      "platform competition",
+      "forecasting accuracy",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Draws a parallel between prediction markets and Nielsen ratings to argue that coordination value matters more than accuracy. Points to Polymarket's Golden Globes and WSJ partnerships and Kalshi's CNN deal as signs that prediction markets are shifting from external forecasting tools to embedded institutional infrastructure. Once adopted as the shared reference point, displacement becomes nearly impossible regardless of methodological superiority.",
+    "fetch_status": "web"
   }
 ]
