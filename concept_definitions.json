@@ -57,6 +57,7 @@
   "retail flow": "Trading activity from non-professional participants, generally considered less informed and more predictable.",
   "self-resolving markets": "Markets whose resolution depends on on-chain or automatically verifiable data, needing no human oracle.",
   "social coercion": "Pressure on market participants to trade based on social conformity rather than genuine private beliefs.",
+  "sports betting": "Wagering on the outcomes of sporting events, often the closest mainstream analogue to prediction markets in terms of regulation, user behavior, and market structure.",
   "superforecasting": "Techniques and traits of forecasters who consistently outperform base rates and prediction markets.",
   "temporal arbitrage": "Profiting from swings in probability estimates as a prediction market converges toward its binary resolution, trading volatility rather than the final outcome.",
   "time arbitrage": "Profiting from a delay between when information becomes known and when the prediction market price adjusts to reflect it.",

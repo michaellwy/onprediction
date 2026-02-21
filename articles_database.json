@@ -1741,5 +1741,31 @@
     ],
     "editorial_blurb": "Draws a parallel between prediction markets and Nielsen ratings to argue that coordination value matters more than accuracy. Points to Polymarket's Golden Globes and WSJ partnerships and Kalshi's CNN deal as signs that prediction markets are shifting from external forecasting tools to embedded institutional infrastructure. Once adopted as the shared reference point, displacement becomes nearly impossible regardless of methodological superiority.",
     "fetch_status": "web"
+  },
+  {
+    "id": 79,
+    "url": "https://murmurationstwo.substack.com/p/prediction-markets-are-not-good-markets",
+    "title": "Prediction Markets Are Not Good Markets (Yet)",
+    "author": "Nic Carter",
+    "author_twitter": "@nic__carter",
+    "source_type": "Substack",
+    "publish_date": "2026-02-21",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "hedging",
+      "adverse selection",
+      "information asymmetry",
+      "liquidity provision",
+      "retail flow",
+      "sports betting"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Argues that prediction markets face two structural problems preventing them from becoming transformative economic instruments: corporate hedging is impractical due to market fragmentation and basis risk, and insider trading undermines retail participation. Draws parallels to online poker and memecoins to suggest that without structural reforms, prediction markets will remain primarily a sports betting product.",
+    "fetch_status": "web"
   }
 ]
