@@ -1767,5 +1767,52 @@
     ],
     "editorial_blurb": "Argues that prediction markets face two structural problems preventing them from becoming transformative economic instruments: corporate hedging is impractical due to market fragmentation and basis risk, and insider trading undermines retail participation. Draws parallels to online poker and memecoins to suggest that without structural reforms, prediction markets will remain primarily a sports betting product.",
     "fetch_status": "web"
+  },
+  {
+    "id": 80,
+    "url": "https://x.com/thejay/article/1968392782998835518",
+    "title": "Who Are You Really Playing Against?",
+    "author": "Jay Malavia",
+    "author_twitter": "@thejay",
+    "source_type": "Twitter",
+    "publish_date": "2025-09-18",
+    "primary_category": "Fundamentals",
+    "content_type": "Explainer",
+    "difficulty": "None",
+    "concepts": [
+      "sports betting",
+      "order book",
+      "market making",
+      "bid-ask spread",
+      "price discovery",
+      "wisdom of crowds"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Betfair"
+    ],
+    "editorial_blurb": "Compares the traditional sportsbook house model with prediction market exchanges to explain why exchanges offer better odds. Uses data showing Betfair's ~3% overround versus bookmakers' ~12% to argue that peer-to-peer exchange models produce fairer pricing and welcome all winners, unlike sportsbooks that limit successful bettors.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 81,
+    "url": "https://www.oddchain.com/p/the-measles-market-on-kalshi-for-2025-is-one-of-the-dumbest-and-most-tragic-markets-we-ve-seen-this",
+    "title": "The Measles Market on Kalshi Is One of the Dumbest and Most Tragic Markets We've Seen This Year",
+    "author": "OddChain",
+    "author_twitter": "@theoddchain",
+    "source_type": "Substack",
+    "publish_date": "2025-12-30",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "event contracts",
+      "resolution criteria"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Critiques Kalshi's 2025 measles cases market as an example of prediction markets being applied to inappropriate domains. Argues that turning a public health crisis into a speculative instrument is ethically questionable and reflects poorly on the industry's judgment about which events deserve tradeable contracts.",
+    "fetch_status": "web"
   }
 ]
