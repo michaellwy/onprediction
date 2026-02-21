@@ -255,7 +255,7 @@ function HomeContent() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-foreground text-background text-sm font-medium shadow-lg"
+            className="fixed bottom-6 left-0 right-0 mx-auto w-fit z-50 px-4 py-2 rounded-lg bg-foreground text-background text-sm font-medium shadow-lg"
           >
             Link copied
           </motion.div>
