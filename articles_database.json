@@ -1814,5 +1814,30 @@
     ],
     "editorial_blurb": "Critiques Kalshi's 2025 measles cases market as an example of prediction markets being applied to inappropriate domains. Argues that turning a public health crisis into a speculative instrument is ethically questionable and reflects poorly on the industry's judgment about which events deserve tradeable contracts.",
     "fetch_status": "web"
+  },
+  {
+    "id": 82,
+    "url": "https://x.com/13_niakris/article/2025614474263093627",
+    "title": "Polymarket Is Not a Casino. Why Prediction Markets Are Finance, Not Gambling",
+    "author": "Niakris",
+    "author_twitter": "@13_niakris",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-23",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "information aggregation",
+      "wisdom of crowds",
+      "price discovery",
+      "market manipulation",
+      "order book",
+      "hedging"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Argues that prediction markets are financial instruments, not gambling, by examining Polymarket's architecture across multiple layers: peer-to-peer order book mechanics, information aggregation through skin-in-the-game pricing, hedging use cases, and UX design that suppresses gambling patterns. Contrasts the exchange model with the house-edge casino model to argue the gambling label stems from outdated legal frameworks.",
+    "fetch_status": "pdf"
   }
 ]
