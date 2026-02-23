@@ -147,7 +147,7 @@ export function ArticleCard({
               onToggleUpvote();
             }}
             className={cn(
-              "shrink-0 hidden sm:flex items-center gap-0.5 p-0.5 -m-0.5 rounded transition-colors",
+              "shrink-0 hidden sm:flex items-center gap-0.5 p-0.5 -m-0.5 rounded transition-colors self-start mt-[1px]",
               isUpvoted
                 ? "text-emerald-600"
                 : upvoteCount > 0
@@ -175,7 +175,7 @@ export function ArticleCard({
               e.stopPropagation();
               onToggleBookmark();
             }}
-            className="shrink-0 hidden sm:flex p-0.5 -m-0.5 rounded transition-colors"
+            className="shrink-0 hidden sm:flex p-0.5 -m-0.5 rounded transition-colors self-start mt-[1px]"
             aria-label={isBookmarked ? "Remove bookmark" : "Bookmark article"}
           >
             <Bookmark
@@ -203,7 +203,10 @@ export function ArticleCard({
                 "group-hover:text-foreground"
               )}
             >
-              <span className={isExpanded ? "" : "line-clamp-2 sm:line-clamp-1"}>
+              <span className={cn(
+                "block overflow-hidden transition-[max-height] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
+                isExpanded ? "max-h-[4em]" : "max-h-[2.75em] sm:max-h-[1.375em]"
+              )}>
                 {isNewArticle(article.publish_date) && (
                   <span className="inline-block align-middle mr-1.5 px-1.5 py-0.5 text-[10px] font-sans font-semibold leading-none rounded-full bg-primary/10 text-primary translate-y-[-1px]">
                     New
@@ -242,7 +245,7 @@ export function ArticleCard({
           {difficulty && (
             <span
               className={cn(
-                "hidden sm:block text-xs font-semibold shrink-0",
+                "hidden sm:block text-xs font-semibold shrink-0 self-start mt-[3px]",
                 difficulty.color
               )}
               title={article.difficulty || ""}
@@ -252,19 +255,19 @@ export function ArticleCard({
           )}
 
           {/* Author — desktop only */}
-          <span className="hidden md:block text-[14px] text-foreground/55 truncate max-w-[180px] shrink-0">
+          <span className="hidden md:block text-[14px] text-foreground/55 truncate max-w-[180px] shrink-0 self-start mt-[2px]">
             {article.author}
           </span>
 
           {/* Date — desktop only */}
-          <span className="hidden sm:block text-[13px] text-foreground/45 w-16 text-right shrink-0 tabular-nums">
+          <span className="hidden sm:block text-[13px] text-foreground/45 w-16 text-right shrink-0 tabular-nums self-start mt-[2px]">
             {formatRelativeDate(article.publish_date)}
           </span>
 
           {/* Expand indicator */}
           <ChevronRight
             className={cn(
-              "h-4 w-4 text-muted-foreground/40 transition-transform duration-150 shrink-0",
+              "h-4 w-4 text-muted-foreground/40 transition-transform duration-150 shrink-0 self-start mt-[3px]",
               isExpanded && "rotate-90"
             )}
           />
