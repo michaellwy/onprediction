@@ -190,7 +190,7 @@ export function ArticleCard({
 
           {/* Category dot — desktop only */}
           <span
-            className={cn("hidden sm:block w-2 h-2 rounded-full shrink-0", categoryColor)}
+            className={cn("hidden sm:block w-2 h-2 rounded-full shrink-0 self-start mt-[7px]", categoryColor)}
             title={article.primary_category || ""}
           />
 
