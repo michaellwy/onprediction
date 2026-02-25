@@ -1273,8 +1273,11 @@
       "liquidity provision",
       "platform competition"
     ],
-    "platforms_mentioned": ["Polymarket", "Kalshi"],
-    "editorial_blurb": "Galaxy research report on prediction markets evolving from niche speculation to mainstream financial infrastructure. Covers Polymarket ($9B valuation, 1.6M users) and Kalshi (top finance iOS app), emerging leverage mechanisms (Space, Gondor), AI as interface layer for fragmented venues, and convergence toward derivatives—event contracts as hedges, collateral, and composable financial primitives.",
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Galaxy research report on prediction markets evolving from niche speculation to mainstream financial infrastructure. Covers Polymarket ($9B valuation, 1.6M users) and Kalshi (top finance iOS app), emerging leverage mechanisms (Space, Gondor), AI as interface layer for fragmented venues, and convergence toward derivatives\u2014event contracts as hedges, collateral, and composable financial primitives.",
     "fetch_status": "web"
   },
   {
@@ -1294,8 +1297,10 @@
       "AI agents",
       "resolution criteria"
     ],
-    "platforms_mentioned": ["Polymarket"],
-    "editorial_blurb": "Argues the hardest PM problem isn't pricing but deciding what actually happened. Proposes cryptographically-committed LLMs as resolution judges—trading human bias and conflicts of interest for more tractable technical vulnerabilities. Cites Polymarket disputes (Venezuela election, Ukraine map, government shutdown) as evidence current systems fail at scale.",
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Argues the hardest PM problem isn't pricing but deciding what actually happened. Proposes cryptographically-committed LLMs as resolution judges\u2014trading human bias and conflicts of interest for more tractable technical vulnerabilities. Cites Polymarket disputes (Venezuela election, Ukraine map, government shutdown) as evidence current systems fail at scale.",
     "fetch_status": "web"
   },
   {
@@ -1314,7 +1319,9 @@
       "cross-platform arbitrage",
       "price discovery"
     ],
-    "platforms_mentioned": ["Polymarket"],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
     "editorial_blurb": "Examines mispricing inefficiencies on Polymarket, identifying two categories of arbitrage opportunities: those within single markets and those spanning multiple related markets. Using blockchain transaction analysis, the researchers estimate approximately $40 million in profits were extracted through exploitation of these pricing inconsistencies.",
     "fetch_status": "web"
   },
@@ -1351,12 +1358,11 @@
     "content_type": "Opinion",
     "difficulty": "Some",
     "concepts": [
-      "wisdom of crowds",
+      "distribution markets",
       "superforecasting",
       "calibration",
-      "information aggregation",
-      "price discovery",
-      "distribution markets"
+      "wisdom of crowds",
+      "information aggregation"
     ],
     "platforms_mentioned": [
       "PredictIt",
@@ -1465,12 +1471,11 @@
     "content_type": "Explainer",
     "difficulty": "None",
     "concepts": [
-      "arbitrage",
-      "cross-platform arbitrage",
-      "hedging",
-      "resolution criteria",
       "time arbitrage",
-      "orderflow arbitrage"
+      "orderflow arbitrage",
+      "cross-platform arbitrage",
+      "arbitrage",
+      "resolution criteria"
     ],
     "platforms_mentioned": [],
     "editorial_blurb": "Catalogs eight distinct arbitrage strategies available on prediction markets: classic YES+NO mispricing, cross-platform, range, conditional, time, hedged, resolution, and orderflow arbitrage. Each type includes concrete examples with dollar amounts and specific risk factors to watch for.",
@@ -1488,14 +1493,15 @@
     "content_type": "Explainer",
     "difficulty": "Some",
     "concepts": [
+      "Kelly criterion",
       "arbitrage",
       "adverse selection",
-      "Kelly criterion",
-      "order book",
-      "information aggregation",
-      "forecasting accuracy"
+      "forecasting accuracy",
+      "order book"
     ],
-    "platforms_mentioned": ["Polymarket"],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
     "editorial_blurb": "Provides a quantitative framework for distinguishing gambling from systematic trading on prediction markets, including a five-point diagnostic and three trader archetypes classified by profitability. Explains why Polymarket's CLOB creates renewable structural arbitrage by design, and covers Kelly position sizing, adverse selection measurement via fill quality, and probability term structure as tools for building a repeatable edge.",
     "fetch_status": "pdf"
   },
@@ -1683,12 +1689,11 @@
     "content_type": "Analysis",
     "difficulty": "Some",
     "concepts": [
+      "NEW: temporal arbitrage",
       "gap risk",
       "derivatives",
-      "price discovery",
       "regulatory arbitrage",
-      "liquidity provision",
-      "NEW: temporal arbitrage"
+      "liquidity provision"
     ],
     "platforms_mentioned": [
       "Polymarket"
@@ -1754,12 +1759,11 @@
     "content_type": "Opinion",
     "difficulty": "Some",
     "concepts": [
-      "hedging",
+      "retail flow",
       "adverse selection",
       "information asymmetry",
       "liquidity provision",
-      "retail flow",
-      "sports betting"
+      "hedging"
     ],
     "platforms_mentioned": [
       "Polymarket",
@@ -1780,12 +1784,11 @@
     "content_type": "Explainer",
     "difficulty": "None",
     "concepts": [
-      "sports betting",
-      "order book",
-      "market making",
       "bid-ask spread",
+      "market making",
+      "order book",
       "price discovery",
-      "wisdom of crowds"
+      "sports betting"
     ],
     "platforms_mentioned": [
       "Kalshi",
@@ -1827,11 +1830,10 @@
     "content_type": "Opinion",
     "difficulty": "None",
     "concepts": [
+      "order book",
       "information aggregation",
-      "wisdom of crowds",
       "price discovery",
       "market manipulation",
-      "order book",
       "hedging"
     ],
     "platforms_mentioned": [
@@ -1852,12 +1854,11 @@
     "content_type": "Analysis",
     "difficulty": "Some",
     "concepts": [
+      "NEW: minimum viable liquidity",
       "liquidity provision",
       "forecasting accuracy",
-      "information aggregation",
-      "price discovery",
       "market making",
-      "NEW: minimum viable liquidity"
+      "price discovery"
     ],
     "platforms_mentioned": [
       "Kalshi"
@@ -1948,17 +1949,62 @@
     "content_type": "Analysis",
     "difficulty": "Extensive",
     "concepts": [
+      "binary contracts",
       "LMSR (logarithmic market scoring rule)",
-      "market making",
       "Kelly criterion",
-      "information aggregation",
-      "price discovery",
-      "binary contracts"
+      "market making",
+      "price discovery"
     ],
     "platforms_mentioned": [
       "Polymarket"
     ],
     "editorial_blurb": "Traces the quantitative finance toolkit from backtesting (Deflated Sharpe Ratio, combinatorial purged cross-validation) through factor models, Black-Litterman portfolio optimization, Bayesian regime detection, and machine learning, then argues each technique transfers directly to prediction markets. The core claim is that prediction markets are the purest testing environment for investment theory because binary resolution eliminates the unobservable noise that obscures strategy quality in traditional finance. Uses LMSR's mathematical identity with the softmax function to bridge quant finance and prediction market pricing.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 88,
+    "url": "https://www.umbraresearch.xyz/writings/futarchy",
+    "title": "Futarchy as Trustless Joint Ownership",
+    "author": "Kevin Heavey",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2024-10-28",
+    "primary_category": "Applications",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "futarchy",
+      "decision markets",
+      "conditional tokens",
+      "token voting",
+      "price discovery"
+    ],
+    "platforms_mentioned": [
+      "NEW: MetaDAO"
+    ],
+    "editorial_blurb": "Argues that asset futarchy solves trustless joint ownership by making treasury raids economically irrational: exploiting minority shareholders requires buying their tokens above fair value while simultaneously depressing conditional market prices, making the attack self-defeating by construction. Examines MetaDAO's implementation and Proposal 6, where an attempted governance attack was repelled through this mechanism. Also addresses limitations including soft rug pulls, settlement price complexity, and regulatory constraints around insider trading.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 89,
+    "url": "https://link.springer.com/chapter/10.1007/978-3-642-40381-1_22",
+    "title": "Combinatorial Prediction Markets: An Experimental Study",
+    "author": "Powell, Hanson, Laskey & Twardy",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2013-09-16",
+    "primary_category": "Design",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "NEW: combinatorial prediction markets",
+      "market scoring rules",
+      "LMSR (logarithmic market scoring rule)",
+      "proper scoring rules",
+      "forecasting accuracy"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Investigates combinatorial prediction markets, which extend the standard model to support forecasts on conditional events (e.g., A given B) and Boolean combinations of events rather than only base events. Reports experimental results comparing combinatorial versus flat market structures on forecasting accuracy and calibration. Co-authored by Robin Hanson, whose LMSR underpins most automated prediction markets.",
+    "fetch_status": "web"
   }
 ]

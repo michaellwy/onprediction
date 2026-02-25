@@ -202,18 +202,25 @@ regulatory arbitrage
 ## Field Guidelines
 
 ### concepts
-Up to 6 prediction market concepts meaningfully discussed in the article.
+Up to **5** prediction market concepts meaningfully discussed in the article.
 
 **Rules:**
+- Maximum 5 concepts — do not pad with generic concepts to reach 5
+- If the article introduces a concept not in the canonical list, prefix it with `NEW:` and place it **first** in the array
 - Use canonical form from the list above if it exists
 - Use lowercase with spaces
 - Be specific over generic (e.g., "LMSR" over "scoring rules" if LMSR is specifically discussed)
-- If a new concept is essential and not in the canonical list, prefix with `NEW:`
+- Prefer rarer, more specific concepts over common ones like "information aggregation" or "price discovery" — only include those if they are genuinely central to the article's argument
 - Each concept should be something a reader might want to explore across multiple articles
 
-**Good:** `["adverse selection", "market making", "gap risk", "NEW: mention markets"]`
+**Ordering:**
+1. `NEW:` concepts first (unique to this article)
+2. Most specific/distinctive concepts next
+3. Generic concepts (information aggregation, price discovery) last — and only if truly central
 
-**Bad:** `["blockchain", "interesting", "markets", "technology"]`
+**Good:** `["NEW: temporal arbitrage", "gap risk", "derivatives", "regulatory arbitrage", "liquidity provision"]`
+
+**Bad:** `["blockchain", "interesting", "markets", "technology", "information aggregation", "price discovery"]`
 
 ### platforms_mentioned
 List of prediction market platforms meaningfully discussed in the article.
