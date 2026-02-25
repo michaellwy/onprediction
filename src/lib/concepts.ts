@@ -48,6 +48,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "portfolio sizing": "liquidity",
   "hedging": "liquidity",
   "covariance markets": "liquidity",
+  "minimum viable liquidity": "liquidity",
 
   // Information Theory
   "information aggregation": "information",
@@ -89,6 +90,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "platform competition": "business",
   "election markets": "business",
   "parlays": "business",
+  "binary contracts": "mechanism",
   "event contracts": "business",
   "regulatory arbitrage": "business",
   "public goods problem": "business",

@@ -1839,5 +1839,126 @@
     ],
     "editorial_blurb": "Argues that prediction markets are financial instruments, not gambling, by examining Polymarket's architecture across multiple layers: peer-to-peer order book mechanics, information aggregation through skin-in-the-game pricing, hedging use cases, and UX design that suppresses gambling patterns. Contrasts the exchange model with the house-edge casino model to argue the gambling label stems from outdated legal frameworks.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 83,
+    "url": "https://fiftycentdollars.substack.com/p/minimum-viable-liquidity",
+    "title": "Minimum Viable Liquidity",
+    "author": "Adhi Rajaprabhakaran",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-02-24",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "liquidity provision",
+      "forecasting accuracy",
+      "information aggregation",
+      "price discovery",
+      "market making",
+      "NEW: minimum viable liquidity"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Analysis of 149 CPI prediction markets on Kalshi from 2021 to 2026 finds that trading volume explains less than 1% of variance in forecast accuracy, challenging the assumption that more liquidity improves market quality. Introduces Minimum Viable Liquidity (Cost of Expertise divided by Price Gap) as a framework for determining the threshold of liquidity needed to attract informed traders. Argues platforms should prioritize breadth over depth, running many thin markets rather than concentrating volume in few contracts.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 84,
+    "url": "https://fiftycentdollars.substack.com/p/prediction-markets-dont-bend-reality",
+    "title": "Prediction Markets Don't Bend Reality",
+    "author": "Adhi Rajaprabhakaran",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-02-03",
+    "primary_category": "Fundamentals",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "reflexivity",
+      "information aggregation",
+      "price discovery"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Responds to Kyla Scanlon's New York Times op-ed claiming prediction markets create reflexive loops that alter outcomes. Argues that unlike stock markets, prediction markets lack causal mechanisms through which odds could influence the events they forecast, making them thermometers rather than thermostats. Attributes concerns about market influence to journalism failures in contextualizing odds, not structural flaws in market design.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 85,
+    "url": "https://jprz1321.substack.com/p/ahead-of-the-headlines-prediction",
+    "title": "Ahead of the Headlines: Prediction Markets and the Collective Mind",
+    "author": "JP",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-02-25",
+    "primary_category": "Fundamentals",
+    "content_type": "Explainer",
+    "difficulty": "None",
+    "concepts": [
+      "information aggregation",
+      "wisdom of crowds",
+      "price discovery",
+      "forecasting accuracy",
+      "incentive compatibility"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Frames prediction markets as a real-time information layer that complements traditional journalism by aggregating probabilistic forecasts from financially-incentivized participants. Argues that skin-in-the-game accountability produces more accurate signals than commentary-based analysis, with price movements often anticipating news before official announcements. Uses Polymarket and Kalshi as examples and acknowledges COVID-19 as a case where markets underperformed.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 86,
+    "url": "https://goodauthority.org/news/the-perils-of-election-prediction-markets/",
+    "title": "The Perils of Election Prediction Markets",
+    "author": "John Sides",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2025-12-18",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "election markets",
+      "forecasting accuracy",
+      "arbitrage",
+      "market manipulation",
+      "price discovery"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "PredictIt",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Examines Clinton and Huang's research on 2024 election market accuracy, finding PredictIt at 93%, Kalshi at 78%, and Polymarket at 67%, while also documenting significant cross-platform price divergences for identical contracts near Election Day. Raises concerns about Kalshi's media partnerships with CNN and CNBC, arguing they create incentives for sensational coverage of market movements and potential manipulation of thin markets.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 87,
+    "url": "https://x.com/gemchange_ltd/article/2026300422483271733",
+    "title": "Your Hedge Fund's Sharpe Ratio Is a Lie. Prediction Markets Are the Only Place It Can't Hide.",
+    "author": "gemchanger",
+    "author_twitter": "@gemchange_ltd",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-25",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "LMSR (logarithmic market scoring rule)",
+      "market making",
+      "Kelly criterion",
+      "information aggregation",
+      "price discovery",
+      "binary contracts"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Traces the quantitative finance toolkit from backtesting (Deflated Sharpe Ratio, combinatorial purged cross-validation) through factor models, Black-Litterman portfolio optimization, Bayesian regime detection, and machine learning, then argues each technique transfers directly to prediction markets. The core claim is that prediction markets are the purest testing environment for investment theory because binary resolution eliminates the unobservable noise that obscures strategy quality in traditional finance. Uses LMSR's mathematical identity with the softmax function to bridge quant finance and prediction market pricing.",
+    "fetch_status": "pdf"
   }
 ]
