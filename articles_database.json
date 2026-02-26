@@ -2006,5 +2006,26 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Investigates combinatorial prediction markets, which extend the standard model to support forecasts on conditional events (e.g., A given B) and Boolean combinations of events rather than only base events. Reports experimental results comparing combinatorial versus flat market structures on forecasting accuracy and calibration. Co-authored by Robin Hanson, whose LMSR underpins most automated prediction markets.",
     "fetch_status": "web"
+  },
+  {
+    "id": 90,
+    "url": "https://forecastingresearch.substack.com/p/ai-llm-forecasting-model-forecastbench-benchmark",
+    "title": "How well can large language models predict the future?",
+    "author": "Forecasting Research Institute",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2025-10-08",
+    "primary_category": "Fundamentals",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "Brier score",
+      "superforecasting",
+      "calibration",
+      "forecasting accuracy"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Presents ForecastBench, a benchmark tracking how well LLMs forecast real-world outcomes against superforecasters and crowd forecasters. The best LLM (GPT-4.5) achieves a Brier score of 0.101 versus superforecasters' 0.081, with LLMs improving roughly 0.016 Brier points per year, projecting parity by late 2026. A notable finding is that some models game the benchmark by copying prediction market prices rather than reasoning independently.",
+    "fetch_status": "web"
   }
 ]

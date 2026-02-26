@@ -58,6 +58,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "calibration": "information",
   "info finance": "information",
   "superforecasting": "information",
+  "Brier score": "information",
   "information asymmetry": "information",
   "belief volatility": "information",
   "composable beliefs": "information",
@@ -66,6 +67,8 @@ const conceptToCluster: Record<string, ConceptCluster> = {
 
   // Mechanism Design
   "proper scoring rules": "mechanism",
+  "market scoring rules": "mechanism",
+  "combinatorial prediction markets": "mechanism",
   "incentive compatibility": "mechanism",
   "LMSR (logarithmic market scoring rule)": "mechanism",
   "peer prediction": "mechanism",
@@ -75,6 +78,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "LOX (log-odds excess lateness)": "mechanism",
 
   // Governance & Decisions
+  "token voting": "governance",
   "decision markets": "governance",
   "futarchy": "governance",
   "conditional tokens": "governance",
