@@ -2027,5 +2027,71 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Presents ForecastBench, a benchmark tracking how well LLMs forecast real-world outcomes against superforecasters and crowd forecasters. The best LLM (GPT-4.5) achieves a Brier score of 0.101 versus superforecasters' 0.081, with LLMs improving roughly 0.016 Brier points per year, projecting parity by late 2026. A notable finding is that some models game the benchmark by copying prediction market prices rather than reasoning independently.",
     "fetch_status": "web"
+  },
+  {
+    "id": 91,
+    "url": "https://x.com/linfluence/status/2026757563518431696",
+    "title": "23 Reasons Prediction Markets Are Broken Today",
+    "author": "Alexander Lin",
+    "author_twitter": "@linfluence",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-26",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "adverse selection",
+      "market making",
+      "liquidity provision",
+      "oracle design",
+      "reflexivity"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "A Reforge co-founder's bearish case against prediction markets, structured as 23 distinct failure modes. Covers structural constraints across capital efficiency, liquidity mechanics, adverse selection, oracle governance, and regulatory fragmentation. Argues that prediction markets face fundamental limitations that perpetual futures markets do not, making institutional scaling unlikely under current designs.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 92,
+    "url": "https://x.com/mikita_crypto/article/2026604293676023988",
+    "title": "Calibration Surface Analysis Across Price and Time Dimensions",
+    "author": "Mikita Ahnianchykau",
+    "author_twitter": "@mikita_crypto",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-25",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "NEW: calibration surface",
+      "calibration",
+      "Brier score",
+      "arbitrage",
+      "price discovery"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Introduces the prediction market calibration surface C(K,tau), a two-dimensional function over probability level and time horizon, as a replacement for the scalar Brier score. Adapts options volatility surface methods to separate price-axis skew from temporal drift, and introduces the Market Coherence Index as a platform quality metric. Shows that surface flattening near resolution is a diagnostic warning that a market has lost its price-discovery function.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 93,
+    "url": "https://x.com/Jake_Nyquist/article/2021222519991124343",
+    "title": "The 7 Axes of Prediction Markets",
+    "author": "Jake Nyquist",
+    "author_twitter": "@Jake_Nyquist",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-10",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "platform competition",
+      "liquidity provision",
+      "oracle design",
+      "regulatory arbitrage",
+      "go-to-market"
+    ],
+    "platforms_mentioned": ["Polymarket", "Kalshi"],
+    "editorial_blurb": "Identifies seven axes on which new prediction market entrants can differentiate: product quality, asset variety, capital efficiency, oracle reliability, liquidity provision, regulatory compliance, and vertical vs. horizontal strategy. Draws on parallels with NFT and perps exchange competition to argue that incumbents' product debt creates openings for challengers. Contrasts Polymarket and Kalshi as examples of horizontal and vertical product strategies.",
+    "fetch_status": "pdf"
   }
 ]
