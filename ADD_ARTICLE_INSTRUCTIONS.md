@@ -45,6 +45,10 @@ After updating both, run `npm run sync:concepts` to sync any new concept definit
 - After adding concepts, run `npm run sync:concepts` — this auto-populates any missing concept definitions in `concept_definitions.json`
 - After syncing, verify any new concept appears in `src/lib/concepts.ts` `conceptToCluster` mapping; if not, add it manually with the appropriate cluster
 
+## Title Formatting
+
+Always use **Title Case** for the `title` field and in the CSV — regardless of how the original article stylizes its own title. For example: "How Well Can Large Language Models Predict the Future?" not "How well can large language models predict the future?"
+
 ## Reference
 
 For JSON schema, field options, validation rules, and editorial blurb guidelines, see `prompt.md`.

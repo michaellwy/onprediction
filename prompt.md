@@ -274,6 +274,7 @@ List of prediction market platforms meaningfully discussed in the article.
 ### Other fields
 - If information is unavailable (no date, no author), return `null`
 - `author_twitter` should include the @ symbol
+- `title` must always use **Title Case** — regardless of how the original article stylizes its own title
 
 ---
 
