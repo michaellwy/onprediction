@@ -10,7 +10,6 @@
   "bonding trades": "A prediction market strategy of betting on near-certain outcomes (>95% probability) to earn a small but reliable yield, analogous to holding a zero-coupon bond to maturity. The 'yield' is the gap between the market price and the $1 payout, but carries catastrophic tail risk if the improbable outcome occurs.",
   "Brier score": "",
   "calibration": "When stated probabilities match empirical frequencies—e.g., events given 70% odds happen 70% of the time.",
-  "calibration surface": "A two-dimensional function C(K, tau) mapping probability level K and remaining time horizon tau to systematic calibration error. Extends the scalar Brier score by decomposing bias into a price-axis skew and a temporal drift component, analogous to the implied volatility surface in options markets.",
   "combinatorial prediction markets": "Prediction markets that allow participants to place bets on conditional events and Boolean combinations of base events, not just individual outcomes. By enabling richer betting vocabularies, they can elicit joint probability distributions over related events rather than only marginal probabilities.",
   "composable beliefs": "Building complex probabilistic views by combining simpler conditional markets or token positions.",
   "conditional tokens": "Tokens representing positions contingent on specific outcomes, enabling composable prediction market positions.",

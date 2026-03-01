@@ -2051,28 +2051,6 @@
     "fetch_status": "pdf"
   },
   {
-    "id": 92,
-    "url": "https://x.com/mikita_crypto/article/2026604293676023988",
-    "title": "Calibration Surface Analysis Across Price and Time Dimensions",
-    "author": "Mikita Ahnianchykau",
-    "author_twitter": "@mikita_crypto",
-    "source_type": "Twitter",
-    "publish_date": "2026-02-25",
-    "primary_category": "Microstructure",
-    "content_type": "Analysis",
-    "difficulty": "Extensive",
-    "concepts": [
-      "NEW: calibration surface",
-      "calibration",
-      "Brier score",
-      "arbitrage",
-      "price discovery"
-    ],
-    "platforms_mentioned": [],
-    "editorial_blurb": "Introduces the prediction market calibration surface C(K,tau), a two-dimensional function over probability level and time horizon, as a replacement for the scalar Brier score. Adapts options volatility surface methods to separate price-axis skew from temporal drift, and introduces the Market Coherence Index as a platform quality metric. Shows that surface flattening near resolution is a diagnostic warning that a market has lost its price-discovery function.",
-    "fetch_status": "pdf"
-  },
-  {
     "id": 93,
     "url": "https://x.com/Jake_Nyquist/article/2021222519991124343",
     "title": "The 7 Axes of Prediction Markets",
