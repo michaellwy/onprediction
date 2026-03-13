@@ -2324,5 +2324,27 @@
     "platforms_mentioned": ["Polymarket", "Kalshi"],
     "editorial_blurb": "Comprehensive research report on AI agents for prediction markets, proposing a four-layer architecture (data, analysis, execution, learning) for autonomous trading systems. Maps the ecosystem of existing agents, compares Kelly criterion vs fixed-fraction bet sizing, surveys arbitrage strategies across platforms, and outlines business models (agent-as-a-service, liquidity mining, data sales). Argues that AI agents will become the dominant market participants within two years, transforming prediction markets from retail-driven speculation into infrastructure for probabilistic information.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 106,
+    "url": "https://read.technically.dev/p/whats-a-prediction-market",
+    "title": "What's Kalshi's Revenue? Analyzing All 203 Million Trades on Kalshi.",
+    "author": "Sam Schneider",
+    "author_twitter": "@trashman18",
+    "source_type": "Substack",
+    "publish_date": "2026-03-12",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "order book",
+      "binary contracts",
+      "platform competition",
+      "sports betting",
+      "bid-ask spread"
+    ],
+    "platforms_mentioned": ["Kalshi", "Polymarket", "Robinhood", "DraftKings", "FanDuel"],
+    "editorial_blurb": "Data-driven analysis of Kalshi's business model using all 203 million trades across $41.7B in volume. Reveals that Kalshi functions more like a poker rake than a sportsbook, charging fees via the formula fee = 0.07 × C × P × (1-P), which incentivizes trading near 50% probability. Key finding: sports comprise 82% of total volume, making Kalshi functionally a sports betting platform despite its CFTC-regulated derivatives positioning. Includes clear explanations of order book mechanics, binary contract pricing, and the regulatory framework (clearinghouse structure, no-action letters) alongside original data visualizations of volume distribution and resolution patterns.",
+    "fetch_status": "fetched"
   }
 ]
