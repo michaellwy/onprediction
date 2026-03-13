@@ -2152,5 +2152,177 @@
     "platforms_mentioned": ["Polymarket", "Kalshi"],
     "editorial_blurb": "FT Alphaville piece documenting the practice of 'bonding' in prediction markets: treating near-certain outcomes as synthetic zero-coupon bonds to earn a small but near-guaranteed yield. Uses the Polymarket 'Will Jesus Christ return' market as the central example, where betting 'No' at 96% odds implies a 4.76% yield to maturity. Notes that bonding trades face two key constraints: illiquidity (only $150k executable at one time) and catastrophic tail risk if the near-impossible outcome occurs.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 98,
+    "url": "https://x.com/sidbharth/article/2027740100214603934",
+    "title": "Prediction Markets Are the Future of Advertising",
+    "author": "Sid",
+    "author_twitter": "@sidbharth",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-28",
+    "primary_category": "Applications",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "network effects",
+      "liquidity provision",
+      "platform competition"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Argues that prediction markets will replace traditional advertising by converting ad spend into liquidity that rewards deep attention rather than buying fleeting impressions. The proposed model: a sponsor seeds a market with $50k–$500k, traders discover it and research the topic to profit, then share analysis organically — creating sustained cognitive engagement at ~$20 per person-hour versus seconds of passive exposure from display ads. Cites Polymarket's $9B election volume and Substack partnership as early evidence, and frames the sponsor's outlay as venture capital for an attention engine rather than a media buy.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 99,
+    "url": "https://x.com/BetBreakNews/article/2008587654158340126",
+    "title": "Assassination Semantics: Why Every Market Carries the Risk of Violence",
+    "author": "Sean Guillory & Dan Zimmermann",
+    "author_twitter": "@BetBreakNews",
+    "source_type": "Twitter",
+    "publish_date": "2026-01-07",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "market manipulation",
+      "oracle design",
+      "incentive compatibility"
+    ],
+    "platforms_mentioned": ["Polymarket", "Kalshi"],
+    "editorial_blurb": "Argues that nearly any prediction market tied to a public figure's actions, tenure, or appearances implicitly embeds assassination as a resolution path — what the authors call 'kinetic intervention.' Uses the Charlie Kirk assassination and subsequent Kalshi market voiding as the central case study. Warns that blanket void-on-death rules can backfire by incentivizing violence from losing bettors, and proposes that platforms hire geopolitical risk officers to evaluate resolution wording, monitor anomalous betting signals (BETINT), and build early-warning capacity before tragedy occurs.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 100,
+    "url": "https://x.com/_drNeyo/article/2029205512391172364",
+    "title": "Are Prediction Markets Decaying or Evolving?",
+    "author": "Eniola",
+    "author_twitter": "@_drNeyo",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-04",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "insider trading",
+      "market manipulation",
+      "platform competition",
+      "election markets",
+      "info finance"
+    ],
+    "platforms_mentioned": ["Polymarket", "Kalshi", "Robinhood", "Crypto.com"],
+    "editorial_blurb": "Traces the history of prediction markets from 1419 Vatican papal elections through the Iowa Electronic Markets to the Polymarket era, arguing the sector is at an inflection point. Surveys the insider trading scandals (Musk tweets, French elections), moral hazard concerns (assassination markets), and the wave of new entrants (Robinhood, DraftKings, Crypto.com, FanDuel) that signal mainstream adoption. Concludes that prediction markets are evolving, not decaying, but need regulatory clarity and structural reform to mature.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 101,
+    "url": "https://x.com/probaaron/article/2027765452689014822",
+    "title": "On War Markets",
+    "author": "aaron",
+    "author_twitter": "@probaaron",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-28",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "insider trading",
+      "incentive compatibility",
+      "market manipulation",
+      "oracle design",
+      "decision markets"
+    ],
+    "platforms_mentioned": ["Polymarket", "Kalshi"],
+    "editorial_blurb": "Written during the US-Israel strikes on Iran, examines whether prediction markets on armed conflicts are net informational goods or perverse incentive engines. Dissects the IDF insider trading case where soldiers traded Polymarket positions before strikes, the CFTC's regulatory stance, and the divergent approaches of Kalshi (regulated, avoids conflict markets) versus Polymarket (offshore, lists them freely). Argues the information value is real but the moral hazard is structurally underpriced, and proposes guardrails including delayed settlement and conflict-of-interest screens.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 102,
+    "url": "https://x.com/ZEITFinance/article/2031500989576949770",
+    "title": "Polymarket Doesn't Have a Money Problem. It Has a Plumbing Problem.",
+    "author": "@allquantor",
+    "author_twitter": "@ZEITFinance",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-11",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "order book",
+      "liquidity provision",
+      "market making",
+      "adverse selection",
+      "AI agents"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Data-driven deep dive into Polymarket's order book structure using 600M+ raw datapoints filtered to a 343M research dataset. Categorizes order flow into soft (retail), hard (professional), and AI flow, revealing that Polymarket's liquidity is episodic and attention-driven: the p95 peak hour shows hundreds of millions in open interest while the p50 median is thin. Order book analysis shows surface symmetry at top-of-book but systematic ask-side skew at deeper levels, and market impact data confirms that medium-to-large orders hit liquidity cliffs. Argues the core problem is trapped capital — dollars reserved multiple times against mutually exclusive outcomes — and that better netting and capital efficiency, not more money, is the fix.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 103,
+    "url": "https://x.com/SolSt1ne/article/2032008002094366899",
+    "title": "Polymarket Is a Hidden MEV Playground. Most Traders Have No Idea.",
+    "author": "st1ne",
+    "author_twitter": "@SolSt1ne",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-13",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "orderflow arbitrage",
+      "oracle design",
+      "time arbitrage",
+      "order book",
+      "cross-platform arbitrage"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Identifies five MEV-style edges on Polymarket that most retail traders are unaware of: oracle latency arbitrage (trading on news before UMA oracle updates), resolution arbitrage (front-running outcome settlement), dispute sniping (gaming the UMA dispute process), orderbook imbalance exploitation, and conditional probability arbitrage across correlated markets. Frames Polymarket as a 'hidden MEV playground' where sophisticated actors extract value from structural inefficiencies rather than informational edges.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 104,
+    "url": "https://x.com/mikita_crypto/article/2029939210350645729",
+    "title": "The Book That Predicted Polymarket",
+    "author": "Mikita Ahnianchykau",
+    "author_twitter": "@mikita_crypto",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-06",
+    "primary_category": "Fundamentals",
+    "content_type": "Explainer",
+    "difficulty": "None",
+    "concepts": [
+      "superforecasting",
+      "wisdom of crowds",
+      "calibration",
+      "forecasting accuracy",
+      "information aggregation"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Reviews Philip Tetlock's Superforecasting and draws a direct line from the book's core thesis — that forecasting skill is measurable, trainable, and outperforms expert punditry — to Polymarket's success during the 2024 US election. Explains Tetlock's key concepts (foxes vs hedgehogs, the Good Judgment Project, Brier scores, calibration) and argues that Polymarket effectively operationalized Tetlock's framework at scale by converting crowd forecasting into a liquid financial market.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 105,
+    "url": "https://x.com/0xjacobzhao/article/2029229969914904694",
+    "title": "Turning Probability into Assets: A Look Ahead at Prediction Market Agents",
+    "author": "Jacob Zhao",
+    "author_twitter": "@0xjacobzhao",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-05",
+    "primary_category": "Design",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "AI agents",
+      "Kelly criterion",
+      "arbitrage",
+      "liquidity provision",
+      "market making"
+    ],
+    "platforms_mentioned": ["Polymarket", "Kalshi"],
+    "editorial_blurb": "Comprehensive research report on AI agents for prediction markets, proposing a four-layer architecture (data, analysis, execution, learning) for autonomous trading systems. Maps the ecosystem of existing agents, compares Kelly criterion vs fixed-fraction bet sizing, surveys arbitrage strategies across platforms, and outlines business models (agent-as-a-service, liquidity mining, data sales). Argues that AI agents will become the dominant market participants within two years, transforming prediction markets from retail-driven speculation into infrastructure for probabilistic information.",
+    "fetch_status": "pdf"
   }
 ]
