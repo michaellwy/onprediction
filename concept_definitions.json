@@ -47,6 +47,7 @@
   "network effects": "When a platform becomes more valuable to each user as more participants join and trade on it.",
   "no-loss prediction markets": "Designs where participants risk only potential yield, not principal, lowering the barrier to entry.",
   "no-trade theorem": "The theoretical result that rational agents with common priors should never agree to speculative trades.",
+  "noise decomposition": "",
   "opportunity markets": "Markets for discovering and pricing unexploited opportunities across domains using crowd forecasting.",
   "oracle design": "Systems that feed real-world outcomes into prediction markets, determining how events are verified and settled.",
   "order book": "A list of outstanding buy and sell orders at various prices, showing available liquidity at each level.",
