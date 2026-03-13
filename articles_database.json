@@ -2346,5 +2346,27 @@
     "platforms_mentioned": ["Kalshi", "Polymarket", "Robinhood", "DraftKings", "FanDuel"],
     "editorial_blurb": "Data-driven analysis of Kalshi's business model using all 203 million trades across $41.7B in volume. Reveals that Kalshi functions more like a poker rake than a sportsbook, charging fees via the formula fee = 0.07 × C × P × (1-P), which incentivizes trading near 50% probability. Key finding: sports comprise 82% of total volume, making Kalshi functionally a sports betting platform despite its CFTC-regulated derivatives positioning. Includes clear explanations of order book mechanics, binary contract pricing, and the regulatory framework (clearinghouse structure, no-action letters) alongside original data visualizations of volume distribution and resolution patterns.",
     "fetch_status": "fetched"
+  },
+  {
+    "id": 107,
+    "url": "https://x.com/functionspaceHQ/article/2032397043579462028",
+    "title": "Noisy Traders Are Not Dumb Money",
+    "author": "functionSPACE",
+    "author_twitter": "@functionspaceHQ",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-13",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: noise decomposition",
+      "adverse selection",
+      "liquidity provision",
+      "calibration",
+      "market making"
+    ],
+    "platforms_mentioned": ["Polymarket", "Kalshi"],
+    "editorial_blurb": "Challenges the smart-versus-dumb money dichotomy in prediction markets by synthesizing research from Snowberg/Wolfers/Zitzewitz, INSEAD's BIN model, and Wharton's cognitive search framework. Argues that noisy traders fund the probability space rather than serve as exit liquidity, and compares how binary CLOBs versus continuous probability markets decompose and harness noise differently.",
+    "fetch_status": "pdf"
   }
 ]

@@ -66,6 +66,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "composable beliefs": "information",
   "distribution markets": "information",
   "longshot bias": "information",
+  "noise decomposition": "information",
 
   // Mechanism Design
   "proper scoring rules": "mechanism",
