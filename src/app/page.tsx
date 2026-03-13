@@ -18,6 +18,7 @@ import { ArticleList } from "@/components/ArticleList";
 import { FilterSidebar } from "@/components/FilterSidebar";
 import { FilterDrawer } from "@/components/FilterDrawer";
 import { SortDropdown } from "@/components/SortDropdown";
+import { HeroBanner } from "@/components/HeroBanner";
 import { cn } from "@/lib/utils";
 
 const articles = getArticles();
@@ -108,6 +109,10 @@ function HomeContent() {
 
           {/* Article list */}
           <div className="flex-1 min-w-0 flex flex-col py-3 sm:py-6 overflow-hidden">
+            {/* Hero banner */}
+            <div className="shrink-0">
+              <HeroBanner />
+            </div>
             {/* Controls */}
             <div className="shrink-0 flex items-center gap-2 sm:gap-3 pb-2 sm:pb-4 border-b border-border/50">
               {/* Filter button — mobile/tablet only */}
