@@ -49,7 +49,7 @@ export function SignInModal() {
           </div>
 
           <Dialog.Description className="text-sm text-muted-foreground mb-6">
-            Sign in to bookmark articles, upvote readings, and sync across devices.
+            Sign in to bookmark articles, upvote readings, post on the forum, and sync across devices.
           </Dialog.Description>
 
           <div className="space-y-3">

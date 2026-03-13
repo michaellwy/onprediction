@@ -43,15 +43,17 @@ export function useForumPost(postId: string | null) {
   }, [postId]);
 
   const addComment = useCallback(
-    async (body: string, parentId?: string | null): Promise<ForumComment | null> => {
+    async (body: string, parentId?: string | null, profile?: { display_name: string; avatar_url: string | null } | null): Promise<ForumComment | null> => {
       if (!user || !postId) return null;
 
       const authorName =
+        profile?.display_name ||
         user.user_metadata?.full_name ||
         user.user_metadata?.name ||
         user.email?.split("@")[0] ||
         "Anonymous";
       const authorAvatarUrl =
+        profile?.avatar_url ||
         user.user_metadata?.avatar_url ||
         user.user_metadata?.picture ||
         null;

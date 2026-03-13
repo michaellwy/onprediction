@@ -28,10 +28,15 @@ interface ForumPostPageContentProps {
 
 export function ForumPostPageContent({ postId }: ForumPostPageContentProps) {
   const router = useRouter();
-  const { user } = useAuth();
+  const { user, profile, openSignInModal } = useAuth();
 
   const { post, comments, isLoading, error, addComment, deleteComment } =
     useForumPost(postId ?? null);
+
+  // Wrap addComment to inject profile
+  const addCommentWithProfile = async (body: string, parentId?: string | null) => {
+    return addComment(body, parentId, profile);
+  };
   const { counts: upvoteCounts, userUpvotes, toggleUpvote } = useForumPostUpvotes();
   const {
     counts: commentUpvoteCounts,
@@ -138,7 +143,7 @@ export function ForumPostPageContent({ postId }: ForumPostPageContentProps) {
         <ForumPostActions
           isUpvoted={userUpvotes.has(post.id)}
           upvoteCount={upvoteCounts.get(post.id) || 0}
-          onToggleUpvote={() => toggleUpvote(post.id)}
+          onToggleUpvote={() => { if (!user) { openSignInModal(); return; } toggleUpvote(post.id); }}
           isAuthor={user?.id === post.user_id}
           onDelete={handleDeletePost}
           postId={post.id}
@@ -153,11 +158,11 @@ export function ForumPostPageContent({ postId }: ForumPostPageContentProps) {
       >
         <ForumCommentSection
           comments={comments}
-          onAddComment={addComment}
+          onAddComment={addCommentWithProfile}
           onDeleteComment={deleteComment}
           commentUpvoteCounts={commentUpvoteCounts}
           userCommentUpvotes={userCommentUpvotes}
-          onToggleCommentUpvote={toggleCommentUpvote}
+          onToggleCommentUpvote={(commentId: string) => { if (!user) { openSignInModal(); return; } toggleCommentUpvote(commentId); }}
           currentUserId={user?.id ?? null}
         />
       </motion.div>

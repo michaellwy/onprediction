@@ -81,7 +81,7 @@ export default function ForumPage() {
               post={post}
               upvoteCount={upvoteCounts.get(post.id) || 0}
               isUpvoted={userUpvotes.has(post.id)}
-              onToggleUpvote={() => toggleUpvote(post.id)}
+              onToggleUpvote={() => { if (!user) { openSignInModal(); return; } toggleUpvote(post.id); }}
               commentCount={commentCounts.get(post.id) || 0}
               index={index}
             />
