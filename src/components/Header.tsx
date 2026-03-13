@@ -77,6 +77,20 @@ export function Header() {
                 <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary/70" />
               )}
             </Link>
+            <Link
+              href="/forum"
+              className={cn(
+                "relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
+                pathname?.startsWith("/forum")
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
+              )}
+            >
+              Forum
+              {pathname?.startsWith("/forum") && (
+                <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary/70" />
+              )}
+            </Link>
 
             <div className="h-4 w-px bg-border mx-2" />
 
@@ -147,6 +161,17 @@ export function Header() {
                 )}
               >
                 Concepts
+              </Link>
+              <Link
+                href="/forum"
+                className={cn(
+                  "flex items-center h-11 px-3 rounded-md text-sm font-medium transition-colors",
+                  pathname?.startsWith("/forum")
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
+                )}
+              >
+                Forum
               </Link>
               <button
                 onClick={() => {
