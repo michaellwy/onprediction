@@ -8,11 +8,11 @@ import { ForumCreatePostForm } from "@/components/forum/ForumCreatePostForm";
 
 export default function ForumNewPostPage() {
   const router = useRouter();
-  const { user, openSignInModal } = useAuth();
+  const { user, profile, openSignInModal } = useAuth();
   const { createPost } = useForumPosts();
 
   async function handleSubmit(title: string, body: string): Promise<boolean> {
-    const post = await createPost(title, body);
+    const post = await createPost(title, body, profile);
     if (post) {
       router.push(`/forum/post?id=${post.id}`);
       return true;

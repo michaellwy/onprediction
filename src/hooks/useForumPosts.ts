@@ -86,15 +86,17 @@ export function useForumPosts(sort: ForumSortOption = "newest") {
   }, [page, fetchPosts]);
 
   const createPost = useCallback(
-    async (title: string, body: string): Promise<ForumPost | null> => {
+    async (title: string, body: string, profile: { display_name: string; avatar_url: string | null } | null): Promise<ForumPost | null> => {
       if (!user) return null;
 
       const authorName =
+        profile?.display_name ||
         user.user_metadata?.full_name ||
         user.user_metadata?.name ||
         user.email?.split("@")[0] ||
         "Anonymous";
       const authorAvatarUrl =
+        profile?.avatar_url ||
         user.user_metadata?.avatar_url ||
         user.user_metadata?.picture ||
         null;
