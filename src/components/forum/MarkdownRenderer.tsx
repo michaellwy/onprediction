@@ -2,8 +2,21 @@
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import rehypeSanitize from "rehype-sanitize";
+import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import type { Components } from "react-markdown";
+// Extend default sanitization schema to allow images with safe attributes only
+const sanitizeSchema = {
+  ...defaultSchema,
+  tagNames: [...(defaultSchema.tagNames || []), "img"],
+  attributes: {
+    ...defaultSchema.attributes,
+    img: ["src", "alt", "width", "height", "loading"],
+  },
+  protocols: {
+    ...defaultSchema.protocols,
+    src: ["https"],
+  },
+};
 
 const components: Components = {
   h1: ({ children }) => (
@@ -62,6 +75,14 @@ const components: Components = {
   li: ({ children }) => (
     <li className="pl-1">{children}</li>
   ),
+  img: ({ src, alt }) => (
+    <img
+      src={src}
+      alt={alt || ""}
+      loading="lazy"
+      className="max-w-full h-auto rounded-lg my-4 border border-border/40"
+    />
+  ),
   hr: () => <hr className="border-border/60 my-6" />,
   table: ({ children }) => (
     <div className="overflow-x-auto my-4">
@@ -85,7 +106,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
     <div className="font-sans text-[15px] leading-relaxed text-foreground/90">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeSanitize]}
+        rehypePlugins={[[rehypeSanitize, sanitizeSchema]]}
         components={components}
       >
         {content}
