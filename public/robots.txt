@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /saved
+Disallow: /forum/new
+Sitemap: https://onprediction.vercel.app/sitemap.xml

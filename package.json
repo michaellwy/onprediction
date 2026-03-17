@@ -4,10 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/generate-sitemap.js && node scripts/generate-feed.js && node scripts/generate-public-data.js && node scripts/generate-llms-full.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "sync:concepts": "node scripts/sync-concept-definitions.js"
+    "sync:concepts": "node scripts/sync-concept-definitions.js",
+    "generate:sitemap": "node scripts/generate-sitemap.js",
+    "generate:feed": "node scripts/generate-feed.js",
+    "generate:data": "node scripts/generate-public-data.js",
+    "generate:llms": "node scripts/generate-llms-full.js"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.3",

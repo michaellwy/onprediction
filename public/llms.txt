@@ -1,0 +1,28 @@
+# On Prediction
+
+> A curated prediction market knowledge hub for builders, investors & researchers.
+
+## About
+
+On Prediction indexes articles, papers, podcasts, and tweets about prediction markets — tagged with concepts and organized by category and difficulty. It also hosts a community forum for prediction market practitioners.
+
+## Main Pages
+
+- Homepage (articles): https://onprediction.vercel.app/
+- Concepts: https://onprediction.vercel.app/concepts
+- Forum: https://onprediction.vercel.app/forum
+
+## Machine-Readable Data
+
+- Articles JSON: https://onprediction.vercel.app/api/articles.json
+- Concepts JSON: https://onprediction.vercel.app/api/concepts.json
+- RSS Feed: https://onprediction.vercel.app/feed.xml
+- Full content dump: https://onprediction.vercel.app/llms-full.txt
+
+## Categories
+
+Articles are organized into: Fundamentals, Design, Microstructure, Platforms, Applications, Business, Commentary.
+
+## Concept Clusters
+
+Concepts are grouped into 6 clusters: Oracle & Resolution, Liquidity & Trading, Information Theory, Mechanism Design, Governance & Decisions, Business & Platforms.

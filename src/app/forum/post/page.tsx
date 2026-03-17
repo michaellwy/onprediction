@@ -1,20 +1,11 @@
-"use client";
+import type { Metadata } from "next";
+import { ForumPostContent } from "./ForumPostContent";
 
-import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
-import { ForumPostPageContent } from "@/components/forum/ForumPostPageContent";
-
-function ForumPostPageInner() {
-  const searchParams = useSearchParams();
-  const postId = searchParams.get("id");
-
-  return <ForumPostPageContent postId={postId} />;
-}
+export const metadata: Metadata = {
+  title: "Post",
+  description: "Forum post on On Prediction — a community for prediction market practitioners.",
+};
 
 export default function ForumPostPage() {
-  return (
-    <Suspense>
-      <ForumPostPageInner />
-    </Suspense>
-  );
+  return <ForumPostContent />;
 }
