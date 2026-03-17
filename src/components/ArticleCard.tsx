@@ -37,12 +37,19 @@ const difficultyLabels: Record<Difficulty, { label: string; color: string }> = {
   Extensive: { label: "III", color: "text-[hsl(var(--diff-advanced))]" },
 };
 
+function daysDiff(dateString: string): number {
+  // Compare calendar dates in local timezone to avoid UTC offset issues
+  // (new Date("2026-03-18") is midnight UTC, which can be "yesterday" locally)
+  const [y, m, d] = dateString.split("-").map(Number);
+  const now = new Date();
+  const articleDate = new Date(y, m - 1, d);
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return Math.round((today.getTime() - articleDate.getTime()) / (1000 * 60 * 60 * 24));
+}
+
 function formatRelativeDate(dateString: string | null): string {
   if (!dateString) return "";
-  const date = new Date(dateString);
-  const now = new Date();
-  const diffMs = now.getTime() - date.getTime();
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  const diffDays = daysDiff(dateString);
 
   if (diffDays < 0) {
     const absDays = Math.abs(diffDays);
@@ -61,10 +68,7 @@ function formatRelativeDate(dateString: string | null): string {
 
 function isNewArticle(dateString: string | null): boolean {
   if (!dateString) return false;
-  const date = new Date(dateString);
-  const now = new Date();
-  const diffMs = now.getTime() - date.getTime();
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  const diffDays = daysDiff(dateString);
   return diffDays >= 0 && diffDays <= 7;
 }
 
