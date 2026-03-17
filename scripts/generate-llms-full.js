@@ -17,7 +17,7 @@ const valid = articles
 let md = `# On Prediction — Full Content Index
 
 > A curated prediction market knowledge hub for builders, investors & researchers.
-> Website: https://onprediction.vercel.app
+> Website: https://onprediction.xyz
 
 ## Articles (${valid.length} total)
 
