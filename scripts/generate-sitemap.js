@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const SITE_URL = "https://onprediction.vercel.app";
+const SITE_URL = "https://onprediction.xyz";
 
 const pages = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },

@@ -8,16 +8,16 @@ On Prediction indexes articles, papers, podcasts, and tweets about prediction ma
 
 ## Main Pages
 
-- Homepage (articles): https://onprediction.vercel.app/
-- Concepts: https://onprediction.vercel.app/concepts
-- Forum: https://onprediction.vercel.app/forum
+- Homepage (articles): https://onprediction.xyz/
+- Concepts: https://onprediction.xyz/concepts
+- Forum: https://onprediction.xyz/forum
 
 ## Machine-Readable Data
 
-- Articles JSON: https://onprediction.vercel.app/api/articles.json
-- Concepts JSON: https://onprediction.vercel.app/api/concepts.json
-- RSS Feed: https://onprediction.vercel.app/feed.xml
-- Full content dump: https://onprediction.vercel.app/llms-full.txt
+- Articles JSON: https://onprediction.xyz/api/articles.json
+- Concepts JSON: https://onprediction.xyz/api/concepts.json
+- RSS Feed: https://onprediction.xyz/feed.xml
+- Full content dump: https://onprediction.xyz/llms-full.txt
 
 ## Categories
 

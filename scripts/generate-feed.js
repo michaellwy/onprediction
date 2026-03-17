@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const SITE_URL = "https://onprediction.vercel.app";
+const SITE_URL = "https://onprediction.xyz";
 const articles = JSON.parse(
   fs.readFileSync(path.join(__dirname, "..", "articles_database.json"), "utf-8")
 );
