@@ -2411,5 +2411,26 @@
     "platforms_mentioned": ["Polymarket", "Kalshi"],
     "editorial_blurb": "Uses the case of a trader sniping Polymarket's geopolitical strike markets at 10 cents to argue that continuous order books are structurally broken for binary assets. In traditional markets, sniping costs basis points; in prediction markets, it costs 80 cents on the dollar because prices jump from 0.10 to 0.99 on a single tweet. Proposes frequent batch auctions (citing Budish, Cramton, and Shim) to shift competition from speed to price accuracy, and introduces the concept of a 'liquidity mirage' where the highest social-value markets are precisely those where passive liquidity is unsustainable.",
     "fetch_status": "web"
+  },
+  {
+    "id": 110,
+    "url": "https://x.com/DougieDeLuca/article/2033910178341413105",
+    "title": "Discovery and Betrayal: Insiders in Prediction Markets",
+    "author": "Dougie",
+    "author_twitter": "@DougieDeLuca",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-18",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "insider trading",
+      "information asymmetry",
+      "adverse selection",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Sets out to defend insider trading in prediction markets but arrives at a more conditional position. Introduces a 'discovery vs betrayal' framework: in distributed-truth markets like elections, informed traders sharpen the signal because no one holds the full answer; in concentrated-truth markets like earnings, insiders monetize sealed results rather than synthesize public fragments. Argues the real question is not whether insiders should be allowed but what kind of informational asymmetry a market can absorb without losing the participation and trust that make the signal useful.",
+    "fetch_status": "pdf"
   }
 ]
