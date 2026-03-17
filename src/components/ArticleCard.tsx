@@ -151,7 +151,7 @@ export function ArticleCard({
               onToggleUpvote();
             }}
             className={cn(
-              "shrink-0 hidden sm:flex items-center gap-0.5 p-0.5 -m-0.5 rounded transition-colors self-start mt-[1px]",
+              "shrink-0 hidden sm:flex items-center justify-start gap-0.5 w-8 p-0.5 -m-0.5 rounded transition-colors self-start mt-[1px]",
               isUpvoted
                 ? "text-emerald-600"
                 : upvoteCount > 0
@@ -162,7 +162,7 @@ export function ArticleCard({
           >
             <ArrowUp
               className={cn(
-                "h-4 w-4 transition-all duration-150",
+                "h-4 w-4 shrink-0 transition-all duration-150",
                 isUpvoted && "text-emerald-600"
               )}
             />
