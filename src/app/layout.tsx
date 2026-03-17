@@ -28,7 +28,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logo-120.png",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
     apple: "/logo-120.png",
   },
 };
