@@ -2368,5 +2368,26 @@
     "platforms_mentioned": ["Polymarket", "Kalshi"],
     "editorial_blurb": "Challenges the smart-versus-dumb money dichotomy in prediction markets by synthesizing research from Snowberg/Wolfers/Zitzewitz, INSEAD's BIN model, and Wharton's cognitive search framework. Argues that noisy traders fund the probability space rather than serve as exit liquidity, and compares how binary CLOBs versus continuous probability markets decompose and harness noise differently.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 108,
+    "url": "https://x.com/smaaaaliy/article/2033242239498076190",
+    "title": "The Economy of Truth: Inside the Decentralized Courtroom of Polymarket & UMA",
+    "author": "Smaliy",
+    "author_twitter": "@smaaaaliy",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-16",
+    "primary_category": "Design",
+    "content_type": "Explainer",
+    "difficulty": "None",
+    "concepts": [
+      "oracle design",
+      "UMA protocol",
+      "dispute resolution",
+      "resolution criteria"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Walks through UMA's Optimistic Oracle pipeline as used by Polymarket: assertion, liveness period, dispute, and DVM token-holder voting. Uses the $240M Zelenskyy suit market as a case study where semantic ambiguity ('Is a militarized black outfit a suit?') triggered a disputed resolution ultimately decided by whale token holders, illustrating how the system's 'decentralized courtroom' handles edge cases.",
+    "fetch_status": "pdf"
   }
 ]
