@@ -2432,5 +2432,26 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Sets out to defend insider trading in prediction markets but arrives at a more conditional position. Introduces a 'discovery vs betrayal' framework: in distributed-truth markets like elections, informed traders sharpen the signal because no one holds the full answer; in concentrated-truth markets like earnings, insiders monetize sealed results rather than synthesize public fragments. Argues the real question is not whether insiders should be allowed but what kind of informational asymmetry a market can absorb without losing the participation and trust that make the signal useful.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 111,
+    "url": "https://www.morganlewis.com/-/media/files/publication/outside-publication/article/2026/federal-preemption-in-sports-prediction-market-litigation-this-shouldnt-be-a-jump-ball-futures-and-derivatives-law-report.pdf",
+    "title": "Federal Preemption in Sports Prediction Market Litigation: This Shouldn't Be a Jump Ball",
+    "author": "Rob Schwartz",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-03-01",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: federal preemption",
+      "event contracts",
+      "sports betting",
+      "regulatory arbitrage"
+    ],
+    "platforms_mentioned": ["Kalshi"],
+    "editorial_blurb": "Written by a former CFTC General Counsel, argues that courts in sports event contract litigation are overlooking the strongest basis for CFTC jurisdiction: the Commodity Exchange Act's 'commonly known to the trade' catchall, which classifies any transaction the derivatives industry calls a swap as one. Since every exchange, broker, and clearinghouse involved treats sports event contracts as swaps, the test resolves the federal preemption question cleanly while preserving state authority over off-exchange sports betting.",
+    "fetch_status": "pdf"
   }
 ]
