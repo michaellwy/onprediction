@@ -105,6 +105,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "AI agents": "business",
   "go-to-market": "business",
   "sports betting": "business",
+  "federal preemption": "business",
 };
 
 export function getConceptCluster(concept: string): ConceptCluster {

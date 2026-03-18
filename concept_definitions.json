@@ -23,6 +23,7 @@
   "distribution markets": "Markets that trade on full probability distributions rather than single binary yes/no outcomes.",
   "election markets": "Prediction markets focused on political elections, often the highest-volume and most visible markets.",
   "event contracts": "Standardized binary contracts on specific real-world events, the core trading unit of prediction markets.",
+  "federal preemption": "The legal doctrine under which federal law displaces state regulation. In prediction markets, the question is whether the CFTC's exclusive jurisdiction over swaps under the Commodity Exchange Act preempts state gaming laws from regulating exchange-traded event contracts.",
   "forecasting accuracy": "Measuring how well predicted probabilities match actual outcome frequencies over many events.",
   "futarchy": "A governance system where policy decisions are made based on which option prediction markets forecast will produce the best outcomes.",
   "gap risk": "Exposure to sudden large price jumps in binary markets when new information arrives between trades.",
