@@ -2453,5 +2453,26 @@
     "platforms_mentioned": ["Kalshi"],
     "editorial_blurb": "Written by a former CFTC General Counsel, argues that courts in sports event contract litigation are overlooking the strongest basis for CFTC jurisdiction: the Commodity Exchange Act's 'commonly known to the trade' catchall, which classifies any transaction the derivatives industry calls a swap as one. Since every exchange, broker, and clearinghouse involved treats sports event contracts as swaps, the test resolves the federal preemption question cleanly while preserving state authority over off-exchange sports betting.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 112,
+    "url": "https://x.com/njokuScript/article/2022351299547689325",
+    "title": "Leverage Fixes Prediction Markets: The Case for Why 10x Is Safer Than 1x",
+    "author": "njokuScript",
+    "author_twitter": "@njokuScript",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-14",
+    "primary_category": "Design",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "gap risk",
+      "market manipulation",
+      "liquidity provision",
+      "temporal arbitrage"
+    ],
+    "platforms_mentioned": ["Polymarket", "Kalshi", "NEW: Ultramarkets"],
+    "editorial_blurb": "Argues that leverage solves, rather than amplifies, prediction market problems. In a 1x market, only whales can move prices because the barrier is capital, not insight; at 10x, thousands of smaller traders can collectively contest a mispricing. Addresses gap risk (binary resolution makes platform-native margin dangerous) by describing a temporal arbitrage approach where leveraged markets close before event resolution. Also proposes a vault-based yield layer where LPs earn returns from trading activity rather than directional outcome exposure.",
+    "fetch_status": "pdf"
   }
 ]
