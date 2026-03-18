@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Providers } from "@/components/Providers";
 import { JsonLd } from "@/components/JsonLd";
 import { siteConfig } from "@/lib/siteConfig";
+import { UmamiAnalytics } from "@/components/UmamiAnalytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -62,6 +63,7 @@ export default function RootLayout({
           {children}
         </Providers>
         <Analytics />
+        <UmamiAnalytics />
       </body>
     </html>
   );
