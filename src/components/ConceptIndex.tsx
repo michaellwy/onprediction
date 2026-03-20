@@ -185,8 +185,10 @@ function ConceptRow({
   onToggle: () => void;
 }) {
   const [panelPos, setPanelPos] = useState<{
-    top: number;
+    top?: number;
+    bottom?: number;
     left: number;
+    maxHeight: number;
   } | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const definition = conceptDefinitions[node.name];
@@ -206,16 +208,27 @@ function ConceptRow({
     });
   }, [node.articles, articleMap]);
 
-  // Position the panel, clamped to viewport
+  // Position the panel, flipping above the row when there isn't enough space below
   const updatePanelPos = useCallback(() => {
     if (ref.current) {
       const rect = ref.current.getBoundingClientRect();
       const panelWidth = Math.min(320, window.innerWidth - 24);
       const clampedLeft = Math.min(rect.left, Math.max(12, window.innerWidth - panelWidth - 12));
-      setPanelPos({
-        top: rect.bottom + 4,
-        left: clampedLeft,
-      });
+      const spaceBelow = window.innerHeight - rect.bottom - 8;
+      const spaceAbove = rect.top - 8;
+      if (spaceBelow >= 160 || spaceBelow >= spaceAbove) {
+        setPanelPos({
+          top: rect.bottom + 4,
+          left: clampedLeft,
+          maxHeight: Math.max(80, spaceBelow),
+        });
+      } else {
+        setPanelPos({
+          bottom: window.innerHeight - rect.top + 4,
+          left: clampedLeft,
+          maxHeight: Math.max(80, spaceAbove),
+        });
+      }
     }
   }, []);
 
@@ -301,7 +314,7 @@ function HoverPanel({
     number,
     { title: string; url: string | null; date: string | null }
   >;
-  panelPos: { top: number; left: number };
+  panelPos: { top?: number; bottom?: number; left: number; maxHeight: number };
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }) {
@@ -314,14 +327,16 @@ function HoverPanel({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       data-hover-panel
-      className="fixed z-[9998] w-[min(320px,calc(100vw-24px))] bg-card border border-border/60 rounded-xl shadow-xl"
+      className="fixed z-[9998] w-[min(320px,calc(100vw-24px))] bg-card border border-border/60 rounded-xl shadow-xl flex flex-col overflow-hidden"
       style={{
         top: panelPos.top,
+        bottom: panelPos.bottom,
         left: panelPos.left,
+        maxHeight: panelPos.maxHeight,
       }}
     >
       {definition && (
-        <div className="px-4 pt-3 pb-2 border-b border-border/30">
+        <div className="px-4 pt-3 pb-2 border-b border-border/30 shrink-0">
           <p className="text-sm text-foreground leading-relaxed">
             <span className="font-serif font-semibold">{node.name}</span>
             {" — "}
@@ -329,12 +344,7 @@ function HoverPanel({
           </p>
         </div>
       )}
-      <div
-        className={cn(
-          "px-4 py-2.5",
-          sortedArticles.length > 5 && "max-h-48 overflow-y-auto"
-        )}
-      >
+      <div className="px-4 py-2.5 overflow-y-auto">
         <ul className="space-y-1">
           {sortedArticles.map((articleId) => {
             const article = articleMap.get(articleId);
