@@ -51,6 +51,8 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "hedging": "liquidity",
   "covariance markets": "liquidity",
   "minimum viable liquidity": "liquidity",
+  "semantic tick size": "liquidity",
+  "mean reversion": "liquidity",
 
   // Information Theory
   "information aggregation": "information",
