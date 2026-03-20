@@ -2474,5 +2474,46 @@
     "platforms_mentioned": ["Polymarket", "Kalshi", "NEW: Ultramarkets"],
     "editorial_blurb": "Argues that leverage solves, rather than amplifies, prediction market problems. In a 1x market, only whales can move prices because the barrier is capital, not insight; at 10x, thousands of smaller traders can collectively contest a mispricing. Addresses gap risk (binary resolution makes platform-native margin dangerous) by describing a temporal arbitrage approach where leveraged markets close before event resolution. Also proposes a vault-based yield layer where LPs earn returns from trading activity rather than directional outcome exposure.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 113,
+    "url": "https://x.com/ZEITFinance/article/2034314079599243694",
+    "title": "Prediction Markets Have a Semantic Tick Size",
+    "author": "allquantor",
+    "author_twitter": "@allquantor",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-19",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: semantic tick size",
+      "bid-ask spread",
+      "NEW: mean reversion",
+      "price discovery"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Analyzes 600 million Polymarket orderbook datapoints, finding ~70% of one-cent price moves do not continue in the same direction. Coins 'semantic tick size' to describe how a prediction market's minimum price increment doubles as a narrative unit—each penny reads as a one-percentage-point probability change, creating overreactions that a contrarian fade strategy can profitably harvest. Frames this against Tetlock's TradeSports microstructure research, where passive limit order walls slow price discovery while impatient market orders amplify short-term noise.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 114,
+    "url": "https://www.oddchain.com/p/can-llms-beat-the-market",
+    "title": "Can LLMs Beat the Market?",
+    "author": "OddChain",
+    "author_twitter": "@theoddchain",
+    "source_type": "Substack",
+    "publish_date": "2026-03-19",
+    "primary_category": "Applications",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "AI agents",
+      "forecasting accuracy",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Asks whether large language models can outperform prediction market consensus prices and argues the more tractable framing is using LLMs as updaters rather than predictors. Distinguishes cold prediction (generating a probability estimate without prior context) from updating (revising an existing estimate as new information arrives), and considers what each role implies for AI tools deployed alongside human traders in live markets.",
+    "fetch_status": "web"
   }
 ]
