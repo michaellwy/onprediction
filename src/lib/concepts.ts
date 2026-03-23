@@ -95,6 +95,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "attention markets": "governance",
 
   // Business & Platforms
+  "long-tail markets": "business",
   "network effects": "business",
   "platform competition": "business",
   "election markets": "business",

@@ -2515,5 +2515,27 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Asks whether large language models can outperform prediction market consensus prices and argues the more tractable framing is using LLMs as updaters rather than predictors. Distinguishes cold prediction (generating a probability estimate without prior context) from updating (revising an existing estimate as new information arrives), and considers what each role implies for AI tools deployed alongside human traders in live markets.",
     "fetch_status": "web"
+  },
+  {
+    "id": 115,
+    "url": "https://x.com/functionspaceHQ/article/2035959494728176075",
+    "title": "Information as Supply",
+    "author": "functionSPACE",
+    "author_twitter": "@functionspaceHQ",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-23",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: long-tail markets",
+      "minimum viable liquidity",
+      "information aggregation",
+      "network effects",
+      "platform competition"
+    ],
+    "platforms_mentioned": ["Kalshi", "Polymarket"],
+    "editorial_blurb": "Argues that prediction market TAM should include the supply side: as the cost of producing real-time probability estimates collapses, the addressable market extends beyond trading volume to every decision that benefits from better forecasts. Presents an ordered liquidity formation path from entertainment to information to institutional demand, and contends that scaling to $1T requires massive breadth in long-tail markets rather than concentrated depth in a few high-volume categories.",
+    "fetch_status": "pdf"
   }
 ]
