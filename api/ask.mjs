@@ -101,7 +101,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "API key not configured" });
   }
 
-  const { question, sessionToken } = req.body || {};
+  const { question, sessionToken, history } = req.body || {};
 
   if (!question || typeof question !== "string" || question.trim().length === 0) {
     return res.status(400).json({ error: "Question is required" });
@@ -158,7 +158,14 @@ export default async function handler(req, res) {
         model: MODEL,
         max_tokens: 1500,
         system: systemPrompt,
-        messages: [{ role: "user", content: sanitized }],
+        messages: [
+          // Include up to 6 previous messages for context (3 turns)
+          ...(Array.isArray(history) ? history.slice(-6).map((m) => ({
+            role: m.role === "assistant" ? "assistant" : "user",
+            content: String(m.content || "").slice(0, 2000),
+          })) : []),
+          { role: "user", content: sanitized },
+        ],
         stream: true,
       }),
     });

@@ -38,7 +38,10 @@ export function useAskLibrary() {
     if (isStreaming) return;
 
     setError(null);
-    setMessages((prev) => [...prev, { role: "user", content: question }]);
+
+    // Build conversation history including the new question
+    const newMessages: Message[] = [...messages, { role: "user", content: question }];
+    setMessages(newMessages);
     setIsStreaming(true);
 
     // Get session token if authenticated
@@ -52,7 +55,7 @@ export function useAskLibrary() {
       const response = await fetch("/api/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question, sessionToken }),
+        body: JSON.stringify({ question, sessionToken, history: newMessages.slice(0, -1) }),
       });
 
       const remaining = response.headers.get("X-RateLimit-Remaining");
@@ -118,7 +121,7 @@ export function useAskLibrary() {
     }
 
     setIsStreaming(false);
-  }, [isStreaming]);
+  }, [isStreaming, messages]);
 
   const reset = useCallback(() => {
     setMessages([]);
