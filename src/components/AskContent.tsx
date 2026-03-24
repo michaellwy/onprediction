@@ -141,7 +141,7 @@ export function AskContent() {
                       {msg.content}
                     </div>
                   ) : (
-                    <div className="ask-response prose prose-sm max-w-none text-foreground/90 prose-headings:not-italic prose-headings:text-foreground prose-headings:font-semibold prose-h2:text-lg prose-h2:font-serif prose-h2:mt-7 prose-h2:mb-3 prose-strong:text-foreground prose-p:leading-relaxed prose-p:mb-5 prose-ul:my-3 prose-li:my-1">
+                    <div className="ask-response prose max-w-none text-sm text-foreground/90 prose-headings:not-italic prose-headings:text-foreground prose-headings:font-semibold prose-h2:text-lg prose-h2:font-serif prose-h2:mt-7 prose-h2:mb-3 prose-strong:text-foreground prose-p:leading-relaxed prose-p:my-4 prose-ul:my-4 prose-li:my-1 [&>*+*]:mt-4">
                       <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
                         {msg.content || (isStreaming && i === messages.length - 1 ? "..." : "")}
                       </ReactMarkdown>
