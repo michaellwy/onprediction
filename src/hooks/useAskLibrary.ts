@@ -1,18 +1,38 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
+
+const STORAGE_KEY = "onprediction-ask-messages";
 
 interface Message {
   role: "user" | "assistant";
   content: string;
 }
 
+function loadMessages(): Message[] {
+  try {
+    const stored = sessionStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+  }
+}
+
 export function useAskLibrary() {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>(() => loadMessages());
   const [isStreaming, setIsStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [remainingQuestions, setRemainingQuestions] = useState<number | null>(null);
+
+  // Persist messages to sessionStorage on change
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    } catch {
+      // Storage full or unavailable
+    }
+  }, [messages]);
 
   const ask = useCallback(async (question: string) => {
     if (isStreaming) return;
@@ -103,6 +123,7 @@ export function useAskLibrary() {
   const reset = useCallback(() => {
     setMessages([]);
     setError(null);
+    try { sessionStorage.removeItem(STORAGE_KEY); } catch {}
   }, []);
 
   return { messages, isStreaming, error, remainingQuestions, ask, reset };
