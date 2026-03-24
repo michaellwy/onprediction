@@ -54,24 +54,22 @@ export function ForumPageContent() {
             Talk about prediction market articles and ideas
           </p>
         </div>
-        {tab === "general" && (
-          user ? (
-            <Link
-              href="/forum/new"
-              className="shrink-0 h-9 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors inline-flex items-center gap-2"
-            >
-              <PenLine className="h-4 w-4" />
-              <span className="hidden sm:inline">New Post</span>
-            </Link>
-          ) : (
-            <button
-              onClick={openSignInModal}
-              className="shrink-0 h-9 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors inline-flex items-center gap-2"
-            >
-              <PenLine className="h-4 w-4" />
-              <span className="hidden sm:inline">New Post</span>
-            </button>
-          )
+        {user ? (
+          <Link
+            href="/forum/new"
+            className="shrink-0 h-9 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors inline-flex items-center gap-2"
+          >
+            <PenLine className="h-4 w-4" />
+            <span className="hidden sm:inline">New Post</span>
+          </Link>
+        ) : (
+          <button
+            onClick={openSignInModal}
+            className="shrink-0 h-9 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors inline-flex items-center gap-2"
+          >
+            <PenLine className="h-4 w-4" />
+            <span className="hidden sm:inline">New Post</span>
+          </button>
         )}
       </motion.div>
 
