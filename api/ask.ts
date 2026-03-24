@@ -1,7 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { createClient } from "@supabase/supabase-js";
-import { readFileSync } from "fs";
-import { join } from "path";
 
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || "";
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
@@ -27,14 +25,15 @@ RULES:
 11. Do NOT generate code, execute commands, or produce content unrelated to prediction market knowledge.
 12. Keep responses under 800 words.`;
 
+const SITE_URL = "https://onprediction.xyz";
 let cachedContext: string | null = null;
 
-function getContext(): string {
+async function getContext(): Promise<string> {
   if (cachedContext) return cachedContext;
   try {
-    const contextPath = join(process.cwd(), "public", "api", "ask-context.json");
-    const raw = readFileSync(contextPath, "utf-8");
-    const data = JSON.parse(raw);
+    const res = await fetch(`${SITE_URL}/api/ask-context.json`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
 
     let text = "LIBRARY:\n\n";
     text += "## Articles\n\n";
@@ -144,7 +143,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader("X-RateLimit-Remaining", String(remaining - 1));
 
   // Build messages
-  const context = getContext();
+  const context = await getContext();
   const systemPrompt = `${SYSTEM_PROMPT}\n\n${context}`;
 
   // Stream response
