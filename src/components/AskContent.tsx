@@ -10,19 +10,19 @@ import { cn } from "@/lib/utils";
 const SITE_URL = "https://onprediction.xyz";
 
 const markdownComponents = {
-  h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => {
+  h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => {
     const text = String(children || "");
     const isSources = /suggested readings|sources/i.test(text);
     if (isSources) {
       return (
         <div className="mt-8 pt-4 border-t border-border/50 not-prose">
-          <h3 className="text-xs font-sans font-medium uppercase tracking-wider text-muted-foreground mb-3" {...props}>
+          <h2 className="text-xs font-sans font-medium uppercase tracking-wider text-muted-foreground mb-3" {...props}>
             {children}
-          </h3>
+          </h2>
         </div>
       );
     }
-    return <h3 {...props}>{children}</h3>;
+    return <h2 {...props}>{children}</h2>;
   },
   a: ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
     const isConceptLink = href?.startsWith(`${SITE_URL}/concepts/`) || href?.startsWith("/concepts/");
@@ -137,7 +137,7 @@ export function AskContent() {
                       {msg.content}
                     </div>
                   ) : (
-                    <div className="ask-response prose prose-sm max-w-none text-foreground/90 prose-headings:font-serif prose-headings:text-foreground prose-headings:font-semibold prose-h3:text-[15px] prose-h3:mt-6 prose-h3:mb-2.5 prose-strong:text-foreground prose-p:leading-relaxed prose-p:mb-3 prose-ul:my-3 prose-li:my-1">
+                    <div className="ask-response prose prose-sm max-w-none text-foreground/90 prose-headings:font-serif prose-headings:text-foreground prose-headings:font-semibold prose-h2:text-[16px] prose-h2:mt-6 prose-h2:mb-2.5 prose-strong:text-foreground prose-p:leading-relaxed prose-p:mb-3 prose-ul:my-3 prose-li:my-1">
                       <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
                         {msg.content || (isStreaming && i === messages.length - 1 ? "..." : "")}
                       </ReactMarkdown>
