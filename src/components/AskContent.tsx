@@ -7,19 +7,40 @@ import remarkGfm from "remark-gfm";
 import { useAskLibrary } from "@/hooks/useAskLibrary";
 import { cn } from "@/lib/utils";
 
+const SITE_URL = "https://onprediction.xyz";
+
 const markdownComponents = {
-  a: ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-1 px-1.5 py-0.5 -mx-0.5 rounded bg-primary/10 text-primary font-medium no-underline hover:bg-primary/20 transition-colors text-[13px]"
-      {...props}
-    >
-      {children}
-      <ExternalLink className="h-3 w-3 shrink-0 opacity-60" />
-    </a>
-  ),
+  a: ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+    const isConceptLink = href?.startsWith(`${SITE_URL}/concepts/`) || href?.startsWith("/concepts/");
+
+    if (isConceptLink) {
+      // Internal concept link — subtle underline style
+      const path = href?.startsWith(SITE_URL) ? href.replace(SITE_URL, "") : href;
+      return (
+        <a
+          href={path || "#"}
+          className="text-primary font-medium no-underline border-b border-primary/30 hover:border-primary/60 transition-colors"
+          {...props}
+        >
+          {children}
+        </a>
+      );
+    }
+
+    // External article citation — tinted chip with icon
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1 px-1.5 py-0.5 -mx-0.5 rounded bg-primary/10 text-primary font-medium no-underline hover:bg-primary/20 transition-colors text-[13px]"
+        {...props}
+      >
+        {children}
+        <ExternalLink className="h-3 w-3 shrink-0 opacity-60" />
+      </a>
+    );
+  },
 };
 
 const EXAMPLE_QUESTIONS = [
@@ -62,29 +83,30 @@ export function AskContent() {
           {!hasMessages ? (
             /* Welcome state */
             <div className="flex flex-col items-center justify-center min-h-[60vh]">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 animate-list-item">
                 <Sparkles className="h-5 w-5 text-primary" />
               </div>
-              <h1 className="font-serif text-xl sm:text-2xl font-semibold text-foreground text-center mb-2">
+              <h1 className="font-serif text-xl sm:text-2xl font-semibold text-foreground text-center mb-2 animate-list-item" style={{ animationDelay: "50ms" }}>
                 Ask the Library
               </h1>
-              <p className="text-sm text-muted-foreground text-center max-w-md mb-8">
+              <p className="text-sm text-muted-foreground text-center max-w-md mb-8 animate-list-item" style={{ animationDelay: "100ms" }}>
                 Ask questions about prediction markets and get answers synthesized from our curated library of 100+ articles, with citations.
               </p>
               <div className="w-full max-w-md space-y-2">
-                <p className="text-xs text-muted-foreground/60 text-center mb-2">
+                <p className="text-xs text-muted-foreground/60 text-center mb-2 animate-list-item" style={{ animationDelay: "150ms" }}>
                   Try asking:
                 </p>
-                {EXAMPLE_QUESTIONS.map((q) => (
+                {EXAMPLE_QUESTIONS.map((q, i) => (
                   <button
                     key={q}
                     onClick={() => handleExampleClick(q)}
                     className={cn(
-                      "w-full text-left px-3 py-2 rounded-lg text-sm",
+                      "w-full text-left px-3 py-2 rounded-lg text-sm animate-list-item",
                       "border border-border/50 bg-card",
                       "text-foreground/80 hover:text-foreground hover:border-border hover:bg-accent/30",
                       "transition-colors"
                     )}
+                    style={{ animationDelay: `${200 + i * 50}ms` }}
                   >
                     {q}
                   </button>
@@ -95,7 +117,7 @@ export function AskContent() {
             /* Message list */
             <div className="space-y-6">
               {messages.map((msg, i) => (
-                <div key={i} className={cn(msg.role === "user" ? "flex justify-end" : "")}>
+                <div key={i} className={cn("animate-list-item", msg.role === "user" ? "flex justify-end" : "")}>
                   {msg.role === "user" ? (
                     <div className="max-w-[85%] px-3.5 py-2 rounded-2xl rounded-br-sm bg-primary text-primary-foreground text-sm">
                       {msg.content}

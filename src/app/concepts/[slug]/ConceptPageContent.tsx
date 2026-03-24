@@ -16,7 +16,7 @@ export function ConceptPageContent({ data }: { data: ConceptPageData }) {
     <div className="min-h-[calc(100vh-56px)] bg-background">
       <div className="px-4 sm:px-6 py-4 max-w-4xl mx-auto w-full space-y-8">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground animate-list-item">
           <Link
             href="/concepts"
             className="flex items-center gap-1 hover:text-foreground transition-colors"
@@ -29,7 +29,7 @@ export function ConceptPageContent({ data }: { data: ConceptPageData }) {
         </div>
 
         {/* Header */}
-        <div className="space-y-3">
+        <div className="space-y-3 animate-list-item" style={{ animationDelay: "50ms" }}>
           <div className="flex items-center gap-3 flex-wrap">
             <h1 className="font-serif text-2xl sm:text-3xl font-semibold text-foreground">
               {data.name}
@@ -54,7 +54,7 @@ export function ConceptPageContent({ data }: { data: ConceptPageData }) {
 
         {/* Related Concepts */}
         {data.relatedConcepts.length > 0 && (
-          <div className="space-y-3">
+          <div className="space-y-3 animate-list-item" style={{ animationDelay: "100ms" }}>
             <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
               Related Concepts
             </h2>
@@ -83,7 +83,7 @@ export function ConceptPageContent({ data }: { data: ConceptPageData }) {
 
         {/* Articles */}
         {data.articles.length > 0 && (
-          <div className="space-y-3">
+          <div className="space-y-3 animate-list-item" style={{ animationDelay: "150ms" }}>
             <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
               Articles
             </h2>

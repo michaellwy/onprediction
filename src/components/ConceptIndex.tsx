@@ -88,7 +88,7 @@ export function ConceptIndex({ graphData, initialConcept }: ConceptIndexProps) {
   return (
     <div className="space-y-4">
       {/* Search + Sort */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 animate-list-item">
         <div className="relative max-w-xs flex-1">
           <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground/50" />
           <input
@@ -129,13 +129,13 @@ export function ConceptIndex({ graphData, initialConcept }: ConceptIndexProps) {
       </div>
 
       {/* Count */}
-      <p className="text-xs text-muted-foreground">
+      <p className="text-xs text-muted-foreground animate-list-item" style={{ animationDelay: "50ms" }}>
         {filteredAndSortedNodes.length} concept
         {filteredAndSortedNodes.length !== 1 ? "s" : ""}
       </p>
 
       {/* Concept list */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-x-8">
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-x-8 animate-list-item" style={{ animationDelay: "100ms" }}>
         {filteredAndSortedNodes.map((node) => (
           <ConceptRow
             key={node.id}
