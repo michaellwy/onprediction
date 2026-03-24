@@ -10,7 +10,7 @@
     }
   ],
   "functions": {
-    "api/ask.ts": {
+    "api/ask.mjs": {
       "maxDuration": 30
     }
   }

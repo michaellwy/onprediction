@@ -1,4 +1,3 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { createClient } from "@supabase/supabase-js";
 
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || "";
@@ -26,9 +25,9 @@ RULES:
 12. Keep responses under 800 words.`;
 
 const SITE_URL = "https://onprediction.xyz";
-let cachedContext: string | null = null;
+let cachedContext = null;
 
-async function getContext(): Promise<string> {
+async function getContext() {
   if (cachedContext) return cachedContext;
   try {
     const res = await fetch(`${SITE_URL}/api/ask-context.json`);
@@ -58,11 +57,7 @@ async function getContext(): Promise<string> {
   }
 }
 
-async function checkRateLimit(
-  supabase: ReturnType<typeof createClient>,
-  userId: string | null,
-  ip: string
-): Promise<{ allowed: boolean; remaining: number }> {
+async function checkRateLimit(supabase, userId, ip) {
   const limit = userId ? AUTH_LIMIT : ANON_LIMIT;
   const since = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
 
@@ -82,13 +77,7 @@ async function checkRateLimit(
   return { allowed: used < limit, remaining: Math.max(0, limit - used) };
 }
 
-async function logUsage(
-  supabase: ReturnType<typeof createClient>,
-  userId: string | null,
-  ip: string,
-  question: string,
-  tokenCount?: number
-) {
+async function logUsage(supabase, userId, ip, question, tokenCount) {
   await supabase.from("ask_usage").insert({
     user_id: userId,
     ip_address: ip,
@@ -97,7 +86,7 @@ async function logUsage(
   });
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
@@ -122,10 +111,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: "Question too short" });
   }
 
-  const ip = (req.headers["x-forwarded-for"] as string)?.split(",")[0]?.trim() || "unknown";
+  const ip = (req.headers["x-forwarded-for"] || "unknown").split(",")[0].trim();
 
   // Resolve user from session token if provided
-  let userId: string | null = null;
+  let userId = null;
   const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
   if (sessionToken) {
