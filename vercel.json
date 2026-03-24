@@ -8,5 +8,10 @@
       "source": "/u/api/send",
       "destination": "https://cloud.umami.is/api/send"
     }
-  ]
+  ],
+  "functions": {
+    "api/ask.ts": {
+      "maxDuration": 30
+    }
+  }
 }

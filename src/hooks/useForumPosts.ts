@@ -7,7 +7,7 @@ import type { ForumPost, ForumSortOption } from "@/types/forum";
 
 const PAGE_SIZE = 20;
 
-export function useForumPosts(sort: ForumSortOption = "newest") {
+export function useForumPosts(sort: ForumSortOption = "newest", generalOnly: boolean = false) {
   const { user } = useAuth();
   const [posts, setPosts] = useState<ForumPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +25,10 @@ export function useForumPosts(sort: ForumSortOption = "newest") {
         .from("forum_posts")
         .select("*")
         .range(from, to);
+
+      if (generalOnly) {
+        query = query.is("article_id", null);
+      }
 
       if (sort === "newest") {
         query = query.order("created_at", { ascending: false });
@@ -47,7 +51,7 @@ export function useForumPosts(sort: ForumSortOption = "newest") {
       }
       setIsLoading(false);
     },
-    [sort]
+    [sort, generalOnly]
   );
 
   // Fetch comment counts for all loaded posts

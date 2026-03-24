@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-sitemap.js && node scripts/generate-feed.js && node scripts/generate-public-data.js && node scripts/generate-llms-full.js",
+    "prebuild": "node scripts/generate-sitemap.js && node scripts/generate-feed.js && node scripts/generate-public-data.js && node scripts/generate-llms-full.js && node scripts/generate-ask-context.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,7 +12,10 @@
     "generate:sitemap": "node scripts/generate-sitemap.js",
     "generate:feed": "node scripts/generate-feed.js",
     "generate:data": "node scripts/generate-public-data.js",
-    "generate:llms": "node scripts/generate-llms-full.js"
+    "generate:llms": "node scripts/generate-llms-full.js",
+    "scan": "node scripts/scanner/scan.mjs",
+    "scan:dry": "node scripts/scanner/scan.mjs --dry-run",
+    "scan:full": "node scripts/scanner/scan.mjs --with-accounts"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.3",
@@ -22,6 +25,7 @@
     "@radix-ui/react-slot": "^1.1.1",
     "@supabase/supabase-js": "^2.95.3",
     "@vercel/analytics": "^1.6.1",
+    "@xpoz/xpoz": "^0.2.0",
     "browser-image-compression": "^2.0.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

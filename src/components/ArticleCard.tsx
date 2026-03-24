@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUp, Bookmark, ChevronRight, ExternalLink, Link2 } from "lucide-react";
+import { ArrowUp, Bookmark, ChevronRight, ExternalLink, Link2, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { Article, Category, Difficulty } from "@/types/article";
+import { conceptNameToSlug } from "@/lib/concepts";
 import { cn } from "@/lib/utils";
 import { copyShareLink } from "@/lib/share";
 
@@ -19,6 +20,8 @@ interface ArticleCardProps {
   isExpanded?: boolean;
   onToggleExpand?: () => void;
   onShareCopied?: () => void;
+  commentCount?: number;
+  onOpenDiscussion?: () => void;
 }
 
 const categoryColors: Record<Category, string> = {
@@ -93,6 +96,8 @@ export function ArticleCard({
   isExpanded: controlledExpanded,
   onToggleExpand,
   onShareCopied,
+  commentCount = 0,
+  onOpenDiscussion,
 }: ArticleCardProps) {
   const [internalExpanded, setInternalExpanded] = useState(false);
 
@@ -191,6 +196,7 @@ export function ArticleCard({
               )}
             />
           </button>
+
 
           {/* Category dot — desktop only */}
           <span
@@ -387,7 +393,7 @@ export function ArticleCard({
                       return (
                         <Link
                           key={`${concept}-${idx}`}
-                          href={`/concepts?c=${encodeURIComponent(displayName)}`}
+                          href={`/concepts/${conceptNameToSlug(displayName)}`}
                           onClick={(e) => e.stopPropagation()}
                           className="px-2 py-0.5 text-[12px] font-medium text-foreground/60 bg-foreground/[0.06] rounded hover:bg-foreground/[0.12] hover:text-foreground/80 transition-colors"
                         >
@@ -397,6 +403,21 @@ export function ArticleCard({
                     })}
                   </div>
                 )}
+
+                {/* Discuss button */}
+                {onOpenDiscussion && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onOpenDiscussion();
+                    }}
+                    className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 text-[12px] font-medium text-primary bg-primary/10 hover:bg-primary/15 active:bg-primary/20 rounded-md transition-colors"
+                  >
+                    <MessageSquare className="h-3.5 w-3.5" />
+                    {commentCount > 0 ? `Discuss (${commentCount})` : "Discuss"}
+                  </button>
+                )}
+
               </div>
               </motion.div>
             </motion.div>

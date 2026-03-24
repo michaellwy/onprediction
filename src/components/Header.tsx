@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AuthButton } from "@/components/AuthButton";
 import { SubmitArticleModal } from "@/components/SubmitArticleModal";
@@ -81,13 +81,28 @@ export function Header() {
               href="/concepts"
               className={cn(
                 "relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
-                pathname === "/concepts"
+                pathname?.startsWith("/concepts")
                   ? "text-primary"
                   : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
               )}
             >
               Concepts
-              {pathname === "/concepts" && (
+              {pathname?.startsWith("/concepts") && (
+                <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary/70" />
+              )}
+            </Link>
+            <Link
+              href="/ask"
+              className={cn(
+                "relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors inline-flex items-center gap-1",
+                pathname?.startsWith("/ask")
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
+              )}
+            >
+              <Sparkles className="h-3 w-3" />
+              Ask
+              {pathname?.startsWith("/ask") && (
                 <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary/70" />
               )}
             </Link>
@@ -166,12 +181,24 @@ export function Header() {
                 href="/concepts"
                 className={cn(
                   "flex items-center h-11 px-3 rounded-md text-sm font-medium transition-colors",
-                  pathname === "/concepts"
+                  pathname?.startsWith("/concepts")
                     ? "text-primary bg-primary/5"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
                 )}
               >
                 Concepts
+              </Link>
+              <Link
+                href="/ask"
+                className={cn(
+                  "flex items-center gap-1.5 h-11 px-3 rounded-md text-sm font-medium transition-colors",
+                  pathname?.startsWith("/ask")
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
+                )}
+              >
+                <Sparkles className="h-3 w-3" />
+                Ask
               </Link>
               <button
                 onClick={() => {

@@ -19,6 +19,8 @@ interface ArticleListProps {
   expandResetKey: number;
   sharedArticleId?: number | null;
   onShareCopied?: () => void;
+  articleCommentCounts?: Map<number, number>;
+  onOpenDiscussion?: (articleId: number) => void;
 }
 
 export function ArticleList({
@@ -34,6 +36,8 @@ export function ArticleList({
   expandResetKey,
   sharedArticleId,
   onShareCopied,
+  articleCommentCounts,
+  onOpenDiscussion,
 }: ArticleListProps) {
   // Track IDs that override the allExpanded state, keyed by reset
   const [overrideState, setOverrideState] = useState<{ key: number; ids: Set<number> }>(() => ({
@@ -108,6 +112,8 @@ export function ArticleList({
           isExpanded={isCardExpanded(article.id)}
           onToggleExpand={() => toggleExpand(article.id)}
           onShareCopied={onShareCopied}
+          commentCount={articleCommentCounts?.get(article.id) || 0}
+          onOpenDiscussion={onOpenDiscussion ? () => onOpenDiscussion(article.id) : undefined}
         />
       ))}
     </div>
