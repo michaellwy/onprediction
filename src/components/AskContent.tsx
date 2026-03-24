@@ -1,11 +1,26 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Send, Loader2, RotateCcw, Sparkles } from "lucide-react";
+import { Send, Loader2, RotateCcw, Sparkles, ExternalLink } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useAskLibrary } from "@/hooks/useAskLibrary";
 import { cn } from "@/lib/utils";
+
+const markdownComponents = {
+  a: ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1 px-1.5 py-0.5 -mx-0.5 rounded bg-primary/10 text-primary font-medium no-underline hover:bg-primary/20 transition-colors text-[13px]"
+      {...props}
+    >
+      {children}
+      <ExternalLink className="h-3 w-3 shrink-0 opacity-60" />
+    </a>
+  ),
+};
 
 const EXAMPLE_QUESTIONS = [
   "How does UMA's oracle work?",
@@ -86,8 +101,8 @@ export function AskContent() {
                       {msg.content}
                     </div>
                   ) : (
-                    <div className="prose prose-sm max-w-none text-foreground/90 prose-headings:text-foreground prose-strong:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
-                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    <div className="prose prose-sm max-w-none text-foreground/90 prose-headings:font-serif prose-headings:text-foreground prose-headings:font-semibold prose-h3:text-base prose-h3:mt-5 prose-h3:mb-2 prose-strong:text-foreground prose-p:leading-relaxed prose-p:mb-3 prose-ul:my-2 prose-li:my-0.5">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
                         {msg.content || (isStreaming && i === messages.length - 1 ? "..." : "")}
                       </ReactMarkdown>
                     </div>
