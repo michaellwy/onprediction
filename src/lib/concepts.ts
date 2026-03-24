@@ -1,5 +1,11 @@
 import { getArticles } from "./articles";
-import { ConceptNode, ConceptEdge, ConceptGraphData } from "@/types/concept";
+import {
+  ConceptNode,
+  ConceptEdge,
+  ConceptGraphData,
+  ConceptPageData,
+  ConceptPageArticle,
+} from "@/types/concept";
 import defs from "../../concept_definitions.json";
 
 export type ConceptCluster =
@@ -193,4 +199,81 @@ export function getConnectedConcepts(
   });
 
   return connected.sort((a, b) => b.weight - a.weight);
+}
+
+// --- Slug utilities for individual concept pages ---
+
+export function conceptNameToSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[()]/g, "")
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+// Build slug -> concept name lookup once at module load
+const slugMap: Record<string, string> = {};
+for (const name of Object.keys(conceptDefinitions)) {
+  slugMap[conceptNameToSlug(name)] = name;
+}
+
+export function slugToConceptName(slug: string): string | undefined {
+  return slugMap[slug];
+}
+
+export function getAllConceptSlugs(): string[] {
+  return Object.keys(slugMap);
+}
+
+export function getConceptPageData(conceptName: string): ConceptPageData {
+  const articles = getArticles();
+  const graphData = getConceptGraphData();
+  const slug = conceptNameToSlug(conceptName);
+  const definition = conceptDefinitions[conceptName] || "";
+  const cluster = getConceptCluster(conceptName);
+  const meta = clusterMeta[cluster];
+
+  // Find articles tagged with this concept
+  const taggedArticles: ConceptPageArticle[] = articles
+    .filter((a) =>
+      a.concepts.some((c) => normalizeConcept(c) === conceptName)
+    )
+    .map((a) => ({
+      id: a.id,
+      title: a.title || "",
+      author: a.author || "",
+      url: a.url,
+      publish_date: a.publish_date,
+      editorial_blurb: a.editorial_blurb,
+      primary_category: a.primary_category,
+      difficulty: a.difficulty,
+      source_type: a.source_type,
+    }))
+    .sort((a, b) => {
+      if (!a.publish_date && !b.publish_date) return 0;
+      if (!a.publish_date) return 1;
+      if (!b.publish_date) return -1;
+      return new Date(b.publish_date).getTime() - new Date(a.publish_date).getTime();
+    });
+
+  // Find related concepts from graph edges
+  const connected = getConnectedConcepts(conceptName, graphData);
+  const relatedConcepts = connected.map((c) => ({
+    name: c.concept,
+    slug: conceptNameToSlug(c.concept),
+    weight: c.weight,
+    definition: conceptDefinitions[c.concept] || "",
+  }));
+
+  return {
+    name: conceptName,
+    slug,
+    definition,
+    cluster,
+    clusterLabel: meta.label,
+    clusterColor: meta.color,
+    relatedConcepts,
+    articles: taggedArticles,
+  };
 }

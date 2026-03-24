@@ -3,9 +3,10 @@
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, X, ArrowUpDown, ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { Search, X, ArrowUpDown, ExternalLink, ArrowRight } from "lucide-react";
 import { ConceptGraphData, ConceptNode } from "@/types/concept";
-import { conceptDefinitions } from "@/lib/concepts";
+import { conceptDefinitions, conceptNameToSlug } from "@/lib/concepts";
 import { getArticles } from "@/lib/articles";
 import { cn } from "@/lib/utils";
 
@@ -266,16 +267,18 @@ function ConceptRow({
         <span className="shrink-0 w-5 text-right text-[13px] tabular-nums text-muted-foreground">
           {node.frequency}
         </span>
-        <span
+        <Link
+          href={`/concepts/${conceptNameToSlug(node.name)}`}
+          onClick={(e) => e.stopPropagation()}
           className={cn(
-            "font-serif text-[15px] transition-colors duration-150",
+            "font-serif text-[15px] transition-colors duration-150 hover:underline",
             isHovered
               ? "text-primary"
               : "text-foreground group-hover:text-primary"
           )}
         >
           {node.name}
-        </span>
+        </Link>
       </div>
 
       {/* Hover panel — definition + article list */}
@@ -370,6 +373,15 @@ function HoverPanel({
             );
           })}
         </ul>
+      </div>
+      <div className="px-4 py-2 border-t border-border/30 shrink-0">
+        <Link
+          href={`/concepts/${conceptNameToSlug(node.name)}`}
+          className="flex items-center gap-1 text-[12px] text-muted-foreground hover:text-primary transition-colors"
+        >
+          View full page
+          <ArrowRight className="h-3 w-3" />
+        </Link>
       </div>
     </motion.div>,
     document.body

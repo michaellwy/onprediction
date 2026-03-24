@@ -13,8 +13,10 @@ import { getActiveFilterCount, filterArticles } from "@/lib/filters";
 import { useFilters } from "@/hooks/useFilters";
 import { useBookmarks } from "@/hooks/useBookmarks";
 import { useUpvotes } from "@/hooks/useUpvotes";
+import { useArticleCommentCounts } from "@/hooks/useArticleCommentCounts";
 import { useAuth } from "@/contexts/AuthContext";
 import { ArticleList } from "@/components/ArticleList";
+import { ArticleDiscussionPanel } from "@/components/ArticleDiscussionPanel";
 import { FilterSidebar } from "@/components/FilterSidebar";
 import { FilterDrawer } from "@/components/FilterDrawer";
 import { SortDropdown } from "@/components/SortDropdown";
@@ -46,6 +48,8 @@ function HomeContentInner() {
   const { user, openSignInModal } = useAuth();
   const { bookmarks, isLoaded, toggleBookmark } = useBookmarks();
   const { counts: upvoteCounts, userUpvotes, toggleUpvote } = useUpvotes();
+  const articleCommentCounts = useArticleCommentCounts();
+  const [discussionArticleId, setDiscussionArticleId] = useState<number | null>(null);
   const activeFilterCount = getActiveFilterCount(filters);
   const filteredCount = isLoaded
     ? filterArticles(articles, filters, bookmarks).length
@@ -72,6 +76,14 @@ function HomeContentInner() {
     },
     [user, openSignInModal, toggleUpvote]
   );
+
+  const discussionArticle = discussionArticleId !== null
+    ? articles.find((a) => a.id === discussionArticleId)
+    : null;
+
+  const handleOpenDiscussion = useCallback((articleId: number) => {
+    setDiscussionArticleId(articleId);
+  }, []);
 
   const handleToggleBookmark = useCallback(
     (articleId: number) => {
@@ -226,6 +238,8 @@ function HomeContentInner() {
                   expandResetKey={expandResetKey}
                   sharedArticleId={sharedArticleId}
                   onShareCopied={handleShareCopied}
+                  articleCommentCounts={articleCommentCounts}
+                  onOpenDiscussion={handleOpenDiscussion}
                 />
               )}
 
@@ -251,6 +265,15 @@ function HomeContentInner() {
           </div>
         </div>
       </main>
+
+      {/* Article Discussion Panel */}
+      <ArticleDiscussionPanel
+        articleId={discussionArticleId}
+        articleTitle={discussionArticle?.title || ""}
+        articleUrl={discussionArticle?.url || null}
+        isOpen={discussionArticleId !== null}
+        onClose={() => setDiscussionArticleId(null)}
+      />
 
       {/* Toast notification */}
       <AnimatePresence>

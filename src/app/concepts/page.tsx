@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { conceptDefinitions } from "@/lib/concepts";
+import { conceptDefinitions, conceptNameToSlug } from "@/lib/concepts";
 import { siteConfig } from "@/lib/siteConfig";
 import { JsonLd } from "@/components/JsonLd";
 import { ConceptsContent } from "@/components/ConceptsContent";
@@ -35,6 +35,7 @@ export default function ConceptsPage() {
         "@type": "DefinedTerm",
         name,
         description: def,
+        url: `${siteConfig.url}/concepts/${conceptNameToSlug(name)}`,
       })),
   };
 
@@ -54,7 +55,9 @@ export default function ConceptsPage() {
             .sort(([a], [b]) => a.localeCompare(b))
             .map(([name, def]) => (
               <div key={name}>
-                <dt>{name}</dt>
+                <dt>
+                  <a href={`/concepts/${conceptNameToSlug(name)}`}>{name}</a>
+                </dt>
                 <dd>{def || "Definition pending."}</dd>
               </div>
             ))}
