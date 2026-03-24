@@ -106,6 +106,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "platform competition": "business",
   "election markets": "business",
   "parlays": "business",
+  "multi-outcome markets": "mechanism",
   "binary contracts": "mechanism",
   "event contracts": "business",
   "regulatory arbitrage": "business",
