@@ -47,6 +47,7 @@
   "market scoring rules": "A class of automated market maker mechanisms that subsidize trade by penalizing a market maker according to a proper scoring rule. Traders profit by moving prices closer to their beliefs, ensuring the market maker absorbs losses in exchange for eliciting honest probability estimates. LMSR is the most widely used instance.",
   "mean reversion": "The tendency of prices to revert toward their prior level after short-term excursions, exploitable in prediction markets where microstructure noise and narrative overreaction create transient mispricings.",
   "minimum viable liquidity": "The threshold level of trading volume a prediction market needs to attract informed traders who can correct mispricing, calculated as Cost of Expertise divided by Price Gap. Beyond this threshold, additional liquidity does not improve forecast accuracy.",
+  "multi-outcome markets": "Prediction markets where an event is divided into multiple mutually exclusive outcome ranges (e.g., price brackets), each tradeable. Contrasts with binary markets that only ask yes/no questions.",
   "network effects": "When a platform becomes more valuable to each user as more participants join and trade on it.",
   "no-loss prediction markets": "Designs where participants risk only potential yield, not principal, lowering the barrier to entry.",
   "no-trade theorem": "The theoretical result that rational agents with common priors should never agree to speculative trades.",

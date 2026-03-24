@@ -2537,5 +2537,27 @@
     "platforms_mentioned": ["Kalshi", "Polymarket"],
     "editorial_blurb": "Argues that prediction market TAM should include the supply side: as the cost of producing real-time probability estimates collapses, the addressable market extends beyond trading volume to every decision that benefits from better forecasts. Presents an ordered liquidity formation path from entertainment to information to institutional demand, and contends that scaling to $1T requires massive breadth in long-tail markets rather than concentrated depth in a few high-volume categories.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 116,
+    "url": "https://x.com/jolimmmm/article/2036119259420807216",
+    "title": "The World's Biggest Risk Event Just Exposed Prediction Markets' Biggest Gap",
+    "author": "Jo Lim",
+    "author_twitter": "@jolimmmm",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-24",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: multi-outcome markets",
+      "market scoring rules",
+      "liquidity provision",
+      "order book",
+      "binary contracts"
+    ],
+    "platforms_mentioned": ["Polymarket", "NEW: Tide Markets"],
+    "editorial_blurb": "Uses the March 2026 Strait of Hormuz crisis to argue that binary order-book prediction markets hit an architectural ceiling when pricing granular, multi-outcome risk. Compares how traditional options solve this for tradable assets, then explains how automated market scoring rules (LMSR/CLMSR) offer protocol-native liquidity, coherent pricing, and capital efficiency for events without underlying assets. Walks through a concrete WTI crude oil scenario showing how scoring-rule markets reward precise thesis expression over simple directional bets.",
+    "fetch_status": "pdf"
   }
 ]
