@@ -2601,5 +2601,26 @@
     "platforms_mentioned": ["Polymarket"],
     "editorial_blurb": "Introduces implied correlation as a trading opportunity in prediction markets. Polymarket currently prices a 60%+ chance of 5% unemployment this year alongside only a 10% chance of aggressive Fed rate cuts, even though every historical episode of that unemployment spike triggered an average of seven cuts. Argues that because prediction markets are still priced idiosyncratically, cross-market mispricings like this are common and create attractive relative value trades.",
     "fetch_status": "web"
+  },
+  {
+    "id": 119,
+    "url": "https://medium.com/@nick.c.ruzicka/everyones-promising-20x-leverage-on-prediction-markets-here-s-why-it-s-hard-8684d9a77e11",
+    "title": "Everyone's Promising 20x Leverage on Prediction Markets. Here's Why It's Hard.",
+    "author": "Nick Ruzicka",
+    "author_twitter": "",
+    "source_type": "Blog",
+    "publish_date": "2026-01-27",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "gap risk",
+      "binary contracts",
+      "liquidity provision",
+      "adverse selection"
+    ],
+    "platforms_mentioned": ["Polymarket", "Kalshi", "Hyperliquid", "NEW: dYdX", "NEW: Drift"],
+    "editorial_blurb": "Surveys the landscape of teams trying to add leverage to prediction markets and explains why most are converging on 1x to 1.5x rather than the 10x or 20x they advertise. The core problem is gap risk: binary outcomes resolve instantly, skipping the intermediate prices that liquidation engines need to function. Uses dYdX's TRUMPWIN perp on election night 2024 as a case study where sophisticated safeguards still broke under real conditions, then categorizes current approaches into three camps: constrain leverage, engineer around it with dynamic fees and circuit breakers, or ship and iterate.",
+    "fetch_status": "pdf"
   }
 ]
