@@ -80,5 +80,6 @@
   "token voting": "A governance mechanism where token holders vote on proposals proportional to their holdings. Criticized for enabling plutocratic control and majority exploitation of minorities, often contrasted with futarchy as an alternative that aligns incentives through market prices rather than voting power.",
   "toxic flow": "Order flow from informed traders that systematically moves against the market maker's positions.",
   "UMA protocol": "Optimistic oracle system where outcomes are assumed correct unless disputed, using economic bonds for security.",
-  "wisdom of crowds": "The phenomenon where aggregated group estimates often outperform individual experts in forecasting accuracy."
+  "wisdom of crowds": "The phenomenon where aggregated group estimates often outperform individual experts in forecasting accuracy.",
+  "yes bias": "The systematic tendency for YES shares in prediction markets to be overpriced relative to true probabilities, potentially explaining what was previously attributed to favorite-longshot bias."
 }
