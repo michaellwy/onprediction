@@ -17,6 +17,7 @@
   "corruption value multiple": "The ratio of economic value at stake outside a market versus the cost of corrupting its oracle.",
   "covariance markets": "Markets that trade on the correlation between events, allowing positions on how outcomes relate to each other.",
   "cross-platform arbitrage": "Trading the same event across different prediction market platforms to profit from price discrepancies.",
+  "cross-subsidization": "Using revenue from commercially profitable prediction markets to fund liquidity incentives on socially valuable but self-sustaining markets, mirroring how newspaper ads subsidize investigative journalism.",
   "decision markets": "Prediction markets explicitly designed to inform specific decisions by forecasting outcomes of each option.",
   "derivatives": "Financial instruments whose value derives from prediction market outcomes, enabling leverage and hedging.",
   "dispute resolution": "Mechanisms for challenging and adjudicating contested market outcomes when participants disagree on results.",

@@ -111,6 +111,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "event contracts": "business",
   "regulatory arbitrage": "business",
   "public goods problem": "business",
+  "cross-subsidization": "business",
   "no-trade theorem": "business",
   "AI agents": "business",
   "go-to-market": "business",

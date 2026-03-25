@@ -2559,5 +2559,27 @@
     "platforms_mentioned": ["Polymarket", "NEW: Tide Markets"],
     "editorial_blurb": "Uses the March 2026 Strait of Hormuz crisis to argue that binary order-book prediction markets hit an architectural ceiling when pricing granular, multi-outcome risk. Compares how traditional options solve this for tradable assets, then explains how automated market scoring rules (LMSR/CLMSR) offer protocol-native liquidity, coherent pricing, and capital efficiency for events without underlying assets. Walks through a concrete WTI crude oil scenario showing how scoring-rule markets reward precise thesis expression over simple directional bets.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 117,
+    "url": "https://x.com/alanwu/article/2036438579824496906",
+    "title": "How Prediction Markets Can Ascend",
+    "author": "Alan Wu",
+    "author_twitter": "@alanwu",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-25",
+    "primary_category": "Business",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: cross-subsidization",
+      "public goods problem",
+      "liquidity provision",
+      "adverse selection",
+      "hedging"
+    ],
+    "platforms_mentioned": ["Polymarket", "Kalshi", "Hyperliquid"],
+    "editorial_blurb": "Frames prediction market prices as public goods whose benefits are non-excludable but whose liquidity costs fall on a narrow trader base. Proposes cross-subsidization as the growth mechanism: profitable markets fund socially valuable ones that can't sustain themselves, the same way newspaper ads funded investigative journalism. Also argues that accuracy isn't the only axis of value, showing how markets can serve risk transfer (hedging hurricane or policy exposure) and information accountability functions even when prices drift from pure probability.",
+    "fetch_status": "pdf"
   }
 ]
