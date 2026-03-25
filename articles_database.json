@@ -2622,5 +2622,26 @@
     "platforms_mentioned": ["Polymarket", "Kalshi", "Hyperliquid", "NEW: dYdX", "NEW: Drift"],
     "editorial_blurb": "Surveys the landscape of teams trying to add leverage to prediction markets and explains why most are converging on 1x to 1.5x rather than the 10x or 20x they advertise. The core problem is gap risk: binary outcomes resolve instantly, skipping the intermediate prices that liquidation engines need to function. Uses dYdX's TRUMPWIN perp on election night 2024 as a case study where sophisticated safeguards still broke under real conditions, then categorizes current approaches into three camps: constrain leverage, engineer around it with dynamic fees and circuit breakers, or ship and iterate.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 120,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6322678",
+    "title": "How Wise Is the Crowd? Bias and Edge in Prediction Markets",
+    "author": "Avaneesh Deleep, John Lee, Jenny Bai, Dhruv Suresh, Harsh Dhawan",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-02-28",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "NEW: yes bias",
+      "longshot bias",
+      "adverse selection",
+      "retail flow"
+    ],
+    "platforms_mentioned": ["Polymarket", "Kalshi"],
+    "editorial_blurb": "Analyzes tick-level order flow across Polymarket and Kalshi to decompose market bias by trader type. Finds that the classic favorite-longshot bias may be a statistical artifact masking a pervasive \"yes bias\" driven by temporal volatility and incomplete controls for contract lifecycle. Also shows that whales are not the sharpest participants: heavily capitalized traders systematically bleed expected value to small-order traders, likely driven by ideological conviction rather than informational edge.",
+    "fetch_status": "web"
   }
 ]
