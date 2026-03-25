@@ -117,6 +117,8 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "go-to-market": "business",
   "sports betting": "business",
   "federal preemption": "business",
+  "implied correlation": "liquidity",
+  "relative value trading": "liquidity",
 };
 
 export function getConceptCluster(concept: string): ConceptCluster {

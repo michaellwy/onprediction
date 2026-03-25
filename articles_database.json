@@ -2581,5 +2581,25 @@
     "platforms_mentioned": ["Polymarket", "Kalshi", "Hyperliquid"],
     "editorial_blurb": "Frames prediction market prices as public goods whose benefits are non-excludable but whose liquidity costs fall on a narrow trader base. Proposes cross-subsidization as the growth mechanism: profitable markets fund socially valuable ones that can't sustain themselves, the same way newspaper ads funded investigative journalism. Also argues that accuracy isn't the only axis of value, showing how markets can serve risk transfer (hedging hurricane or policy exposure) and information accountability functions even when prices drift from pure probability.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 118,
+    "url": "https://cheapconvexity.substack.com/p/prediction-markets-and-implied-correlation",
+    "title": "Prediction Markets and Implied Correlation",
+    "author": "Jon Turek",
+    "author_twitter": "",
+    "source_type": "Substack",
+    "publish_date": "2026-03-24",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: implied correlation",
+      "NEW: relative value trading",
+      "arbitrage"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Introduces implied correlation as a trading opportunity in prediction markets. Polymarket currently prices a 60%+ chance of 5% unemployment this year alongside only a 10% chance of aggressive Fed rate cuts, even though every historical episode of that unemployment spike triggered an average of seven cuts. Argues that because prediction markets are still priced idiosyncratically, cross-market mispricings like this are common and create attractive relative value trades.",
+    "fetch_status": "web"
   }
 ]
