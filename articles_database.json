@@ -2665,5 +2665,68 @@
     "platforms_mentioned": ["Polymarket", "Kalshi"],
     "editorial_blurb": "Screens 93,000 Polymarket markets and flags traders with a 69.9% win rate, more than 60 standard deviations above chance, estimating $143 million in anomalous profits. Documents specific cases from geopolitical events to celebrity announcements where wallets appear to trade on material non-public information. Proposes a regulatory framework combining platform-level registration, contract-level restrictions on high-risk categories, and an extended misappropriation doctrine to close the legal gaps that leave prediction market insider trading largely unpoliced.",
     "fetch_status": "web"
+  },
+  {
+    "id": 122,
+    "url": "https://x.com/functionspaceHQ/article/2037374271278989409",
+    "title": "The Yes Bias Might Not Exist",
+    "author": "functionSPACE",
+    "author_twitter": "functionspaceHQ",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-27",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: question framing",
+      "yes bias",
+      "longshot bias",
+      "retail flow"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Analyzes 7,292 resolved Polymarket markets and 28,793 on-chain trades to test whether yes bias exists in trade data. Finds that traders buy whichever token is cheaper, not whichever is labeled YES, and that the apparent bias is a compound effect of longshot preference channeled through Polymarket's \"Will X happen?\" question framing, which systematically assigns the longshot to the YES token.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 123,
+    "url": "https://x.com/0xkeshav_/article/1970163909224169626",
+    "title": "Prediction Markets: The Next Level",
+    "author": "keshav",
+    "author_twitter": "0xkeshav_",
+    "source_type": "Twitter",
+    "publish_date": "2025-09-23",
+    "primary_category": "Design",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: position collateralization",
+      "liquidity provision",
+      "arbitrage",
+      "longshot bias"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Proposes a DeFi primitive for borrowing against prediction market positions, arguing that collateralization solves the capital lock-up problem in long-dated markets. Walks through how position lending could improve liquidity, correct persistent mispricings like longshot mispricing, and open composability with the broader financial ecosystem, while flagging the liquidation risks unique to binary outcomes.",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 124,
+    "url": "https://x.com/sealaunch_/article/2037228250116522082",
+    "title": "Is Polymarket a Retail Product or a Pro Trading Venue?",
+    "author": "sealaunch intelligence",
+    "author_twitter": "sealaunch_",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-27",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: volume concentration",
+      "retail flow",
+      "market making",
+      "platform competition"
+    ],
+    "platforms_mentioned": ["Polymarket"],
+    "editorial_blurb": "Categorizes every active Polymarket wallet across trade frequency and volume tiers, producing a seven-persona map of platform participants. Finds that 2% of users (high-frequency, high-capital wallets) generate roughly 90% of all platform volume, with crypto markets dominated by algorithmic execution and politics markets driven by casual event-driven participants. Draws implications for fee design, category expansion, and why optimizing for user growth versus volume growth requires fundamentally different product decisions.",
+    "fetch_status": "pdf"
   }
 ]
