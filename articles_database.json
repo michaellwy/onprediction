@@ -2643,5 +2643,27 @@
     "platforms_mentioned": ["Polymarket", "Kalshi"],
     "editorial_blurb": "Analyzes tick-level order flow across Polymarket and Kalshi to decompose market bias by trader type. Finds that the classic favorite-longshot bias may be a statistical artifact masking a pervasive \"yes bias\" driven by temporal volatility and incomplete controls for contract lifecycle. Also shows that whales are not the sharpest participants: heavily capitalized traders systematically bleed expected value to small-order traders, likely driven by ideological conviction rather than informational edge.",
     "fetch_status": "web"
+  },
+  {
+    "id": 121,
+    "url": "https://corpgov.law.harvard.edu/2026/03/25/from-iran-to-taylor-swift-informed-trading-in-prediction-markets/",
+    "title": "From Iran to Taylor Swift: Informed Trading in Prediction Markets",
+    "author": "Joshua Mitts, Moran Ofir",
+    "author_twitter": "",
+    "source_type": "Blog",
+    "publish_date": "2026-03-25",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "NEW: market surveillance",
+      "insider trading",
+      "information asymmetry",
+      "adverse selection",
+      "regulatory arbitrage"
+    ],
+    "platforms_mentioned": ["Polymarket", "Kalshi"],
+    "editorial_blurb": "Screens 93,000 Polymarket markets and flags traders with a 69.9% win rate, more than 60 standard deviations above chance, estimating $143 million in anomalous profits. Documents specific cases from geopolitical events to celebrity announcements where wallets appear to trade on material non-public information. Proposes a regulatory framework combining platform-level registration, contract-level restrictions on high-risk categories, and an extended misappropriation doctrine to close the legal gaps that leave prediction market insider trading largely unpoliced.",
+    "fetch_status": "web"
   }
 ]
