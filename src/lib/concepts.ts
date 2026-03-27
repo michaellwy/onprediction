@@ -86,6 +86,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "reflexivity": "mechanism",
   "derivatives": "mechanism",
   "market manipulation": "mechanism",
+  "market surveillance": "business",
   "LOX (log-odds excess lateness)": "mechanism",
 
   // Governance & Decisions
