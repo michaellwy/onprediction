@@ -121,6 +121,9 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "implied correlation": "liquidity",
   "relative value trading": "liquidity",
   "yes bias": "information",
+  "question framing": "information",
+  "position collateralization": "mechanism",
+  "volume concentration": "business",
 };
 
 export function getConceptCluster(concept: string): ConceptCluster {
