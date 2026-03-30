@@ -2750,5 +2750,26 @@
     "platforms_mentioned": ["Kalshi"],
     "editorial_blurb": "Analyzes 72.1 million trades ($18.26B volume) on Kalshi and documents a systematic wealth transfer from takers to makers averaging 1.12% excess returns on each side. Takers disproportionately buy YES longshots, accepting returns 64 percentage points lower than equivalent NO positions. Shows this transfer only emerged after Kalshi's October 2024 legal victory attracted professional algorithmic market makers, and that market efficiency varies sharply by category: finance markets are near-efficient while entertainment and media markets show gaps exceeding 7 percentage points.",
     "fetch_status": "web"
+  },
+  {
+    "id": 126,
+    "url": "https://arxiv.org/abs/2602.19520",
+    "title": "Decomposing Crowd Wisdom: Domain-Specific Calibration Dynamics in Prediction Markets",
+    "author": "Nam Anh Le",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-02-23",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "calibration",
+      "longshot bias",
+      "election markets",
+      "noise decomposition"
+    ],
+    "platforms_mentioned": ["Kalshi", "Polymarket"],
+    "editorial_blurb": "Fits a Bayesian hierarchical model to 292 million trades across 327,000 contracts on Kalshi and Polymarket to decompose calibration errors into structured components: universal horizon effects, domain-specific biases, and trade-size scale effects, which together explain 87.3% of variance on Kalshi. Finds persistent underconfidence in political markets where prices compress toward 50%, and shows that large trades amplify this pattern on Kalshi but not on Polymarket, pointing to platform-specific microstructure differences.",
+    "fetch_status": "web"
   }
 ]
