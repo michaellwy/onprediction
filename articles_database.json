@@ -2793,5 +2793,27 @@
     "platforms_mentioned": ["Kalshi", "Polymarket"],
     "editorial_blurb": "Proposes a tiered framework for evaluating prediction market reliability, ranking financialized economic indicators highest and speculative prop bets lowest. Outlines three practical use cases: triangulating against traditional polls, nowcasting delayed economic data in real time, and hedging event risk. Draws on a Federal Reserve paper validating Kalshi's data quality and Tetlock's forecasting research to ground the argument.",
     "fetch_status": "web"
+  },
+  {
+    "id": 128,
+    "url": "https://x.com/BlondiePredicts/status/2038595927225622569",
+    "title": "The Probability Layers Are Coming",
+    "author": "Aggie",
+    "author_twitter": "@BlondiePredicts",
+    "source_type": "Twitter",
+    "publish_date": "2026-03-30",
+    "primary_category": "Applications",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "NEW: probability infrastructure",
+      "NEW: credibility markets",
+      "NEW: demand markets",
+      "info finance",
+      "information aggregation"
+    ],
+    "platforms_mentioned": ["Kalshi", "Polymarket"],
+    "editorial_blurb": "Argues that prediction markets are a proof of concept for a broader shift: probability as infrastructure. Proposes three 'probability layers' beyond trading: attention markets that price content virality forward, credibility markets that turn trust into a continuously updated score, and demand markets that capture consumer intent before production. Frames the endgame as probability signals embedded invisibly into every decision surface on the internet.",
+    "fetch_status": "web"
   }
 ]

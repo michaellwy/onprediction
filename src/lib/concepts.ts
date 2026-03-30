@@ -75,6 +75,8 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "distribution markets": "information",
   "longshot bias": "information",
   "noise decomposition": "information",
+  "probability infrastructure": "information",
+  "credibility markets": "information",
 
   // Mechanism Design
   "proper scoring rules": "mechanism",
@@ -113,6 +115,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "regulatory arbitrage": "business",
   "public goods problem": "business",
   "cross-subsidization": "business",
+  "demand markets": "business",
   "no-trade theorem": "business",
   "AI agents": "business",
   "go-to-market": "business",
