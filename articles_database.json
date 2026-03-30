@@ -2728,5 +2728,27 @@
     "platforms_mentioned": ["Polymarket"],
     "editorial_blurb": "Categorizes every active Polymarket wallet across trade frequency and volume tiers, producing a seven-persona map of platform participants. Finds that 2% of users (high-frequency, high-capital wallets) generate roughly 90% of all platform volume, with crypto markets dominated by algorithmic execution and politics markets driven by casual event-driven participants. Draws implications for fee design, category expansion, and why optimizing for user growth versus volume growth requires fundamentally different product decisions.",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 125,
+    "url": "https://www.jbecker.dev/research/prediction-market-microstructure",
+    "title": "The Microstructure of Wealth Transfer in Prediction Markets",
+    "author": "Jonathan Becker",
+    "author_twitter": "",
+    "source_type": "Blog",
+    "publish_date": "2026-01-18",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "longshot bias",
+      "yes bias",
+      "market making",
+      "retail flow",
+      "adverse selection"
+    ],
+    "platforms_mentioned": ["Kalshi"],
+    "editorial_blurb": "Analyzes 72.1 million trades ($18.26B volume) on Kalshi and documents a systematic wealth transfer from takers to makers averaging 1.12% excess returns on each side. Takers disproportionately buy YES longshots, accepting returns 64 percentage points lower than equivalent NO positions. Shows this transfer only emerged after Kalshi's October 2024 legal victory attracted professional algorithmic market makers, and that market efficiency varies sharply by category: finance markets are near-efficient while entertainment and media markets show gaps exceeding 7 percentage points.",
+    "fetch_status": "web"
   }
 ]
