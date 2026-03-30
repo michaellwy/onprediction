@@ -124,6 +124,8 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "question framing": "information",
   "position collateralization": "mechanism",
   "volume concentration": "business",
+  "nowcasting": "information",
+  "endogeneity": "information",
 };
 
 export function getConceptCluster(concept: string): ConceptCluster {

@@ -2771,5 +2771,27 @@
     "platforms_mentioned": ["Kalshi", "Polymarket"],
     "editorial_blurb": "Fits a Bayesian hierarchical model to 292 million trades across 327,000 contracts on Kalshi and Polymarket to decompose calibration errors into structured components: universal horizon effects, domain-specific biases, and trade-size scale effects, which together explain 87.3% of variance on Kalshi. Finds persistent underconfidence in political markets where prices compress toward 50%, and shows that large trades amplify this pattern on Kalshi but not on Polymarket, pointing to platform-specific microstructure differences.",
     "fetch_status": "web"
+  },
+  {
+    "id": 127,
+    "url": "https://uncover.substack.com/p/how-to-use-prediction-markets-as",
+    "title": "How to Use Prediction Markets as a High Quality Info Source",
+    "author": "Isar Bhattacharjee",
+    "author_twitter": "",
+    "source_type": "Substack",
+    "publish_date": "2026-03-30",
+    "primary_category": "Applications",
+    "content_type": "Explainer",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: nowcasting",
+      "NEW: endogeneity",
+      "wisdom of crowds",
+      "information aggregation",
+      "insider trading"
+    ],
+    "platforms_mentioned": ["Kalshi", "Polymarket"],
+    "editorial_blurb": "Proposes a tiered framework for evaluating prediction market reliability, ranking financialized economic indicators highest and speculative prop bets lowest. Outlines three practical use cases: triangulating against traditional polls, nowcasting delayed economic data in real time, and hedging event risk. Draws on a Federal Reserve paper validating Kalshi's data quality and Tetlock's forecasting research to ground the argument.",
+    "fetch_status": "web"
   }
 ]
