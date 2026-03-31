@@ -174,7 +174,7 @@ export function ArticleCard({
                 {upvoteCount}
               </span>
             </button>
-            <span className="flex items-center gap-0.5 text-muted-foreground/35">
+            <span className="flex items-center gap-0.5 text-foreground/45">
               <Eye className="h-3 w-3 shrink-0" />
               <span className="text-xs tabular-nums min-w-[1ch]">
                 {viewCount}
@@ -236,7 +236,7 @@ export function ArticleCard({
                       </span>
                     )}
                     {viewCount > 0 && (
-                      <span className="flex items-center gap-0.5 text-[11px] text-foreground/35">
+                      <span className="flex items-center gap-0.5 text-[11px] text-foreground/50">
                         <Eye className="h-2.5 w-2.5" />
                         {viewCount}
                       </span>
@@ -296,15 +296,15 @@ export function ArticleCard({
                 transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
               >
               <div className="px-4 pb-4 pl-4 sm:pl-14">
-                {/* Actions — upvote (mobile only) + bookmark (all) */}
-                <div className="flex items-center gap-3 mb-3">
+                {/* Upvote button — mobile only */}
+                <div className="flex sm:hidden items-center gap-3 mb-3">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       onToggleUpvote();
                     }}
                     className={cn(
-                      "sm:hidden flex items-center gap-1.5 h-8 px-3 rounded-md text-xs font-medium transition-colors",
+                      "flex items-center gap-1.5 h-8 px-3 rounded-md text-xs font-medium transition-colors",
                       isUpvoted
                         ? "bg-emerald-500/10 text-emerald-600"
                         : "bg-foreground/[0.05] text-foreground/60 active:bg-foreground/[0.1]"
@@ -315,21 +315,6 @@ export function ArticleCard({
                     {upvoteCount > 0 && (
                       <span className="tabular-nums">({upvoteCount})</span>
                     )}
-                  </button>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onToggleBookmark();
-                    }}
-                    className={cn(
-                      "flex items-center gap-1.5 h-8 px-3 rounded-md text-xs font-medium transition-colors",
-                      isBookmarked
-                        ? "bg-amber-500/10 text-amber-600"
-                        : "bg-foreground/[0.05] text-foreground/60 active:bg-foreground/[0.1]"
-                    )}
-                  >
-                    <Bookmark className={cn("h-3.5 w-3.5", isBookmarked && "fill-amber-500")} />
-                    {isBookmarked ? "Saved" : "Save"}
                   </button>
                 </div>
 
@@ -400,19 +385,36 @@ export function ArticleCard({
                   </div>
                 )}
 
-                {/* Discuss button */}
-                {onOpenDiscussion && (
+                {/* Discuss + Save */}
+                <div className="mt-3 flex items-center gap-2">
+                  {onOpenDiscussion && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onOpenDiscussion();
+                      }}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[12px] font-medium text-primary bg-primary/10 hover:bg-primary/15 active:bg-primary/20 rounded-md transition-colors"
+                    >
+                      <MessageSquare className="h-3.5 w-3.5" />
+                      {commentCount > 0 ? `Discuss (${commentCount})` : "Discuss"}
+                    </button>
+                  )}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      onOpenDiscussion();
+                      onToggleBookmark();
                     }}
-                    className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 text-[12px] font-medium text-primary bg-primary/10 hover:bg-primary/15 active:bg-primary/20 rounded-md transition-colors"
+                    className={cn(
+                      "inline-flex items-center gap-1.5 px-3 py-1.5 text-[12px] font-medium rounded-md transition-colors",
+                      isBookmarked
+                        ? "text-amber-600 bg-amber-500/10 hover:bg-amber-500/15"
+                        : "text-foreground/60 bg-foreground/[0.05] hover:bg-foreground/[0.08]"
+                    )}
                   >
-                    <MessageSquare className="h-3.5 w-3.5" />
-                    {commentCount > 0 ? `Discuss (${commentCount})` : "Discuss"}
+                    <Bookmark className={cn("h-3.5 w-3.5", isBookmarked && "fill-amber-500")} />
+                    {isBookmarked ? "Saved" : "Save"}
                   </button>
-                )}
+                </div>
 
               </div>
               </motion.div>
