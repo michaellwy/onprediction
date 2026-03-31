@@ -2815,5 +2815,26 @@
     "platforms_mentioned": ["Kalshi", "Polymarket"],
     "editorial_blurb": "Argues that prediction markets are a proof of concept for a broader shift: probability as infrastructure. Proposes three 'probability layers' beyond trading: attention markets that price content virality forward, credibility markets that turn trust into a continuously updated score, and demand markets that capture consumer intent before production. Frames the endgame as probability signals embedded invisibly into every decision surface on the internet.",
     "fetch_status": "web"
+  },
+  {
+    "id": 129,
+    "url": "https://www.congress.gov/crs-product/LSB11406",
+    "title": "Prediction Markets and Insider Trading Law",
+    "author": "Jay B. Sykes",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-03-18",
+    "primary_category": "Fundamentals",
+    "content_type": "Explainer",
+    "difficulty": "Extensive",
+    "concepts": [
+      "insider trading",
+      "event contracts",
+      "federal preemption",
+      "market surveillance"
+    ],
+    "platforms_mentioned": ["Kalshi", "Polymarket"],
+    "editorial_blurb": "Congressional Research Service legal sidebar analyzing whether and how insider trading law applies to prediction markets. Walks through SEC Rule 10b-5, CFTC Rule 180.1, the STOCK Act, and Title 18 criminal statutes, then examines the CFTC's February 2026 advisory on two Kalshi enforcement actions. Identifies the core gap: existing law requires breach of a duty, but many prediction market insiders (e.g., a political candidate betting on his own race) may not owe one. Surveys four pending bills in the 119th Congress that would close this gap in different ways.",
+    "fetch_status": "web"
   }
 ]
