@@ -31,6 +31,7 @@ const categoryColors: Record<Category, string> = {
   Platforms: "bg-[hsl(var(--cat-platforms))]",
   Applications: "bg-[hsl(var(--cat-applications))]",
   Business: "bg-[hsl(var(--cat-business))]",
+  Regulation: "bg-[hsl(var(--cat-regulation))]",
   Commentary: "bg-[hsl(var(--cat-commentary))]",
 };
 

@@ -22,6 +22,7 @@ export type Category =
   | "Platforms"
   | "Applications"
   | "Business"
+  | "Regulation"
   | "Commentary";
 
 export type Difficulty = "None" | "Some" | "Extensive";

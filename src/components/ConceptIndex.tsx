@@ -4,9 +4,9 @@ import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Search, X, ArrowUpDown, ExternalLink, ArrowRight } from "lucide-react";
+import { Search, X, ArrowUpDown, ExternalLink, ArrowRight, LayoutGrid, List, ChevronRight } from "lucide-react";
 import { ConceptGraphData, ConceptNode } from "@/types/concept";
-import { conceptDefinitions, conceptNameToSlug } from "@/lib/concepts";
+import { conceptDefinitions, conceptNameToSlug, clusterMeta, type ConceptCluster } from "@/lib/concepts";
 import { getArticles } from "@/lib/articles";
 import { cn } from "@/lib/utils";
 
@@ -16,12 +16,33 @@ interface ConceptIndexProps {
 }
 
 type SortOption = "frequency" | "alphabetical";
+type ViewMode = "clusters" | "list";
+
+const clusterOrder: ConceptCluster[] = [
+  "information",
+  "mechanism",
+  "liquidity",
+  "oracle",
+  "governance",
+  "business",
+];
 
 export function ConceptIndex({ graphData, initialConcept }: ConceptIndexProps) {
   const [search, setSearch] = useState(initialConcept ?? "");
   const [sortBy, setSortBy] = useState<SortOption>("frequency");
+  const [viewMode, setViewMode] = useState<ViewMode>("clusters");
   const [hoveredConcept, setHoveredConcept] = useState<string | null>(null);
+  const [collapsedClusters, setCollapsedClusters] = useState<Set<string>>(new Set());
   const initialConceptApplied = useRef(false);
+
+  const toggleCluster = (cluster: string) => {
+    setCollapsedClusters(prev => {
+      const next = new Set(prev);
+      if (next.has(cluster)) next.delete(cluster);
+      else next.add(cluster);
+      return next;
+    });
+  };
 
   const articles = useMemo(() => getArticles(), []);
   const articleMap = useMemo(() => {
@@ -56,6 +77,20 @@ export function ConceptIndex({ graphData, initialConcept }: ConceptIndexProps) {
     return nodes;
   }, [graphData.nodes, search, sortBy]);
 
+  // Group nodes by cluster
+  const clusteredNodes = useMemo(() => {
+    const groups: Record<string, ConceptNode[]> = {};
+    for (const cluster of clusterOrder) {
+      groups[cluster] = [];
+    }
+    for (const node of filteredAndSortedNodes) {
+      const cluster = node.cluster || "business";
+      if (!groups[cluster]) groups[cluster] = [];
+      groups[cluster].push(node);
+    }
+    return groups;
+  }, [filteredAndSortedNodes]);
+
   // Auto-expand the initial concept from URL param on mount
   useEffect(() => {
     if (!initialConcept || initialConceptApplied.current) return;
@@ -73,7 +108,6 @@ export function ConceptIndex({ graphData, initialConcept }: ConceptIndexProps) {
   useEffect(() => {
     function handleOutsideClick(e: MouseEvent) {
       const target = e.target as HTMLElement;
-      // Don't close if clicking inside a hover panel or concept row
       if (target.closest("[data-concept-row]") || target.closest("[data-hover-panel]")) return;
       setHoveredConcept(null);
     }
@@ -85,9 +119,12 @@ export function ConceptIndex({ graphData, initialConcept }: ConceptIndexProps) {
     setSortBy((s) => (s === "frequency" ? "alphabetical" : "frequency"));
   };
 
+  // Switch to list view when searching
+  const effectiveView = search.trim() ? "list" : viewMode;
+
   return (
     <div className="space-y-4">
-      {/* Search + Sort */}
+      {/* Search + Sort + View toggle */}
       <div className="flex items-center gap-3 animate-list-item">
         <div className="relative max-w-xs flex-1">
           <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground/50" />
@@ -126,37 +163,129 @@ export function ConceptIndex({ graphData, initialConcept }: ConceptIndexProps) {
             {sortBy === "frequency" ? "By count" : "A–Z"}
           </span>
         </button>
+        <button
+          onClick={() => setViewMode(v => v === "clusters" ? "list" : "clusters")}
+          className={cn(
+            "flex items-center gap-1.5 px-2.5 h-8 rounded-md text-[13px] shrink-0",
+            "border border-border/50 text-muted-foreground",
+            "hover:text-foreground hover:border-border transition-colors"
+          )}
+          title={viewMode === "clusters" ? "Switch to flat list" : "Switch to cluster view"}
+        >
+          {viewMode === "clusters" ? <List className="h-3.5 w-3.5" /> : <LayoutGrid className="h-3.5 w-3.5" />}
+        </button>
       </div>
 
       {/* Count */}
       <p className="text-xs text-muted-foreground animate-list-item" style={{ animationDelay: "50ms" }}>
         {filteredAndSortedNodes.length} concept
         {filteredAndSortedNodes.length !== 1 ? "s" : ""}
+        {effectiveView === "clusters" && !search.trim() && (
+          <span> across {clusterOrder.length} clusters</span>
+        )}
       </p>
 
-      {/* Concept list */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-x-8 animate-list-item" style={{ animationDelay: "100ms" }}>
-        {filteredAndSortedNodes.map((node) => (
-          <ConceptRow
-            key={node.id}
-            node={node}
-            articleMap={articleMap}
-            isHovered={hoveredConcept === node.id}
-            onHoverStart={() => setHoveredConcept(node.id)}
-            onHoverEnd={() => {
-              // Only clear if this node is still the hovered one
-              setHoveredConcept((prev) =>
-                prev === node.id ? null : prev
-              );
-            }}
-            onToggle={() => {
-              setHoveredConcept((prev) =>
-                prev === node.id ? null : node.id
-              );
-            }}
-          />
-        ))}
-      </div>
+      {/* Cluster view */}
+      {effectiveView === "clusters" ? (
+        <div className="space-y-6 animate-list-item" style={{ animationDelay: "100ms" }}>
+          {clusterOrder.map((cluster, ci) => {
+            const nodes = clusteredNodes[cluster];
+            if (!nodes || nodes.length === 0) return null;
+            const meta = clusterMeta[cluster];
+            return (
+              <motion.div
+                key={cluster}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: ci * 0.05, ease: [0.4, 0, 0.2, 1] }}
+              >
+                {/* Cluster header — clickable to collapse */}
+                <button
+                  onClick={() => toggleCluster(cluster)}
+                  className="flex items-center gap-2.5 mb-2 pb-1.5 border-b border-border/40 w-full text-left group"
+                >
+                  <motion.span
+                    animate={{ rotate: collapsedClusters.has(cluster) ? 0 : 90 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-muted-foreground/50"
+                  >
+                    <ChevronRight className="h-3.5 w-3.5" />
+                  </motion.span>
+                  <span
+                    className="w-2.5 h-2.5 rounded-full shrink-0"
+                    style={{ backgroundColor: meta.color }}
+                  />
+                  <h3 className="text-[13px] font-semibold text-foreground tracking-wide group-hover:text-primary transition-colors">
+                    {meta.label}
+                  </h3>
+                  <span className="text-[11px] text-muted-foreground/60">
+                    {nodes.length}
+                  </span>
+                </button>
+
+                {/* Concepts in cluster — collapsible */}
+                <AnimatePresence initial={false}>
+                  {!collapsedClusters.has(cluster) && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="columns-1 sm:columns-2 lg:columns-3 gap-x-8">
+                        {nodes.map((node) => (
+                          <ConceptRow
+                            key={node.id}
+                            node={node}
+                            articleMap={articleMap}
+                            isHovered={hoveredConcept === node.id}
+                            clusterColor={meta.color}
+                            onHoverStart={() => setHoveredConcept(node.id)}
+                            onHoverEnd={() => {
+                              setHoveredConcept((prev) =>
+                                prev === node.id ? null : prev
+                              );
+                            }}
+                            onToggle={() => {
+                              setHoveredConcept((prev) =>
+                                prev === node.id ? null : node.id
+                              );
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
+      ) : (
+        /* Flat list view */
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-x-8 animate-list-item" style={{ animationDelay: "100ms" }}>
+          {filteredAndSortedNodes.map((node) => (
+            <ConceptRow
+              key={node.id}
+              node={node}
+              articleMap={articleMap}
+              isHovered={hoveredConcept === node.id}
+              onHoverStart={() => setHoveredConcept(node.id)}
+              onHoverEnd={() => {
+                setHoveredConcept((prev) =>
+                  prev === node.id ? null : prev
+                );
+              }}
+              onToggle={() => {
+                setHoveredConcept((prev) =>
+                  prev === node.id ? null : node.id
+                );
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       {filteredAndSortedNodes.length === 0 && (
         <p className="text-sm text-muted-foreground text-center py-12">
@@ -171,6 +300,7 @@ function ConceptRow({
   node,
   articleMap,
   isHovered,
+  clusterColor,
   onHoverStart,
   onHoverEnd,
   onToggle,
@@ -181,6 +311,7 @@ function ConceptRow({
     { title: string; url: string | null; date: string | null }
   >;
   isHovered: boolean;
+  clusterColor?: string;
   onHoverStart: () => void;
   onHoverEnd: () => void;
   onToggle: () => void;
@@ -291,6 +422,7 @@ function ConceptRow({
               sortedArticles={sortedArticles}
               articleMap={articleMap}
               panelPos={panelPos}
+              clusterColor={clusterColor}
               onMouseEnter={onHoverStart}
               onMouseLeave={onHoverEnd}
             />
@@ -307,6 +439,7 @@ function HoverPanel({
   sortedArticles,
   articleMap,
   panelPos,
+  clusterColor,
   onMouseEnter,
   onMouseLeave,
 }: {
@@ -318,9 +451,13 @@ function HoverPanel({
     { title: string; url: string | null; date: string | null }
   >;
   panelPos: { top?: number; bottom?: number; left: number; maxHeight: number };
+  clusterColor?: string;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }) {
+  const cluster = node.cluster as ConceptCluster;
+  const meta = cluster ? clusterMeta[cluster] : null;
+
   return createPortal(
     <motion.div
       initial={{ opacity: 0, y: 6 }}
@@ -338,15 +475,32 @@ function HoverPanel({
         maxHeight: panelPos.maxHeight,
       }}
     >
-      {definition && (
-        <div className="px-4 pt-3 pb-2 border-b border-border/30 shrink-0">
+      {/* Cluster tag + definition */}
+      <div className="px-4 pt-3 pb-2 border-b border-border/30 shrink-0">
+        {meta && (
+          <div className="flex items-center gap-1.5 mb-1.5">
+            <span
+              className="w-2 h-2 rounded-full"
+              style={{ backgroundColor: clusterColor || meta.color }}
+            />
+            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+              {meta.label}
+            </span>
+          </div>
+        )}
+        {definition && (
           <p className="text-sm text-foreground leading-relaxed">
             <span className="font-serif font-semibold">{node.name}</span>
             {" — "}
             {definition}
           </p>
-        </div>
-      )}
+        )}
+        {!definition && (
+          <p className="text-sm text-foreground leading-relaxed">
+            <span className="font-serif font-semibold">{node.name}</span>
+          </p>
+        )}
+      </div>
       <div className="px-4 py-2.5 overflow-y-auto">
         <ul className="space-y-1">
           {sortedArticles.map((articleId) => {
