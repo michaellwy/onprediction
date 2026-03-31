@@ -21,6 +21,8 @@ interface ArticleListProps {
   onShareCopied?: () => void;
   articleCommentCounts?: Map<number, number>;
   onOpenDiscussion?: (articleId: number) => void;
+  viewCounts?: Map<number, number>;
+  onRecordView?: (articleId: number) => void;
 }
 
 export function ArticleList({
@@ -38,6 +40,8 @@ export function ArticleList({
   onShareCopied,
   articleCommentCounts,
   onOpenDiscussion,
+  viewCounts,
+  onRecordView,
 }: ArticleListProps) {
   // Track IDs that override the allExpanded state, keyed by reset
   const [overrideState, setOverrideState] = useState<{ key: number; ids: Set<number> }>(() => ({
@@ -49,6 +53,14 @@ export function ArticleList({
   const overrideIds = overrideState.key === expandResetKey ? overrideState.ids : new Set<number>();
 
   const toggleExpand = useCallback((id: number) => {
+    // Record view when expanding (not collapsing)
+    const wasExpanded = allExpanded
+      ? !overrideIds.has(id)
+      : overrideIds.has(id);
+    if (!wasExpanded) {
+      onRecordView?.(id);
+    }
+
     setOverrideState((prev) => {
       const ids = prev.key === expandResetKey ? new Set(prev.ids) : new Set<number>();
       if (ids.has(id)) {
@@ -58,7 +70,7 @@ export function ArticleList({
       }
       return { key: expandResetKey, ids };
     });
-  }, [expandResetKey]);
+  }, [expandResetKey, allExpanded, overrideIds, onRecordView]);
 
   // Card is expanded if: (allExpanded AND not overridden) OR (not allExpanded AND overridden)
   const isCardExpanded = useCallback((id: number) => {
@@ -114,6 +126,7 @@ export function ArticleList({
           onShareCopied={onShareCopied}
           commentCount={articleCommentCounts?.get(article.id) || 0}
           onOpenDiscussion={onOpenDiscussion ? () => onOpenDiscussion(article.id) : undefined}
+          viewCount={viewCounts?.get(article.id) || 0}
         />
       ))}
     </div>

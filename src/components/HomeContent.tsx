@@ -14,6 +14,7 @@ import { useFilters } from "@/hooks/useFilters";
 import { useBookmarks } from "@/hooks/useBookmarks";
 import { useUpvotes } from "@/hooks/useUpvotes";
 import { useArticleCommentCounts } from "@/hooks/useArticleCommentCounts";
+import { useArticleViews } from "@/hooks/useArticleViews";
 import { useAuth } from "@/contexts/AuthContext";
 import { ArticleList } from "@/components/ArticleList";
 import { ArticleDiscussionPanel } from "@/components/ArticleDiscussionPanel";
@@ -49,6 +50,7 @@ function HomeContentInner() {
   const { bookmarks, isLoaded, toggleBookmark } = useBookmarks();
   const { counts: upvoteCounts, userUpvotes, toggleUpvote } = useUpvotes();
   const articleCommentCounts = useArticleCommentCounts();
+  const { viewCounts, recordView } = useArticleViews();
   const [discussionArticleId, setDiscussionArticleId] = useState<number | null>(null);
   const activeFilterCount = getActiveFilterCount(filters);
   const filteredCount = isLoaded
@@ -240,6 +242,8 @@ function HomeContentInner() {
                   onShareCopied={handleShareCopied}
                   articleCommentCounts={articleCommentCounts}
                   onOpenDiscussion={handleOpenDiscussion}
+                  viewCounts={viewCounts}
+                  onRecordView={recordView}
                 />
               )}
 

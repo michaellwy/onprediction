@@ -22,6 +22,7 @@ interface ArticleCardProps {
   onShareCopied?: () => void;
   commentCount?: number;
   onOpenDiscussion?: () => void;
+  viewCount?: number;
 }
 
 const categoryColors: Record<Category, string> = {
@@ -99,6 +100,7 @@ export function ArticleCard({
   onShareCopied,
   commentCount = 0,
   onOpenDiscussion,
+  viewCount = 0,
 }: ArticleCardProps) {
   const [internalExpanded, setInternalExpanded] = useState(false);
 
@@ -249,6 +251,14 @@ export function ArticleCard({
                   </span>
                 </>
               )}
+              {viewCount > 0 && (
+                <>
+                  <span className="text-[11px] text-foreground/25 shrink-0">·</span>
+                  <span className="text-[11px] text-foreground/40 shrink-0">
+                    {viewCount} {viewCount === 1 ? "view" : "views"}
+                  </span>
+                </>
+              )}
             </div>
           </div>
 
@@ -377,6 +387,14 @@ export function ArticleCard({
                     Share
                     <Link2 className="h-3 w-3" />
                   </button>
+                  {viewCount > 0 && (
+                    <>
+                      <span>·</span>
+                      <span className="text-foreground/40">
+                        {viewCount} {viewCount === 1 ? "view" : "views"}
+                      </span>
+                    </>
+                  )}
                 </div>
 
                 {/* Blurb - the hero content */}
