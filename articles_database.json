@@ -2910,5 +2910,75 @@
     ],
     "editorial_blurb": "Congressional Research Service legal sidebar analyzing whether and how insider trading law applies to prediction markets. Walks through SEC Rule 10b-5, CFTC Rule 180.1, the STOCK Act, and Title 18 criminal statutes, then examines the CFTC's February 2026 advisory on two Kalshi enforcement actions. Identifies the core gap: existing law requires breach of a duty, but many prediction market insiders (e.g., a political candidate betting on his own race) may not owe one. Surveys four pending bills in the 119th Congress that would close this gap in different ways.",
     "fetch_status": "web"
+  },
+  {
+    "id": 130,
+    "url": "https://rajivsethi.substack.com/p/trading-on-violence",
+    "title": "Trading on Violence",
+    "author": "Rajiv Sethi",
+    "author_twitter": "@rajivatbarnard",
+    "source_type": "Substack",
+    "publish_date": "2026-03-02",
+    "primary_category": "Regulation",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "insider trading",
+      "market surveillance",
+      "information asymmetry",
+      "market manipulation"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Documents a pattern of insider trading on prediction markets, from wallets that profited $1.2 million on the timing of US strikes on Iran to trades linked to classified intelligence. Compares how Kalshi's KYC-based surveillance and Polymarket's pseudonymous blockchain create different enforcement challenges. Argues platforms should reconsider contract offerings before regulators act.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 131,
+    "url": "https://rajivsethi.substack.com/p/information-contagion",
+    "title": "Information Contagion",
+    "author": "Rajiv Sethi",
+    "author_twitter": "@rajivatbarnard",
+    "source_type": "Substack",
+    "publish_date": "2026-03-31",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "insider trading",
+      "information asymmetry",
+      "regulatory arbitrage",
+      "price discovery"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Traces how insider trades on Polymarket before Trump's March 2026 Iran announcement may have leaked into regulated oil and stock futures markets. Proposes that quant funds extracted the informational signal from pseudonymous crypto trades and acted on it in KYC-regulated venues, all without breaking existing laws. Highlights a structural gap where information flows freely across platforms even when regulatory frameworks differ.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 132,
+    "url": "https://rajivsethi.substack.com/p/the-detection-of-wash-trading",
+    "title": "The Detection of Wash Trading",
+    "author": "Rajiv Sethi",
+    "author_twitter": "@rajivatbarnard",
+    "source_type": "Substack",
+    "publish_date": "2025-11-12",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: wash trading",
+      "market surveillance",
+      "market manipulation",
+      "market making"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Examines how to distinguish wash trading from legitimate market making on Polymarket using network analysis. Wash traders exhibit homophily, trading only within their collusive group, while market makers trade indiscriminately with diverse counterparties. Describes an algorithm developed by Columbia researchers that identified a cluster of 200 wallets generating $113 million in volume with just $57.86 in aggregate losses.",
+    "fetch_status": "web"
   }
 ]
