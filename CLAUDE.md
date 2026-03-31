@@ -89,9 +89,10 @@ src/
     concept.ts              # Concept types + ConceptPageData
     forum.ts                # ForumPost, ForumComment, DiscussionFeedItem types
   contexts/AuthContext.tsx   # Supabase auth provider + user profile management
-  hooks/                    # useFilters, useBookmarks, useUpvotes, useForumPosts,
-                            # useArticleDiscussion, useArticleCommentCounts,
-                            # useRecentDiscussions, useAskLibrary, etc.
+  hooks/                    # useFilters, useBookmarks, useUpvotes, useArticleViews,
+                            # useForumPosts, useArticleDiscussion,
+                            # useArticleCommentCounts, useRecentDiscussions,
+                            # useAskLibrary, etc.
 
 scripts/
   sync-concept-definitions.js  # Extracts concepts from articles DB → JSON
@@ -131,6 +132,18 @@ supabase/
 - RPCs: `get_article_comment_counts()`, `get_recent_discussions()`
 - Supabase tables: `forum_posts` (extended), `forum_comments`, upvotes, `user_profiles`
 
+## Article View Tracking
+- Tracks card expansions as a passive engagement metric (no auth required)
+- `article_views` Supabase table with unique constraint on `(article_id, viewer_id, view_date)`
+- Anti-spam: sessionStorage dedup → in-flight dedup → DB unique constraint
+- Viewer identity: authenticated `user.id` or localStorage UUID (`onprediction-viewer-id`)
+- RPCs: `record_article_view(p_article_id, p_viewer_id)`, `get_article_view_counts()`
+- RLS: anonymous insert allowed, no direct reads (data only via `security definer` RPCs)
+- Hook: `useArticleViews` in `src/hooks/useArticleViews.ts`
+- View counts shown pre-expansion on article cards (eye icon); upvote counts shown alongside (arrow icon, emerald)
+- Sort option: "Most Viewed" (`views-desc`) in SortDropdown
+- Bookmark button lives in expanded card area only, next to Discuss button
+
 ## Ask the Library (AI Q&A)
 - Vercel serverless function at `api/ask.ts` (excluded from tsconfig, runs on Vercel only)
 - Uses Claude Haiku with full corpus context (~96KB `ask-context.json`) in system prompt
@@ -169,5 +182,5 @@ Each article has: `id`, `url`, `title`, `author`, `author_twitter`, `source_type
 - **JSON-LD**: `WebSite` schema in root layout; `ItemList` on home page; `DefinedTermSet` on concepts page
 - **Pre-rendered content**: Home page and concepts page include `sr-only` content (article titles, concept definitions) visible to crawlers
 - **Build pipeline**: `prebuild` runs 5 scripts (sitemap, feed, data, llms, ask-context) before `next build`. All output goes to `public/` so Next.js copies it to `out/`
-- **Concept pages**: 78+ individual concept pages at `/concepts/[slug]` with unique metadata and JSON-LD `DefinedTerm`
+- **Concept pages**: 80+ individual concept pages at `/concepts/[slug]` with unique metadata and JSON-LD `DefinedTerm`
 - **noindex pages**: `/saved` and `/forum/new` are excluded from indexing via `robots` metadata
