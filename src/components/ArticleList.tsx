@@ -90,8 +90,8 @@ export function ArticleList({
 
   const filteredAndSortedArticles = useMemo(() => {
     const filtered = filterArticles(articles, filters, bookmarks);
-    return sortArticles(filtered, sortOption, upvoteCounts);
-  }, [articles, filters, sortOption, bookmarks, upvoteCounts]);
+    return sortArticles(filtered, sortOption, upvoteCounts, viewCounts);
+  }, [articles, filters, sortOption, bookmarks, upvoteCounts, viewCounts]);
 
   if (filteredAndSortedArticles.length === 0) {
     return (

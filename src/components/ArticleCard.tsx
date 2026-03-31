@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUp, Bookmark, ChevronRight, ExternalLink, Link2, MessageSquare } from "lucide-react";
+import { ArrowUp, Bookmark, ChevronRight, Eye, ExternalLink, Link2, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { Article, Category, Difficulty } from "@/types/article";
 import { conceptNameToSlug } from "@/lib/concepts";
@@ -152,53 +152,35 @@ export function ArticleCard({
           className="flex items-center gap-3 sm:gap-4 py-2.5 sm:py-3 px-4 cursor-pointer"
           onClick={toggleExpand}
         >
-          {/* Upvote button — desktop only */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onToggleUpvote();
-            }}
-            className={cn(
-              "shrink-0 hidden sm:flex items-center justify-start gap-0.5 w-8 p-0.5 -m-0.5 rounded transition-colors self-start mt-[1px]",
-              isUpvoted
-                ? "text-emerald-600"
-                : upvoteCount > 0
-                  ? "text-emerald-600/60 hover:text-emerald-600/80"
-                  : "text-muted-foreground/30 hover:text-muted-foreground/60"
-            )}
-            aria-label={isUpvoted ? "Remove upvote" : "Upvote article"}
-          >
-            <ArrowUp
+          {/* Engagement indicators — desktop only */}
+          <div className="shrink-0 hidden sm:flex items-center gap-2.5 self-start mt-[2px]">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleUpvote();
+              }}
               className={cn(
-                "h-4 w-4 shrink-0 transition-all duration-150",
-                isUpvoted && "text-emerald-600"
+                "flex items-center gap-0.5 p-0.5 -m-0.5 rounded transition-colors",
+                isUpvoted
+                  ? "text-emerald-600"
+                  : upvoteCount > 0
+                    ? "text-emerald-600/60 hover:text-emerald-600/80"
+                    : "text-muted-foreground/30 hover:text-muted-foreground/60"
               )}
-            />
-            {upvoteCount > 0 && (
+              aria-label={isUpvoted ? "Remove upvote" : "Upvote article"}
+            >
+              <ArrowUp className="h-3.5 w-3.5 shrink-0" />
               <span className="text-xs tabular-nums min-w-[1ch]">
                 {upvoteCount}
               </span>
-            )}
-          </button>
-
-          {/* Bookmark — desktop only */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onToggleBookmark();
-            }}
-            className="shrink-0 hidden sm:flex p-0.5 -m-0.5 rounded transition-colors self-start mt-[1px]"
-            aria-label={isBookmarked ? "Remove bookmark" : "Bookmark article"}
-          >
-            <Bookmark
-              className={cn(
-                "h-4 w-4 transition-all duration-150",
-                isBookmarked
-                  ? "fill-amber-500 text-amber-500"
-                  : "text-muted-foreground/30 hover:text-muted-foreground/60"
-              )}
-            />
-          </button>
+            </button>
+            <span className="flex items-center gap-0.5 text-muted-foreground/35">
+              <Eye className="h-3 w-3 shrink-0" />
+              <span className="text-xs tabular-nums min-w-[1ch]">
+                {viewCount}
+              </span>
+            </span>
+          </div>
 
 
           {/* Category dot — desktop only */}
@@ -243,19 +225,22 @@ export function ArticleCard({
                   {formatRelativeDate(article.publish_date)}
                 </span>
               )}
-              {upvoteCount > 0 && (
+              {(upvoteCount > 0 || viewCount > 0) && (
                 <>
                   <span className="text-[11px] text-foreground/25 shrink-0">·</span>
-                  <span className="text-[11px] text-emerald-600/50 shrink-0">
-                    {upvoteCount} {upvoteCount === 1 ? "upvote" : "upvotes"}
-                  </span>
-                </>
-              )}
-              {viewCount > 0 && (
-                <>
-                  <span className="text-[11px] text-foreground/25 shrink-0">·</span>
-                  <span className="text-[11px] text-foreground/40 shrink-0">
-                    {viewCount} {viewCount === 1 ? "view" : "views"}
+                  <span className="flex items-center gap-2 shrink-0">
+                    {upvoteCount > 0 && (
+                      <span className="flex items-center gap-0.5 text-[11px] text-emerald-600/50">
+                        <ArrowUp className="h-2.5 w-2.5" />
+                        {upvoteCount}
+                      </span>
+                    )}
+                    {viewCount > 0 && (
+                      <span className="flex items-center gap-0.5 text-[11px] text-foreground/35">
+                        <Eye className="h-2.5 w-2.5" />
+                        {viewCount}
+                      </span>
+                    )}
                   </span>
                 </>
               )}
@@ -311,15 +296,15 @@ export function ArticleCard({
                 transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
               >
               <div className="px-4 pb-4 pl-4 sm:pl-14">
-                {/* Mobile actions — upvote + bookmark */}
-                <div className="flex sm:hidden items-center gap-3 mb-3">
+                {/* Actions — upvote (mobile only) + bookmark (all) */}
+                <div className="flex items-center gap-3 mb-3">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       onToggleUpvote();
                     }}
                     className={cn(
-                      "flex items-center gap-1.5 h-8 px-3 rounded-md text-xs font-medium transition-colors",
+                      "sm:hidden flex items-center gap-1.5 h-8 px-3 rounded-md text-xs font-medium transition-colors",
                       isUpvoted
                         ? "bg-emerald-500/10 text-emerald-600"
                         : "bg-foreground/[0.05] text-foreground/60 active:bg-foreground/[0.1]"
@@ -387,14 +372,6 @@ export function ArticleCard({
                     Share
                     <Link2 className="h-3 w-3" />
                   </button>
-                  {viewCount > 0 && (
-                    <>
-                      <span>·</span>
-                      <span className="text-foreground/40">
-                        {viewCount} {viewCount === 1 ? "view" : "views"}
-                      </span>
-                    </>
-                  )}
                 </div>
 
                 {/* Blurb - the hero content */}
