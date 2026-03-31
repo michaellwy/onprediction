@@ -36,6 +36,7 @@ When adding a new article, you MUST update BOTH of these files:
 | Platforms | Specific platforms, comparisons, case studies, platform disputes, implementation details |
 | Applications | Use cases, verticals, futarchy, info finance, decision markets, social integration |
 | Business | Business models, funding, adoption, GTM, competition, trends, market sizing |
+| Regulation | Legal frameworks, policy analysis, insider trading law, federal preemption, legislation, enforcement |
 | Commentary | Opinion, critique, ethics, societal impact, speculation, philosophy |
 
 ### Content Type (pick 1)

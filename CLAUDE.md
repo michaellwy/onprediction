@@ -151,7 +151,7 @@ supabase/
 ## Data Schema (articles_database.json)
 Each article has: `id`, `url`, `title`, `author`, `author_twitter`, `source_type`, `publish_date` (YYYY-MM-DD), `primary_category`, `content_type`, `difficulty`, `concepts[]`, `platforms_mentioned[]`, `editorial_blurb`, `fetch_status`
 
-**Categories:** Fundamentals, Design, Microstructure, Platforms, Applications, Business, Commentary
+**Categories:** Fundamentals, Design, Microstructure, Platforms, Applications, Business, Regulation, Commentary
 **Difficulty:** None, Some, Extensive
 **Content Types:** Opinion, Research Paper, Explainer, Analysis, Case Study, Podcast
 

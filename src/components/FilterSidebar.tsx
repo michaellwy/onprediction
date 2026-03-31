@@ -68,6 +68,7 @@ const categoryColors: Record<string, string> = {
   Platforms: "bg-[hsl(var(--cat-platforms))]",
   Applications: "bg-[hsl(var(--cat-applications))]",
   Business: "bg-[hsl(var(--cat-business))]",
+  Regulation: "bg-[hsl(var(--cat-regulation))]",
   Commentary: "bg-[hsl(var(--cat-commentary))]",
 };
 
@@ -78,6 +79,7 @@ const categoryDescriptions: Record<string, string> = {
   Platforms: "Specific platforms, comparisons, case studies, platform disputes, implementation details",
   Applications: "Use cases, verticals, futarchy, info finance, decision markets, social integration",
   Business: "Business models, funding, adoption, GTM, competition, trends, market sizing",
+  Regulation: "Legal frameworks, policy analysis, insider trading law, federal preemption, legislation, enforcement",
   Commentary: "Opinion, critique, ethics, societal impact, speculation, philosophy",
 };
 
