@@ -76,6 +76,7 @@
   "time arbitrage": "Profiting from a delay between when information becomes known and when the prediction market price adjusts to reflect it.",
   "toxic flow": "Order flow from informed traders that systematically moves against the market maker's positions.",
   "UMA protocol": "Optimistic oracle system where outcomes are assumed correct unless disputed, using economic bonds for security.",
+  "wash trading": "Executing offsetting buy and sell transactions to inflate apparent trading volume without taking real market risk. On prediction markets, wash trading can artificially boost platform metrics and distort liquidity signals, and is federally prohibited under the Commodity Exchange Act.",
   "wisdom of crowds": "The phenomenon where aggregated group estimates often outperform individual experts in forecasting accuracy.",
   "yes bias": "The systematic tendency for YES shares in prediction markets to be overpriced relative to true probabilities, potentially explaining what was previously attributed to favorite-longshot bias."
 }
