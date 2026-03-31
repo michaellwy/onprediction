@@ -15,6 +15,7 @@ const sortOptions: { value: SortOption; label: string }[] = [
   { value: "date-desc", label: "Newest first" },
   { value: "date-asc", label: "Oldest first" },
   { value: "upvotes-desc", label: "Most upvoted" },
+  { value: "views-desc", label: "Most viewed" },
   { value: "title-asc", label: "Title A–Z" },
   { value: "title-desc", label: "Title Z–A" },
 ];

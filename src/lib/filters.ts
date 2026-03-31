@@ -75,7 +75,8 @@ export function filterArticles(
 export function sortArticles(
   articles: Article[],
   sortOption: SortOption,
-  upvoteCounts?: Map<number, number>
+  upvoteCounts?: Map<number, number>,
+  viewCounts?: Map<number, number>
 ): Article[] {
   const sorted = [...articles];
 
@@ -104,6 +105,18 @@ export function sortArticles(
         const countB = upvoteCounts?.get(b.id) ?? 0;
         if (countB !== countA) return countB - countA;
         // Secondary sort: newer first
+        if (!a.publish_date) return 1;
+        if (!b.publish_date) return -1;
+        return (
+          new Date(b.publish_date).getTime() -
+          new Date(a.publish_date).getTime()
+        );
+      });
+    case "views-desc":
+      return sorted.sort((a, b) => {
+        const countA = viewCounts?.get(a.id) ?? 0;
+        const countB = viewCounts?.get(b.id) ?? 0;
+        if (countB !== countA) return countB - countA;
         if (!a.publish_date) return 1;
         if (!b.publish_date) return -1;
         return (
