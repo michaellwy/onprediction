@@ -66,6 +66,7 @@
   "proper scoring rules": "Incentive-compatible functions that reward forecasters most when they report their true beliefs honestly.",
   "reflexivity": "When market prices influence the very outcomes they predict, creating feedback loops between beliefs and reality.",
   "regulatory arbitrage": "Exploiting differences in prediction market regulations across jurisdictions to offer otherwise restricted products.",
+  "regulatory classification": "The legal categorization of prediction market contracts as gambling, financial derivatives, or a distinct product class, which determines which regulatory regime applies and what compliance obligations operators face.",
   "relative value trading": "A strategy that bets on the relationship between two correlated prediction market prices rather than the direction of either one, profiting when a mispriced spread converges.",
   "resolution criteria": "Pre-defined rules specifying exactly what outcome counts as a win, loss, or void for a market.",
   "retail flow": "Trading activity from non-professional participants, generally considered less informed and more predictable.",

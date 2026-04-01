@@ -2980,5 +2980,25 @@
     ],
     "editorial_blurb": "Examines how to distinguish wash trading from legitimate market making on Polymarket using network analysis. Wash traders exhibit homophily, trading only within their collusive group, while market makers trade indiscriminately with diverse counterparties. Describes an algorithm developed by Columbia researchers that identified a cluster of 200 wallets generating $113 million in volume with just $57.86 in aggregate losses.",
     "fetch_status": "web"
+  },
+  {
+    "id": 133,
+    "url": "https://blogs.law.ox.ac.uk/oblb/blog-post/2026/03/regulating-prediction-markets-europe-requires-prediction-test",
+    "title": "Regulating Prediction Markets in Europe Requires a 'Prediction Test'",
+    "author": "Terence Cassar",
+    "author_twitter": "",
+    "source_type": "Blog",
+    "publish_date": "2026-03-31",
+    "primary_category": "Regulation",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: regulatory classification",
+      "regulatory arbitrage",
+      "event contracts"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "European regulators face a classification problem: prediction market contracts could be gambling, MiFID II derivatives, or something else entirely, and different Member States treat them differently. Proposes a structured 'Prediction Test' modeled on Malta's Financial Instrument Test for crypto-assets, which would systematically categorize contracts through exclusion to determine which regulatory regime applies.",
+    "fetch_status": "web"
   }
 ]
