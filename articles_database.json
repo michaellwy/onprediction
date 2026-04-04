@@ -3023,5 +3023,28 @@
     ],
     "editorial_blurb": "Analyzes 36,777 Polymarket events to understand what happens when continuous questions are split into dozens of independent binary contracts. Volume follows an extreme Pareto distribution: the top 3 markets capture over 75% of trading activity regardless of event size, leaving a large fraction as untradeable ghost markets. The $0.01 tick size compounds the problem, creating a rounding tax that makes low-probability contracts structurally imprecise.",
     "fetch_status": "web"
+  },
+  {
+    "id": 135,
+    "url": "https://citizens.bluematrix.com/docs/pdf/3beb4505-5a8b-49da-89df-ebdb104ebea9.pdf",
+    "title": "Prediction Markets vs. Sports Betting: Market Dynamics, ROI by Cohorts, and Competitive Implications",
+    "author": "Jordan Bender",
+    "author_twitter": "",
+    "source_type": "News Article",
+    "publish_date": "2026-03-23",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "platform competition",
+      "retail flow",
+      "adverse selection",
+      "market making"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Wall Street equity research analysis of anonymized trading data comparing prediction market and sports betting returns. The median prediction market user has an ROI of -8%, worse than sports bettors at -5%, with only traders above $500K in volume achieving positive returns (+2.6%). Finds that prediction markets attract sharper competition than regulated sportsbooks, creating worse outcomes for casual retail participants.",
+    "fetch_status": "web"
   }
 ]
