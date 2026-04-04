@@ -3000,5 +3000,28 @@
     "platforms_mentioned": [],
     "editorial_blurb": "European regulators face a classification problem: prediction market contracts could be gambling, MiFID II derivatives, or something else entirely, and different Member States treat them differently. Proposes a structured 'Prediction Test' modeled on Malta's Financial Instrument Test for crypto-assets, which would systematically categorize contracts through exclusion to determine which regulatory regime applies.",
     "fetch_status": "web"
+  },
+  {
+    "id": 134,
+    "url": "https://x.com/functionspaceHQ/status/2039554933024776516",
+    "title": "Binary Events: What Happens When You Split One Market Into Twenty",
+    "author": "functionSPACE",
+    "author_twitter": "@functionspaceHQ",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-02",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: liquidity fragmentation",
+      "binary contracts",
+      "multi-outcome markets",
+      "semantic tick size"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Analyzes 36,777 Polymarket events to understand what happens when continuous questions are split into dozens of independent binary contracts. Volume follows an extreme Pareto distribution: the top 3 markets capture over 75% of trading activity regardless of event size, leaving a large fraction as untradeable ghost markets. The $0.01 tick size compounds the problem, creating a rounding tax that makes low-probability contracts structurally imprecise.",
+    "fetch_status": "web"
   }
 ]
