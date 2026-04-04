@@ -35,6 +35,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "self-resolving markets": "oracle",
 
   // Liquidity & Trading
+  "liquidity fragmentation": "liquidity",
   "liquidity provision": "liquidity",
   "market making": "liquidity",
   "adverse selection": "liquidity",
