@@ -3120,5 +3120,27 @@
     ],
     "editorial_blurb": "Industry analysis mapping $63.5 billion in 2025 prediction market volume and a $200 billion+ 2026 run rate. Identifies a structural tension: sports drive current revenue (83% of Kalshi volume), but valuations price in an information infrastructure future that hasn't arrived yet. Argues distribution platforms like Robinhood and Coinbase will capture most value as they vertically integrate into exchange infrastructure.",
     "fetch_status": "web"
+  },
+  {
+    "id": 139,
+    "url": "https://www.dopaminemarkets.com/p/prediction-markets-vs-states-the",
+    "title": "States vs. Prediction Markets: The Fight Over the Meaning of 'Swap'",
+    "author": "Shreyas Hariharan",
+    "author_twitter": "",
+    "source_type": "Substack",
+    "publish_date": "2026-04-06",
+    "primary_category": "Regulation",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "federal preemption",
+      "event contracts",
+      "regulatory arbitrage"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Breaks down the legal fight over whether sports event contracts are \"swaps\" under the Commodity Exchange Act, which would give the CFTC exclusive jurisdiction and preempt state gambling laws. Courts are split across 19 pending federal lawsuits, with the Third Circuit ruling in Kalshi's favor. The case hinges on how broadly to read two phrases in Dodd-Frank's swap definition and will likely reach the Supreme Court within two years.",
+    "fetch_status": "web"
   }
 ]
