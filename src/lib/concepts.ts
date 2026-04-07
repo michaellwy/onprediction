@@ -82,6 +82,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "combinatorial prediction markets": "mechanism",
   "incentive compatibility": "mechanism",
   "LMSR (logarithmic market scoring rule)": "mechanism",
+  "parimutuel markets": "mechanism",
   "peer prediction": "mechanism",
   "reflexivity": "mechanism",
   "market manipulation": "mechanism",

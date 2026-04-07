@@ -3070,5 +3070,30 @@
     ],
     "editorial_blurb": "Decomposes 222 million Polymarket trades into directional and execution components and finds that forecasting accuracy does not predict profitability. Traders who pick the right side still lose money because they arrive late and pay unfavorable prices, while automated traders with near-random directional skill profit by paying 2.52 cents less per contract.",
     "fetch_status": "web"
+  },
+  {
+    "id": 137,
+    "url": "https://x.com/meleemarkets/status/2041244791716110409",
+    "title": "Parimutuel Prediction Markets",
+    "author": "Melee",
+    "author_twitter": "@meleemarkets",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-06",
+    "primary_category": "Design",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "NEW: parimutuel markets",
+      "liquidity provision",
+      "market making",
+      "platform competition"
+    ],
+    "platforms_mentioned": [
+      "NEW: Melee",
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Traces the parimutuel betting model from its 1867 origins in French horse racing to modern prediction markets. Argues that parimutuel pools solve the cold start problem by bootstrapping liquidity without market makers, but identifies three friction points that need upgrading: locked positions, timing constraints, and price readability.",
+    "fetch_status": "web"
   }
 ]
