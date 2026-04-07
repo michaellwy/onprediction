@@ -3046,5 +3046,29 @@
     ],
     "editorial_blurb": "Wall Street equity research analysis of anonymized trading data comparing prediction market and sports betting returns. The median prediction market user has an ROI of -8%, worse than sports bettors at -5%, with only traders above $500K in volume achieving positive returns (+2.6%). Finds that prediction markets attract sharper competition than regulated sportsbooks, creating worse outcomes for casual retail participants.",
     "fetch_status": "web"
+  },
+  {
+    "id": 136,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6191618",
+    "title": "Who Profits from Prediction Markets? Execution, Not Information",
+    "author": "Joshua Della Vedova",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-02-07",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "NEW: execution quality",
+      "retail flow",
+      "adverse selection",
+      "bid-ask spread",
+      "market making"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Decomposes 222 million Polymarket trades into directional and execution components and finds that forecasting accuracy does not predict profitability. Traders who pick the right side still lose money because they arrive late and pay unfavorable prices, while automated traders with near-random directional skill profit by paying 2.52 cents less per contract.",
+    "fetch_status": "web"
   }
 ]
