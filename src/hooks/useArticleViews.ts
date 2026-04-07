@@ -76,14 +76,7 @@ export function useArticleViews() {
           p_article_id: articleId,
           p_viewer_id: viewerId,
         })
-        .then(({ error }) => {
-          if (error) {
-            setCounts((prev) => {
-              const next = new Map(prev);
-              next.set(articleId, Math.max(0, (next.get(articleId) || 0) - 1));
-              return next;
-            });
-          }
+        .then(() => {
           pendingRef.current.delete(articleId);
         });
     },
