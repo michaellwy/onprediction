@@ -59,6 +59,7 @@
   "oracle design": "Systems that feed real-world outcomes into prediction markets, determining how events are verified and settled.",
   "order book": "A list of outstanding buy and sell orders at various prices, showing available liquidity at each level.",
   "orderflow arbitrage": "Profiting from temporary price dislocations caused by large orders that push the market away from fair value before it mean-reverts.",
+  "parimutuel markets": "A betting structure where all wagers pool together and payouts are split proportionally among winners after the event resolves. Parimutuel markets bootstrap liquidity without market makers, making them useful for niche or long-tail prediction markets, but face challenges around locked positions, timing, and real-time price readability.",
   "parlays": "Multi-leg bets combining outcomes across several events, offering higher payoffs at lower probability.",
   "peer prediction": "Methods for eliciting honest subjective reports by comparing respondents against each other statistically.",
   "platform competition": "How prediction market platforms differentiate, compete for users, and defend market share.",
