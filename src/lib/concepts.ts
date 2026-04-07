@@ -52,6 +52,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "temporal arbitrage": "liquidity",
   "orderflow arbitrage": "liquidity",
   "bid-ask spread": "liquidity",
+  "execution quality": "liquidity",
   "continuous double auction": "liquidity",
   "Kelly criterion": "liquidity",
   "hedging": "liquidity",

@@ -24,6 +24,7 @@
   "election markets": "Prediction markets focused on political elections, often the highest-volume and most visible markets.",
   "endogeneity": "When the existence or visibility of a prediction market influences the very outcome it aims to forecast, undermining its reliability as a neutral signal. Particularly relevant in political and social markets where public price movements can shift behavior.",
   "event contracts": "Standardized binary contracts on specific real-world events, the core trading unit of prediction markets.",
+  "execution quality": "How favorably a trader transacts relative to the prevailing market price. In prediction markets, execution quality separates profitable from unprofitable traders: automated participants systematically obtain better prices than manual traders, and this edge outweighs directional forecasting skill as a determinant of returns.",
   "federal preemption": "The legal doctrine under which federal law displaces state regulation. In prediction markets, the question is whether the CFTC's exclusive jurisdiction over swaps under the Commodity Exchange Act preempts state gaming laws from regulating exchange-traded event contracts.",
   "forecasting accuracy": "Measuring how well predicted probabilities match actual outcome frequencies over many events.",
   "futarchy": "A governance system where policy decisions are made based on which option prediction markets forecast will produce the best outcomes.",
