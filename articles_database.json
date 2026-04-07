@@ -3095,5 +3095,30 @@
     ],
     "editorial_blurb": "Traces the parimutuel betting model from its 1867 origins in French horse racing to modern prediction markets. Argues that parimutuel pools solve the cold start problem by bootstrapping liquidity without market makers, but identifies three friction points that need upgrading: locked positions, timing constraints, and price readability.",
     "fetch_status": "web"
+  },
+  {
+    "id": 138,
+    "url": "https://x.com/kaviish/status/2041214800731033700",
+    "title": "The Financialization of Uncertainty",
+    "author": "Kaviish",
+    "author_twitter": "@kaviish",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-06",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "platform competition",
+      "regulatory arbitrage",
+      "info finance",
+      "network effects",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Industry analysis mapping $63.5 billion in 2025 prediction market volume and a $200 billion+ 2026 run rate. Identifies a structural tension: sports drive current revenue (83% of Kalshi volume), but valuations price in an information infrastructure future that hasn't arrived yet. Argues distribution platforms like Robinhood and Coinbase will capture most value as they vertically integrate into exchange infrastructure.",
+    "fetch_status": "web"
   }
 ]
