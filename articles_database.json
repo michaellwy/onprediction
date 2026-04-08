@@ -3164,5 +3164,25 @@
     ],
     "editorial_blurb": "Uses Kalshi's \"mentions markets\" (contracts that pay off if a specific word is said at a press conference) to illustrate a structural problem: prediction markets require crisp binary boundaries, but reality rarely provides them. Disputes over whether Cardi B \"performed\" at the Super Bowl, whether Zelenskiy \"wore a suit,\" and what counts as a \"word\" show that platforms need linguists and philosophers as much as traders.",
     "fetch_status": "web"
+  },
+  {
+    "id": 141,
+    "url": "https://www.slampaper.xyz/",
+    "title": "Seeing Like a Market: Event Contracts and Market Topology",
+    "author": "Lauris Marinson",
+    "author_twitter": "",
+    "source_type": "Blog",
+    "publish_date": "2026-03-01",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "event contracts",
+      "hedging",
+      "bid-ask spread"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Quantifies when prediction markets become structurally cheaper than derivatives for pricing binary institutional risk. Analyzes 87 contracts across 11 categories and finds that high-VRP categories like Bitcoin (4.83%) and elections already cross the displacement threshold, while FOMC markets compressed from a 12 percentage point cost gap to under 2 points between 2024 and 2026. Frames the cost differential as \"apparatus rent\" paid for constructed dealer infrastructure that event contracts can bypass.",
+    "fetch_status": "web"
   }
 ]
