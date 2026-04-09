@@ -3184,5 +3184,29 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Quantifies when prediction markets become structurally cheaper than derivatives for pricing binary institutional risk. Analyzes 87 contracts across 11 categories and finds that high-VRP categories like Bitcoin (4.83%) and elections already cross the displacement threshold, while FOMC markets compressed from a 12 percentage point cost gap to under 2 points between 2024 and 2026. Frames the cost differential as \"apparatus rent\" paid for constructed dealer infrastructure that event contracts can bypass.",
     "fetch_status": "web"
+  },
+  {
+    "id": 142,
+    "url": "https://x.com/0xMims/status/2041498106181627918",
+    "title": "Leverage in Prediction Markets",
+    "author": "Darren",
+    "author_twitter": "@0xMims",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-07",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "position collateralization",
+      "gap risk",
+      "adverse selection",
+      "market making"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Landscape report comparing four models for adding leverage to prediction markets: lending pools (Gondor/Morpho-style), prime brokers (Ultramarkets), synthetic desks (CFD counterparties), and perpetual futures (dYdX TRUMPWIN). Sizes the fee revenue opportunity at $15M base case to $50.7M bull case, with 87% driven by financing revenue on open interest rather than trading fees. All four models share a structural dependency on CLOB venue architecture that degrades during jump events.",
+    "fetch_status": "web"
   }
 ]
