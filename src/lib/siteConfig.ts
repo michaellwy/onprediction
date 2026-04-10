@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "On Prediction",
   description:
-    "Curated prediction market knowledge hub for builders, investors & researchers. Articles, concepts, and community forum.",
+    "The knowledge hub for prediction markets. Curated articles, concepts, and community forum for builders, investors & researchers.",
   url: "https://onprediction.xyz",
   author: {
     name: "Michael Li",
