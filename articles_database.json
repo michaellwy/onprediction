@@ -3233,5 +3233,28 @@
     ],
     "editorial_blurb": "Applies the sportsbook industry's square vs. sharp distinction to prediction markets. Argues Kalshi (3.5% take fee) and Polymarket (1.5%+) are building square prediction markets that monetize price-insensitive retail takers, while sharp prediction markets focused on trading efficiency will thrive outside the US. Notes that raising fees from 0.5% to 0.75% on 4casters had no material impact on volume, suggesting sports bettors are less price-sensitive than assumed.",
     "fetch_status": "web"
+  },
+  {
+    "id": 144,
+    "url": "https://www.bloomberg.com/news/articles/2026-04-09/how-prediction-markets-are-blurring-the-line-between-trading-and-betting",
+    "title": "How Prediction Markets Are Blurring the Line Between Trading and Betting",
+    "author": "Christopher Beam",
+    "author_twitter": "",
+    "source_type": "News Article",
+    "publish_date": "2026-04-09",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "regulatory arbitrage",
+      "platform competition",
+      "insider trading"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Bloomberg Businessweek feature on the regulatory and cultural collision as prediction markets blur the boundary between financial trading and sports gambling. Covers how billions in volume have attracted enforcement actions from multiple states, insider trading concerns, and partnerships with CNN, CNBC, and major sports leagues. The central question: are these platforms legitimate financial infrastructure or disguised betting operations?",
+    "fetch_status": "web"
   }
 ]
