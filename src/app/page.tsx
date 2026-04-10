@@ -7,19 +7,22 @@ import { HomeContent } from "@/components/HomeContent";
 const articles = getArticles();
 
 export const metadata: Metadata = {
-  title: "On Prediction — Curated Prediction Market Readings",
-  description: `${articles.length} curated articles, papers, and podcasts about prediction markets — for builders, investors & researchers.`,
+  title: "On Prediction — The Knowledge Hub for Prediction Markets",
+  description: `${articles.length} curated articles, papers, and threads about prediction markets — for builders, investors & researchers.`,
   alternates: {
     canonical: siteConfig.url,
   },
   openGraph: {
-    title: "On Prediction — Curated Prediction Market Readings",
-    description: `${articles.length} curated articles, papers, and podcasts about prediction markets.`,
+    title: "On Prediction — The Knowledge Hub for Prediction Markets",
+    description: `${articles.length} curated articles, papers, and threads about prediction markets.`,
     url: siteConfig.url,
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
-    title: "On Prediction — Curated Prediction Market Readings",
-    description: `${articles.length} curated articles, papers, and podcasts about prediction markets.`,
+    card: "summary_large_image",
+    title: "On Prediction — The Knowledge Hub for Prediction Markets",
+    description: `${articles.length} curated articles, papers, and threads about prediction markets.`,
+    images: ["/og-image.png"],
   },
 };
 
