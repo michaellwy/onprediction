@@ -3208,5 +3208,30 @@
     ],
     "editorial_blurb": "Landscape report comparing four models for adding leverage to prediction markets: lending pools (Gondor/Morpho-style), prime brokers (Ultramarkets), synthetic desks (CFD counterparties), and perpetual futures (dYdX TRUMPWIN). Sizes the fee revenue opportunity at $15M base case to $50.7M bull case, with 87% driven by financing revenue on open interest rather than trading fees. All four models share a structural dependency on CLOB venue architecture that degrades during jump events.",
     "fetch_status": "web"
+  },
+  {
+    "id": 143,
+    "url": "https://x.com/4castersbet/status/2042268072266920213",
+    "title": "The Two Kinds of Prediction Markets",
+    "author": "4casters",
+    "author_twitter": "@4castersbet",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-09",
+    "primary_category": "Business",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "retail flow",
+      "platform competition",
+      "adverse selection",
+      "market making"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket",
+      "NEW: 4casters"
+    ],
+    "editorial_blurb": "Applies the sportsbook industry's square vs. sharp distinction to prediction markets. Argues Kalshi (3.5% take fee) and Polymarket (1.5%+) are building square prediction markets that monetize price-insensitive retail takers, while sharp prediction markets focused on trading efficiency will thrive outside the US. Notes that raising fees from 0.5% to 0.75% on 4casters had no material impact on volume, suggesting sports bettors are less price-sensitive than assumed.",
+    "fetch_status": "web"
   }
 ]
