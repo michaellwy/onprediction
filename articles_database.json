@@ -3279,5 +3279,27 @@
     ],
     "editorial_blurb": "Market sizing report on Brazil as a prediction market opportunity. The country is simultaneously the 5th largest betting market ($4.1B GGR, 25M bettors) and 5th in crypto adoption ($6-8B monthly, 90% stablecoins), creating a $100B+ serviceable market with no domestic platform offering event trading mechanics. Regulatory classification by the CVM as derivatives vs. gambling will determine whether institutional capital can participate.",
     "fetch_status": "web"
+  },
+  {
+    "id": 146,
+    "url": "https://theagenticanalyst.substack.com/p/can-polymarket-make-you-a-better",
+    "title": "Can Polymarket Make You a Better Equity Analyst?",
+    "author": "Alistair Smallwood",
+    "author_twitter": "",
+    "source_type": "Substack",
+    "publish_date": "2026-04-09",
+    "primary_category": "Applications",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "hedging",
+      "info finance",
+      "calibration"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Proposes a workflow for using prediction market probabilities as inputs to equity valuation models. Walks through two case studies: translating Polymarket's 51% tariff refund probability into a 35% effective probability for Logitech's margin impact, and converting a 29.5% FDA approval probability into a $5.4B probability-weighted EV uplift for Eli Lilly. The key insight is that raw market probabilities must be adjusted for contract wording mismatches and economic relevance before they become useful for stock analysis.",
+    "fetch_status": "web"
   }
 ]
