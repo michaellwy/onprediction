@@ -3326,5 +3326,54 @@
     ],
     "editorial_blurb": "On-chain analysis of Polymarket's fast crypto markets from September 2025 through March 2026. Five-minute contracts overtook 15-minute in weeks ($2.3B vs $795M in notional volume), bots control 55-62% of volume across fast markets, and Bitcoin drives 77% of turnover. The piece argues that with $23.7M in taker fees collected in 83 days through a maker-rebate fee model, Polymarket has structurally converged with a derivatives exchange.",
     "fetch_status": "web"
+  },
+  {
+    "id": 148,
+    "url": "https://x.com/meleemarkets/status/2043766417342755259",
+    "title": "Why AMMs Failed Prediction Markets",
+    "author": "Melee",
+    "author_twitter": "@meleemarkets",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-13",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "LMSR (logarithmic market scoring rule)",
+      "liquidity provision",
+      "order book",
+      "price discovery"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Augur"
+    ],
+    "editorial_blurb": "Historical walkthrough of why LMSR-based automated market makers structurally failed for prediction markets. In a binary market that resolves to 0 or 1, impermanent loss becomes permanent: the pool inevitably holds worthless shares on the losing side, and trading fees cannot offset a guaranteed structural loss. The piece traces Polymarket's late-2022 migration from an LMSR AMM to a central limit order book as the moment the industry recognized that prediction market liquidity needs a different mechanism than token swaps.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 149,
+    "url": "https://x.com/mphrediction/status/2043419029378048164",
+    "title": "Are We on the Brink of a Prediction Market Supercycle?",
+    "author": "mph",
+    "author_twitter": "@mphrediction",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-12",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "network effects",
+      "platform competition",
+      "regulatory classification",
+      "insider trading",
+      "parlays"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Builder's bullish case for a prediction market supercycle, written from the perspective of the founder behind Kreo (a Polymarket automation product). Argues the space is still early based on the absence of cult-like community formation compared to NFTs or meme-coins, nascent builders programs, and upcoming permissionless markets. Covers the gambling-vs-trading distinction, insider trading as both a problem and a signal source, and Polymarket's pricing edge over traditional sportsbooks on most events.",
+    "fetch_status": "web"
   }
 ]
