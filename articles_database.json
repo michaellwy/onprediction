@@ -3375,5 +3375,29 @@
     ],
     "editorial_blurb": "Builder's bullish case for a prediction market supercycle, written from the perspective of the founder behind Kreo (a Polymarket automation product). Argues the space is still early based on the absence of cult-like community formation compared to NFTs or meme-coins, nascent builders programs, and upcoming permissionless markets. Covers the gambling-vs-trading distinction, insider trading as both a problem and a signal source, and Polymarket's pricing edge over traditional sportsbooks on most events.",
     "fetch_status": "web"
+  },
+  {
+    "id": 150,
+    "url": "https://www.thetokendispatch.com/p/polymarket-is-not-a-truth-machine",
+    "title": "Polymarket Is Not a Truth Machine",
+    "author": "Vaidik Mandloi",
+    "author_twitter": "@vaidikmandloi",
+    "source_type": "Blog",
+    "publish_date": "2026-04-11",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "Brier score",
+      "calibration",
+      "forecasting accuracy",
+      "minimum viable liquidity",
+      "wisdom of crowds"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Critique of the narrative that prediction markets are truth machines. Polymarket's headline Brier score of 0.047 masks category-specific failures like sports markets scoring 0.325 (worse than a coin flip), and 99% of volume concentrates in the final hours before resolution. The author argues prediction markets only work on roughly 2% of listed contracts (binary, high-profile, short-term events with millions at stake), and that when outlets like CNN and WSJ broadcast illiquid market odds as authoritative signal, whale trades on thin books get laundered through credible newsrooms.",
+    "fetch_status": "web"
   }
 ]
