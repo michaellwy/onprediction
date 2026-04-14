@@ -67,11 +67,29 @@ Add the article provided in $ARGUMENTS to the OnPrediction database.
 ## Concept Rules
 
 - Max **5 concepts** per article — don't pad with generic ones
-- Prefix genuinely new concepts with `NEW:` and place first in array
+- **Default budget: 0 `NEW:` concepts per article.** Adding even one should feel rare
 - Use canonical forms from `concept_definitions.json` when possible
 - Prefer specific over generic (e.g., "LMSR" over "scoring rules")
 - Only include "information aggregation" or "price discovery" if genuinely central
 - Order: NEW concepts first → specific → generic last
+
+### When NOT to add a `NEW:` concept
+
+A concept is **not** new-worthy just because the exact phrase isn't in `concept_definitions.json`. Before adding `NEW:`, all of the following must hold:
+
+1. **It is not a basic finance/trading term.** Generic concepts from traditional finance — algorithmic trading, high-frequency trading, maker-taker fees, limit orders, leverage, volatility, slippage, funding rates, perpetuals, liquidations, etc. — do **not** warrant entries, even if the piece discusses them in depth. Map them to prediction-market-specific concepts that capture the underlying dynamic (market making, adverse selection, toxic flow, liquidity provision, execution quality, retail flow, bid-ask spread, order book) or omit them entirely.
+2. **It is not a synonym or near-synonym of an existing entry.** Read `concept_definitions.json` first and look for overlap.
+3. **It names something specific to prediction markets or a genuinely novel framing from the piece.** Examples of concepts that *did* clear this bar: "semantic tick size", "corruption value multiple", "minimum viable liquidity", "info finance", "LOX (log-odds excess lateness)". Each captures something you cannot find well-explained in a finance textbook.
+4. **You can imagine it being the primary concept of 3+ future articles.** One-off framings don't belong in the taxonomy.
+
+If in doubt, use existing concepts or include fewer than 5 concepts. A 3-concept article with tight existing concepts is better than a 5-concept article padded with a weak `NEW:` entry.
+
+### Concept selection workflow
+
+1. Read the piece and list its core ideas in plain language
+2. Open `concept_definitions.json` and match each idea to the closest existing entry
+3. Only consider `NEW:` for ideas that clearly fail the four tests above
+4. Prefer 3-4 strong existing concepts over 5 concepts that include a weak new one
 
 ## Platform Rules
 
