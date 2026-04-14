@@ -3301,5 +3301,30 @@
     ],
     "editorial_blurb": "Proposes a workflow for using prediction market probabilities as inputs to equity valuation models. Walks through two case studies: translating Polymarket's 51% tariff refund probability into a 35% effective probability for Logitech's margin impact, and converting a 29.5% FDA approval probability into a $5.4B probability-weighted EV uplift for Eli Lilly. The key insight is that raw market probabilities must be adjusted for contract wording mismatches and economic relevance before they become useful for stock analysis.",
     "fetch_status": "web"
+  },
+  {
+    "id": 147,
+    "url": "https://x.com/Dune/status/2044045952730726863",
+    "title": "Faster, Shorter, More Automated: Anatomy of Polymarket's Fastest Markets",
+    "author": "Dune",
+    "author_twitter": "@Dune",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-14",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: maker-taker fees",
+      "NEW: algorithmic trading",
+      "market making",
+      "retail flow",
+      "regulatory classification"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Hyperliquid"
+    ],
+    "editorial_blurb": "On-chain analysis of Polymarket's fast crypto markets from September 2025 through March 2026. Five-minute contracts overtook 15-minute in weeks ($2.3B vs $795M in notional volume), bots control 55-62% of volume across fast markets, and Bitcoin drives 77% of turnover. The piece argues that with $23.7M in taker fees collected in 83 days through a maker-rebate fee model, Polymarket has structurally converged with a derivatives exchange.",
+    "fetch_status": "web"
   }
 ]

@@ -1,6 +1,7 @@
 {
   "adverse selection": "Risk that counterparties trade because they have superior information, causing losses for the market maker.",
   "AI agents": "Autonomous software systems that trade on prediction markets, potentially improving liquidity and accuracy.",
+  "algorithmic trading": "Automated strategies executed by bots that monitor markets continuously and place orders on timescales shorter than human reaction time. In prediction markets with short-duration contracts, algorithmic traders dominate volume because compressed timeframes reward software that can exploit tiny price discrepancies in milliseconds.",
   "arbitrage": "Exploiting price differences for equivalent outcomes across markets or platforms for risk-free profit.",
   "attention markets": "Markets that trade on what topics or events will capture public attention and discourse.",
   "batched auctions": "Collecting orders over a time window and clearing them simultaneously at a single price to reduce manipulation.",
@@ -45,6 +46,7 @@
   "long-tail markets": "Prediction markets on niche or specialized questions that individually attract thin liquidity but collectively generate significant informational value, analogous to how long-tail content drives aggregate engagement on platforms like YouTube.",
   "longshot bias": "The tendency for low-probability outcomes to be systematically overpriced in prediction markets.",
   "LOX (log-odds excess lateness)": "A metric measuring how much a forecaster's probability updates lag behind optimal Bayesian updating.",
+  "maker-taker fees": "A trading fee structure where takers (participants who remove liquidity by matching existing orders) pay fees while makers (participants who provide liquidity by posting resting orders) receive rebates. Prediction market platforms adopt this model to incentivize tighter spreads and deeper books, creating a flywheel where trading velocity funds liquidity provision.",
   "market making": "Continuously quoting bid and ask prices to facilitate trading, earning the spread while managing inventory risk.",
   "market manipulation": "Deliberately trading to distort prices away from true probabilities for strategic or financial gain.",
   "market scoring rules": "A class of automated market maker mechanisms that subsidize trade by penalizing a market maker according to a proper scoring rule. Traders profit by moving prices closer to their beliefs, ensuring the market maker absorbs losses in exchange for eliciting honest probability estimates. LMSR is the most widely used instance.",
