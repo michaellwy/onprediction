@@ -3314,9 +3314,9 @@
     "content_type": "Analysis",
     "difficulty": "Some",
     "concepts": [
-      "NEW: maker-taker fees",
-      "NEW: algorithmic trading",
       "market making",
+      "liquidity provision",
+      "toxic flow",
       "retail flow",
       "regulatory classification"
     ],
