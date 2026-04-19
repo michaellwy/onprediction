@@ -3422,5 +3422,29 @@
     ],
     "editorial_blurb": "a16z's overview of institutional adoption of prediction markets, centered on Kalshi. Outlines a three-stage framework: using markets as data sources, integrating them into compliance workflows, and finally actively hedging risk. Sports hit $3B weekly volume but reached an all-time low as a share of total volume, while entertainment, crypto, and culture categories show stronger retention. The main bottleneck for institutional participation is full notional collateral requirements, which Kalshi is addressing through margin trading licenses.",
     "fetch_status": "web"
+  },
+  {
+    "id": 152,
+    "url": "https://x.com/xolabs_/status/2045161249588269257",
+    "title": "Market Making for Prediction Markets: A Probability-Space Approach",
+    "author": "XO Labs",
+    "author_twitter": "@xolabs_",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-17",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "market making",
+      "adverse selection",
+      "bid-ask spread",
+      "market scoring rules"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "NEW: XO Market"
+    ],
+    "editorial_blurb": "Technical research on adapting the Avellaneda-Stoikov market-making framework for prediction markets. Classical models fail because prediction market prices are bounded probabilities (0 to 1) rather than unbounded asset prices, creating non-constant volatility and guaranteed terminal convergence. After a logit-space transformation lost $1,114 in backtest, XO Labs iterated to a probability-space engine with inventory-skewed spreads, volatility regime detection, and multi-outcome coordination that turned profitable at $453. Includes the full mathematical framework and open problems.",
+    "fetch_status": "web"
   }
 ]
