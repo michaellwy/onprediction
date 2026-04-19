@@ -3399,5 +3399,28 @@
     ],
     "editorial_blurb": "Critique of the narrative that prediction markets are truth machines. Polymarket's headline Brier score of 0.047 masks category-specific failures like sports markets scoring 0.325 (worse than a coin flip), and 99% of volume concentrates in the final hours before resolution. The author argues prediction markets only work on roughly 2% of listed contracts (binary, high-profile, short-term events with millions at stake), and that when outlets like CNN and WSJ broadcast illiquid market odds as authoritative signal, whale trades on thin books get laundered through credible newsrooms.",
     "fetch_status": "web"
+  },
+  {
+    "id": 151,
+    "url": "https://open.substack.com/pub/a16z/p/prediction-markets-they-grow-up-so",
+    "title": "Prediction Markets: They Grow Up So Fast",
+    "author": "Alex Immerman, Santiago Rodriguez",
+    "author_twitter": "",
+    "source_type": "Substack",
+    "publish_date": "2026-04-16",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "network effects",
+      "platform competition",
+      "hedging",
+      "regulatory classification"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "a16z's overview of institutional adoption of prediction markets, centered on Kalshi. Outlines a three-stage framework: using markets as data sources, integrating them into compliance workflows, and finally actively hedging risk. Sports hit $3B weekly volume but reached an all-time low as a share of total volume, while entertainment, crypto, and culture categories show stronger retention. The main bottleneck for institutional participation is full notional collateral requirements, which Kalshi is addressing through margin trading licenses.",
+    "fetch_status": "web"
   }
 ]
