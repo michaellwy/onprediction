@@ -3446,5 +3446,30 @@
     ],
     "editorial_blurb": "Technical research on adapting the Avellaneda-Stoikov market-making framework for prediction markets. Classical models fail because prediction market prices are bounded probabilities (0 to 1) rather than unbounded asset prices, creating non-constant volatility and guaranteed terminal convergence. After a logit-space transformation lost $1,114 in backtest, XO Labs iterated to a probability-space engine with inventory-skewed spreads, volatility regime detection, and multi-outcome coordination that turned profitable at $453. Includes the full mathematical framework and open problems.",
     "fetch_status": "web"
+  },
+  {
+    "id": 153,
+    "url": "https://x.com/Kunallegendd/status/2044780671839952949",
+    "title": "From Betting to Trading: How Kalshi Is Reshaping Sports Markets",
+    "author": "Kunal Doshi",
+    "author_twitter": "@Kunallegendd",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-16",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "platform competition",
+      "calibration",
+      "execution quality",
+      "cross-platform arbitrage"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket",
+      "FanDuel"
+    ],
+    "editorial_blurb": "Data-driven analysis benchmarking Kalshi's sports markets against traditional sportsbooks. Kalshi's monthly volume grew 80x to $14.4B in March 2026, with NCAA March Madness generating $3.3B in notional volume comparable to total US wagered on the tournament. In-game prices correlate at 0.99+ with FanDuel, but Kalshi's taker fees (up to 3.5% at midpoint) and thinner in-game liquidity (76% depth decline vs pre-game) currently limit institutional execution. Includes a valuation comparison showing Kalshi priced as an exchange ($20B) vs sportsbooks trading at 2-4x revenue.",
+    "fetch_status": "web"
   }
 ]
