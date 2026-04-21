@@ -3471,5 +3471,27 @@
     ],
     "editorial_blurb": "Data-driven analysis benchmarking Kalshi's sports markets against traditional sportsbooks. Kalshi's monthly volume grew 80x to $14.4B in March 2026, with NCAA March Madness generating $3.3B in notional volume comparable to total US wagered on the tournament. In-game prices correlate at 0.99+ with FanDuel, but Kalshi's taker fees (up to 3.5% at midpoint) and thinner in-game liquidity (76% depth decline vs pre-game) currently limit institutional execution. Includes a valuation comparison showing Kalshi priced as an exchange ($20B) vs sportsbooks trading at 2-4x revenue.",
     "fetch_status": "web"
+  },
+  {
+    "id": 154,
+    "url": "https://x.com/dgt10011/status/2045952603301851173",
+    "title": "What Most People Get Wrong About Prediction Markets",
+    "author": "Jeff Park",
+    "author_twitter": "@dgt10011",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-20",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "insider trading",
+      "information asymmetry",
+      "hedging",
+      "binary contracts",
+      "market making"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Response to Axios and More Perfect Union coverage framing prediction markets as gambling. Park argues the investing/gambling line is about +EV, not the game itself, and that the flip side of speculation is always insurance. Contends prediction markets are structurally different from other derivatives because they are precise (binary payoffs create clean basis risk to truth) and have finite expiry, and that fears about insider trading are overblown since liquidity in obscure asymmetric markets will be negligible. Closes with a media-criticism argument that prestige outlets attack prediction markets because the markets threaten institutional control over truth.",
+    "fetch_status": "web"
   }
 ]
