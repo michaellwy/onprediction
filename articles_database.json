@@ -3493,5 +3493,77 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Response to Axios and More Perfect Union coverage framing prediction markets as gambling. Park argues the investing/gambling line is about +EV, not the game itself, and that the flip side of speculation is always insurance. Contends prediction markets are structurally different from other derivatives because they are precise (binary payoffs create clean basis risk to truth) and have finite expiry, and that fears about insider trading are overblown since liquidity in obscure asymmetric markets will be negligible. Closes with a media-criticism argument that prestige outlets attack prediction markets because the markets threaten institutional control over truth.",
     "fetch_status": "web"
+  },
+  {
+    "id": 155,
+    "url": "https://x.com/dgt10011/status/2024228182178595247",
+    "title": "The Truth Machine Era Is Here",
+    "author": "Jeff Park",
+    "author_twitter": "@dgt10011",
+    "source_type": "Twitter",
+    "publish_date": "2026-02-19",
+    "primary_category": "Regulation",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "federal preemption",
+      "regulatory classification",
+      "election markets",
+      "event contracts",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket",
+      "Intrade"
+    ],
+    "editorial_blurb": "History of U.S. prediction market regulation culminating in the February 2026 jurisdictional standoff between CFTC Chairman Mike Selig and Utah Governor Cox. Park traces the arc from the Iowa Electronic Markets' 1988 no-action letter, through Intrade's 2012 collapse and the binary options fraud era, to Kalshi's court win establishing that 'gaming' does not cover financial contracts on uncertain outcomes. Argues federal preemption under the Commodity Exchange Act will hold against state attorneys general, and that Bitwise's PredictionShares ETF launch marks the point where political event contracts become a mainstream financial product.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 156,
+    "url": "https://x.com/meleemarkets/status/2046318159225897289",
+    "title": "The Problem With CLOBs",
+    "author": "Melee",
+    "author_twitter": "@meleemarkets",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-21",
+    "primary_category": "Design",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "order book",
+      "long-tail markets",
+      "market making",
+      "liquidity provision",
+      "minimum viable liquidity"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Argues that central limit order books fixed the capital destruction problem of early Polymarket AMMs but introduced a new pathology: passive participation is impossible, and only professional market makers can quote. Kalshi reportedly has 23 active market makers with the top three providing 70% of election-contract liquidity, meaning any market those firms ignore is dead on arrival. Positions this as the reason prediction markets remain concentrated in politics and sports while entertainment, science, and culture verticals stay empty, and makes the case for peer-to-peer architecture that lets the first participant seed liquidity for the second.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 157,
+    "url": "https://x.com/DaedalusRsch/status/2046219948452979151",
+    "title": "What Happens When Institutional Liquidity Enters Prediction Markets",
+    "author": "Daedalus Research",
+    "author_twitter": "@DaedalusRsch",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-20",
+    "primary_category": "Microstructure",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "execution quality",
+      "liquidity provision",
+      "retail flow",
+      "toxic flow"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Short research-agenda framing from Daedalus Research announcing a paper on institutional liquidity in prediction markets. Argues that as institutional market makers shape these venues, the academic conversation must move beyond forecast accuracy to execution quality, market structure, and trader welfare. Useful as a pointer to shifts in how prediction market research is being scoped.",
+    "fetch_status": "web"
   }
 ]
