@@ -3565,5 +3565,55 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Short research-agenda framing from Daedalus Research announcing a paper on institutional liquidity in prediction markets. Argues that as institutional market makers shape these venues, the academic conversation must move beyond forecast accuracy to execution quality, market structure, and trader welfare. Useful as a pointer to shifts in how prediction market research is being scoped.",
     "fetch_status": "web"
+  },
+  {
+    "id": 158,
+    "url": "https://x.com/Ranger_Global/status/2046547375649427572",
+    "title": "Anatomy Of A New Asset Class I: How Markets Turn Capital Into Probability",
+    "author": "Ranger Global",
+    "author_twitter": "@Ranger_Global",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-21",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "order book",
+      "conditional tokens",
+      "market making",
+      "price discovery",
+      "execution quality"
+    ],
+    "platforms_mentioned": [
+      "Limitless"
+    ],
+    "editorial_blurb": "Part 1 of a Ranger Global research series on onchain prediction market microstructure. Walks through why CLOBs beat constant-product AMMs for binary events, the YES/NO minting and merging invariant that lets depth expand whenever matched counterparties exist, and probability-scaled dynamic fees that shrink near 0 and 1. Closes with a regression of prediction market midpoints against BTC spot, finding PM traders systematically underreact to spot moves by 10-20% and that latency under 100ms now captures 73% of arbitrage profits.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 159,
+    "url": "https://x.com/mominsaqib/status/2046551020231385529",
+    "title": "The Prediction Market Epidemic: Who's Actually Winning",
+    "author": "Momin",
+    "author_twitter": "@mominsaqib",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-21",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "retail flow",
+      "toxic flow",
+      "adverse selection",
+      "information asymmetry",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Crypto.com"
+    ],
+    "editorial_blurb": "Skeptical counter to the democratizing-finance framing around prediction markets. Cites Polymarket data showing 70% of 1.7 million addresses lost money and that the top 0.04% captured over 70% of the $3.7B in realized profits, and argues the structure predictably funnels retail into informed counterparties (including platform-operated market-making desks at Kalshi and Crypto.com). Concedes prediction markets are genuinely useful as an information layer while arguing they are a poor retail trading product.",
+    "fetch_status": "web"
   }
 ]
