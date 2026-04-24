@@ -3615,5 +3615,129 @@
     ],
     "editorial_blurb": "Skeptical counter to the democratizing-finance framing around prediction markets. Cites Polymarket data showing 70% of 1.7 million addresses lost money and that the top 0.04% captured over 70% of the $3.7B in realized profits, and argues the structure predictably funnels retail into informed counterparties (including platform-operated market-making desks at Kalshi and Crypto.com). Concedes prediction markets are genuinely useful as an information layer while arguing they are a poor retail trading product.",
     "fetch_status": "web"
+  },
+  {
+    "id": 160,
+    "url": "https://x.com/uselotusai/status/2046639095531614455",
+    "title": "Market Making In PMs Sucks",
+    "author": "Lotus",
+    "author_twitter": "@uselotusai",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-21",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "liquidity fragmentation",
+      "adverse selection",
+      "longshot bias",
+      "cross-platform arbitrage",
+      "market making"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Survey of recent research on why conventional market making fails in prediction markets. Covers cross-venue fragmentation (the same contract at 58-67 cents on different platforms), the January 2026 Polymarket XRP exploit that paid $231K on thin weekend liquidity, Kalshi's structural longshot bias, and evidence from 150M Polymarket trades that the top 5% skilled traders earned $228M while spread capture barely moves P&L. Concludes passive LPs on these venues behave more like underwriters of terminal risk than classical market makers.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 161,
+    "url": "https://x.com/0xturbanurban/status/2044433520806830101",
+    "title": "The Bane Of Binaries: What Prediction Markets Are Missing",
+    "author": "0xturbanurban",
+    "author_twitter": "@0xturbanurban",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-15",
+    "primary_category": "Fundamentals",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "binary contracts",
+      "hedging",
+      "event contracts",
+      "price discovery",
+      "information asymmetry"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Reframes prediction markets as consumer-wrapped binary options, drawing on the author's OTC commodity derivatives background. Introduces Minsky's 'vega wedge' as the structural overcharge that binary hedgers pay when they replicate via vanilla options (around 4.8% for BTC binaries, 7-20% for gold), and argues prediction markets can undercut that tax in categories with deep volume. Diagnoses what still keeps institutional capital out: no shared Black-Scholes-equivalent pricing language, missing risk infrastructure, and liquidity that remains retail-dominated.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 162,
+    "url": "https://x.com/xomarket/status/2046924302952640934",
+    "title": "The Hidden Risk Of Prediction Markets: 14 Resolution Failures That Cost $500M",
+    "author": "XO Market",
+    "author_twitter": "@xomarket",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-22",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "dispute resolution",
+      "resolution criteria",
+      "UMA protocol",
+      "oracle design",
+      "market manipulation"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Catalog of 14 resolution failures over 18 months at Polymarket and Kalshi affecting over $500M in volume, including the $242M Zelenskyy-suit market, the $120M TikTok ban, and the $47M Cardi B halftime market that resolved yes on Polymarket and no on Kalshi. Groups the failures into four patterns: vague criteria, decentralized oracle capture (UMA token cap below disputed volume), centralized operator discretion, and cross-platform divergence. Useful reference for anyone designing resolution mechanisms or underwriting oracle risk.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 163,
+    "url": "https://x.com/turfsports_/status/2047030930699854334",
+    "title": "Every Opinion Deserves A Market",
+    "author": "Turf",
+    "author_twitter": "@turfsports_",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-22",
+    "primary_category": "Design",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "parimutuel markets",
+      "long-tail markets",
+      "oracle design",
+      "resolution criteria",
+      "self-resolving markets"
+    ],
+    "platforms_mentioned": [
+      "NEW: Turf"
+    ],
+    "editorial_blurb": "Launch post for sdk.markets, a toolkit for creating parimutuel prediction markets on arbitrary questions, built on Base. Argues CLOB infrastructure does not fit thin community markets and that parimutuel pools are simpler and fairer when there is no natural counterparty. Details design choices that address parimutuel's classic 'wait and see' sniping problem (short answer windows, snapshot locking, DPM-style pricing) and three resolution modes: single admin, multi-admin consensus, and an AI oracle that resolves from arbitrary URLs.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 164,
+    "url": "https://x.com/CalBlockchain/status/2047460674532790499",
+    "title": "Polls Are Dead. Long Live Prediction Markets.",
+    "author": "Blockchain at Berkeley",
+    "author_twitter": "@CalBlockchain",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-23",
+    "primary_category": "Fundamentals",
+    "content_type": "Explainer",
+    "difficulty": "None",
+    "concepts": [
+      "binary contracts",
+      "order book",
+      "information aggregation",
+      "platform competition",
+      "decision markets"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Beginner-oriented primer from Blockchain at Berkeley covering what prediction markets are, how order books translate bids and asks into probabilities, why they matter for business, media, and policy, and the Polymarket vs Kalshi comparison (offshore crypto-native vs CFTC-regulated; public onchain trades vs private USD activity). Good starting point to share with people new to the category.",
+    "fetch_status": "web"
   }
 ]
