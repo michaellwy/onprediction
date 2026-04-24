@@ -3739,5 +3739,25 @@
     ],
     "editorial_blurb": "Beginner-oriented primer from Blockchain at Berkeley covering what prediction markets are, how order books translate bids and asks into probabilities, why they matter for business, media, and policy, and the Polymarket vs Kalshi comparison (offshore crypto-native vs CFTC-regulated; public onchain trades vs private USD activity). Good starting point to share with people new to the category.",
     "fetch_status": "web"
+  },
+  {
+    "id": 165,
+    "url": "https://x.com/Ommiii_/status/2047582772387291361",
+    "title": "Prediction Markets In Q1 2026: 11 Insights Worth Knowing",
+    "author": "Omar",
+    "author_twitter": "@Ommiii_",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-24",
+    "primary_category": "Commentary",
+    "content_type": "Twitter Thread",
+    "difficulty": "None",
+    "concepts": [
+      "platform competition",
+      "network effects",
+      "regulatory classification"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Teaser thread for a 50+ page Q1 2026 prediction markets report. Claims the space did more volume in one quarter than all of 2025 combined, and distills 11 insights on scale, concentration, monetization, and the attention the category is drawing from institutions and regulators.",
+    "fetch_status": "web"
   }
 ]
