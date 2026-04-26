@@ -3759,5 +3759,73 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Teaser thread for a 50+ page Q1 2026 prediction markets report. Claims the space did more volume in one quarter than all of 2025 combined, and distills 11 insights on scale, concentration, monetization, and the attention the category is drawing from institutions and regulators.",
     "fetch_status": "web"
+  },
+  {
+    "id": 166,
+    "url": "https://x.com/nic_carter/status/2048123008200724599",
+    "title": "Prediction Markets Have An Inescapable Insider Trading Problem",
+    "author": "Nic Carter",
+    "author_twitter": "@nic_carter",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-26",
+    "primary_category": "Microstructure",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "insider trading",
+      "market surveillance",
+      "adverse selection",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Frames insider trading as a structural feature of prediction markets, not a bug. Walks through the DOJ case against Master Sergeant Gannon Ken Van Dyke, who made $400k on Polymarket trading the Maduro raid, and the prior Israeli reservist arrests, then quotes Mansour, Coplan, Tenev, and Hanson on how insider flow is what makes prices accurate. Argues platforms face a calibration problem: too permissive and noise traders flee perceiving rigging, too strict and informed flow disappears and prices decay into sentiment. Predicts Polymarket fully drops pseudonymous trading and ramps surveillance over the next year.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 167,
+    "url": "https://x.com/abhitejxyz/status/2047353485700825546",
+    "title": "Predictions Are The New Expression",
+    "author": "Abhitej",
+    "author_twitter": "@abhitejxyz",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-24",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "information aggregation",
+      "wisdom of crowds",
+      "futarchy",
+      "price discovery"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Long essay from the Bento.fun founder positioning prediction markets as the next stage in the history of expression: from print to radio to social media, each medium widened who could speak, but only markets demand that speakers bear consequence for being wrong. Pulls in Hayek on price as coordination, Taleb on skin in the game, and Hanson on futarchy to argue the same primitive now extends to politics, sports, journalism, and science. Useful as a values-level framing of why staked speech might out-trust cheap talk in an AI-saturated information environment.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 168,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6617059",
+    "title": "Prediction Market Accuracy: Crowd Wisdom Or Informed Minority?",
+    "author": "Roberto Gomez-Cram, Yang Guo, Theis Ingerslev Jensen, Howard Kung",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-04-01",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "wisdom of crowds",
+      "information aggregation",
+      "price discovery",
+      "adverse selection"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Empirical paper finding that prediction market accuracy is not the wisdom of crowds. Roughly 3% of accounts drive most price discovery: their trades anticipate future prices, respond to news immediately, and improve calibration across a market's lifecycle. The remaining accounts contribute volume and liquidity but minimal information, and their losses fund the informed minority. Reframes the standard story about why prediction markets work and has implications for platform design, surveillance, and how to credibly market accuracy.",
+    "fetch_status": "web"
   }
 ]
