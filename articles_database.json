@@ -3827,5 +3827,30 @@
     ],
     "editorial_blurb": "Empirical paper finding that prediction market accuracy is not the wisdom of crowds. Roughly 3% of accounts drive most price discovery: their trades anticipate future prices, respond to news immediately, and improve calibration across a market's lifecycle. The remaining accounts contribute volume and liquidity but minimal information, and their losses fund the informed minority. Reframes the standard story about why prediction markets work and has implications for platform design, surveillance, and how to credibly market accuracy.",
     "fetch_status": "web"
+  },
+  {
+    "id": 169,
+    "url": "https://x.com/functionspaceHQ/article/2048536153662636173",
+    "title": "You Don't Hate Prediction Markets. You Hate Capitalism.",
+    "author": "Noah Litvin",
+    "author_twitter": "@noahlitvin",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-27",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "regulatory classification",
+      "insider trading",
+      "market manipulation",
+      "event contracts"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "CME"
+    ],
+    "editorial_blurb": "Defense of prediction markets that reframes the moral critique as a critique of capitalism itself. Litvin walks through the standard objections (gambling, insider trading, manipulation, slot-machine durations) and pairs each with a larger-scale analog in traditional finance: the $950M oil ceasefire trades on CME, LIBOR, accredited investor rules, dollar debasement. Argues that the legal line between gambling and investing collapses under scrutiny and that prediction markets are simply a more legible version of dynamics already accepted everywhere else.",
+    "fetch_status": "web"
   }
 ]
