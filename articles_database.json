@@ -3830,7 +3830,7 @@
   },
   {
     "id": 169,
-    "url": "https://x.com/functionspaceHQ/article/2048536153662636173",
+    "url": "https://x.com/noahlitvin/status/2048527516587966660",
     "title": "You Don't Hate Prediction Markets. You Hate Capitalism.",
     "author": "Noah Litvin",
     "author_twitter": "@noahlitvin",
@@ -3851,6 +3851,29 @@
       "CME"
     ],
     "editorial_blurb": "Defense of prediction markets that reframes the moral critique as a critique of capitalism itself. Litvin walks through the standard objections (gambling, insider trading, manipulation, slot-machine durations) and pairs each with a larger-scale analog in traditional finance: the $950M oil ceasefire trades on CME, LIBOR, accredited investor rules, dollar debasement. Argues that the legal line between gambling and investing collapses under scrutiny and that prediction markets are simply a more legible version of dynamics already accepted everywhere else.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 170,
+    "url": "https://x.com/functionspaceHQ/status/2048536153662636173",
+    "title": "Binary Events V2: Does Liquidity Trade The Tails?",
+    "author": "functionSPACE",
+    "author_twitter": "@functionspaceHQ",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-27",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "liquidity fragmentation",
+      "long-tail markets",
+      "binary contracts",
+      "minimum viable liquidity"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Follow-up to functionSPACE's V1 discretisation analysis, splitting Polymarket's 18,863 multi-market events into continuous (price brackets, weather ranges, margin percentages) versus categorical (teams, candidates) and re-running the pathology tests. Both types concentrate 90% of volume in the top 5-6 markets, but ghost markets turn out to be largely a categorical phenomenon: continuous events distribute volume more evenly across buckets and survive the liquidity cliff longer at high N. With continuous events overtaking categorical by event count in 2026Q1, the case for a continuous-distribution primitive applies to a growing share of the platform.",
     "fetch_status": "web"
   }
 ]
