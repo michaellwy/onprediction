@@ -39,6 +39,7 @@
   "information asymmetry": "When some traders possess materially better knowledge about likely outcomes than other participants.",
   "insider trading": "Trading on material non-public information (MNPI) obtained through a breach of a confidentiality duty or implied promise. In prediction markets, this arises when participants trade on privileged access to information about upcoming events, creating adverse selection for other traders.",
   "Kelly criterion": "A formula for optimal bet sizing that maximizes long-run growth by balancing edge against risk of ruin.",
+  "legibility": "The degree to which market prices reveal specific underlying information. Prediction markets have high legibility because contracts reference explicit events, making the information behind a price move visible to all participants unlike stocks where price moves have ambiguous causes.",
   "liquidity fragmentation": "The dispersion of trading capital across multiple independent order books when a single question is split into many binary contracts. In prediction markets, this creates ghost markets where tail outcomes receive little or no volume, reducing the information captured by the market structure.",
   "liquidity provision": "Supplying capital so traders can buy and sell positions without excessive price impact or delays.",
   "LMSR (logarithmic market scoring rule)": "An automated market maker that prices trades using a logarithmic cost function, guaranteeing bounded loss.",
