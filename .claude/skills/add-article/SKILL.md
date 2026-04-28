@@ -27,6 +27,19 @@ Add the article provided in $ARGUMENTS to the OnPrediction database.
 
 8. **Check concept cluster mapping** — verify any new concepts appear in `src/lib/concepts.ts` `conceptToCluster`. If missing, add them with the appropriate cluster.
 
+9. **Build, commit, push, and merge** — after all changes are in place:
+   ```bash
+   npm run build                  # Verify build passes
+   git add articles_database.json prediction-market-reading-list.csv concept_definitions.json src/lib/concepts.ts
+   git commit -m "Add article(s) [ID range]: [short description]"
+   git checkout -b add-articles-[ID range]
+   git push -u origin add-articles-[ID range]
+   gh pr create --title "Add article(s) [ID range]: [short description]" --body "[summary]"
+   gh pr merge [PR#] --squash
+   git checkout main && git pull
+   ```
+   If pushing fails, check if on a feature branch; if on `main`, create a branch first. Never commit directly to main.
+
 ## JSON Schema
 
 ```json
