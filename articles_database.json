@@ -3875,5 +3875,83 @@
     ],
     "editorial_blurb": "Follow-up to functionSPACE's V1 discretisation analysis, splitting Polymarket's 18,863 multi-market events into continuous (price brackets, weather ranges, margin percentages) versus categorical (teams, candidates) and re-running the pathology tests. Both types concentrate 90% of volume in the top 5-6 markets, but ghost markets turn out to be largely a categorical phenomenon: continuous events distribute volume more evenly across buckets and survive the liquidity cliff longer at high N. With continuous events overtaking categorical by event count in 2026Q1, the case for a continuous-distribution primitive applies to a growing share of the platform.",
     "fetch_status": "web"
+  },
+  {
+    "id": 171,
+    "url": "https://whirligigbear.substack.com/p/legibility",
+    "title": "Legibility",
+    "author": "Andrew Courtney",
+    "author_twitter": "@andrewcourt1",
+    "source_type": "Substack",
+    "publish_date": "2026-04-27",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "legibility",
+      "insider trading",
+      "information asymmetry",
+      "price discovery"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Prediction markets make information legible in a way stocks and options do not. When someone bets big on an attack on Maduro, everyone immediately knows what the bet is about, unlike a stock price spike that could mean anything. Andrew Courtney argues this legibility is a feature even when it surfaces uncomfortable national security implications.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 172,
+    "url": "https://x.com/0xCryptoNomads/status/2048664550225170605",
+    "title": "Why Every Prediction-Market Terminal Will Fail (and the Two That Won't)",
+    "author": "cryptonomads",
+    "author_twitter": "@0xCryptoNomads",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-27",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "execution quality",
+      "cross-platform arbitrage",
+      "order book",
+      "market making"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Opinion",
+      "Limitless",
+      "SX",
+      "Overtime"
+    ],
+    "editorial_blurb": "A trader who ran ~10,000 automated trades through Polymarket dissects why most prediction market terminals fail: execution mirages, non-synthesizing research layers, and strategy tabs that are deck screenshots disguised as features. Lays out the baseline infrastructure real traders need and argues only two terminal types survive the next 24 months: institutional API rails and a trader-native terminal built by someone who has actually lived the workflow.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 173,
+    "url": "https://www.ark-invest.com/articles/analyst-research/prediction-markets-potential-multi-trillion-dollar-asset-class",
+    "title": "Prediction Markets: The Potential Multi-Trillion Dollar Asset Class Hiding In Plain Sight",
+    "author": "Nicholas Grous, Varshika Prasanna, Raye Hadi",
+    "author_twitter": "",
+    "source_type": "Company Blog",
+    "publish_date": "2026-04-22",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "info finance",
+      "regulatory arbitrage",
+      "liquidity provision",
+      "event contracts"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Robinhood",
+      "Coinbase"
+    ],
+    "editorial_blurb": "ARK Invest sizes the prediction market opportunity at $1-5 trillion medium-term by benchmarking against global OTC derivative volumes. Argues that sports volumes are largely regulatory arbitrage from states without legal online sports betting and that the real disruption lies in event contracts unbundling risk from traditional derivatives, giving retail investors direct exposure to discrete outcomes.",
+    "fetch_status": "web"
   }
 ]
