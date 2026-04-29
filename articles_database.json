@@ -3953,5 +3953,31 @@
     ],
     "editorial_blurb": "ARK Invest sizes the prediction market opportunity at $1-5 trillion medium-term by benchmarking against global OTC derivative volumes. Argues that sports volumes are largely regulatory arbitrage from states without legal online sports betting and that the real disruption lies in event contracts unbundling risk from traditional derivatives, giving retail investors direct exposure to discrete outcomes.",
     "fetch_status": "web"
+  },
+  {
+    "id": 174,
+    "url": "https://asteriskmag.com/issues/14/are-prediction-markets-good-for-anything",
+    "title": "Are Prediction Markets Good for Anything?",
+    "author": "Dan Schwarz",
+    "author_twitter": "@dschwarz26",
+    "source_type": "Blog",
+    "publish_date": "2026-04-01",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "info finance",
+      "forecasting accuracy",
+      "probability infrastructure",
+      "nowcasting"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Metaculus",
+      "Manifold"
+    ],
+    "editorial_blurb": "Dan Schwarz analyzes ~13,500 prediction market contracts from Polymarket to ask whether billion-dollar prediction markets deliver on their promise of informing decisions. Over 80% of volume goes to sports, crypto and elections, and accuracy on \"useful\" markets hasn't improved since early 2025. The piece argues AI chatbots may supersede prediction markets as the primary forecasting interface, leaving markets to serve an epistemic role as common knowledge infrastructure.",
+    "fetch_status": "web"
   }
 ]
