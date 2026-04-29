@@ -3979,5 +3979,31 @@
     ],
     "editorial_blurb": "Dan Schwarz analyzes ~13,500 prediction market contracts from Polymarket to ask whether billion-dollar prediction markets deliver on their promise of informing decisions. Over 80% of volume goes to sports, crypto and elections, and accuracy on \"useful\" markets hasn't improved since early 2025. The piece argues AI chatbots may supersede prediction markets as the primary forecasting interface, leaving markets to serve an epistemic role as common knowledge infrastructure.",
     "fetch_status": "web"
+  },
+  {
+    "id": 175,
+    "url": "https://howgamblingworks.substack.com/p/kalshis-favorite-lie",
+    "title": "Kalshi's Favorite Lie",
+    "author": "Isaac Rose-Berman",
+    "author_twitter": "",
+    "source_type": "Substack",
+    "publish_date": "2026-04-29",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "execution quality",
+      "market making",
+      "adverse selection",
+      "retail flow"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket",
+      "Coinbase",
+      "Robinhood"
+    ],
+    "editorial_blurb": "Isaac Rose-Berman dissects Kalshi's claim that as an exchange rather than a bookmaker, it has no stake in whether users lose. Through a detailed walkthrough of maker-taker fees, adverse selection and the zero-sum structure of prediction markets, he argues the business depends on ordinary users systematically losing to sophisticated market makers just as surely as any sportsbook. A coin-flip bet that should be fair becomes a 3.4% expected loss after fees.",
+    "fetch_status": "web"
   }
 ]
