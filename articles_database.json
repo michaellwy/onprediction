@@ -4005,5 +4005,26 @@
     ],
     "editorial_blurb": "Isaac Rose-Berman dissects Kalshi's claim that as an exchange rather than a bookmaker, it has no stake in whether users lose. Through a detailed walkthrough of maker-taker fees, adverse selection and the zero-sum structure of prediction markets, he argues the business depends on ordinary users systematically losing to sophisticated market makers just as surely as any sportsbook. A coin-flip bet that should be fair becomes a 3.4% expected loss after fees.",
     "fetch_status": "web"
+  },
+  {
+    "id": 176,
+    "url": "https://www.overcomingbias.com/p/on-prediction-market-regulation",
+    "title": "On Prediction Market Regulation",
+    "author": "Robin Hanson",
+    "author_twitter": "@robinhanson",
+    "source_type": "Blog",
+    "publish_date": "2026-04-29",
+    "primary_category": "Regulation",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "regulatory classification",
+      "insider trading",
+      "market manipulation",
+      "info finance"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Robin Hanson responds to a CFTC call for comments by arguing prediction markets deserve the same regulatory treatment as other information institutions like journalism and academia. Drawing parallels between six common harms shared across all information systems, from insider trading to manipulation, he contends markets should be approved by default and restricted only on clear evidence of specific harm. The piece makes the economist's case that the information value of prediction markets justifies a lighter regulatory touch than traditional gambling law.",
+    "fetch_status": "web"
   }
 ]
