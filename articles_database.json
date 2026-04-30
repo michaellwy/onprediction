@@ -4026,5 +4026,31 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Robin Hanson responds to a CFTC call for comments by arguing prediction markets deserve the same regulatory treatment as other information institutions like journalism and academia. Drawing parallels between six common harms shared across all information systems, from insider trading to manipulation, he contends markets should be approved by default and restricted only on clear evidence of specific harm. The piece makes the economist's case that the information value of prediction markets justifies a lighter regulatory touch than traditional gambling law.",
     "fetch_status": "web"
+  },
+  {
+    "id": 177,
+    "url": "https://x.com/i/article/2049414664946323456",
+    "title": "A Second Identity: Prediction Markets as Financial Derivatives",
+    "author": "DWF Ventures",
+    "author_twitter": "@DWFVentures",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-30",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "position collateralization",
+      "gap risk",
+      "regulatory classification",
+      "event contracts"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Solana",
+      "dYdX"
+    ],
+    "editorial_blurb": "DWF Ventures argues prediction markets are evolving into a financial derivatives asset class. The piece analyzes structural barriers to leverage and collateral lending: jump risk, binary valuation and regulatory uncertainty. It surveys emerging solutions including epoch-based fee models, perpetual futures on outcomes and tokenised positions on Solana.",
+    "fetch_status": "web"
   }
 ]
