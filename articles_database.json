@@ -4052,5 +4052,25 @@
     ],
     "editorial_blurb": "DWF Ventures argues prediction markets are evolving into a financial derivatives asset class. The piece analyzes structural barriers to leverage and collateral lending: jump risk, binary valuation and regulatory uncertainty. It surveys emerging solutions including epoch-based fee models, perpetual futures on outcomes and tokenised positions on Solana.",
     "fetch_status": "web"
+  },
+  {
+    "id": 178,
+    "url": "https://mo-el.xyz/blog/good-forecasts-bad-products/",
+    "title": "Good Forecasts, Bad Products",
+    "author": "Mohamed Elrashid",
+    "author_twitter": "@MhmdMstfaEL",
+    "source_type": "Substack",
+    "publish_date": "2026-04-24",
+    "primary_category": "Business",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "decision markets",
+      "probability infrastructure",
+      "platform competition"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Argues forecasting accuracy has outpaced product design: a decade inside the US intelligence community produced zero complaints about forecast quality, yet forecasting firms remain niche while simulation startups Aaru and Simile raised nine-figure rounds. Diagnoses the gap as a failure to embed forecasts into institutional workflows, and recommends forecasting companies hire deployment managers who transform probabilities into artifacts clients can act on.",
+    "fetch_status": "web"
   }
 ]
