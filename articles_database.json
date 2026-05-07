@@ -4072,5 +4072,29 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Argues forecasting accuracy has outpaced product design: a decade inside the US intelligence community produced zero complaints about forecast quality, yet forecasting firms remain niche while simulation startups Aaru and Simile raised nine-figure rounds. Diagnoses the gap as a failure to embed forecasts into institutional workflows, and recommends forecasting companies hire deployment managers who transform probabilities into artifacts clients can act on.",
     "fetch_status": "web"
+  },
+  {
+    "id": 179,
+    "url": "https://x.com/lzminsky/status/2051741765682508073",
+    "title": "Benchmarks Are Key to Scale Prediction Markets Institutionally. Question: Which Ones Can Deliver?",
+    "author": "Lauris",
+    "author_twitter": "@lzminsky",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-05",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "event contracts",
+      "election markets",
+      "platform competition"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket",
+      "Roundhill"
+    ],
+    "editorial_blurb": "Provides a framework for understanding which prediction market categories can win institutional capital, using variance risk premium analysis to determine where event contracts beat options replication. Situates the current benchmark-building race (election ETFs, corporate event notes, AI capability markets) within the historical pattern of credit and crypto infrastructure formation.",
+    "fetch_status": "web"
   }
 ]
