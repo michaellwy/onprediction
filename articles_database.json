@@ -4096,5 +4096,89 @@
     ],
     "editorial_blurb": "Provides a framework for understanding which prediction market categories can win institutional capital, using variance risk premium analysis to determine where event contracts beat options replication. Situates the current benchmark-building race (election ETFs, corporate event notes, AI capability markets) within the historical pattern of credit and crypto infrastructure formation.",
     "fetch_status": "web"
+  },
+  {
+    "id": 180,
+    "url": "https://x.com/AstariaTrade/status/2051363114881568852",
+    "title": "Prediction Market Perps - the 1% Winning Product",
+    "author": "Astaria",
+    "author_twitter": "@AstariaTrade",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-04",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "event contracts",
+      "liquidity provision",
+      "hedging"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Makes the case that prediction market perpetuals are structurally different from crypto perps because event contracts lack a tradeable underlying, making most implementations liquidation arcades. Argues the winning path is building perps as institutional hedging infrastructure for continuous event-risk management rather than leveraged betting.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 181,
+    "url": "https://x.com/PinkBrains_io/status/2051312783074226606",
+    "title": "HIP-4 Is Not a Prediction Market - It's the Options Layer: A Full Guide",
+    "author": "Pink Brains",
+    "author_twitter": "@PinkBrains_io",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-04",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "event contracts",
+      "platform competition",
+      "conditional tokens"
+    ],
+    "platforms_mentioned": [
+      "Hyperliquid",
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Breaks down Hyperliquid's HIP-4 outcome contracts as an onchain options layer rather than just another prediction market, comparing its unified margin engine, fee structure, and token value capture to Polymarket and Kalshi. Maps the design space for credit default swaps, parametric insurance, and futarchy that the primitive unlocks.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 182,
+    "url": "https://x.com/aaronjmars/status/2051292801422201147",
+    "title": "Between ArXiv and Polymarket: The Queryable Layer Researchers Didn't Have",
+    "author": "aaronjmars",
+    "author_twitter": "@aaronjmars",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-04",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "AI agents"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Examines how Polymarket's queryable archive pattern inspired PR #69 for MiroShark, an open-source agent-debate simulation gallery. Argues the first archive in a new artifact class sets the filter vocabulary the rest will inherit, and the filter layer is what turns an experiment into an archive.",
+    "fetch_status": "web"
+  },
+  {
+    "id": 183,
+    "url": "https://x.com/Lihong062/status/2051017075758686622",
+    "title": "Market Probabilities Are NOT Real Probabilities",
+    "author": "Lihong",
+    "author_twitter": "@Lihong062",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-03",
+    "primary_category": "Fundamentals",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "longshot bias",
+      "price discovery",
+      "Kelly criterion"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Analyzes three structural reasons prediction market prices diverge from true probabilities even with rational participants: favorite-longshot bias from Kelly betting, risk-premium distortion from market correlation, and risk-neutral forward pricing in long-dated contracts. Argues markets still outperform individuals because they weight capital-backed beliefs rather than equal-weighted opinions.",
+    "fetch_status": "web"
   }
 ]
