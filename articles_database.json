@@ -4162,5 +4162,27 @@
     ],
     "editorial_blurb": "Analyzes three structural reasons prediction market prices diverge from true probabilities even with rational participants: favorite-longshot bias from Kelly betting, risk-premium distortion from market correlation, and risk-neutral forward pricing in long-dated contracts. Argues markets still outperform individuals because they weight capital-backed beliefs rather than equal-weighted opinions.",
     "fetch_status": "web"
+  },
+  {
+    "id": 184,
+    "url": "https://x.com/alanwu/status/2044049214393524393",
+    "title": "When Prediction Markets Need Stake",
+    "author": "alan",
+    "author_twitter": "@alanwu",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-14",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "market manipulation",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Metaculus",
+      "Manifold"
+    ],
+    "editorial_blurb": "Argues play-money prediction markets are accurate only because they operate in a low-manipulation regime, and this accuracy is self-undermining: the more important they become, the more valuable they are to manipulate. Contrasts the manipulation resistance of real-money markets against the economic noise they introduce, including opportunity cost, hedging distortion, and participation friction.",
+    "fetch_status": "web"
   }
 ]
