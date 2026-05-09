@@ -4184,5 +4184,28 @@
     ],
     "editorial_blurb": "Argues play-money prediction markets are accurate only because they operate in a low-manipulation regime, and this accuracy is self-undermining: the more important they become, the more valuable they are to manipulate. Contrasts the manipulation resistance of real-money markets against the economic noise they introduce, including opportunity cost, hedging distortion, and participation friction.",
     "fetch_status": "web"
+  },
+  {
+    "id": 185,
+    "url": "https://x.com/DeanEigenmann/status/2052734335971713347",
+    "title": "Outcome Markets as a Cover Venue: HIP-4 and Its Traditional Comparables",
+    "author": "Dean Eigenmann",
+    "author_twitter": "@DeanEigenmann",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-08",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "event contracts",
+      "resolution criteria",
+      "hedging",
+      "oracle design"
+    ],
+    "platforms_mentioned": [
+      "NEW:Hyperliquid"
+    ],
+    "editorial_blurb": "Uses the $292M Kelp DAO rsETH bridge exploit to motivate why crypto-native parametric cover is needed, then compares HIP-4's binary event contract structure to CDS, catastrophe bonds, reinsurance sidecars, and weather derivatives. Argues that when outcome contracts share margin with underlying exposure on the same execution layer, HIP-4 unlocks a market two orders of magnitude larger than current DeFi insurance.",
+    "fetch_status": "web"
   }
 ]
