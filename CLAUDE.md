@@ -17,6 +17,7 @@ npm run dev           # Dev server
 npm run build         # Static build → /out (runs prebuild scripts first)
 npm run lint          # Next.js linter
 npm run sync:concepts # Sync concept_definitions.json from articles DB
+node scripts/scanner/scheduled-scan.mjs  # Run daily content scout (requires OpenCLI + Node 22)
 npm run generate:sitemap  # Generate public/sitemap.xml
 npm run generate:feed     # Generate public/feed.xml (RSS 2.0)
 npm run generate:data     # Generate public/api/articles.json & concepts.json
@@ -101,6 +102,17 @@ scripts/
   generate-public-data.js      # Generates public/api/articles.json & concepts.json
   generate-llms-full.js        # Generates public/llms-full.txt
   generate-ask-context.js      # Generates public/api/ask-context.json for AI Q&A
+  scanner/
+    scheduled-scan.mjs          # Daily scout: runs all sources, AI-ranks, sends Telegram digest
+    config.json                 # Source configs, API keys, AI ranking params, filter rules
+    lib/sources/rss.mjs         # RSS feed fetcher (11 curated PM blogs, PM-keyword filtered)
+    lib/sources/arxiv.mjs       # arXiv API for research papers
+    lib/sources/twitter-opencli.mjs  # OpenCLI-based Twitter search (X Articles priority)
+    lib/ai-ranker.mjs           # DeepSeek API scoring (1-10) with summaries
+    lib/telegram.mjs            # HTML-formatted Telegram digest with inline links
+    lib/heuristic-filter.mjs    # Slop removal (spam patterns, min engagement)
+    lib/dedup.mjs               # 90-day seen-item tracking
+    lib/output.mjs              # Markdown report generation
 
 public/
   robots.txt                # Crawl rules + sitemap pointer

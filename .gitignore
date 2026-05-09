@@ -39,3 +39,13 @@ next-env.d.ts
 .vscode/
 *.swp
 *.swo
+
+# Generated build artifacts (prebuild scripts)
+public/api/
+public/feed.xml
+public/sitemap.xml
+public/llms-full.txt
+
+# Scanner runtime data
+scripts/scanner/data/
+scripts/scanner/output/

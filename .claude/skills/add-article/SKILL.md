@@ -1,7 +1,7 @@
 ---
 name: add-article
 description: Add a new article to the OnPrediction prediction market reading list. Use when the user provides a URL or PDF to add to the database.
-allowed-tools: Read, Edit, Bash(npm run sync:concepts), Bash(cd ~/.claude/skills/playwright-skill && node run.js *), WebFetch, Glob, Grep
+allowed-tools: Read, Edit, Bash(npm run sync:concepts), Bash(twitter *), WebFetch, Glob, Grep
 ---
 
 Add the article provided in $ARGUMENTS to the OnPrediction database.
@@ -11,7 +11,7 @@ Add the article provided in $ARGUMENTS to the OnPrediction database.
 1. **Check for duplicates** — search `articles_database.json` for the URL. If it exists, stop and tell the user which article ID it matches.
 
 2. **Fetch the content** — choose the right method:
-   - **X/Twitter URLs** (`x.com` or `twitter.com`): Use Playwright to scrape (see "Twitter/X Scraping" section below)
+   - **X/Twitter URLs** (`x.com` or `twitter.com`): Use `twitter` CLI (see "Twitter/X Content Extraction" section below)
    - **Other URLs**: Use `WebFetch`
    - **PDFs**: Use `Read` for files in `/articles/`
 
@@ -129,104 +129,52 @@ Always use **Title Case** regardless of original styling.
 - **governance** — futarchy, token voting, decision markets, impact markets
 - **business** — network effects, platform competition, regulatory arbitrage, elections
 
-## Twitter/X Scraping
+## Twitter/X Content Extraction
 
-When the URL matches `x.com` or `twitter.com`, use Playwright to extract content because WebFetch cannot render Twitter's JavaScript-heavy pages.
+When the URL matches `x.com` or `twitter.com`, use `twitter` CLI (twitter-cli) to extract content. It talks directly to Twitter's internal GraphQL API using your browser cookies.
 
-**Step 1:** Write this scraper to `/tmp/pw-tweet-scrape.js` (replace `$TWEET_URL` with the actual URL):
+### URLs formats and which command to use
 
-```javascript
-const { chromium } = require('playwright');
+- **Tweet** (`x.com/user/status/<id>` or `twitter.com/user/status/<id>`): `twitter tweet <id-or-url> --json`
+- **X Article** (`x.com/i/article/<id>` or `x.com/<user>/article/<id>`): `twitter article <id-or-url> --json`
+- **Thread**: `twitter tweet <first-tweet-url-or-id> --json` — the reply chain from the same author is included in the output
 
-const TWEET_URL = '$TWEET_URL';
+### Output mapping
 
-(async () => {
-  const browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage();
+`twitter tweet <id> --json` returns a structured envelope:
 
-  try {
-    // IMPORTANT: Use domcontentloaded, NOT networkidle — Twitter never stops making requests
-    await page.goto(TWEET_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
-    await page.waitForSelector('article[data-testid="tweet"]', { timeout: 15000 });
-    await page.waitForTimeout(2000); // Let text hydrate
-
-    const data = await page.evaluate(() => {
-      const article = document.querySelector('article[data-testid="tweet"]');
-      if (!article) return { error: 'No tweet found' };
-
-      // Author
-      const userNameEl = article.querySelector('div[data-testid="User-Name"]');
-      const displayName = userNameEl?.querySelector('span')?.textContent || '';
-      const handleLinks = userNameEl?.querySelectorAll('a[role="link"]') || [];
-      let handle = '';
-      for (const a of handleLinks) {
-        if (a.textContent?.startsWith('@')) { handle = a.textContent; break; }
-      }
-
-      // Tweet text (may be empty for X articles — fallback to allText)
-      const tweetTextEl = article.querySelector('div[data-testid="tweetText"]');
-      const tweetText = tweetTextEl?.innerText || '';
-
-      // Timestamp
-      const timeEl = article.querySelector('time');
-      const datetime = timeEl?.getAttribute('datetime') || '';
-
-      // Full article text (captures X long-form articles embedded in the tweet)
-      const allText = article.innerText || '';
-
-      return { displayName, handle, tweetText, datetime, allText };
-    });
-
-    // For threads: scroll and collect all posts from same author
-    const threadPosts = await page.evaluate((authorHandle) => {
-      const articles = document.querySelectorAll('article[data-testid="tweet"]');
-      const posts = [];
-      for (const art of articles) {
-        const userEl = art.querySelector('div[data-testid="User-Name"]');
-        const links = userEl?.querySelectorAll('a[role="link"]') || [];
-        let h = '';
-        for (const a of links) {
-          if (a.textContent?.startsWith('@')) { h = a.textContent; break; }
-        }
-        if (h === authorHandle) {
-          const textEl = art.querySelector('div[data-testid="tweetText"]');
-          if (textEl) posts.push(textEl.innerText);
-        }
-      }
-      return posts;
-    }, data.handle);
-
-    if (threadPosts.length > 1) {
-      data.threadText = threadPosts.join('\n\n---\n\n');
-      data.isThread = true;
-      data.tweetCount = threadPosts.length;
-    }
-
-    // Use allText as content if tweetText is empty (X articles)
-    if (!data.tweetText && data.allText) {
-      data.content = data.allText;
-    }
-
-    console.log(JSON.stringify(data, null, 2));
-  } catch (error) {
-    console.error(JSON.stringify({ error: error.message }));
-  } finally {
-    await browser.close();
-  }
-})();
+```yaml
+ok: true
+data:
+  id: "1234567890"
+  author:
+    name: "Display Name"
+    screenName: "handle"        # without @
+  text: "Tweet body text..."
+  createdAt: "2026-01-15T10:30:00.000Z"
+  replyCount: 5
+  metrics: { likes: 120, retweets: 34, replies: 5 }
+  media: [...]
+  isThread: true                # if thread with replies from same author
+  thread:                       # array of reply tweets from same author
+    - id: "..."
+      text: "..."
+      createdAt: "..."
 ```
 
-**Step 2:** Execute:
-```bash
-cd ~/.claude/skills/playwright-skill && node run.js /tmp/pw-tweet-scrape.js
-```
+For X Articles, `twitter article <id> --json` adds `articleTitle` and `articleText` (markdown) fields.
 
-**Step 3:** Map the output to article fields:
-- `author` → `displayName`
-- `author_twitter` → `handle`
-- `publish_date` → `datetime` (convert to YYYY-MM-DD)
+### Map to article fields:
+- `author` → `data.author.name`
+- `author_twitter` → `@` + `data.author.screenName`
+- `publish_date` → `data.createdAt` (convert to YYYY-MM-DD)
 - `source_type` → `"Twitter"`
-- `content_type` → `"Twitter Thread"` if `isThread`, otherwise `"Opinion"` or `"Analysis"`
-- Use `tweetText`, `threadText`, or `content`/`allText` to determine `concepts`, `editorial_blurb`, `primary_category`, etc.
+- `content_type` → `"Twitter Thread"` if `isThread` or `thread` has multiple posts, otherwise `"Opinion"` or `"Analysis"`
+- For X Articles, `content_type` → `"Analysis"` or `"Explainer"` depending on depth
+- Use `data.text` (and `thread[].text` / `articleText` if applicable) to determine `concepts`, `editorial_blurb`, `primary_category`, etc.
 
-**If scraping fails** (e.g., login wall, timeout), tell the user and ask them to paste the tweet text directly.
+### If extraction fails
+- `not_authenticated` / `AUTH_NEEDED`: Ask user to log into x.com in Chrome/Arc/Firefox and retry
+- `not_found`: The tweet/article may be deleted or the ID is wrong — ask user to verify the URL
+- `rate_limited`: Wait 5 minutes and retry
+- Other errors: Tell the user and ask them to paste the tweet text directly
