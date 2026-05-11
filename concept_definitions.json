@@ -21,6 +21,7 @@
   "demand markets": "Markets that capture consumer purchase intent as a probability signal before production, replacing surveys and focus groups with skin-in-the-game demand forecasting.",
   "dispute resolution": "Mechanisms for challenging and adjudicating contested market outcomes when participants disagree on results.",
   "distribution markets": "Markets that trade on full probability distributions rather than single binary yes/no outcomes.",
+  "distribution moat": "The competitive advantage a multi-asset platform (like Robinhood) holds over specialized prediction market platforms (like Kalshi, Polymarket) by offering event contracts alongside stocks, options, crypto, and futures—allowing it to cross-sell PMs to an existing large user base and undercut standalone platforms on fees.",
   "election markets": "Prediction markets focused on political elections, often the highest-volume and most visible markets.",
   "endogeneity": "When the existence or visibility of a prediction market influences the very outcome it aims to forecast, undermining its reliability as a neutral signal. Particularly relevant in political and social markets where public price movements can shift behavior.",
   "event contracts": "Standardized binary contracts on specific real-world events, the core trading unit of prediction markets.",
