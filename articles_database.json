@@ -4207,5 +4207,31 @@
     ],
     "editorial_blurb": "Uses the $292M Kelp DAO rsETH bridge exploit to motivate why crypto-native parametric cover is needed, then compares HIP-4's binary event contract structure to CDS, catastrophe bonds, reinsurance sidecars, and weather derivatives. Argues that when outcome contracts share margin with underlying exposure on the same execution layer, HIP-4 unlocks a market two orders of magnitude larger than current DeFi insurance.",
     "fetch_status": "web"
+  },
+  {
+    "id": 186,
+    "url": "https://x.com/i/article/2052782036688228352",
+    "title": "Why Robinhood Will Eat Kalshi's Lunch",
+    "author": "DCo",
+    "author_twitter": "@Decentralisedco",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-11",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "platform competition",
+      "network effects",
+      "NEW: distribution moat"
+    ],
+    "platforms_mentioned": [
+      "Robinhood",
+      "Kalshi",
+      "Polymarket",
+      "Coinbase",
+      "Hyperliquid"
+    ],
+    "editorial_blurb": "A detailed analysis of how Robinhood's distribution advantage—27 million funded users and cross-selling across stocks, options, crypto, and futures—gives it an existential edge over standalone prediction market platforms like Kalshi and Polymarket. Walks through Robinhood's Rothera JV (buying the exchange infrastructure), the economics of vertical integration, and why regulatory threats to sports contracts hurt specialists far more than multi-asset brokers.",
+    "fetch_status": "web"
   }
 ]
