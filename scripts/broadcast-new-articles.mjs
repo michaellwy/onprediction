@@ -81,16 +81,14 @@ function toBulletLine(sentence) {
 
 function buildMessage(article) {
   const title = escapeHtml(article.title || "Untitled");
-  const url = escapeHtml(article.url || "");
-  const link = url
-    ? `<a href="${url}">read it →</a>`
-    : "";
+  const pageUrl = `https://onprediction.xyz/articles/${article.id}`;
+  const link = `<a href="${escapeHtml(pageUrl)}">read it →</a>`;
 
   const sentences = splitSentences(article.editorial_blurb || "").slice(0, 4);
   const bullets = sentences.map((s) => `&gt; ${escapeHtml(toBulletLine(s))}`);
 
   let msg = `<b>${title}</b>`;
-  if (link) msg += `\n${link}`;
+  msg += `\n${link}`;
   if (bullets.length > 0) msg += `\n\n${bullets.join("\n")}`;
   msg += `\n\n<i>more on <a href="https://onprediction.xyz">onprediction.xyz</a></i>`;
   return msg;

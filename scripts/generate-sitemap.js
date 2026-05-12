@@ -3,6 +3,7 @@ const path = require("path");
 
 const SITE_URL = "https://onprediction.xyz";
 const concepts = require("../concept_definitions.json");
+const articles = require("../articles_database.json");
 
 function conceptNameToSlug(name) {
   return name
@@ -19,10 +20,19 @@ const conceptPages = Object.keys(concepts).map((name) => ({
   priority: "0.6",
 }));
 
+const articlePages = articles
+  .filter((a) => a.title && a.url && a.fetch_status !== "unpublished")
+  .map((a) => ({
+    loc: `/articles/${a.id}`,
+    changefreq: "monthly",
+    priority: "0.7",
+  }));
+
 const pages = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },
   { loc: "/concepts", changefreq: "monthly", priority: "0.8" },
   { loc: "/forum", changefreq: "daily", priority: "0.7" },
+  ...articlePages,
   ...conceptPages,
 ];
 
