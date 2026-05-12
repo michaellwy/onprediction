@@ -53,14 +53,6 @@ export function ArticleList({
   const overrideIds = overrideState.key === expandResetKey ? overrideState.ids : new Set<number>();
 
   const toggleExpand = useCallback((id: number) => {
-    // Record view when expanding (not collapsing)
-    const wasExpanded = allExpanded
-      ? !overrideIds.has(id)
-      : overrideIds.has(id);
-    if (!wasExpanded) {
-      onRecordView?.(id);
-    }
-
     setOverrideState((prev) => {
       const ids = prev.key === expandResetKey ? new Set(prev.ids) : new Set<number>();
       if (ids.has(id)) {
@@ -70,7 +62,7 @@ export function ArticleList({
       }
       return { key: expandResetKey, ids };
     });
-  }, [expandResetKey, allExpanded, overrideIds, onRecordView]);
+  }, [expandResetKey]);
 
   // Card is expanded if: (allExpanded AND not overridden) OR (not allExpanded AND overridden)
   const isCardExpanded = useCallback((id: number) => {
@@ -127,6 +119,7 @@ export function ArticleList({
           commentCount={articleCommentCounts?.get(article.id) || 0}
           onOpenDiscussion={onOpenDiscussion ? () => onOpenDiscussion(article.id) : undefined}
           viewCount={viewCounts?.get(article.id) || 0}
+          onRecordView={onRecordView}
         />
       ))}
     </div>

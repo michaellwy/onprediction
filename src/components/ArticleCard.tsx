@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp, Bookmark, ChevronRight, Eye, ExternalLink, Link2, MessageSquare } from "lucide-react";
 import Link from "next/link";
@@ -23,6 +23,7 @@ interface ArticleCardProps {
   commentCount?: number;
   onOpenDiscussion?: () => void;
   viewCount?: number;
+  onRecordView?: (articleId: number) => void;
 }
 
 const categoryColors: Record<Category, string> = {
@@ -101,8 +102,46 @@ export function ArticleCard({
   commentCount = 0,
   onOpenDiscussion,
   viewCount = 0,
+  onRecordView,
 }: ArticleCardProps) {
   const [internalExpanded, setInternalExpanded] = useState(false);
+  const cardRef = useRef<HTMLElement>(null);
+  const recordedRef = useRef(false);
+
+  useEffect(() => {
+    if (!onRecordView || recordedRef.current) return;
+    const node = cardRef.current;
+    if (!node) return;
+
+    let dwellTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          if (dwellTimer == null && !recordedRef.current) {
+            dwellTimer = setTimeout(() => {
+              if (!recordedRef.current) {
+                recordedRef.current = true;
+                onRecordView(article.id);
+                observer.disconnect();
+              }
+            }, 2000);
+          }
+        } else if (dwellTimer != null) {
+          clearTimeout(dwellTimer);
+          dwellTimer = null;
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(node);
+
+    return () => {
+      if (dwellTimer != null) clearTimeout(dwellTimer);
+      observer.disconnect();
+    };
+  }, [article.id, onRecordView]);
 
   // Use controlled state if provided, otherwise use internal state
   const isExpanded = controlledExpanded ?? internalExpanded;
@@ -118,6 +157,7 @@ export function ArticleCard({
 
   return (
     <article
+      ref={cardRef}
       data-article-id={article.id}
       className="animate-list-item group"
       style={{ animationDelay: `${Math.min(index * 30, 300)}ms` }}
