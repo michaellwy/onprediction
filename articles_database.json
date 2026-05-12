@@ -4233,5 +4233,28 @@
     ],
     "editorial_blurb": "A detailed analysis of how Robinhood's distribution advantage—27 million funded users and cross-selling across stocks, options, crypto, and futures—gives it an existential edge over standalone prediction market platforms like Kalshi and Polymarket. Walks through Robinhood's Rothera JV (buying the exchange infrastructure), the economics of vertical integration, and why regulatory threats to sports contracts hurt specialists far more than multi-asset brokers.",
     "fetch_status": "web"
+  },
+  {
+    "id": 187,
+    "url": "https://www.lesswrong.com/posts/bDxqMn3GJEhPeqZey/where-are-all-the-decision-markets",
+    "title": "Where Are All the Decision Markets?",
+    "author": "alexjaniak",
+    "author_twitter": "",
+    "source_type": "Blog",
+    "publish_date": "2026-05-12",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "decision markets",
+      "futarchy",
+      "minimum viable liquidity"
+    ],
+    "platforms_mentioned": [
+      "MetaDAO",
+      "Combinator"
+    ],
+    "editorial_blurb": "A clear-eyed diagnosis of why decision markets (futarchy) haven’t taken off despite the elegant theory. Identifies two structural problems: thin markets that can’t attract enough informed traders for idiosyncratic decisions, and a conditional-futures architecture where token-price-as-KPI is too noisy to incentivize rational trading. Covers MetaDAO and Combinator as current implementations grappling with these issues.",
+    "fetch_status": "web"
   }
 ]
