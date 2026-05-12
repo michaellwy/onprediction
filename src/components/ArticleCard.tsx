@@ -385,15 +385,6 @@ export function ArticleCard({
                     </>
                   )}
                   <span>·</span>
-                  <Link
-                    href={`/articles/${article.id}`}
-                    onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-1 text-foreground/50 hover:text-foreground/70 font-medium transition-colors"
-                  >
-                    Permalink
-                    <ChevronRight className="h-3 w-3" />
-                  </Link>
-                  <span>·</span>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
