@@ -4440,6 +4440,31 @@
     ],
     "editorial_blurb": "A clear-eyed diagnosis of why decision markets (futarchy) haven’t taken off despite the elegant theory. Identifies two structural problems: thin markets that can’t attract enough informed traders for idiosyncratic decisions, and a conditional-futures architecture where token-price-as-KPI is too noisy to incentivize rational trading. Covers MetaDAO and Combinator as current implementations grappling with these issues.",
     "fetch_status": "web",
-    "share_quote": "decision markets fail because thin liquidity and noisy prices kill rational trading"
+    "fetch_status": "web"
+  },
+  {
+    "id": 188,
+    "url": "https://michaellwy.substack.com/p/my-comment-to-cftcs-prediction-markets",
+    "title": "Why Prediction Markets Are Hard to Regulate",
+    "author": "Michael Li",
+    "author_twitter": "@michaellwy",
+    "source_type": "Substack",
+    "publish_date": "2026-04-30",
+    "primary_category": "Regulation",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "regulatory classification",
+      "insider trading in prediction markets",
+      "prediction market resolution",
+      "per-dimension insider-trading regime"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Coinbase"
+    ],
+    "editorial_blurb": "A formal comment to the CFTC's proposed rulemaking on prediction markets, submitted by an HKS researcher. Proposes a four-dimensional framework for classifying event contracts (information structure, manipulation economics, social utility, repugnance), reframes insider trading into three distinct patterns (outcome influence, duty breach, information advantage), and analyzes resolution integrity through three documented Polymarket/Kalshi case studies.",
+    "fetch_status": "web"
   }
 ]
