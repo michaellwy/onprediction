@@ -4494,5 +4494,30 @@
     "editorial_blurb": "Compares spreads across DraftKings, FanDuel, Polymarket, and Kalshi on identical sports markets to isolate how counterparty identification versus maker competition affects pricing. Finds PM prices are 100-300 bps better on liquid markets but long-tail markets on prediction markets have 10-50% spreads. Argues sportsbooks tighten spreads through counterparty-aware pricing while PMs compensate through maker competition and order book transparency.",
     "fetch_status": "web",
     "share_quote": "Prediction markets beat sportsbooks by 100-300 bps on liquid markets but have 10-50% spreads on long-tail events"
+  },
+  {
+    "id": 190,
+    "url": "https://x.com/Kunallegendd/status/2054191944944038084",
+    "title": "A Game of Volatility",
+    "author": "Kunal Doshi",
+    "author_twitter": "@Kunallegendd",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-12",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "market making",
+      "execution quality",
+      "retail flow",
+      "liquidity provision",
+      "temporal arbitrage"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Analyzes Polymarket's short-duration crypto up/down markets, which now account for 16% of monthly volume but generate ~40% of platform fees. Finds professional algo traders (19 addresses) extract consistent profits through paired trading and maker execution while 69% of retail traders lose money. Argues prediction markets are becoming a game of volatility rather than forecasting.",
+    "fetch_status": "web",
+    "share_quote": "professional algo traders profit from paired trades while 69% of retail traders lose money"
   }
 ]
