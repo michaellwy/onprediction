@@ -49,3 +49,6 @@ public/llms-full.txt
 # Scanner runtime data
 scripts/scanner/data/
 scripts/scanner/output/
+
+# Generated OG image hashes (PNGs are committed, hashes are local cache)
+public/og/*.hash

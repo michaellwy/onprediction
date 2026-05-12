@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-sitemap.js && node scripts/generate-feed.js && node scripts/generate-public-data.js && node scripts/generate-llms-full.js && node scripts/generate-ask-context.js",
+    "prebuild": "node scripts/generate-sitemap.js && node scripts/generate-feed.js && node scripts/generate-public-data.js && node scripts/generate-llms-full.js && node scripts/generate-ask-context.js && node scripts/generate-og-images.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -13,16 +13,21 @@
     "generate:feed": "node scripts/generate-feed.js",
     "generate:data": "node scripts/generate-public-data.js",
     "generate:llms": "node scripts/generate-llms-full.js",
+    "generate:og": "node scripts/generate-og-images.mjs",
+    "extract:quotes": "node scripts/extract-share-quotes.mjs",
     "scan": "node scripts/scanner/scan.mjs",
     "scan:dry": "node scripts/scanner/scan.mjs --dry-run",
     "scan:full": "node scripts/scanner/scan.mjs --with-accounts"
   },
   "dependencies": {
+    "@fontsource/playfair-display": "^5.2.8",
+    "@fontsource/source-sans-3": "^5.2.9",
     "@radix-ui/react-checkbox": "^1.1.3",
     "@radix-ui/react-dialog": "^1.1.4",
     "@radix-ui/react-label": "^2.1.1",
     "@radix-ui/react-select": "^2.1.4",
     "@radix-ui/react-slot": "^1.1.1",
+    "@resvg/resvg-js": "^2.6.2",
     "@supabase/supabase-js": "^2.95.3",
     "@vercel/analytics": "^1.6.1",
     "@xpoz/xpoz": "^0.2.0",
@@ -39,6 +44,7 @@
     "rehype-sanitize": "^6.0.0",
     "remark-gfm": "^4.0.1",
     "rss-parser": "^3.13.0",
+    "satori": "^0.26.0",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
