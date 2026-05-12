@@ -2,6 +2,41 @@
  * Send scan results to Telegram — HTML formatting with inline links.
  */
 
+export async function sendTelegramMessage(html, { chatId, botToken } = {}) {
+  const token = botToken || process.env.TELEGRAM_BOT_TOKEN;
+  const chat = chatId || process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chat) {
+    throw new Error("Missing bot token or chat id for sendTelegramMessage");
+  }
+
+  let text = html;
+  if (text.length > 4000) {
+    text = text.slice(0, 3990) + "\n\n…truncated…";
+  }
+
+  const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: chat,
+      text,
+      parse_mode: "HTML",
+      disable_web_page_preview: false
+    })
+  });
+
+  if (!response.ok) {
+    const err = await response.text();
+    throw new Error(`Telegram API error (${response.status}): ${err}`);
+  }
+
+  return true;
+}
+
+export function escapeHtml(text) {
+  return esc(text);
+}
+
 export async function sendDigest(results, stats) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;

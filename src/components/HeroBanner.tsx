@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { X, ArrowRight } from "lucide-react";
+import { X, ArrowRight, Send } from "lucide-react";
 
 function FloatingDiamond({
   size,
@@ -191,9 +191,20 @@ export function HeroBanner() {
                   transition={{ duration: 0.4, delay: 0.35 }}
                   className="flex flex-wrap items-center gap-2.5 mt-4"
                 >
+                  {process.env.NEXT_PUBLIC_TELEGRAM_CHANNEL_URL && (
+                    <a
+                      href={process.env.NEXT_PUBLIC_TELEGRAM_CHANNEL_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group h-9 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors inline-flex items-center gap-1.5"
+                    >
+                      <Send className="h-3.5 w-3.5" />
+                      Subscribe on Telegram
+                    </a>
+                  )}
                   <Link
                     href="/forum"
-                    className="group h-9 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors inline-flex items-center gap-1.5"
+                    className="group h-9 px-4 rounded-lg border border-border bg-background/80 hover:bg-accent/50 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
                   >
                     Join the Forum
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
