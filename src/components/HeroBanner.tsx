@@ -191,42 +191,40 @@ export function HeroBanner() {
                   transition={{ duration: 0.4, delay: 0.35 }}
                   className="flex flex-wrap items-center gap-2.5 mt-4"
                 >
-                  {process.env.NEXT_PUBLIC_TELEGRAM_CHANNEL_URL && (
-                    <div className="relative group">
-                      <motion.a
-                        href={process.env.NEXT_PUBLIC_TELEGRAM_CHANNEL_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.04 }}
-                        whileTap={{ scale: 0.97 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 18 }}
-                        className="relative overflow-hidden h-9 px-4 rounded-lg bg-[#229ED9] text-white text-sm font-medium shadow-[0_2px_10px_rgba(34,158,217,0.35)] hover:shadow-[0_4px_18px_rgba(34,158,217,0.55)] hover:bg-[#1e8ec5] transition-shadow inline-flex items-center gap-1.5"
+                  <div className="relative group">
+                    <motion.a
+                      href="https://t.me/onprediction_reads"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 18 }}
+                      className="relative overflow-hidden h-9 px-4 rounded-lg bg-[#229ED9] text-white text-sm font-medium shadow-[0_2px_10px_rgba(34,158,217,0.35)] hover:shadow-[0_4px_18px_rgba(34,158,217,0.55)] hover:bg-[#1e8ec5] transition-shadow inline-flex items-center gap-1.5"
+                    >
+                      <motion.span
+                        className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent"
+                        animate={{ x: ["-100%", "200%"] }}
+                        transition={{ duration: 2.6, repeat: Infinity, repeatDelay: 3.2, ease: "easeInOut" }}
+                        aria-hidden="true"
+                      />
+                      <motion.span
+                        className="relative inline-flex"
+                        animate={{ rotate: [0, -12, 0, 12, 0] }}
+                        transition={{ duration: 2.2, repeat: Infinity, repeatDelay: 4, ease: "easeInOut" }}
+                        aria-hidden="true"
                       >
-                        <motion.span
-                          className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent"
-                          animate={{ x: ["-100%", "200%"] }}
-                          transition={{ duration: 2.6, repeat: Infinity, repeatDelay: 3.2, ease: "easeInOut" }}
-                          aria-hidden="true"
-                        />
-                        <motion.span
-                          className="relative inline-flex"
-                          animate={{ rotate: [0, -12, 0, 12, 0] }}
-                          transition={{ duration: 2.2, repeat: Infinity, repeatDelay: 4, ease: "easeInOut" }}
-                          aria-hidden="true"
-                        >
-                          <Send className="h-3.5 w-3.5" />
-                        </motion.span>
-                        <span className="relative">Subscribe on Telegram</span>
-                      </motion.a>
-                      <div
-                        role="tooltip"
-                        className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2 z-20 whitespace-nowrap rounded-md bg-foreground text-background text-xs px-2.5 py-1.5 shadow-lg opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200"
-                      >
-                        get alerted on tg when new articles are posted
-                        <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-foreground rotate-45" aria-hidden="true" />
-                      </div>
+                        <Send className="h-3.5 w-3.5" />
+                      </motion.span>
+                      <span className="relative">Subscribe on Telegram</span>
+                    </motion.a>
+                    <div
+                      role="tooltip"
+                      className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-full mb-2 z-20 whitespace-nowrap rounded-md bg-foreground text-background text-xs px-2.5 py-1.5 shadow-lg opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200"
+                    >
+                      get alerted on tg when new articles are posted
+                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-foreground rotate-45" aria-hidden="true" />
                     </div>
-                  )}
+                  </div>
                   <Link
                     href="/forum"
                     className="group h-9 px-4 rounded-lg border border-border bg-background/80 hover:bg-accent/50 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
