@@ -20,19 +20,15 @@ const conceptPages = Object.keys(concepts).map((name) => ({
   priority: "0.6",
 }));
 
-const articlePages = articles
-  .filter((a) => a.title && a.url && a.fetch_status !== "unpublished")
-  .map((a) => ({
-    loc: `/articles/${a.id}`,
-    changefreq: "monthly",
-    priority: "0.7",
-  }));
+// Note: /articles/{id} pages are intentionally excluded from the sitemap.
+// They're OG-metadata shells that redirect to /?article={id} on the homepage.
+// Listing redirect-only pages dilutes sitemap value.
+void articles;
 
 const pages = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },
   { loc: "/concepts", changefreq: "monthly", priority: "0.8" },
   { loc: "/forum", changefreq: "daily", priority: "0.7" },
-  ...articlePages,
   ...conceptPages,
 ];
 
