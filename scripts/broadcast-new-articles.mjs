@@ -86,13 +86,8 @@ function buildMessage(article) {
     ? `<a href="${url}">read it →</a>`
     : "";
 
-  const sentences = splitSentences(article.editorial_blurb || "").slice(0, 3);
+  const sentences = splitSentences(article.editorial_blurb || "").slice(0, 4);
   const bullets = sentences.map((s) => `&gt; ${escapeHtml(toBulletLine(s))}`);
-
-  const concepts = Array.isArray(article.concepts) ? article.concepts.slice(0, 3) : [];
-  if (concepts.length > 0) {
-    bullets.push(`&gt; tagged: ${escapeHtml(concepts.join(", "))}`);
-  }
 
   let msg = `<b>${title}</b>`;
   if (link) msg += `\n${link}`;
