@@ -4466,5 +4466,33 @@
     "editorial_blurb": "A formal comment to the CFTC's proposed rulemaking on prediction markets, submitted by an HKS researcher. Proposes a four-dimensional framework for classifying event contracts (information structure, manipulation economics, social utility, repugnance), reframes insider trading into three distinct patterns (outcome influence, duty breach, information advantage), and analyzes resolution integrity through three documented Polymarket/Kalshi case studies.",
     "fetch_status": "web",
     "share_quote": "Prediction markets fail under any single regulatory label, so regulators need four dimensions to classify them"
+  },
+  {
+    "id": 189,
+    "url": "https://x.com/0xtaetaehoho/status/2054215076471873575",
+    "title": "Sportsbooks vs Prediction Markets - Market Structure and Its Effects",
+    "author": "taetaehoho",
+    "author_twitter": "@0xtaetaehoho",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-12",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "adverse selection",
+      "market making",
+      "toxic flow",
+      "liquidity provision",
+      "long-tail markets"
+    ],
+    "platforms_mentioned": [
+      "DraftKings",
+      "FanDuel",
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Compares spreads across DraftKings, FanDuel, Polymarket, and Kalshi on identical sports markets to isolate how counterparty identification versus maker competition affects pricing. Finds PM prices are 100-300 bps better on liquid markets but long-tail markets on prediction markets have 10-50% spreads. Argues sportsbooks tighten spreads through counterparty-aware pricing while PMs compensate through maker competition and order book transparency.",
+    "fetch_status": "web",
+    "share_quote": "Prediction markets beat sportsbooks by 100-300 bps on liquid markets but have 10-50% spreads on long-tail events"
   }
 ]
