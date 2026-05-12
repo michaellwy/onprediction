@@ -4464,6 +4464,7 @@
       "Coinbase"
     ],
     "editorial_blurb": "A formal comment to the CFTC's proposed rulemaking on prediction markets, submitted by an HKS researcher. Proposes a four-dimensional framework for classifying event contracts (information structure, manipulation economics, social utility, repugnance), reframes insider trading into three distinct patterns (outcome influence, duty breach, information advantage), and analyzes resolution integrity through three documented Polymarket/Kalshi case studies.",
-    "fetch_status": "web"
+    "fetch_status": "web",
+    "share_quote": "Prediction markets fail under any single regulatory label, so regulators need four dimensions to classify them"
   }
 ]

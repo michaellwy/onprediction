@@ -1,7 +1,7 @@
 ---
 name: add-article
 description: Add a new article to the OnPrediction prediction market reading list. Use when the user provides a URL or PDF to add to the database.
-allowed-tools: Read, Edit, Bash(npm run sync:concepts), Bash(twitter *), WebFetch, Glob, Grep
+allowed-tools: Read, Edit, Bash(npm run sync:concepts), Bash(npm run extract:quotes *), Bash(npm run generate:og *), Bash(twitter *), WebFetch, Glob, Grep
 ---
 
 Add the article provided in $ARGUMENTS to the OnPrediction database.
@@ -27,18 +27,25 @@ Add the article provided in $ARGUMENTS to the OnPrediction database.
 
 8. **Check concept cluster mapping** — verify any new concepts appear in `src/lib/concepts.ts` `conceptToCluster`. If missing, add them with the appropriate cluster.
 
-9. **Build, commit, push, and merge** — after all changes are in place:
+9. **Generate share quote + OG card** — required for social previews:
    ```bash
-   npm run build                  # Verify build passes
-   git add articles_database.json prediction-market-reading-list.csv concept_definitions.json src/lib/concepts.ts
-   git commit -m "Add article(s) [ID range]: [short description]"
-   git checkout -b add-articles-[ID range]
-   git push -u origin add-articles-[ID range]
-   gh pr create --title "Add article(s) [ID range]: [short description]" --body "[summary]"
-   gh pr merge [PR#] --squash
-   git checkout main && git pull
+   npm run extract:quotes -- --id <NEW_ID>   # adds share_quote field via DeepSeek
+   npm run generate:og -- --id <NEW_ID>      # writes public/og/article-<NEW_ID>.png
    ```
-   If pushing fails, check if on a feature branch; if on `main`, create a branch first. Never commit directly to main.
+   Both are idempotent and only touch the one new article.
+
+10. **Build, commit, push, and merge** — after all changes are in place:
+    ```bash
+    npm run build                  # Verify build passes
+    git add articles_database.json prediction-market-reading-list.csv concept_definitions.json src/lib/concepts.ts public/og/article-<NEW_ID>.png
+    git commit -m "Add article(s) [ID range]: [short description]"
+    git checkout -b add-articles-[ID range]
+    git push -u origin add-articles-[ID range]
+    gh pr create --title "Add article(s) [ID range]: [short description]" --body "[summary]"
+    gh pr merge [PR#] --squash
+    git checkout main && git pull
+    ```
+    If pushing fails, check if on a feature branch; if on `main`, create a branch first. Never commit directly to main.
 
 ## JSON Schema
 
@@ -57,6 +64,7 @@ Add the article provided in $ARGUMENTS to the OnPrediction database.
   "concepts": [],
   "platforms_mentioned": [],
   "editorial_blurb": "",
+  "share_quote": "",
   "fetch_status": ""
 }
 ```
