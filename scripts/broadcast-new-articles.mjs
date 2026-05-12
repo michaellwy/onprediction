@@ -92,6 +92,7 @@ function buildMessage(article) {
   let msg = `<b>${title}</b>`;
   if (link) msg += `\n${link}`;
   if (bullets.length > 0) msg += `\n\n${bullets.join("\n")}`;
+  msg += `\n\n<i>more on <a href="https://onprediction.xyz">onprediction.xyz</a></i>`;
   return msg;
 }
 
