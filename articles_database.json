@@ -4439,7 +4439,6 @@
       "Combinator"
     ],
     "editorial_blurb": "A clear-eyed diagnosis of why decision markets (futarchy) haven’t taken off despite the elegant theory. Identifies two structural problems: thin markets that can’t attract enough informed traders for idiosyncratic decisions, and a conditional-futures architecture where token-price-as-KPI is too noisy to incentivize rational trading. Covers MetaDAO and Combinator as current implementations grappling with these issues.",
-    "fetch_status": "web",
     "fetch_status": "web"
   },
   {
@@ -4455,9 +4454,9 @@
     "difficulty": "Extensive",
     "concepts": [
       "regulatory classification",
-      "insider trading in prediction markets",
-      "prediction market resolution",
-      "per-dimension insider-trading regime"
+      "event contracts",
+      "insider trading",
+      "resolution criteria"
     ],
     "platforms_mentioned": [
       "Polymarket",
