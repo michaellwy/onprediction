@@ -12,6 +12,7 @@ export interface Article {
   concepts: string[];
   platforms_mentioned: string[];
   editorial_blurb: string | null;
+  share_quote?: string | null;
   fetch_status: string;
 }
 

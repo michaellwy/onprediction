@@ -1,5 +1,5 @@
 export function buildShareUrl(articleId: number): string {
-  return `${window.location.origin}/?article=${articleId}`;
+  return `${window.location.origin}/articles/${articleId}`;
 }
 
 export async function copyShareLink(articleId: number): Promise<boolean> {
