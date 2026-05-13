@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp, Bookmark, ChevronRight, Eye, ExternalLink, Link2, MessageSquare } from "lucide-react";
 import Link from "next/link";
@@ -106,48 +106,12 @@ export function ArticleCard({
 }: ArticleCardProps) {
   const [internalExpanded, setInternalExpanded] = useState(false);
   const cardRef = useRef<HTMLElement>(null);
-  const recordedRef = useRef(false);
-
-  useEffect(() => {
-    if (!onRecordView || recordedRef.current) return;
-    const node = cardRef.current;
-    if (!node) return;
-
-    let dwellTimer: ReturnType<typeof setTimeout> | null = null;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-          if (dwellTimer == null && !recordedRef.current) {
-            dwellTimer = setTimeout(() => {
-              if (!recordedRef.current) {
-                recordedRef.current = true;
-                onRecordView(article.id);
-                observer.disconnect();
-              }
-            }, 2000);
-          }
-        } else if (dwellTimer != null) {
-          clearTimeout(dwellTimer);
-          dwellTimer = null;
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    observer.observe(node);
-
-    return () => {
-      if (dwellTimer != null) clearTimeout(dwellTimer);
-      observer.disconnect();
-    };
-  }, [article.id, onRecordView]);
 
   // Use controlled state if provided, otherwise use internal state
   const isExpanded = controlledExpanded ?? internalExpanded;
   const handleToggle = () => {
-    // Click to expand = strong intentional signal. Always counts.
-    if (onRecordView) {
+    // Click to expand = strong intentional signal. Only count on expansion, not collapse.
+    if (!isExpanded && onRecordView) {
       onRecordView(article.id, true); // true = force, bypass session dedup
     }
     const toggle = onToggleExpand ?? (() => setInternalExpanded((prev) => !prev));
