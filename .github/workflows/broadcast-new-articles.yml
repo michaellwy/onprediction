@@ -21,6 +21,30 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Wait for Vercel deployment
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "VERCEL_TOKEN secret not set — skipping deployment check"
+            exit 0
+          fi
+
+          SHA="${{ github.sha }}"
+          echo "Waiting for Vercel deployment of commit $SHA to be READY..."
+          for i in $(seq 1 18); do
+            RESPONSE=$(curl -s "https://api.vercel.com/v1/deployments?project=onprediction&limit=10" \
+              -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}")
+            DEPLOYMENT=$(echo "$RESPONSE" | jq -r "[.deployments[] | select(.meta.githubCommitSha == \"$SHA\" and .state == \"READY\")] | first // empty")
+            if [ -n "$DEPLOYMENT" ]; then
+              URL=$(echo "$DEPLOYMENT" | jq -r '.url')
+              echo "Deployment ready at https://$URL"
+              exit 0
+            fi
+            echo "Attempt $i/18: not ready yet, waiting 10s..."
+            sleep 10
+          done
+          echo "Timed out waiting for Vercel deployment"
+          exit 1
+
       - name: Broadcast new articles
         run: node scripts/broadcast-new-articles.mjs
         env:
