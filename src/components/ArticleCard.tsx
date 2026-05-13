@@ -23,7 +23,7 @@ interface ArticleCardProps {
   commentCount?: number;
   onOpenDiscussion?: () => void;
   viewCount?: number;
-  onRecordView?: (articleId: number) => void;
+  onRecordView?: (articleId: number, force?: boolean) => void;
 }
 
 const categoryColors: Record<Category, string> = {
