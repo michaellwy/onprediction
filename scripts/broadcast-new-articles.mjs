@@ -106,6 +106,40 @@ async function main() {
 
   console.log(`Found ${newArticles.length} new article(s): ${newArticles.map((a) => a.id).join(", ")}`);
 
+  // Wait for Vercel deployment so the onprediction.xyz link doesn't 404
+  const vercelToken = process.env.VERCEL_TOKEN;
+  if (vercelToken) {
+    const sha = process.env.GITHUB_SHA;
+    if (!sha) {
+      console.log("GITHUB_SHA not set — skipping Vercel deployment check");
+    } else {
+      console.log(`Waiting for Vercel deployment of commit ${sha} to be READY...`);
+      const timeout = Date.now() + 180_000; // 3 minutes
+      while (Date.now() < timeout) {
+        try {
+          const res = await fetch(
+            `https://api.vercel.com/v1/deployments?project=onprediction&limit=10`,
+            { headers: { Authorization: `Bearer ${vercelToken}` } }
+          );
+          const data = await res.json();
+          const match = data.deployments?.find(
+            (d: any) => d.meta?.githubCommitSha === sha && d.state === "READY"
+          );
+          if (match) {
+            console.log(`Deployment ready at https://${match.url}`);
+            break;
+          }
+        } catch (e) {
+          console.log(`Vercel API call failed: ${e.message} — retrying...`);
+        }
+        console.log("Not ready yet, waiting 10s...");
+        await new Promise((r) => setTimeout(r, 10_000));
+      }
+      // If we exit the loop without breaking, deployment isn't ready — proceed anyway
+      // (better to send a potentially-broken link than miss broadcasting entirely)
+    }
+  }
+
   const chatId = process.env.TELEGRAM_BROADCAST_CHAT_ID;
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
 
