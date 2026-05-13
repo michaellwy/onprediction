@@ -145,7 +145,15 @@ export function ArticleCard({
 
   // Use controlled state if provided, otherwise use internal state
   const isExpanded = controlledExpanded ?? internalExpanded;
-  const toggleExpand = onToggleExpand ?? (() => setInternalExpanded(!internalExpanded));
+  const handleToggle = () => {
+    // Click to expand = strong intentional signal. Always counts.
+    if (onRecordView) {
+      onRecordView(article.id, true); // true = force, bypass session dedup
+    }
+    const toggle = onToggleExpand ?? (() => setInternalExpanded((prev) => !prev));
+    toggle();
+  };
+  const toggleExpand = handleToggle;
 
   const categoryColor = article.primary_category
     ? categoryColors[article.primary_category]

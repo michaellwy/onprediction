@@ -55,8 +55,8 @@ export function useArticleViews() {
   }, []);
 
   const recordView = useCallback(
-    (articleId: number) => {
-      if (hasSessionViewed(articleId)) return;
+    (articleId: number, force = false) => {
+      if (!force && hasSessionViewed(articleId)) return;
       if (pendingRef.current.has(articleId)) return;
       pendingRef.current.add(articleId);
 
