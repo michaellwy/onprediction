@@ -4519,5 +4519,32 @@
     "editorial_blurb": "Analyzes Polymarket's short-duration crypto up/down markets, which now account for 16% of monthly volume but generate ~40% of platform fees. Finds professional algo traders (19 addresses) extract consistent profits through paired trading and maker execution while 69% of retail traders lose money. Argues prediction markets are becoming a game of volatility rather than forecasting.",
     "fetch_status": "web",
     "share_quote": "professional algo traders profit from paired trades while 69% of retail traders lose money"
+  },
+  {
+    "id": 191,
+    "url": "https://github.com/TrepaOrg/trepa-research/blob/main/Trepa_Orthogonal_Precision_20260513_Blanco%26Chung%26Meka.pdf",
+    "title": "Orthogonal Precision in Trepa: A Tunable Second-Order Oracle for High-Frequency Forecasting",
+    "author": "Ilich Blanco, Jong-Chan Chung, Leon Meka",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-05-13",
+    "primary_category": "Design",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "NEW:Keynesian Beauty Contest",
+      "oracle design",
+      "information aggregation",
+      "reflexivity",
+      "proper scoring rules"
+    ],
+    "platforms_mentioned": [
+      "Solana",
+      "Trepa",
+      "Binance"
+    ],
+    "editorial_blurb": "Analyzes Trepa's high-frequency forecasting contest on Solana and shows its current design (median error cutoff, steep accuracy weights) induces a Keynesian beauty contest equilibrium that underweights private information. Introduces the orthogonal precision multiplier, a mechanism that rewards accurate forecasts decorrelated from the consensus, transforming Trepa into a tunable second-order oracle. Proves equilibrium existence via potential game theory, quantifies information gain through mutual information, and addresses practical vulnerabilities including oracle latency, median instability, and collusion.",
+    "share_quote": "a beauty contest equilibrium is not an oracle, it's a mirror",
+    "fetch_status": "web"
   }
 ]
