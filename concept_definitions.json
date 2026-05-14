@@ -39,6 +39,7 @@
   "information aggregation": "The process by which markets combine dispersed private knowledge into a single consensus price signal.",
   "information asymmetry": "When some traders possess materially better knowledge about likely outcomes than other participants.",
   "insider trading": "Trading on material non-public information (MNPI) obtained through a breach of a confidentiality duty or implied promise. In prediction markets, this arises when participants trade on privileged access to information about upcoming events, creating adverse selection for other traders.",
+  "kalshi": "A regulated US prediction market platform operating under CFTC oversight, offering event contracts on sports, elections, and economic outcomes.",
   "Kelly criterion": "A formula for optimal bet sizing that maximizes long-run growth by balancing edge against risk of ruin.",
   "Keynesian Beauty Contest": "A dynamic in forecasting contests where participants predict what others will predict rather than their true belief, causing private information to be underweighted and forecasts to converge on the public consensus.",
   "legibility": "The degree to which market prices reveal specific underlying information. Prediction markets have high legibility because contracts reference explicit events, making the information behind a price move visible to all participants unlike stocks where price moves have ambiguous causes.",

@@ -4600,5 +4600,32 @@
     "editorial_blurb": "Tests whether Polymarket forecasts for influenza hospitalizations and measles cases can beat established benchmarks. The markets fail to outperform the CDC FluSight ensemble for flu or simple ARIMA baselines for measles. Two specific failure modes identified: traders placed probability mass on impossible cumulative outcomes, and low trading volume undermined price discovery.",
     "share_quote": "prediction markets failed to beat basic statistical models for disease forecasting",
     "fetch_status": "web"
+  },
+  {
+    "id": 194,
+    "url": "https://www.ingame.com/prediction-markets-daily-fantasy-sports-parallels/",
+    "title": "Prediction Markets As Follow-Up To DFS: The Parallels Are Strikingly Similar",
+    "author": "Dustin Gouker",
+    "author_twitter": "DustinGouker",
+    "source_type": "Blog",
+    "publish_date": "2026-05-14",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "prediction markets",
+      "kalshi",
+      "polymarket",
+      "platform competition",
+      "regulatory classification"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Robinhood"
+    ],
+    "editorial_blurb": "Dustin Gouker draws structural parallels between the rise of prediction markets today and the daily fantasy sports boom of 2013-2015. He maps four similarities: duopoly dynamics, state regulatory pushback, industry self-regulation attempts, and casino industry opposition. Written by someone who covered both industries, it provides a grounded perspective on where the prediction market story arc might lead.",
+    "share_quote": "prediction markets are replaying the daily fantasy sports playbook, state by state",
+    "fetch_status": "web"
   }
 ]
