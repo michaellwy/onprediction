@@ -123,7 +123,7 @@ async function main() {
           );
           const data = await res.json();
           const match = data.deployments?.find(
-            (d: any) => d.meta?.githubCommitSha === sha && d.state === "READY"
+            (d) => d.meta?.githubCommitSha === sha && d.state === "READY"
           );
           if (match) {
             console.log(`Deployment ready at https://${match.url}`);
