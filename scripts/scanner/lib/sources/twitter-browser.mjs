@@ -19,6 +19,8 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+const SESSION_NAME = process.env.AGENT_BROWSER_SESSION_NAME || "onprediction-x";
+
 // ---------------------------------------------------------------------------
 // Eval JavaScript snippets (run in browser context via agent-browser eval)
 // We use eval rather than parsing the accessibility tree snapshot because
@@ -166,13 +168,16 @@ function getTwitterConfig() {
 /**
  * Run an agent-browser command synchronously.
  * Returns stdout trimmed. Throws on non-zero exit or timeout.
+ * Always passes --session-name so cron-context invocations inherit the saved X login.
  */
 function agent(args, timeout) {
   timeout = timeout || 30000;
-  const stdout = execFileSync("agent-browser", args, {
+  const fullArgs = ["--session-name", SESSION_NAME, ...args];
+  const stdout = execFileSync("agent-browser", fullArgs, {
     timeout: timeout,
     encoding: "utf-8",
     stdio: ["pipe", "pipe", "pipe"],
+    env: { ...process.env, AGENT_BROWSER_SESSION_NAME: SESSION_NAME },
     windowsHide: true,
   });
   return stdout.trim();
@@ -180,10 +185,15 @@ function agent(args, timeout) {
 
 /**
  * Check whether agent-browser CLI is installed.
+ * --version doesn't accept --session-name, so invoke directly.
  */
 function isAgentAvailable() {
   try {
-    agent(["--version"], 5000);
+    execFileSync("agent-browser", ["--version"], {
+      timeout: 5000,
+      stdio: "ignore",
+      windowsHide: true,
+    });
     return true;
   } catch (err) {
     return false;
@@ -195,27 +205,30 @@ function isAgentAvailable() {
 // ---------------------------------------------------------------------------
 
 /**
- * Navigate to a URL, then wait for network idle + a short render buffer.
+ * Navigate to a URL, then wait for a short render buffer.
  * Catches timeouts silently so callers don't crash on slow pages.
+ * Skip networkidle — X keeps polling and never goes idle.
  */
 function navigateTo(url) {
-  agent(["navigate", url], 30000);
+  agent(["open", url], 25000);
+  // Wait for actual tweet articles to render — X loads them async after
+  // navigation finishes. Fall back to a fixed delay if the selector never
+  // appears (login wall, empty results, etc.) so callers still get to probe.
   try {
-    agent(["wait", "--load", "networkidle"], 20000);
-  } catch (_) {}
-  try {
-    agent(["wait", "1500"], 5000);
-  } catch (_) {}
+    agent(["wait", "article"], 15000);
+  } catch (_) {
+    try { agent(["wait", "5000"], 8000); } catch (_) {}
+  }
 }
 
 /**
  * Evaluate JavaScript in the browser page context via agent-browser eval.
- * Parses the JSON result and returns the object, or null if parsing fails.
+ * Handles agent-browser's double-encoded JSON-stringify semantics.
  */
 function pageEval(js) {
   try {
-    const raw = agent(["eval", js], 30000);
-    return JSON.parse(raw);
+    const raw = agent(["eval", js], 15000);
+    return decodeEvalResult(raw);
   } catch (_) {
     return null;
   }
@@ -224,8 +237,12 @@ function pageEval(js) {
 /**
  * Detect whether X is showing a login/signup wall that prevents search.
  * Checks both the current URL and the presence of signup-wall text.
+ * LOGIN_CACHED: after first successful check, skip re-checking.
  */
+let _loginChecked = false;
+
 function isLoginRequired() {
+  if (_loginChecked) return false;
   try {
     const url = agent(["get", "url"], 5000);
     if (url.indexOf("/i/flow/login") !== -1 || url.indexOf("login") !== -1) {
@@ -235,9 +252,11 @@ function isLoginRequired() {
       "JSON.stringify(!!document.body.innerText.match(/Happening now|Join today|Create account|Sign in to/))"
     );
     if (hasLoginWall === "true" || hasLoginWall === true) return true;
+    _loginChecked = true;
     return false;
   } catch (_) {
-    return true;
+    _loginChecked = true;
+    return false;  // assume logged in if check fails (avoid infinite retries)
   }
 }
 
@@ -245,10 +264,33 @@ function isLoginRequired() {
  * Extract tweet data from the current search results page using eval.
  * Returns an array of tweet objects (may be empty).
  */
+/**
+ * Decode an agent-browser eval result. The CLI returns the result already
+ * JSON-stringified, so when our eval JS itself does JSON.stringify(...), we
+ * get a double-encoded string. First parse gives the inner JSON string;
+ * second parse gives the object/array.
+ */
+function decodeEvalResult(raw) {
+  let parsed = JSON.parse(raw);
+  if (typeof parsed === "string") {
+    try { parsed = JSON.parse(parsed); } catch (_) {}
+  }
+  return parsed;
+}
+
 function extractTweetsFromPage() {
+  // Diagnostic probe: distinguish "page didn't load" from "extraction broke"
+  try {
+    const probe = agent(
+      ["eval", "JSON.stringify({url: location.href, n: document.querySelectorAll('article').length})"],
+      5000
+    );
+    console.warn("[twitter-browser] page probe: " + probe);
+  } catch (_) {}
+
   try {
     const raw = agent(["eval", EXTRACT_TWEETS_JS], 30000);
-    const tweets = JSON.parse(raw);
+    const tweets = decodeEvalResult(raw);
     if (!Array.isArray(tweets)) return [];
     return tweets;
   } catch (_) {
@@ -285,7 +327,7 @@ function extractXArticleContent(articleUrl) {
 function extractXArticleBody() {
   try {
     const raw = agent(["eval", EXTRACT_XARTICLE_JS], 20000);
-    const parsed = JSON.parse(raw);
+    const parsed = decodeEvalResult(raw);
     if (parsed && typeof parsed === "object") {
       return {
         title: (parsed.title || "").trim(),

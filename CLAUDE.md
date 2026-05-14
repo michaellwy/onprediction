@@ -115,9 +115,10 @@ scripts/
   scanner/
     scheduled-scan.mjs          # Daily scout: runs all sources, AI-ranks, sends Telegram digest
     config.json                 # Source configs, API keys, AI ranking params, filter rules
-    lib/sources/rss.mjs         # RSS feed fetcher (11 curated PM blogs, PM-keyword filtered)
-    lib/sources/arxiv.mjs       # arXiv API for research papers
-    lib/sources/twitter-opencli.mjs  # OpenCLI-based Twitter search (X Articles priority)
+    lib/sources/rss.mjs         # RSS feed fetcher (10 curated PM blogs, PM-keyword filtered against full text)
+    lib/sources/arxiv.mjs       # arXiv API for research papers (pre-AI PM-keyword gate)
+    lib/sources/hackernews.mjs  # HN Algolia search for PM-related posts
+    lib/sources/twitter-browser.mjs  # agent-browser X.com scrape, uses saved session AGENT_BROWSER_SESSION_NAME=onprediction-x
     lib/ai-ranker.mjs           # DeepSeek API scoring (1-10) with summaries
     lib/telegram.mjs            # HTML-formatted Telegram digest with inline links
     lib/heuristic-filter.mjs    # Slop removal (spam patterns, min engagement)

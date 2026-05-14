@@ -45,18 +45,21 @@ function isWithinLookback(dateStr, lookbackHours) {
 }
 
 /**
- * Pick the first 500 characters from text content.
- * Tries contentSnippet (plain text, HTML stripped by rss-parser),
- * then raw content (may contain HTML), then summary.
+ * Pick the longest available text representation for keyword matching.
+ * The caller is responsible for truncating to a storage-friendly length
+ * (e.g. 500 chars) AFTER the PM-keyword filter runs, so we don't drop
+ * relevant items whose first mention of "prediction market" appears past
+ * char 500 of contentSnippet.
  */
-function extractSnippet(item) {
-  const text =
-    item.contentSnippet ||
-    item.content ||
-    item.summary ||
-    item.title ||
-    "";
-  return text.slice(0, 500);
+function extractFullText(item) {
+  const candidates = [
+    item.content,
+    item.contentSnippet,
+    item.summary,
+    item.title,
+  ].filter(Boolean);
+  if (candidates.length === 0) return "";
+  return candidates.reduce((a, b) => (a.length > b.length ? a : b));
 }
 
 /**
@@ -130,17 +133,19 @@ async function fetchFeed(feedConfig, lookbackHours, maxPerFeed) {
     if (!isWithinLookback(dateStr, lookbackHours)) continue;
 
     const title = (raw.title || "").trim();
-    const text = extractSnippet(raw);
+    const fullText = extractFullText(raw);
 
-    // Skip items that don't mention any PM keyword
-    if (!isPMRelevant(title, text)) continue;
+    // Skip items that don't mention any PM keyword (match against full text,
+    // not a truncated snippet — feeds like LessWrong or Marginal Revolution
+    // often mention PM keywords past char 500 of their content).
+    if (!isPMRelevant(title, fullText)) continue;
 
     items.push({
       id: hashString(link),
       title,
       url: link,
       author: resolveAuthor(raw, name),
-      text,
+      text: fullText.slice(0, 500),
       published_at: dateStr,
       source_type: "rss",
       source_name: name,
