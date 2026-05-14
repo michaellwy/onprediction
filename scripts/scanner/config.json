@@ -11,10 +11,9 @@
         { "url": "https://goodjudgment.substack.com/feed", "name": "Good Judgment Project" },
         { "url": "https://thediff.substack.com/feed", "name": "The Diff" },
         { "url": "https://defiweekly.substack.com/feed", "name": "DeFi Weekly" },
-        { "url": "https://polymarket.com/blog/feed", "name": "Polymarket Blog" },
         { "url": "https://kalshi.com/blog/feed", "name": "Kalshi Blog" }
       ],
-      "lookback_hours": 48,
+      "lookback_hours": 72,
       "max_per_feed": 3
     },
     "hackernews": {
@@ -23,22 +22,21 @@
         "polymarket",
         "kalshi",
         "futarchy",
-        "forecasting",
-        "information aggregation",
-        "event contract"
+        "metaculus",
+        "manifold markets"
       ],
       "min_points": 5,
       "max_results": 10,
-      "lookback_hours": 48
+      "lookback_hours": 168
     },
     "arxiv": {
       "queries": [
         "prediction market",
-        "information aggregation market",
-        "forecasting mechanism",
-        "scoring rule",
+        "polymarket",
+        "kalshi",
         "futarchy",
-        "event contract"
+        "information aggregation market",
+        "decision market"
       ],
       "max_results": 10,
       "lookback_days": 7

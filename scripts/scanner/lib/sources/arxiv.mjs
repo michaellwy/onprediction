@@ -11,6 +11,20 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ARXIV_API_BASE = "http://export.arxiv.org/api/query";
 
+// arXiv's all: search is permissive — even narrow queries like "polymarket" can
+// surface unrelated papers. Require an explicit PM keyword in title+abstract.
+const ARXIV_PM_KEYWORDS = [
+  "prediction market", "prediction markets",
+  "polymarket", "kalshi", "metaculus", "manifold", "augur",
+  "futarchy", "information aggregation market",
+  "event contract", "decision market", "outcome market",
+];
+
+function isArxivPMRelevant(title, summary) {
+  const hay = `${title} ${summary}`.toLowerCase();
+  return ARXIV_PM_KEYWORDS.some(kw => hay.includes(kw));
+}
+
 /**
  * Fetch papers from arXiv for configured queries.
  * @returns {Promise<Array<ContentItem>>}
@@ -42,14 +56,14 @@ export async function fetchArxiv() {
       const response = await fetch(url);
       if (!response.ok) {
         console.warn(`[arxiv] API error for query "${query}": ${response.status}`);
-        await sleep(500);
+        await sleep(3000);
         continue;
       }
 
       xml = await response.text();
     } catch (err) {
       console.warn(`[arxiv] Query "${query}" failed: ${err.message}`);
-      await sleep(500);
+      await sleep(3000);
       continue;
     }
 
@@ -64,11 +78,17 @@ export async function fetchArxiv() {
       const publishedDate = new Date(entry.published);
       if (isNaN(publishedDate.getTime()) || publishedDate < cutoffDate) continue;
 
-      seenIds.add(arxivId);
-
       const title = cleanField(entry.title);
       const authors = extractAuthors(entry.authors);
-      const text = cleanField(entry.summary).slice(0, 500);
+      const fullSummary = cleanField(entry.summary);
+
+      // Pre-AI filter: most arXiv hits on "futarchy", "decision market", etc.
+      // are unrelated ML/physics papers. Drop them before they consume AI slots.
+      if (!isArxivPMRelevant(title, fullSummary)) continue;
+
+      seenIds.add(arxivId);
+
+      const text = fullSummary.slice(0, 500);
 
       results.push({
         id: arxivId,
@@ -83,7 +103,7 @@ export async function fetchArxiv() {
       });
     }
 
-    await sleep(500);
+    await sleep(3000);
   }
 
   return results.slice(0, maxResults);
