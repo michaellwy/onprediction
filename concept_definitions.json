@@ -12,6 +12,7 @@
   "combinatorial prediction markets": "Prediction markets that allow participants to place bets on conditional events and Boolean combinations of base events, not just individual outcomes. By enabling richer betting vocabularies, they can elicit joint probability distributions over related events rather than only marginal probabilities.",
   "conditional tokens": "Tokens representing positions contingent on specific outcomes, enabling composable prediction market positions.",
   "continuous double auction": "A trading mechanism where buy and sell orders are matched immediately as they arrive, with price-time priority determining execution order.",
+  "continuous prediction markets": "Prediction markets with continuous payout curves that resolve along a spectrum instead of a binary yes/no, allowing traders to express shaped beliefs about where an outcome will land.",
   "corruption value multiple": "The ratio of economic value at stake outside a market versus the cost of corrupting its oracle.",
   "covariance markets": "Markets that trade on the correlation between events, allowing positions on how outcomes relate to each other.",
   "credibility markets": "Markets where participants stake on the accuracy of claims or sources, building continuously updated trust scores rather than static reputations. Treats trustworthiness as a tradeable probability over time.",
