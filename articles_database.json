@@ -4677,5 +4677,31 @@
     "editorial_blurb": "XO Labs publishes a framework for thinking about prediction market resolution as a spectrum rather than a single mechanism. The paper identifies the resolver trilemma between efficiency, decentralization, and security, using the Ukraine minerals market whale tax incident on Polymarket as a case study in token-weighted governance failure. They propose a layered architecture (XO Oracle) that routes each market to the level of security it actually requires.",
     "share_quote": "prediction market resolution isn't one mechanism but a spectrum with a trilemma at its core",
     "fetch_status": "web"
+  },
+  {
+    "id": 197,
+    "url": "https://x.com/embrron/status/2052489307072729516",
+    "title": "Option Markets vs Binary Markets vs Continuous Markets",
+    "author": "MO",
+    "author_twitter": "embrron",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-07",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW: continuous prediction markets",
+      "binary contracts",
+      "market structure",
+      "price discovery"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Deribit",
+      "Dekant"
+    ],
+    "editorial_blurb": "MO compares three market architectures for expressing shaped beliefs: binary prediction markets, options structures, and continuous prediction markets. The article traces the distribution gap from the Black-Scholes era through modern crypto markets and argues that continuous payout curves replace the workarounds traders currently use.",
+    "share_quote": "continuous payout curves eliminate the need for binary contracts and options workarounds",
+    "fetch_status": "web"
   }
 ]
