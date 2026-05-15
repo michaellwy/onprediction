@@ -127,7 +127,7 @@
     ],
     "editorial_blurb": "Case study of Polymarket's Venezuelan election market, where UMA token-holders overrode the platform's own resolution rules to declare opposition candidate Gonzalez the winner despite official results. Highlights conflicts of interest when oracle voters can also bet on outcomes.",
     "fetch_status": "web",
-    "share_quote": "polymarket\u2019s own oracle broke the rules to settle a bet its voters had placed"
+    "share_quote": "polymarket’s own oracle broke the rules to settle a bet its voters had placed"
   },
   {
     "id": 7,
@@ -150,7 +150,7 @@
     ],
     "editorial_blurb": "Analysis of Polymarket's growth trajectory and business model. Notes that 99.2% of trading volume concentrates in political markets and two-thirds of cumulative volume occurred in the last six months, raising questions about sustainability beyond election cycles.",
     "fetch_status": "web",
-    "share_quote": "polymarket\u2019s election boom masks a fragile business model built on a single product"
+    "share_quote": "polymarket’s election boom masks a fragile business model built on a single product"
   },
   {
     "id": 8,
@@ -224,7 +224,7 @@
     ],
     "editorial_blurb": "Research report on Polymarket's growth (35x increase in weekly active users from May to September 2024) and competitive positioning. Covers technical infrastructure (Gnosis CTF, UMA oracles, PolyLend), participant biases, and oracle complications like the Venezuelan election dispute.",
     "fetch_status": "web",
-    "share_quote": "polymarket\u2019s 35x user surge hides deep flaws in oracle design and dispute resolution"
+    "share_quote": "polymarket’s 35x user surge hides deep flaws in oracle design and dispute resolution"
   },
   {
     "id": 13,
@@ -503,7 +503,7 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Challenges the conception that prediction markets serve as effective policy tools. Argues that conditional prediction markets proposing 'Will X lead to consequence Y?' fail to translate probability assessments into meaningful policy guidance despite being their central theoretical appeal.",
     "fetch_status": "web",
-    "share_quote": "Prediction markets can\u2019t turn probabilities into useful policy advice"
+    "share_quote": "Prediction markets can’t turn probabilities into useful policy advice"
   },
   {
     "id": 23,
@@ -1034,7 +1034,7 @@
   {
     "id": 46,
     "url": "https://a16zcrypto.com/posts/podcast/prediction-markets-explained/",
-    "title": "Prediction Markets \u2014 Everything You Need to Know",
+    "title": "Prediction Markets — Everything You Need to Know",
     "author": "Sonal Chokshi, Alex Tabarrok, Scott Kominers",
     "author_twitter": null,
     "source_type": "Podcast",
@@ -1102,7 +1102,7 @@
   {
     "id": 49,
     "url": "https://arxiv.org/pdf/2510.15205",
-    "title": "Toward Black\u2013Scholes for Prediction Markets",
+    "title": "Toward Black–Scholes for Prediction Markets",
     "author": "Shaw Dalen, Daedalus Research Team",
     "author_twitter": "@DaedalusRsch",
     "source_type": "Academic Paper",
@@ -1254,7 +1254,7 @@
       "distribution markets"
     ],
     "platforms_mentioned": [],
-    "editorial_blurb": "Manifesto arguing binary yes/no prediction markets are incomplete\u2014they flatten nuanced beliefs into coin flips and pay the same whether you were barely right or sharply right. Proposes distribution-native markets that reward precision: pay more for being closer to the actual outcome. Cites 130x volume growth from early 2024 to late 2025 as the category's credibility moment.",
+    "editorial_blurb": "Manifesto arguing binary yes/no prediction markets are incomplete—they flatten nuanced beliefs into coin flips and pay the same whether you were barely right or sharply right. Proposes distribution-native markets that reward precision: pay more for being closer to the actual outcome. Cites 130x volume growth from early 2024 to late 2025 as the category's credibility moment.",
     "fetch_status": "pdf",
     "share_quote": "binary prediction markets reward being right, not being precise"
   },
@@ -1276,7 +1276,7 @@
       "distribution markets"
     ],
     "platforms_mentioned": [],
-    "editorial_blurb": "Argues binary event contracts fragment liquidity and flatten beliefs into 1-bit structures\u2014achieving 8-bit resolution requires 256 separate markets. Proposes treating beliefs as vectors over probability distributions on a shared liquidity surface. Traders express full distributions and are rewarded for variance compression (reducing entropy), not just final outcome correctness.",
+    "editorial_blurb": "Argues binary event contracts fragment liquidity and flatten beliefs into 1-bit structures—achieving 8-bit resolution requires 256 separate markets. Proposes treating beliefs as vectors over probability distributions on a shared liquidity surface. Traders express full distributions and are rewarded for variance compression (reducing entropy), not just final outcome correctness.",
     "fetch_status": "pdf",
     "share_quote": "beliefs are vectors, not bits, express the full distribution, not a single outcome"
   },
@@ -1300,7 +1300,7 @@
     "platforms_mentioned": [
       "Polymarket"
     ],
-    "editorial_blurb": "Argues prediction markets treat reflexivity as a bug, but hyperstition markets weaponize it as a feature. Where prediction markets ask 'what will happen?', hyperstition markets ask 'what can we make happen?' Positions this as futarchy with execution built in\u2014betting YES means coordinating action toward manifestation. The market discovers the price of coordination through dynamic subsidies.",
+    "editorial_blurb": "Argues prediction markets treat reflexivity as a bug, but hyperstition markets weaponize it as a feature. Where prediction markets ask 'what will happen?', hyperstition markets ask 'what can we make happen?' Positions this as futarchy with execution built in—betting YES means coordinating action toward manifestation. The market discovers the price of coordination through dynamic subsidies.",
     "fetch_status": "pdf",
     "share_quote": "prediction markets treat reflexivity as a bug, hyperstition markets weaponize it as a feature"
   },
@@ -1325,7 +1325,7 @@
       "Polymarket",
       "Kalshi"
     ],
-    "editorial_blurb": "Galaxy research report on prediction markets evolving from niche speculation to mainstream financial infrastructure. Covers Polymarket ($9B valuation, 1.6M users) and Kalshi (top finance iOS app), emerging leverage mechanisms (Space, Gondor), AI as interface layer for fragmented venues, and convergence toward derivatives\u2014event contracts as hedges, collateral, and composable financial primitives.",
+    "editorial_blurb": "Galaxy research report on prediction markets evolving from niche speculation to mainstream financial infrastructure. Covers Polymarket ($9B valuation, 1.6M users) and Kalshi (top finance iOS app), emerging leverage mechanisms (Space, Gondor), AI as interface layer for fragmented venues, and convergence toward derivatives—event contracts as hedges, collateral, and composable financial primitives.",
     "fetch_status": "web",
     "share_quote": "prediction markets are becoming the next derivatives layer for finance"
   },
@@ -1349,7 +1349,7 @@
     "platforms_mentioned": [
       "Polymarket"
     ],
-    "editorial_blurb": "Argues the hardest PM problem isn't pricing but deciding what actually happened. Proposes cryptographically-committed LLMs as resolution judges\u2014trading human bias and conflicts of interest for more tractable technical vulnerabilities. Cites Polymarket disputes (Venezuela election, Ukraine map, government shutdown) as evidence current systems fail at scale.",
+    "editorial_blurb": "Argues the hardest PM problem isn't pricing but deciding what actually happened. Proposes cryptographically-committed LLMs as resolution judges—trading human bias and conflicts of interest for more tractable technical vulnerabilities. Cites Polymarket disputes (Venezuela election, Ukraine map, government shutdown) as evidence current systems fail at scale.",
     "fetch_status": "web",
     "share_quote": "prediction markets don't fail on price but on deciding what actually happened"
   },
@@ -1691,7 +1691,7 @@
       "oracle design"
     ],
     "platforms_mentioned": [],
-    "editorial_blurb": "Argues prediction markets are the natural marketplace for sovereign AI agents to trade their core commodity: information. Frames decentralized PMs as the 'bazaar' where agents monetize alpha through positions, market creators earn fees from surfacing unanswered questions, and reproducible computation enables incorruptible AI judges for dispute resolution. Positions this as an alternative to centralized AI lab alignment\u2014market incentives align agents through financial participation rather than top-down instruction.",
+    "editorial_blurb": "Argues prediction markets are the natural marketplace for sovereign AI agents to trade their core commodity: information. Frames decentralized PMs as the 'bazaar' where agents monetize alpha through positions, market creators earn fees from surfacing unanswered questions, and reproducible computation enables incorruptible AI judges for dispute resolution. Positions this as an alternative to centralized AI lab alignment—market incentives align agents through financial participation rather than top-down instruction.",
     "fetch_status": "pdf",
     "share_quote": "prediction markets turn sovereign ai agents into traders of information, not followers of commands"
   },
@@ -2260,7 +2260,7 @@
     "platforms_mentioned": [
       "Polymarket"
     ],
-    "editorial_blurb": "Argues that prediction markets will replace traditional advertising by converting ad spend into liquidity that rewards deep attention rather than buying fleeting impressions. The proposed model: a sponsor seeds a market with $50k\u2013$500k, traders discover it and research the topic to profit, then share analysis organically \u2014 creating sustained cognitive engagement at ~$20 per person-hour versus seconds of passive exposure from display ads. Cites Polymarket's $9B election volume and Substack partnership as early evidence, and frames the sponsor's outlay as venture capital for an attention engine rather than a media buy.",
+    "editorial_blurb": "Argues that prediction markets will replace traditional advertising by converting ad spend into liquidity that rewards deep attention rather than buying fleeting impressions. The proposed model: a sponsor seeds a market with $50k–$500k, traders discover it and research the topic to profit, then share analysis organically — creating sustained cognitive engagement at ~$20 per person-hour versus seconds of passive exposure from display ads. Cites Polymarket's $9B election volume and Substack partnership as early evidence, and frames the sponsor's outlay as venture capital for an attention engine rather than a media buy.",
     "fetch_status": "pdf",
     "share_quote": "Prediction markets turn ad dollars into liquidity that buys attention by the hour, not the second"
   },
@@ -2284,7 +2284,7 @@
       "Polymarket",
       "Kalshi"
     ],
-    "editorial_blurb": "Argues that nearly any prediction market tied to a public figure's actions, tenure, or appearances implicitly embeds assassination as a resolution path \u2014 what the authors call 'kinetic intervention.' Uses the Charlie Kirk assassination and subsequent Kalshi market voiding as the central case study. Warns that blanket void-on-death rules can backfire by incentivizing violence from losing bettors, and proposes that platforms hire geopolitical risk officers to evaluate resolution wording, monitor anomalous betting signals (BETINT), and build early-warning capacity before tragedy occurs.",
+    "editorial_blurb": "Argues that nearly any prediction market tied to a public figure's actions, tenure, or appearances implicitly embeds assassination as a resolution path — what the authors call 'kinetic intervention.' Uses the Charlie Kirk assassination and subsequent Kalshi market voiding as the central case study. Warns that blanket void-on-death rules can backfire by incentivizing violence from losing bettors, and proposes that platforms hire geopolitical risk officers to evaluate resolution wording, monitor anomalous betting signals (BETINT), and build early-warning capacity before tragedy occurs.",
     "fetch_status": "pdf",
     "share_quote": "any market that bets on a public figure's tenure is a market that prices in their assassination"
   },
@@ -2363,7 +2363,7 @@
     "platforms_mentioned": [
       "Polymarket"
     ],
-    "editorial_blurb": "Data-driven deep dive into Polymarket's order book structure using 600M+ raw datapoints filtered to a 343M research dataset. Categorizes order flow into soft (retail), hard (professional), and AI flow, revealing that Polymarket's liquidity is episodic and attention-driven: the p95 peak hour shows hundreds of millions in open interest while the p50 median is thin. Order book analysis shows surface symmetry at top-of-book but systematic ask-side skew at deeper levels, and market impact data confirms that medium-to-large orders hit liquidity cliffs. Argues the core problem is trapped capital \u2014 dollars reserved multiple times against mutually exclusive outcomes \u2014 and that better netting and capital efficiency, not more money, is the fix.",
+    "editorial_blurb": "Data-driven deep dive into Polymarket's order book structure using 600M+ raw datapoints filtered to a 343M research dataset. Categorizes order flow into soft (retail), hard (professional), and AI flow, revealing that Polymarket's liquidity is episodic and attention-driven: the p95 peak hour shows hundreds of millions in open interest while the p50 median is thin. Order book analysis shows surface symmetry at top-of-book but systematic ask-side skew at deeper levels, and market impact data confirms that medium-to-large orders hit liquidity cliffs. Argues the core problem is trapped capital — dollars reserved multiple times against mutually exclusive outcomes — and that better netting and capital efficiency, not more money, is the fix.",
     "fetch_status": "pdf",
     "share_quote": "polymarket doesn't need more money, it needs better plumbing to free trapped capital"
   },
@@ -2413,7 +2413,7 @@
     "platforms_mentioned": [
       "Polymarket"
     ],
-    "editorial_blurb": "Reviews Philip Tetlock's Superforecasting and draws a direct line from the book's core thesis \u2014 that forecasting skill is measurable, trainable, and outperforms expert punditry \u2014 to Polymarket's success during the 2024 US election. Explains Tetlock's key concepts (foxes vs hedgehogs, the Good Judgment Project, Brier scores, calibration) and argues that Polymarket effectively operationalized Tetlock's framework at scale by converting crowd forecasting into a liquid financial market.",
+    "editorial_blurb": "Reviews Philip Tetlock's Superforecasting and draws a direct line from the book's core thesis — that forecasting skill is measurable, trainable, and outperforms expert punditry — to Polymarket's success during the 2024 US election. Explains Tetlock's key concepts (foxes vs hedgehogs, the Good Judgment Project, Brier scores, calibration) and argues that Polymarket effectively operationalized Tetlock's framework at scale by converting crowd forecasting into a liquid financial market.",
     "fetch_status": "pdf",
     "share_quote": "forecasting isn't a gift, it's a skill that beat every pundit and powered polymarket"
   },
@@ -2467,9 +2467,9 @@
       "DraftKings",
       "FanDuel"
     ],
-    "editorial_blurb": "Data-driven analysis of Kalshi's business model using all 203 million trades across $41.7B in volume. Reveals that Kalshi functions more like a poker rake than a sportsbook, charging fees via the formula fee = 0.07 \u00d7 C \u00d7 P \u00d7 (1-P), which incentivizes trading near 50% probability. Key finding: sports comprise 82% of total volume, making Kalshi functionally a sports betting platform despite its CFTC-regulated derivatives positioning. Includes clear explanations of order book mechanics, binary contract pricing, and the regulatory framework (clearinghouse structure, no-action letters) alongside original data visualizations of volume distribution and resolution patterns.",
+    "editorial_blurb": "Data-driven analysis of Kalshi's business model using all 203 million trades across $41.7B in volume. Reveals that Kalshi functions more like a poker rake than a sportsbook, charging fees via the formula fee = 0.07 × C × P × (1-P), which incentivizes trading near 50% probability. Key finding: sports comprise 82% of total volume, making Kalshi functionally a sports betting platform despite its CFTC-regulated derivatives positioning. Includes clear explanations of order book mechanics, binary contract pricing, and the regulatory framework (clearinghouse structure, no-action letters) alongside original data visualizations of volume distribution and resolution patterns.",
     "fetch_status": "fetched",
-    "share_quote": "kalshi\u2019s fee structure turns prediction markets into a poker rake, not a sportsbook"
+    "share_quote": "kalshi’s fee structure turns prediction markets into a poker rake, not a sportsbook"
   },
   {
     "id": 107,
@@ -2637,7 +2637,7 @@
     "platforms_mentioned": [
       "Polymarket"
     ],
-    "editorial_blurb": "Analyzes 600 million Polymarket orderbook datapoints, finding ~70% of one-cent price moves do not continue in the same direction. Coins 'semantic tick size' to describe how a prediction market's minimum price increment doubles as a narrative unit\u2014each penny reads as a one-percentage-point probability change, creating overreactions that a contrarian fade strategy can profitably harvest. Frames this against Tetlock's TradeSports microstructure research, where passive limit order walls slow price discovery while impatient market orders amplify short-term noise.",
+    "editorial_blurb": "Analyzes 600 million Polymarket orderbook datapoints, finding ~70% of one-cent price moves do not continue in the same direction. Coins 'semantic tick size' to describe how a prediction market's minimum price increment doubles as a narrative unit—each penny reads as a one-percentage-point probability change, creating overreactions that a contrarian fade strategy can profitably harvest. Frames this against Tetlock's TradeSports microstructure research, where passive limit order walls slow price discovery while impatient market orders amplify short-term noise.",
     "fetch_status": "pdf",
     "share_quote": "Prediction markets' one-cent minimum price moves create narrative overreactions that fade strategies can harvest"
   },
@@ -3062,7 +3062,7 @@
     ],
     "editorial_blurb": "Documents a pattern of insider trading on prediction markets, from wallets that profited $1.2 million on the timing of US strikes on Iran to trades linked to classified intelligence. Compares how Kalshi's KYC-based surveillance and Polymarket's pseudonymous blockchain create different enforcement challenges. Argues platforms should reconsider contract offerings before regulators act.",
     "fetch_status": "web",
-    "share_quote": "insider trading thrives when markets reward those who know what others don\u2019t"
+    "share_quote": "insider trading thrives when markets reward those who know what others don’t"
   },
   {
     "id": 131,
@@ -3422,7 +3422,7 @@
     ],
     "editorial_blurb": "Market sizing report on Brazil as a prediction market opportunity. The country is simultaneously the 5th largest betting market ($4.1B GGR, 25M bettors) and 5th in crypto adoption ($6-8B monthly, 90% stablecoins), creating a $100B+ serviceable market with no domestic platform offering event trading mechanics. Regulatory classification by the CVM as derivatives vs. gambling will determine whether institutional capital can participate.",
     "fetch_status": "web",
-    "share_quote": "brazil\u2019s $100b+ betting-crypto overlap has no event trading platform yet"
+    "share_quote": "brazil’s $100b+ betting-crypto overlap has no event trading platform yet"
   },
   {
     "id": 146,
@@ -3471,7 +3471,7 @@
     ],
     "editorial_blurb": "On-chain analysis of Polymarket's fast crypto markets from September 2025 through March 2026. Five-minute contracts overtook 15-minute in weeks ($2.3B vs $795M in notional volume), bots control 55-62% of volume across fast markets, and Bitcoin drives 77% of turnover. The piece argues that with $23.7M in taker fees collected in 83 days through a maker-rebate fee model, Polymarket has structurally converged with a derivatives exchange.",
     "fetch_status": "web",
-    "share_quote": "polymarket\u2019s fastest markets look more like a derivatives exchange than a prediction platform"
+    "share_quote": "polymarket’s fastest markets look more like a derivatives exchange than a prediction platform"
   },
   {
     "id": 148,
@@ -3622,7 +3622,7 @@
     ],
     "editorial_blurb": "Data-driven analysis benchmarking Kalshi's sports markets against traditional sportsbooks. Kalshi's monthly volume grew 80x to $14.4B in March 2026, with NCAA March Madness generating $3.3B in notional volume comparable to total US wagered on the tournament. In-game prices correlate at 0.99+ with FanDuel, but Kalshi's taker fees (up to 3.5% at midpoint) and thinner in-game liquidity (76% depth decline vs pre-game) currently limit institutional execution. Includes a valuation comparison showing Kalshi priced as an exchange ($20B) vs sportsbooks trading at 2-4x revenue.",
     "fetch_status": "web",
-    "share_quote": "kalshi\u2019s 0.99 price correlation with sportsbooks hides a 76% liquidity drop in-game"
+    "share_quote": "kalshi’s 0.99 price correlation with sportsbooks hides a 76% liquidity drop in-game"
   },
   {
     "id": 154,
@@ -4414,7 +4414,7 @@
       "Coinbase",
       "Hyperliquid"
     ],
-    "editorial_blurb": "A detailed analysis of how Robinhood's distribution advantage\u201427 million funded users and cross-selling across stocks, options, crypto, and futures\u2014gives it an existential edge over standalone prediction market platforms like Kalshi and Polymarket. Walks through Robinhood's Rothera JV (buying the exchange infrastructure), the economics of vertical integration, and why regulatory threats to sports contracts hurt specialists far more than multi-asset brokers.",
+    "editorial_blurb": "A detailed analysis of how Robinhood's distribution advantage—27 million funded users and cross-selling across stocks, options, crypto, and futures—gives it an existential edge over standalone prediction market platforms like Kalshi and Polymarket. Walks through Robinhood's Rothera JV (buying the exchange infrastructure), the economics of vertical integration, and why regulatory threats to sports contracts hurt specialists far more than multi-asset brokers.",
     "fetch_status": "web",
     "share_quote": "robinhood's 27 million users make prediction market specialists irrelevant before they even start"
   },
@@ -4438,7 +4438,7 @@
       "MetaDAO",
       "Combinator"
     ],
-    "editorial_blurb": "A clear-eyed diagnosis of why decision markets (futarchy) haven\u2019t taken off despite the elegant theory. Identifies two structural problems: thin markets that can\u2019t attract enough informed traders for idiosyncratic decisions, and a conditional-futures architecture where token-price-as-KPI is too noisy to incentivize rational trading. Covers MetaDAO and Combinator as current implementations grappling with these issues.",
+    "editorial_blurb": "A clear-eyed diagnosis of why decision markets (futarchy) haven’t taken off despite the elegant theory. Identifies two structural problems: thin markets that can’t attract enough informed traders for idiosyncratic decisions, and a conditional-futures architecture where token-price-as-KPI is too noisy to incentivize rational trading. Covers MetaDAO and Combinator as current implementations grappling with these issues.",
     "fetch_status": "web"
   },
   {
@@ -4623,6 +4623,34 @@
     ],
     "editorial_blurb": "Dustin Gouker draws structural parallels between the rise of prediction markets today and the daily fantasy sports boom of 2013-2015. He maps four similarities: duopoly dynamics, state regulatory pushback, industry self-regulation attempts, and casino industry opposition. Written by someone who covered both industries, it provides a grounded perspective on where the prediction market story arc might lead.",
     "share_quote": "prediction markets are replaying the daily fantasy sports playbook, state by state",
+    "fetch_status": "web"
+  },
+  {
+    "id": 195,
+    "url": "https://x.com/xolabs_/status/2055266974259961917",
+    "title": "Resolving Prediction Markets: An AI-Driven Layered Approach",
+    "author": "XO Labs",
+    "author_twitter": "xolabs_",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-15",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "oracle design",
+      "dispute resolution",
+      "corruption value multiple",
+      "resolution criteria"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "UMA",
+      "Augur",
+      "Kleros",
+      "XO Market"
+    ],
+    "editorial_blurb": "XO Labs publishes a framework for thinking about prediction market resolution as a spectrum rather than a single mechanism. The paper identifies the resolver trilemma between efficiency, decentralization, and security, using the Ukraine minerals market whale tax incident on Polymarket as a case study in token-weighted governance failure. They propose a layered architecture (XO Oracle) that routes each market to the level of security it actually requires.",
+    "share_quote": "prediction market resolution is a spectrum, not a single mechanism",
     "fetch_status": "web"
   }
 ]
