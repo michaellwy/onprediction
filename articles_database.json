@@ -4649,5 +4649,33 @@
     "editorial_blurb": "Seva Gunitsky argues that prediction markets create three distinct dangers for global conflict: military insider trading at scale, manipulation of outcome resolution, and propaganda advantages for autocratic regimes. The article walks through real cases including the Israeli Air Force betting scandal and the 'hair dryer problem' — cases that challenge the idealistic framing of prediction markets as truth machines.",
     "share_quote": "Prediction markets don't reveal truth, they manufacture it for the highest bidder",
     "fetch_status": "web"
+  },
+  {
+    "id": 196,
+    "url": "https://x.com/xolabs_/status/2055266974259961917",
+    "title": "Resolving Prediction Markets: An AI-Driven Layered Approach",
+    "author": "XO Labs",
+    "author_twitter": "xolabs_",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-15",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "oracle design",
+      "dispute resolution",
+      "corruption value multiple",
+      "resolution criteria"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "UMA",
+      "Augur",
+      "Kleros",
+      "XO Market"
+    ],
+    "editorial_blurb": "XO Labs publishes a framework for thinking about prediction market resolution as a spectrum rather than a single mechanism. The paper identifies the resolver trilemma between efficiency, decentralization, and security, using the Ukraine minerals market whale tax incident on Polymarket as a case study in token-weighted governance failure. They propose a layered architecture (XO Oracle) that routes each market to the level of security it actually requires.",
+    "share_quote": "prediction market resolution isn't one mechanism but a spectrum with a trilemma at its core",
+    "fetch_status": "web"
   }
 ]
