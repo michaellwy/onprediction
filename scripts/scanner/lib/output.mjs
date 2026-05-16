@@ -6,64 +6,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_DIR = join(__dirname, "..", "output");
 
 /**
- * Print scan results to terminal.
- */
-export function printResults(results, stats, isDryRun) {
-  const now = new Date();
-  const dateStr = now.toISOString().slice(0, 16).replace("T", " ") + " UTC";
-  const mode = isDryRun ? " (DRY RUN — no AI scoring)" : "";
-
-  console.log("");
-  console.log(`=== OnPrediction Scanner — ${dateStr}${mode} ===`);
-
-  if (stats.sources) {
-    for (const [source, s] of Object.entries(stats.sources)) {
-      console.log(`  ${source}: ${s.raw} found, ${s.filtered} filtered`);
-    }
-  } else {
-    console.log(`Scanned: ${stats.accounts || 0} accounts, ${stats.keywords || 0} keywords | ` +
-      `Found: ${stats.raw || stats.total_raw} | After filters: ${stats.filtered || stats.total_filtered} | ` +
-      (isDryRun ? `Showing top ${results.length} by engagement` : `AI-ranked: ${results.length}`));
-  }
-  console.log("");
-
-  if (results.length === 0) {
-    console.log("No results matched the quality threshold this scan.");
-    console.log("");
-    return;
-  }
-
-  for (let i = 0; i < results.length; i++) {
-    const r = results[i];
-    const scoreStr = r.score != null ? `[${r.score.toFixed(1)}] ` : "";
-    const title = r.title || (r.text ? firstLine(r.text) : "");
-    const author = r.author_handle || r.author || "unknown";
-    const sourceInfo = r.source_type
-      ? ` [${r.source_type}${r.source_name ? ` / ${r.source_name}` : ""}]`
-      : "";
-
-    console.log(`${i + 1}. ${scoreStr}${author} — ${truncate(title, 70)}${sourceInfo}`);
-    console.log(`   ${r.url}`);
-    if (r.summary) {
-      console.log(`   "${r.summary}"`);
-    }
-    if (r.why_include) {
-      console.log(`   Why: ${r.why_include}`);
-    }
-
-    const eng = r.metrics || r.engagement;
-    if (eng) {
-      const parts = [];
-      if (eng.likes) parts.push(`Likes: ${eng.likes}`);
-      if (eng.retweets) parts.push(`RTs: ${eng.retweets}`);
-      if (eng.comments != null) parts.push(`Comments: ${eng.comments}`);
-      if (parts.length) console.log(`   ${parts.join(" | ")}`);
-    }
-    console.log("");
-  }
-}
-
-/**
  * Save results to a markdown file.
  * Returns the file path.
  */
@@ -155,12 +97,6 @@ export function saveMarkdown(results, stats, isDryRun) {
 
   writeFileSync(filepath, md);
   return filepath;
-}
-
-function truncate(str, maxLen) {
-  if (!str) return "";
-  if (str.length <= maxLen) return str;
-  return str.slice(0, maxLen - 1) + "…";
 }
 
 function firstLine(text) {
