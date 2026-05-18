@@ -4703,5 +4703,26 @@
     "editorial_blurb": "MO compares three market architectures for expressing shaped beliefs: binary prediction markets, options structures, and continuous prediction markets. The article traces the distribution gap from the Black-Scholes era through modern crypto markets and argues that continuous payout curves replace the workarounds traders currently use.",
     "share_quote": "continuous payout curves eliminate the need for binary contracts and options workarounds",
     "fetch_status": "web"
+  },
+  {
+    "id": 198,
+    "url": "https://arxiv.org/abs/2602.21229",
+    "title": "Forecasting Future Language: Context Design for Mention Markets",
+    "author": "Sumin Kim, Jihoon Kwon, Yoon Kim, Nicole Kagan, Raffi Khatchadourian, et al.",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-02-04",
+    "primary_category": "Applications",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "AI agents",
+      "forecasting accuracy",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "This paper studies how to design input context for LLMs to forecast mention market outcomes, where contracts resolve based on whether a company mentions a specified keyword during its earnings call. The authors introduce Market-Conditioned Prompting (MCP), which treats the market price as a Bayesian prior and instructs the LLM to update it using textual evidence from news and prior transcripts. A mixture of the market price and MCP (MixMCP) outperforms the market baseline alone, suggesting LLMs can serve as complementary forecasters alongside live market prices.",
+    "share_quote": "Markets and LLMs together beat either one alone for predicting earnings call mentions",
+    "fetch_status": "web"
   }
 ]
