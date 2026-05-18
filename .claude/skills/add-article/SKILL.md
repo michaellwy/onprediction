@@ -1,7 +1,7 @@
 ---
 name: add-article
 description: Add a new article to the OnPrediction prediction market reading list. Use when the user provides a URL or PDF to add to the database.
-allowed-tools: Read, Edit, Bash(npm run sync:concepts), Bash(npm run extract:quotes *), Bash(npm run generate:og *), Bash(twitter *), WebFetch, Glob, Grep
+allowed-tools: Read, Edit, Agent, Bash(npm run sync:concepts), Bash(npm run extract:quotes *), Bash(npm run generate:og *), Bash(npm run build), Bash(git *), Bash(gh *), Bash(rm public/og/article-*.hash), Bash(twitter *), WebFetch, Glob, Grep
 ---
 
 Add the article provided in $ARGUMENTS to the OnPrediction database.
@@ -17,24 +17,38 @@ Add the article provided in $ARGUMENTS to the OnPrediction database.
 
 3. **Determine next ID** — check the last entry in `articles_database.json`.
 
-4. **Add to `articles_database.json`** — analyze content and populate all fields per the schema below. Set `fetch_status` to `"web"` (URL) or `"pdf"` (PDF).
+4. **Add to `articles_database.json`** — analyze content and populate all fields per the schema below. Set `fetch_status` to `"web"` (URL) or `"pdf"` (PDF). Note: a PostToolUse hook in `.claude/settings.json` automatically runs `npm run sync:concepts` after this edit, which inserts empty-string placeholders into `concept_definitions.json` for any `NEW:` concepts. Don't be surprised by that diff.
 
 5. **Add to `prediction-market-reading-list.csv`** — format: `ID,Title,Date (D/M/YYYY),Author,URL`
 
-6. **Write definitions for NEW: concepts** — before running sync, open `concept_definitions.json` and add a definition for every concept prefixed with `NEW:`. Use 1-2 sentences: what the concept is and why it matters in prediction markets. Do NOT leave a definition as an empty string `""`.
+6. **Write definitions for NEW: concepts** — open `concept_definitions.json` and fill in the empty-string placeholders the hook just added. Use 1-2 sentences: what the concept is and why it matters in prediction markets. Do NOT leave a definition as `""`. If there are no `NEW:` concepts, skip.
 
-7. **Run `npm run sync:concepts`**
+7. **Run `npm run sync:concepts`** — idempotent re-run to confirm everything is consistent after step 6.
 
-8. **Check concept cluster mapping** — verify any new concepts appear in `src/lib/concepts.ts` `conceptToCluster`. If missing, add them with the appropriate cluster.
+8. **Validate concepts with the `concept-curator` subagent** — if the article has any `NEW:` concepts, spawn the `concept-curator` subagent with the article ID. Pass it the new article entry from `articles_database.json`. Apply its verdict:
+   - **ACCEPT** for all concepts: continue.
+   - **REJECT**: drop the concept from the article entry, then re-run `npm run sync:concepts`.
+   - **REPHRASE**: update the concept string in `articles_database.json` and the corresponding key in `concept_definitions.json`, then re-run `npm run sync:concepts`.
 
-9. **Generate share quote + OG card** — required for social previews:
-   ```bash
-   npm run extract:quotes -- --id <NEW_ID>   # adds share_quote field via DeepSeek
-   npm run generate:og -- --id <NEW_ID>      # writes public/og/article-<NEW_ID>.png
-   ```
-   Both are idempotent and only touch the one new article.
+   Skip this step if there are zero `NEW:` concepts.
 
-10. **Build, commit, push, and merge** — after all changes are in place:
+9. **Check concept cluster mapping** — verify any new concepts appear in `src/lib/concepts.ts` `conceptToCluster`. If missing, add them with the appropriate cluster.
+
+10. **Generate share quote + OG card** — required for social previews:
+    ```bash
+    npm run extract:quotes -- --id <NEW_ID>   # adds share_quote field via DeepSeek
+    npm run generate:og -- --id <NEW_ID>      # writes public/og/article-<NEW_ID>.png
+    ```
+    Both are idempotent and only touch the one new article.
+
+11. **Validate share assets with the `share-asset-reviewer` subagent** — spawn the `share-asset-reviewer` subagent with the new article ID. Apply its verdict:
+    - **SHIP**: continue to step 12.
+    - **FIX** with share_quote issue: run `npm run extract:quotes -- --id <NEW_ID> --force`, then re-run the reviewer.
+    - **FIX** with OG card issue: `rm public/og/article-<NEW_ID>.hash && npm run generate:og -- --id <NEW_ID>`, then re-run the reviewer.
+
+    Loop until the verdict is SHIP. If you can't resolve a FIX after two regeneration attempts, surface the issue to the user instead of committing.
+
+12. **Build, commit, push, and merge** — after all changes are in place:
     ```bash
     npm run build                  # Verify build passes
     git add articles_database.json prediction-market-reading-list.csv concept_definitions.json src/lib/concepts.ts public/og/article-<NEW_ID>.png
