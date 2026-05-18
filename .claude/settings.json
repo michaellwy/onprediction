@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' | grep -qE '(^|/)\\.env(\\.[^/]+)?$' && { echo 'blocked: .env files are protected (contain Supabase service role + Anthropic + Telegram keys). Ask the user to edit manually if needed.' >&2; exit 2; } || exit 0"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' | grep -q 'articles_database\\.json$' && (cd \"$CLAUDE_PROJECT_DIR\" && npm run sync:concepts >&2) || exit 0"
+          }
+        ]
+      }
+    ]
+  }
+}
