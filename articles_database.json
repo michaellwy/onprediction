@@ -4724,5 +4724,30 @@
     "editorial_blurb": "This paper studies how to design input context for LLMs to forecast mention market outcomes, where contracts resolve based on whether a company mentions a specified keyword during its earnings call. The authors introduce Market-Conditioned Prompting (MCP), which treats the market price as a Bayesian prior and instructs the LLM to update it using textual evidence from news and prior transcripts. A mixture of the market price and MCP (MixMCP) outperforms the market baseline alone, suggesting LLMs can serve as complementary forecasters alongside live market prices.",
     "share_quote": "Markets and LLMs together beat either one alone for predicting earnings call mentions",
     "fetch_status": "web"
+  },
+  {
+    "id": 199,
+    "url": "https://x.com/variance_lover/status/2057450311707422930",
+    "title": "Polymarket Allows Market Manipulators to Extract Over $5M in Exploitative Profits",
+    "author": "Variance Lover",
+    "author_twitter": "variance_lover",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-21",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "market manipulation",
+      "market surveillance",
+      "resolution criteria"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Binance",
+      "Hyperliquid"
+    ],
+    "editorial_blurb": "An on-chain investigation revealing how a single entity extracted over $5m from Polymarket's crypto markets using 350+ accounts. The piece walks through the manipulation mechanism — accumulating positions on Polymarket then moving Binance's BTC price during settlement windows — and traces the fund flow through Hyperliquid wallets to Binance. Includes specific suggestions for TWAP-based settlement and account-level enforcement.",
+    "share_quote": "polymarket let a single trader use 350 accounts to steal $5 million by moving bitcoin prices during settlement",
+    "fetch_status": "web"
   }
 ]
