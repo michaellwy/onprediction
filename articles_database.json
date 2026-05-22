@@ -4749,5 +4749,29 @@
     "editorial_blurb": "An on-chain investigation revealing how a single entity extracted over $5m from Polymarket's crypto markets using 350+ accounts. The piece walks through the manipulation mechanism — accumulating positions on Polymarket then moving Binance's BTC price during settlement windows — and traces the fund flow through Hyperliquid wallets to Binance. Includes specific suggestions for TWAP-based settlement and account-level enforcement.",
     "share_quote": "polymarket let a single trader use 350 accounts to steal $5 million by moving bitcoin prices during settlement",
     "fetch_status": "web"
+  },
+  {
+    "id": 200,
+    "url": "https://x.com/0xtaetaehoho/status/2057513055341433065",
+    "title": "Do Liquidity Rewards on PMs Work? ... Only if They're Huge!",
+    "author": "taetaehoho",
+    "author_twitter": "@0xtaetaehoho",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-21",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "liquidity provision",
+      "market making",
+      "market structure",
+      "incentive compatibility"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "taetaehoho runs an empirical analysis of Polymarket's liquidity rewards and sponsorships, finding they can tighten spreads only when daily spend exceeds roughly 1% of the existing book. Even above that threshold, incentive size barely predicts which markets respond; pre-existing liquidity conditions and pre-trends are far stronger determinants of uplift than reward intensity.",
+    "share_quote": "liquidity rewards tighten spreads only when daily spend exceeds 1% of the book",
+    "fetch_status": "web"
   }
 ]
