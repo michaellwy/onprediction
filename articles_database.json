@@ -4773,5 +4773,28 @@
     "editorial_blurb": "taetaehoho runs an empirical analysis of Polymarket's liquidity rewards and sponsorships, finding they can tighten spreads only when daily spend exceeds roughly 1% of the existing book. Even above that threshold, incentive size barely predicts which markets respond; pre-existing liquidity conditions and pre-trends are far stronger determinants of uplift than reward intensity.",
     "share_quote": "liquidity rewards tighten spreads only when daily spend exceeds 1% of the book",
     "fetch_status": "web"
+  },
+  {
+    "id": 201,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6443103",
+    "title": "Who Wins and Who Loses In Prediction Markets? Evidence from Polymarket",
+    "author": "Pat Akey, Vincent Grégoire, Nicolas Harvie, Charles Martineau",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-04-07",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Some",
+    "concepts": [
+      "liquidity provision",
+      "insider trading",
+      "market structure"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "The first comprehensive empirical look at who actually profits on Polymarket and who doesn’t. Analyzing 588 million trades and $67 billion in volume, the paper finds the top 1% of users capture 76.5% of profits through disciplined limit order strategies, while the bottom 90% lose money taking liquidity with market orders. The authors also examine and ultimately rule out insider trading as an explanation for the largest winners’ performance.",
+    "share_quote": "the top 1% of prediction market traders take 76.5% of all profits",
+    "fetch_status": "web"
   }
 ]
