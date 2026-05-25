@@ -4796,5 +4796,30 @@
     "editorial_blurb": "The first comprehensive empirical look at who actually profits on Polymarket and who doesn’t. Analyzing 588 million trades and $67 billion in volume, the paper finds the top 1% of users capture 76.5% of profits through disciplined limit order strategies, while the bottom 90% lose money taking liquidity with market orders. The authors also examine and ultimately rule out insider trading as an explanation for the largest winners’ performance.",
     "share_quote": "the top 1% of prediction market traders take 76.5% of all profits",
     "fetch_status": "web"
+  },
+  {
+    "id": 202,
+    "url": "https://x.com/aelix0x/status/2058907417161646186",
+    "title": "How AI Will Save Prediction Markets",
+    "author": "Aelix",
+    "author_twitter": "aelix0x",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-25",
+    "primary_category": "Applications",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "AI agents",
+      "info finance",
+      "minimum viable liquidity",
+      "decision markets"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Aelix diagnoses why prediction markets remain stuck on sports gambling — roughly 65% of Polymarket and Kalshi volume goes to sports, with another 12% each on crypto and politics, leaving useful markets like STEM at 1.2%. The bottleneck isn't technology but market structure: prediction markets are zero-sum, so savers don't participate; gamblers drive volume toward short-term entertainment; sharps follow the gamblers; and useful markets starve. AI agents break this cycle by acting as cheap, forced-participation sharps — they're cloneable, parallelizable, can be compelled to trade on any question, and dramatically lower the minimum viable liquidity threshold for niche markets. The piece also revisits the history of corporate internal prediction markets (HP BRAIN, Eli Lilly, Google) and argues that AI sidesteps the organizational failures that killed them, reviving the futarchy and info-finance vision on more tractable terms.",
+    "share_quote": "ai agents break the zero-sum trap by acting as cheap, forced-participation sharps",
+    "fetch_status": "web"
   }
 ]
