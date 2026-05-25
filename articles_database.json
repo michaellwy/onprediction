@@ -4821,5 +4821,31 @@
     "editorial_blurb": "Aelix diagnoses why prediction markets remain stuck on sports gambling — roughly 65% of Polymarket and Kalshi volume goes to sports, with another 12% each on crypto and politics, leaving useful markets like STEM at 1.2%. The bottleneck isn't technology but market structure: prediction markets are zero-sum, so savers don't participate; gamblers drive volume toward short-term entertainment; sharps follow the gamblers; and useful markets starve. AI agents break this cycle by acting as cheap, forced-participation sharps — they're cloneable, parallelizable, can be compelled to trade on any question, and dramatically lower the minimum viable liquidity threshold for niche markets. The piece also revisits the history of corporate internal prediction markets (HP BRAIN, Eli Lilly, Google) and argues that AI sidesteps the organizational failures that killed them, reviving the futarchy and info-finance vision on more tractable terms.",
     "share_quote": "ai agents break the zero-sum trap by acting as cheap, forced-participation sharps",
     "fetch_status": "web"
+  },
+  {
+    "id": 203,
+    "url": "https://asteriskmag.com/issues/08/the-death-and-life-of-prediction-markets-at-google",
+    "title": "The Death and Life of Prediction Markets at Google",
+    "author": "Dan Schwarz",
+    "author_twitter": "dschwarz26",
+    "source_type": "Blog",
+    "publish_date": "2024-11-01",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "decision markets",
+      "futarchy",
+      "regulatory classification",
+      "AI agents"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Manifold"
+    ],
+    "editorial_blurb": "Dan Schwarz, who built both of Google's internal prediction markets across two decades, tells the inside story of why they struggled and what it means for the future. Prophit (2005–2011) attracted 20% of Google employees but died when regulatory approval for an external launch stalled. Gleangen (2020–2022) reached over 10,000 users but faced a deeper problem: managers valued transparency and adjustability over raw accuracy, and the forecasts were asking internal questions when executives needed competitor intelligence on OpenAI and Microsoft. The piece closes with AI agents as the cost-reducing wedge that might finally make corporate prediction markets viable.",
+    "share_quote": "prediction markets failed at google because managers preferred control over accuracy",
+    "fetch_status": "web"
   }
 ]
