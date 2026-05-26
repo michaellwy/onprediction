@@ -4847,5 +4847,26 @@
     "editorial_blurb": "Dan Schwarz, who built both of Google's internal prediction markets across two decades, tells the inside story of why they struggled and what it means for the future. Prophit (2005–2011) attracted 20% of Google employees but died when regulatory approval for an external launch stalled. Gleangen (2020–2022) reached over 10,000 users but faced a deeper problem: managers valued transparency and adjustability over raw accuracy, and the forecasts were asking internal questions when executives needed competitor intelligence on OpenAI and Microsoft. The piece closes with AI agents as the cost-reducing wedge that might finally make corporate prediction markets viable.",
     "share_quote": "prediction markets failed at google because managers preferred control over accuracy",
     "fetch_status": "web"
+  },
+  {
+    "id": 204,
+    "url": "https://x.com/ericliujt/status/2059385259784024249",
+    "title": "Improving Capital Efficiency for Parlays on PMs",
+    "author": "Eric Liu",
+    "author_twitter": "@ericliujt",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-26",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "parlays"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Eric Liu (co-founder @totalistrading) explains how prediction market market makers can reduce required collateral for parlay tickets by computing worst-case portfolio exposure with integer linear programming instead of collateralizing each ticket in isolation. He walks through the ILP formulation, shows how it avoids the infeasible 2^n enumeration, and reports 10-80% collateral reduction from backtests against Totali's markets using HiGHS/scipy. The post argues this enables tighter quotes, deeper liquidity, and more expressive combo bets without sacrificing fully collateralized peer-to-peer settlement.",
+    "share_quote": "integer linear programming cuts parlay collateral by 10-80% without sacrificing settlement safety",
+    "fetch_status": "web"
   }
 ]
