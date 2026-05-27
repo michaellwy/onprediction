@@ -4892,5 +4892,28 @@
     "editorial_blurb": "Spartan Labs explores what happens when you give Andrej Karpathy's LLM Council design actual stakes. Their Simmer prototype runs 30 AI agents across 6 models and 5 reasoning personas in an LMSR market, producing a capital-weighted forecast without requiring human liquidity. Early observations reveal coordination cascades when agents share identical search results, a finding with implications for any multi-agent prediction system.",
     "share_quote": "ai agents betting against each other reveal coordination cascades from shared search results",
     "fetch_status": "web"
+  },
+  {
+    "id": 206,
+    "url": "https://arxiv.org/abs/2602.07048",
+    "title": "LLM as a Risk Manager: LLM Semantic Filtering for Lead-Lag Trading in Prediction Markets",
+    "author": "Sumin Kim, Minjae Kim, Jihoon Kwon, Yoon Kim, Nicole Kagan, Joo Won Lee, Oscar Levy, Alejandro Lopez-Lira, Yongjae Lee, Chanyeol Choi",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-02-04",
+    "primary_category": "Applications",
+    "content_type": "Research Paper",
+    "difficulty": "Some",
+    "concepts": [
+      "AI agents",
+      "temporal arbitrage",
+      "noise decomposition"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Proposes a two-stage screener that uses Granger causality to find lead-lag pairs across Kalshi Economics markets, then passes candidates through an LLM that checks whether the proposed direction has a plausible economic transmission mechanism based on event descriptions. The LLM re-ranker barely moves the win rate (51.4% to 54.5%), but it dramatically shrinks the downside — average losing trade drops from $649 to $347 by filtering out statistically fragile links that look good in backtests but break in practice.",
+    "share_quote": "llms catch spurious correlations that backtests miss, halving average losses in prediction markets",
+    "fetch_status": "web"
   }
 ]
