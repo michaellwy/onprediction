@@ -4868,5 +4868,29 @@
     "editorial_blurb": "Eric Liu (co-founder @totalistrading) explains how prediction market market makers can reduce required collateral for parlay tickets by computing worst-case portfolio exposure with integer linear programming instead of collateralizing each ticket in isolation. He walks through the ILP formulation, shows how it avoids the infeasible 2^n enumeration, and reports 10-80% collateral reduction from backtests against Totali's markets using HiGHS/scipy. The post argues this enables tighter quotes, deeper liquidity, and more expressive combo bets without sacrificing fully collateralized peer-to-peer settlement.",
     "share_quote": "integer linear programming cuts parlay collateral by 10-80% without sacrificing settlement safety",
     "fetch_status": "web"
+  },
+  {
+    "id": 205,
+    "url": "https://spartangroup.notion.site/The-Council-Trades-What-Happens-When-AI-Agents-Bet-Against-Each-Other-2ba458a33fea801c9221f1435376f477",
+    "title": "The Council Trades: What Happens When AI Agents Bet Against Each Other",
+    "author": "Spartan Labs",
+    "author_twitter": "TheSpartanLabs",
+    "source_type": "Blog",
+    "publish_date": "2026-01-12",
+    "primary_category": "Applications",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "AI agents",
+      "decision markets"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Simmer.Markets"
+    ],
+    "editorial_blurb": "Spartan Labs explores what happens when you give Andrej Karpathy's LLM Council design actual stakes. Their Simmer prototype runs 30 AI agents across 6 models and 5 reasoning personas in an LMSR market, producing a capital-weighted forecast without requiring human liquidity. Early observations reveal coordination cascades when agents share identical search results, a finding with implications for any multi-agent prediction system.",
+    "share_quote": "ai agents betting against each other reveal coordination cascades from shared search results",
+    "fetch_status": "web"
   }
 ]
