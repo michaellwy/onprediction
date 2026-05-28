@@ -4915,5 +4915,28 @@
     "editorial_blurb": "Proposes a two-stage screener that uses Granger causality to find lead-lag pairs across Kalshi Economics markets, then passes candidates through an LLM that checks whether the proposed direction has a plausible economic transmission mechanism based on event descriptions. The LLM re-ranker barely moves the win rate (51.4% to 54.5%), but it dramatically shrinks the downside — average losing trade drops from $649 to $347 by filtering out statistically fragile links that look good in backtests but break in practice.",
     "share_quote": "llms catch spurious correlations that backtests miss, halving average losses in prediction markets",
     "fetch_status": "web"
+  },
+  {
+    "id": 207,
+    "url": "https://x.com/kaleb0x/status/1991947221072249023",
+    "title": "Leverage on Prediction Markets is Possible: Here's How to Realistically Do It",
+    "author": "Kaleb",
+    "author_twitter": "kaleb0x",
+    "source_type": "Twitter",
+    "publish_date": "2025-11-21",
+    "primary_category": "Microstructure",
+    "content_type": "Twitter Thread",
+    "difficulty": "Some",
+    "concepts": [
+      "gap risk",
+      "liquidity provision"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Kaleb (Polychain) breaks down why leverage is deceptively hard in prediction markets. The core problem is jump risk — binary markets can resolve instantly to $0 with no liquidation window, meaning financiers must pass expected jump losses back to traders as upfront fees. But a fairly priced upfront fee cancels out the leverage benefit entirely. His solution: short epoch-based pricing (like perps funding) where the financier only prices gap risk over a few hours at a time, rolling forward.",
+    "share_quote": "prediction markets can't offer real leverage until financiers stop pricing jump risk over full epochs",
+    "fetch_status": "web"
   }
 ]
