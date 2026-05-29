@@ -4938,5 +4938,29 @@
     "editorial_blurb": "Kaleb (Polychain) breaks down why leverage is deceptively hard in prediction markets. The core problem is jump risk — binary markets can resolve instantly to $0 with no liquidation window, meaning financiers must pass expected jump losses back to traders as upfront fees. But a fairly priced upfront fee cancels out the leverage benefit entirely. His solution: short epoch-based pricing (like perps funding) where the financier only prices gap risk over a few hours at a time, rolling forward.",
     "share_quote": "prediction markets can't offer real leverage until financiers stop pricing jump risk over full epochs",
     "fetch_status": "web"
+  },
+  {
+    "id": 208,
+    "url": "https://x.com/functionspacehq/status/2060218626486243589",
+    "title": "Hedging That Needs Continuous Probability",
+    "author": "Terry",
+    "author_twitter": "terrytakes101",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-29",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "continuous prediction markets",
+      "binary contracts",
+      "liquidity fragmentation",
+      "hedging"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Binary prediction markets struggle with continuous outcomes like oil prices because capital fragments across individual strike prices. This piece uses Polymarket's crude oil dataset to illustrate the staircase hedging problem. It then shows how continuous probability markets solve this with a single density-based pricing mechanism.",
+    "share_quote": "Continuous probability markets fix the staircase hedging problem binary contracts create",
+    "fetch_status": "web"
   }
 ]
