@@ -4962,5 +4962,31 @@
     "editorial_blurb": "Binary prediction markets struggle with continuous outcomes like oil prices because capital fragments across individual strike prices. This piece uses Polymarket's crude oil dataset to illustrate the staircase hedging problem. It then shows how continuous probability markets solve this with a single density-based pricing mechanism.",
     "share_quote": "Continuous probability markets fix the staircase hedging problem binary contracts create",
     "fetch_status": "web"
+  },
+  {
+    "id": 209,
+    "url": "https://x.com/functionspacehq/status/2060866246967713885",
+    "title": "Beyond the Odds: What Prediction Markets Miss",
+    "author": "functionSPACE (by @0xdominus)",
+    "author_twitter": "functionspaceHQ",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-30",
+    "primary_category": "Fundamentals",
+    "content_type": "Research Paper",
+    "difficulty": "Some",
+    "concepts": [
+      "binary contracts",
+      "distribution markets",
+      "market structure",
+      "proper scoring rules"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "functionSPACE"
+    ],
+    "editorial_blurb": "Binary prediction markets compress continuous probability distributions into yes/no outcomes, discarding variance, skew, and tail information that forecasters naturally produce. functionSPACE analyzes 622 mutually exclusive bracket events on Polymarket and finds that less than half price a coherent probability distribution. The piece argues for continuous market design as the primitive that finally matches how both institutional analysts and prediction market traders actually reason about uncertainty.",
+    "share_quote": "binary markets throw away the distribution that forecasters actually produce",
+    "fetch_status": "web"
   }
 ]
