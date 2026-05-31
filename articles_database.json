@@ -4988,5 +4988,28 @@
     "editorial_blurb": "Binary prediction markets compress continuous probability distributions into yes/no outcomes, discarding variance, skew, and tail information that forecasters naturally produce. functionSPACE analyzes 622 mutually exclusive bracket events on Polymarket and finds that less than half price a coherent probability distribution. The piece argues for continuous market design as the primitive that finally matches how both institutional analysts and prediction market traders actually reason about uncertainty.",
     "share_quote": "binary markets throw away the distribution that forecasters actually produce",
     "fetch_status": "web"
+  },
+  {
+    "id": 210,
+    "url": "https://x.com/mens_aurelius/status/2060847256236945470",
+    "title": "Surfacing Edge with Historic Filtering",
+    "author": "Eric Menser",
+    "author_twitter": "mens_aurelius",
+    "source_type": "Twitter",
+    "publish_date": "2026-05-30",
+    "primary_category": "Applications",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "calibration",
+      "forecasting accuracy"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Trade Butter"
+    ],
+    "editorial_blurb": "Not all historic data is equally useful for prediction. Eric Menser argues that treating all past games as equally relevant misses the higher-signal comparisons buried in specific contexts - team matchups, announcer crews, and game types. Trade Butter enriches Kalshi word market resolution history with broadcast metadata to surface sharper signals.",
+    "share_quote": "historic data needs careful filtering to reveal the highest-signal predictions",
+    "fetch_status": "web"
   }
 ]
