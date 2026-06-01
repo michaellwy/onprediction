@@ -5011,5 +5011,37 @@
     "editorial_blurb": "Not all historic data is equally useful for prediction. Eric Menser argues that treating all past games as equally relevant misses the higher-signal comparisons buried in specific contexts - team matchups, announcer crews, and game types. Trade Butter enriches Kalshi word market resolution history with broadcast metadata to surface sharper signals.",
     "share_quote": "historic data needs careful filtering to reveal the highest-signal predictions",
     "fetch_status": "web"
+  },
+  {
+    "id": 211,
+    "url": "https://x.com/gracedengx/status/1993414827948085502",
+    "title": "Prediction Markets Won’t Replace Sports Betting Platforms Anytime Soon",
+    "author": "Grace Deng",
+    "author_twitter": "gracedengx",
+    "source_type": "Twitter",
+    "publish_date": "2025-11-25",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "platform competition",
+      "parlays",
+      "market structure",
+      "federal preemption",
+      "retail flow"
+    ],
+    "platforms_mentioned": [
+      "DraftKings",
+      "Polymarket",
+      "Kalshi",
+      "Novig",
+      "SX Bet",
+      "FanDuel",
+      "Robinhood",
+      "Coinbase"
+    ],
+    "editorial_blurb": "Grace Deng from SevenX Ventures compares prediction markets against sports betting incumbents like DraftKings across product, business model, and legal dimensions. Parlay complexity gives traditional sportsbooks a structural advantage that orderbook-based platforms cannot easily replicate. The article argues that convergence rather than replacement will define the next phase—hybrid models where PMs and sportsbooks interoperate.",
+    "share_quote": "prediction markets and sportsbooks will converge, not compete",
+    "fetch_status": "web"
   }
 ]
