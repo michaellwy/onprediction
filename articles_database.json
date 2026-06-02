@@ -5067,5 +5067,26 @@
     "editorial_blurb": "Evaluates whether multi-agent LLM architectures can resolve prediction market outcomes more accurately than single-model baselines. Tests independent aggregation and deliberative consensus against GPT-5 Nano, DeepSeek V3, and Llama-3.3-70B on 1,189 resolved questions from KalshiBench. Finds that confidence-weighted voting across agents edges past single models, while deliberation degrades accuracy — and proposes a hybrid system that auto-resolves unanimous high-confidence questions while flagging disagreements for human review.",
     "share_quote": "multiple ai agents voting together beat single models, but letting them deliberate makes predictions worse",
     "fetch_status": "web"
+  },
+  {
+    "id": 213,
+    "url": "https://x.com/a16zcrypto/status/2061788163681739006",
+    "title": "Why Prediction Markets Matter",
+    "author": "Scott Duke Kominers",
+    "author_twitter": "@skominers",
+    "source_type": "Twitter",
+    "publish_date": "2026-06-02",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "information aggregation",
+      "incentive compatibility",
+      "market manipulation"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "An accessible explainer from Scott Duke Kominers on how prediction markets aggregate information through market prices. The piece covers the core mechanism, benefits over polls, and key design challenges around participation, insider trading, and manipulation.",
+    "share_quote": "Prediction markets beat polls by turning opinions into prices that reveal the truth",
+    "fetch_status": "web"
   }
 ]
