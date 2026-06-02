@@ -5043,5 +5043,29 @@
     "editorial_blurb": "Grace Deng from SevenX Ventures compares prediction markets against sports betting incumbents like DraftKings across product, business model, and legal dimensions. Parlay complexity gives traditional sportsbooks a structural advantage that orderbook-based platforms cannot easily replicate. The article argues that convergence rather than replacement will define the next phase—hybrid models where PMs and sportsbooks interoperate.",
     "share_quote": "prediction markets and sportsbooks will converge, not compete",
     "fetch_status": "web"
+  },
+  {
+    "id": 212,
+    "url": "https://arxiv.org/abs/2605.30802",
+    "title": "Design and Evaluation of Multi-Agent AI Oracle Systems for Prediction Market Resolution",
+    "author": "Tarun Kota",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-05-29",
+    "primary_category": "Applications",
+    "content_type": "Research Paper",
+    "difficulty": "Some",
+    "concepts": [
+      "AI agents",
+      "oracle design",
+      "forecasting accuracy",
+      "resolution criteria"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Evaluates whether multi-agent LLM architectures can resolve prediction market outcomes more accurately than single-model baselines. Tests independent aggregation and deliberative consensus against GPT-5 Nano, DeepSeek V3, and Llama-3.3-70B on 1,189 resolved questions from KalshiBench. Finds that confidence-weighted voting across agents edges past single models, while deliberation degrades accuracy — and proposes a hybrid system that auto-resolves unanimous high-confidence questions while flagging disagreements for human review.",
+    "share_quote": "multiple ai agents voting together beat single models, but letting them deliberate makes predictions worse",
+    "fetch_status": "web"
   }
 ]
