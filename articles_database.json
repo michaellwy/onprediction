@@ -5088,5 +5088,34 @@
     "editorial_blurb": "An accessible explainer from Scott Duke Kominers on how prediction markets aggregate information through market prices. The piece covers the core mechanism, benefits over polls, and key design challenges around participation, insider trading, and manipulation.",
     "share_quote": "Prediction markets beat polls by turning opinions into prices that reveal the truth",
     "fetch_status": "web"
+  },
+  {
+    "id": 214,
+    "url": "https://x.com/nic_carter/status/2062222370710991127",
+    "title": "Polymarket Needs to Completely Overhaul Their Market Resolution System",
+    "author": "Nic Carter",
+    "author_twitter": "@nic_carter",
+    "source_type": "Twitter",
+    "publish_date": "2026-06-03",
+    "primary_category": "Platforms",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "dispute resolution",
+      "resolution criteria",
+      "UMA protocol",
+      "oracle design"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "UMA",
+      "Kalshi",
+      "CME",
+      "Nadex",
+      "ForecastEx"
+    ],
+    "editorial_blurb": "Nic Carter examines the MicroStrategy Bitcoin sale market dispute and argues that Polymarket's entire market resolution system is structurally broken. He shows how outsourcing resolution to UMA creates a fundamental economic security failure: the UMA token market cap ($37M) is far smaller than the disputed market volume ($317M), making manipulation profitable and nearly undetectable. Carter compares Polymarket's approach to regulated venues like Kalshi and CME, which specify sources upfront, allow deferred settlement, and settle centrally without passing responsibility to anonymous token holders.",
+    "share_quote": "polymarket's resolution system lets a $37 million token pool decide a $317 million market",
+    "fetch_status": "web"
   }
 ]
