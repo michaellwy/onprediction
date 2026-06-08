@@ -5177,5 +5177,26 @@
     "editorial_blurb": "XO Labs publishes the first in a planned series on XO Vaults, a passive liquidity design that bridges the gap between CLOB platforms and pooled liquidity in prediction markets. It analyses three existing liquidity models and identifies a structural gap: platforms with best execution have no passive product, while platforms with passive deposits lack order-book execution. The article proposes a five-factor vault allocation algorithm with circuit breakers designed to protect against informed trading.",
     "share_quote": "passive liquidity deposits have never met order-book execution in prediction markets until now",
     "fetch_status": "web"
+  },
+  {
+    "id": 217,
+    "url": "https://arxiv.org/abs/2606.07434",
+    "title": "Evidence Markets",
+    "author": "Safwan Hossain, Gabriel Andrade, Chengqi Zang, Yiling Chen",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-06-05",
+    "primary_category": "Design",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "evidence markets",
+      "market scoring rules",
+      "incentive compatibility"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Hossain, Andrade, Zang, and Chen introduce evidence markets, a new mechanism that generalizes prediction markets to handle two limitations: prices reveal what the crowd believes but not why, and markets require external resolution events with known dates. The system uses a Logarithmic Market Scoring Rule with dynamic liquidity that responds to evidence quality. The authors prove bounded platform loss, show evidence rewards scale with uncertainty, and demonstrate epsilon-dominant strategy incentive compatibility for truthful reporting. An LLM-as-a-Judge verification layer with staking handles operational deployment.",
+    "share_quote": "evidence markets reveal not just what the crowd believes, but why",
+    "fetch_status": "web"
   }
 ]
