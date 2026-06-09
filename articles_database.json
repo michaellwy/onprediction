@@ -5198,5 +5198,40 @@
     "editorial_blurb": "Hossain, Andrade, Zang, and Chen introduce evidence markets, a new mechanism that generalizes prediction markets to handle two limitations: prices reveal what the crowd believes but not why, and markets require external resolution events with known dates. The system uses a Logarithmic Market Scoring Rule with dynamic liquidity that responds to evidence quality. The authors prove bounded platform loss, show evidence rewards scale with uncertainty, and demonstrate epsilon-dominant strategy incentive compatibility for truthful reporting. An LLM-as-a-Judge verification layer with staking handles operational deployment.",
     "share_quote": "evidence markets reveal not just what the crowd believes, but why",
     "fetch_status": "web"
+  },
+  {
+    "id": 218,
+    "url": "https://x.com/schemacap/status/2064036131205747173",
+    "title": "Every Prediction Market Runs on One of Five Machines. Most Builders Picked the Wrong One.",
+    "author": "Schema Research",
+    "author_twitter": "schemacap",
+    "source_type": "Twitter",
+    "publish_date": "2026-06-08",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "market scoring rules",
+      "parimutuel markets",
+      "market making",
+      "order book",
+      "price discovery"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Augur",
+      "Gnosis",
+      "Omen",
+      "Pump.fun",
+      "Betfair",
+      "Inkling Markets",
+      "Consensus Point",
+      "Microsoft",
+      "Yahoo"
+    ],
+    "editorial_blurb": "Schema Research breaks down the five mechanisms powering every prediction market: LMSR, central limit order books, AMMs, bonding curves, and parimutuel pools. It explains the math behind each, their trade-offs, and how the strongest modern designs combine several mechanisms across different stages of a market's lifecycle.",
+    "share_quote": "most prediction markets fail because builders bet on the wrong machine for price discovery",
+    "fetch_status": "web"
   }
 ]
