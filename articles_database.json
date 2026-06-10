@@ -5233,5 +5233,30 @@
     "editorial_blurb": "Schema Research breaks down the five mechanisms powering every prediction market: LMSR, central limit order books, AMMs, bonding curves, and parimutuel pools. It explains the math behind each, their trade-offs, and how the strongest modern designs combine several mechanisms across different stages of a market's lifecycle.",
     "share_quote": "most prediction markets fail because builders bet on the wrong machine for price discovery",
     "fetch_status": "web"
+  },
+  {
+    "id": 219,
+    "url": "https://x.com/Rashan/status/2064732861194784940",
+    "title": "The Event Is the Market: Today Is a Turning Point for Prediction Markets",
+    "author": "Rashan A. Colbert",
+    "author_twitter": "Rashan",
+    "source_type": "Twitter",
+    "publish_date": "2026-06-10",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "event contracts",
+      "regulatory classification",
+      "market structure",
+      "hedging"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "The CFTC's recent event contract proposal marks a turning point for prediction markets as a new financial asset class, argues Rashan Colbert. Legal classification will determine whether event contracts develop as gambling products or as legitimate event-risk infrastructure for institutions and protocols. Part one of a planned summer series from the former dYdX and Senate policy lead.",
+    "share_quote": "event contracts will become either gambling or institutional hedging infrastructure",
+    "fetch_status": "web"
   }
 ]
