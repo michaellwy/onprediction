@@ -5286,5 +5286,28 @@
     "editorial_blurb": "The first rigorous estimate of U.S. user activity on offshore prediction market platforms finds that ~30% of Polymarket's $55.6B trailing twelve-month volume comes from U.S.-based users. Across all offshore platforms, U.S. activity totals $11-34B, representing 12.5-31.5% of all U.S. prediction market volume. Prepared for the Coalition for Prediction Markets, the report estimates offshore U.S. volume could reach $133B annually by 2030.",
     "share_quote": "nearly a third of polymarket's volume flows from u.s, users beyond regulators' reach",
     "fetch_status": "web"
+  },
+  {
+    "id": 221,
+    "url": "https://jeffreycarter.substack.com/p/prediction-markets-and-nevada-gaming",
+    "title": "Prediction Markets And Nevada Gaming",
+    "author": "Jeffrey Carter",
+    "author_twitter": "pointsnfigures1",
+    "source_type": "Substack",
+    "publish_date": "2026-06-11",
+    "primary_category": "Regulation",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "regulatory classification",
+      "federal preemption",
+      "event contracts"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "A former CME board member who helped negotiate the CFMA 2000 argues for bifurcating prediction market regulation: sports and entertainment betting under state gaming laws, while economically valuable markets (politics, weather, economic releases) stay under CFTC oversight. Makes the case that the all-or-nothing regulatory debate misses a win-win compromise.",
+    "share_quote": "prediction markets need a regulatory split, not an all-or-nothing fight",
+    "fetch_status": "web"
   }
 ]
