@@ -5258,5 +5258,33 @@
     "editorial_blurb": "The CFTC's recent event contract proposal marks a turning point for prediction markets as a new financial asset class, argues Rashan Colbert. Legal classification will determine whether event contracts develop as gambling products or as legitimate event-risk infrastructure for institutions and protocols. Part one of a planned summer series from the former dYdX and Senate policy lead.",
     "share_quote": "event contracts will become either gambling or institutional hedging infrastructure",
     "fetch_status": "web"
+  },
+  {
+    "id": 220,
+    "url": "https://www.cranezeng.com/prediction-markets/research-offshore-prediction-markets",
+    "title": "Research Brief: Estimating U.S. User Activity in Offshore Prediction Markets",
+    "author": "Harry Crane",
+    "author_twitter": "",
+    "source_type": "Blog",
+    "publish_date": "2026-06",
+    "primary_category": "Regulation",
+    "content_type": "Research Paper",
+    "difficulty": "Some",
+    "concepts": [
+      "regulatory arbitrage",
+      "market surveillance",
+      "federal preemption"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Opinion",
+      "Limitless",
+      "Predict",
+      "Myriad Markets"
+    ],
+    "editorial_blurb": "The first rigorous estimate of U.S. user activity on offshore prediction market platforms finds that ~30% of Polymarket's $55.6B trailing twelve-month volume comes from U.S.-based users. Across all offshore platforms, U.S. activity totals $11-34B, representing 12.5-31.5% of all U.S. prediction market volume. Prepared for the Coalition for Prediction Markets, the report estimates offshore U.S. volume could reach $133B annually by 2030.",
+    "share_quote": "nearly a third of polymarket's volume flows from u.s, users beyond regulators' reach",
+    "fetch_status": "web"
   }
 ]
