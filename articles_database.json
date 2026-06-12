@@ -5309,5 +5309,28 @@
     "editorial_blurb": "A former CME board member who helped negotiate the CFMA 2000 argues for bifurcating prediction market regulation: sports and entertainment betting under state gaming laws, while economically valuable markets (politics, weather, economic releases) stay under CFTC oversight. Makes the case that the all-or-nothing regulatory debate misses a win-win compromise.",
     "share_quote": "prediction markets need a regulatory split, not an all-or-nothing fight",
     "fetch_status": "web"
+  },
+  {
+    "id": 222,
+    "url": "https://x.com/chainlink/status/2064831761478226424",
+    "title": "The DeFi Moment for Prediction Markets",
+    "author": "Chainlink",
+    "author_twitter": "chainlink",
+    "source_type": "Twitter",
+    "publish_date": "2026-06-10",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "oracle design",
+      "dispute resolution",
+      "resolution criteria"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Makes the case that prediction markets are hitting the same infrastructure wall DeFi faced in 2020, with the oracle layer as the bottleneck to further growth. Explains the risks of optimistic dispute resolution and how Chainlink's deterministic data streams and AI-hybrid oracles are reducing settlement times from hours to minutes.",
+    "share_quote": "prediction markets are hitting the same oracle bottleneck that nearly broke defi in 2020",
+    "fetch_status": "web"
   }
 ]
