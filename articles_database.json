@@ -5332,5 +5332,34 @@
     "editorial_blurb": "Makes the case that prediction markets are hitting the same infrastructure wall DeFi faced in 2020, with the oracle layer as the bottleneck to further growth. Explains the risks of optimistic dispute resolution and how Chainlink's deterministic data streams and AI-hybrid oracles are reducing settlement times from hours to minutes.",
     "share_quote": "prediction markets are hitting the same oracle bottleneck that nearly broke defi in 2020",
     "fetch_status": "web"
+  },
+  {
+    "id": 223,
+    "url": "https://www.galaxy.com/insights/research/hyperliquid-hip-4-prediction-markets-polymarket-kalshi-analysis",
+    "title": "The Race to Trade Everything",
+    "author": "Will Owens",
+    "author_twitter": "",
+    "source_type": "Company Blog",
+    "publish_date": "2026-06-09",
+    "primary_category": "Platforms",
+    "content_type": "Research Paper",
+    "difficulty": "Some",
+    "concepts": [
+      "platform competition",
+      "market structure",
+      "regulatory classification",
+      "oracle design"
+    ],
+    "platforms_mentioned": [
+      "Hyperliquid",
+      "Polymarket",
+      "Kalshi",
+      "Limitless",
+      "predict.fun",
+      "Opinion"
+    ],
+    "editorial_blurb": "Galaxy Research breaks down Hyperliquid's HIP-4 protocol upgrade and positions it as the arrival of a third major prediction market model alongside Polymarket and Kalshi. Compares the three on infrastructure, fees, UX, oracle design, and regulatory posture across a 35-minute deep dive with live market data.",
+    "share_quote": "hyperliquid's new model challenges polymarket and kalshi on oracle design and regulatory posture",
+    "fetch_status": "web"
   }
 ]
