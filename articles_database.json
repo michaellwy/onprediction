@@ -5361,5 +5361,30 @@
     "editorial_blurb": "Galaxy Research breaks down Hyperliquid's HIP-4 protocol upgrade and positions it as the arrival of a third major prediction market model alongside Polymarket and Kalshi. Compares the three on infrastructure, fees, UX, oracle design, and regulatory posture across a 35-minute deep dive with live market data.",
     "share_quote": "hyperliquid's new model challenges polymarket and kalshi on oracle design and regulatory posture",
     "fetch_status": "web"
+  },
+  {
+    "id": 224,
+    "url": "https://x.com/0xTakeProfits/status/2065407351402738072",
+    "title": "The \"Truth Machine\" That Takes Your Money",
+    "author": "Diego",
+    "author_twitter": "0xTakeProfits",
+    "source_type": "Twitter",
+    "publish_date": "2026-06-12",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "wisdom of crowds",
+      "forecasting accuracy",
+      "price discovery",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Synthesizes four datasets — accuracy metrics, trader PnL, volume concentration, and skill classification — to reveal prediction markets' real structure: a 3% skilled minority drives the accuracy while 84% of traders lose money. A data-rich challenge to the 'wisdom of crowds' narrative.",
+    "share_quote": "prediction markets get their accuracy from 3% skilled traders while 84% lose money",
+    "fetch_status": "web"
   }
 ]
