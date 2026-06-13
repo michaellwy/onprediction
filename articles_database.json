@@ -5386,5 +5386,29 @@
     "editorial_blurb": "Synthesizes four datasets — accuracy metrics, trader PnL, volume concentration, and skill classification — to reveal prediction markets' real structure: a 3% skilled minority drives the accuracy while 84% of traders lose money. A data-rich challenge to the 'wisdom of crowds' narrative.",
     "share_quote": "prediction markets get their accuracy from 3% skilled traders while 84% lose money",
     "fetch_status": "web"
+  },
+  {
+    "id": 225,
+    "url": "https://www.atlanticcouncil.org/blogs/econographics/what-the-us-can-learn-from-europe-on-prediction-markets-and-vice-versa/",
+    "title": "What the US Can Learn from Europe on Prediction Markets—and Vice Versa",
+    "author": "Todd Phillips",
+    "author_twitter": "",
+    "source_type": "Blog",
+    "publish_date": "2026-06-11",
+    "primary_category": "Regulation",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "regulatory classification",
+      "retail flow",
+      "event contracts"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Examines Europe's 2018 binary options ban as a regulatory template for US prediction market legislation. Argues the key question is not whether prediction markets should exist but who should have access — retail traders lose money while institutions use them for hedging. Compares ESMA's framework with pending Congressional bills to map what works on both sides of the Atlantic.",
+    "share_quote": "Europe banned binary options for retail traders; the US should follow suit",
+    "fetch_status": "web"
   }
 ]
