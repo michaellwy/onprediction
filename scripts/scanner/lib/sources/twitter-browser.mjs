@@ -210,14 +210,12 @@ function isAgentAvailable() {
  * Skip networkidle — X keeps polling and never goes idle.
  */
 function navigateTo(url) {
-  agent(["open", url], 25000);
+  agent(["open", url], 12000);
   // Wait for actual tweet articles to render — X loads them async after
-  // navigation finishes. Fall back to a fixed delay if the selector never
-  // appears (login wall, empty results, etc.) so callers still get to probe.
   try {
-    agent(["wait", "article"], 15000);
+    agent(["wait", "article"], 8000);
   } catch (_) {
-    try { agent(["wait", "5000"], 8000); } catch (_) {}
+    try { agent(["wait", "3000"], 5000); } catch (_) {}
   }
 }
 
@@ -283,13 +281,13 @@ function extractTweetsFromPage() {
   try {
     const probe = agent(
       ["eval", "JSON.stringify({url: location.href, n: document.querySelectorAll('article').length})"],
-      5000
+      3000
     );
     console.warn("[twitter-browser] page probe: " + probe);
   } catch (_) {}
 
   try {
-    const raw = agent(["eval", EXTRACT_TWEETS_JS], 30000);
+    const raw = agent(["eval", EXTRACT_TWEETS_JS], 20000);
     const tweets = decodeEvalResult(raw);
     if (!Array.isArray(tweets)) return [];
     return tweets;
@@ -414,13 +412,17 @@ export async function fetchTwitterBrowser() {
     return [];
   }
 
+  // Hard overall timeout: abort after 25s to avoid blocking the scheduled scan
+  let timedOut = false;
+  const overallTimeout = setTimeout(() => { timedOut = true; }, 25000);
+
   const cutoff = new Date(Date.now() - lookbackHours * 3600000);
   const allItems = [];
   const seenIds = new Set();
   let loginDetected = false;
 
   for (const query of queries) {
-    if (loginDetected) break;
+    if (loginDetected || timedOut) break;
 
     const queryItems = [];
 
@@ -491,9 +493,12 @@ export async function fetchTwitterBrowser() {
   }
 
   // Cleanup browser
+  clearTimeout(overallTimeout);
   try {
     agent(["close"], 5000);
   } catch (_) {}
+
+  if (timedOut) console.warn("[twitter-browser] Overall timeout reached — returned early");
 
   return allItems;
 }

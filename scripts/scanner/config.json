@@ -43,13 +43,8 @@
     },
     "twitter_browser": {
       "search_queries": [
-        "prediction market article",
-        "prediction markets analysis",
         "polymarket",
-        "kalshi",
-        "futarchy",
-        "information aggregation market",
-        "prediction market design"
+        "prediction market"
       ],
       "max_tweets_per_query": 20,
       "lookback_hours": 24
