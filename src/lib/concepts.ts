@@ -31,6 +31,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "dispute resolution": "oracle",
   "resolution criteria": "oracle",
   "UMA protocol": "oracle",
+  "corporate prediction markets": "business",
   "corruption value multiple": "oracle",
   "self-resolving markets": "oracle",
 

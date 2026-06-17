@@ -5433,5 +5433,28 @@
     "editorial_blurb": "Polymarket matches orders off-chain for speed but settles on-chain for finality. This paper identifies a consistency gap they call Ghost Fills — orders matched off-chain that fail during on-chain settlement. Across 1.95M reverted transactions, the authors document four attack vectors that let traders selectively invalidate orders, realizing $1.49M in profit with 24.3% of filled orders reverting during peak hours.",
     "share_quote": "polymarket's off-chain matching creates a $1.49 million loophole for traders to selectively invalidate orders",
     "fetch_status": "web"
+  },
+  {
+    "id": 227,
+    "url": "https://thefintercept.substack.com/p/the-case-for-prediction-markets-a",
+    "title": "The Case for Prediction Markets: A Forecasting Tool Corporate Finance Can't Ignore",
+    "author": "Shai Novik",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-06-16",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "corporate prediction markets",
+      "info finance",
+      "decision markets"
+    ],
+    "platforms_mentioned": [
+      "Rain"
+    ],
+    "editorial_blurb": "Makes the case for prediction markets as a corporate treasury and forecasting tool, backed by data on 127x volume growth from 2022 to 2025. Profiles Enlivex's use of the Rain protocol on Arbitrum as its primary reserve asset, and traces how prediction markets are displacing expert opinion in pharma, climate science, and supply chain management.",
+    "share_quote": "prediction markets are replacing expert opinion across pharma, climate, and supply chains",
+    "fetch_status": "web"
   }
 ]
