@@ -1,10 +1,11 @@
 /**
- * Twitter/X content source that uses the agent-browser CLI to search X.com
- * and extract content without a paid API. Simulates human browsing.
+ * Twitter/X content source that uses Firecrawl v2 API to search and scrape
+ * X.com content without a paid API or headless browser.
  *
- * Requires agent-browser to be installed locally (npm install -g agent-browser).
- * In CI environments where agent-browser is unavailable, returns gracefully.
- * When X requires login, logs a warning and returns empty.
+ * Replaces the old agent-browser approach which blocked the Node event loop
+ * with execFileSync and required a saved X login session.
+ *
+ * Uses Firecrawl's free tier (no API key needed for v2 endpoints).
  *
  * Reads config from config.json sources.twitter_browser:
  *   - search_queries: array of search queries
@@ -13,140 +14,16 @@
  */
 
 import { readFileSync } from "fs";
-import { execFileSync } from "child_process";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import https from "https";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
-const SESSION_NAME = process.env.AGENT_BROWSER_SESSION_NAME || "onprediction-x";
-
-// ---------------------------------------------------------------------------
-// Eval JavaScript snippets (run in browser context via agent-browser eval)
-// We use eval rather than parsing the accessibility tree snapshot because
-// eval gives us direct access to the DOM and structured data, which is
-// significantly more reliable than inferring tweet structure from the
-// tree-format snapshot text. Snapshot is used for login-wall detection.
-// ---------------------------------------------------------------------------
-
-const EXTRACT_TWEETS_JS = `
-(() => {
-  const results = [];
-  const seenUrls = new Set();
-
-  var parseAbbr = function(s) {
-    if (!s) return 0;
-    var t = s.replace(/,/g, '').trim();
-    if (!t || !/^[\\d.]+[KMB]?$/i.test(t)) return 0;
-    var n = parseFloat(t.replace(/[KMB]/i, ''));
-    if (isNaN(n)) return 0;
-    if (/B$/i.test(t)) return Math.round(n * 1e9);
-    if (/M$/i.test(t)) return Math.round(n * 1e6);
-    if (/K$/i.test(t)) return Math.round(n * 1e3);
-    return Math.round(n);
-  };
-
-  var articles = document.querySelectorAll('article');
-  for (var i = 0; i < articles.length; i++) {
-    try {
-      var article = articles[i];
-      var linkEl = article.querySelector('a[href*="/status/"]');
-      if (!linkEl) continue;
-      var href = linkEl.getAttribute('href');
-      if (!href) continue;
-
-      var match = href.match(/\\/status\\/(\\d+)/);
-      if (!match) continue;
-
-      var tweetId = match[1];
-      var url = href.indexOf('http') === 0 ? href : 'https://x.com' + href;
-      if (seenUrls.has(url)) continue;
-      seenUrls.add(url);
-
-      // Author @handle
-      var handle = '';
-      var userNameEl = article.querySelector('[data-testid="User-Name"]');
-      if (userNameEl) {
-        var hMatch = (userNameEl.textContent || '').match(/@(\\w+)/);
-        if (hMatch) handle = hMatch[1];
-      }
-      if (!handle) {
-        var hMatch2 = (linkEl.textContent || '').match(/@(\\w+)/);
-        if (hMatch2) handle = hMatch2[1];
-      }
-
-      // Tweet text
-      var textEl = article.querySelector('[data-testid="tweetText"]');
-      var text = textEl ? (textEl.textContent || '').trim() : '';
-
-      // Timestamp
-      var timeEl = article.querySelector('time');
-      var publishedAt = timeEl ? timeEl.getAttribute('datetime') : null;
-
-      // Engagement counts
-      var replies = 0, retweets = 0, likes = 0;
-
-      var getCount = function(sel) {
-        var el = article.querySelector(sel);
-        if (!el) return 0;
-        var label = el.getAttribute('aria-label') || '';
-        if (label) {
-          var m = label.match(/([\\d,]+(?:\\.[\\d]+)?[KMB]?)/i);
-          if (m) return parseAbbr(m[1]);
-        }
-        var txt = (el.textContent || '').trim();
-        if (!txt) return 0;
-        return parseAbbr(txt);
-      };
-
-      replies = getCount('[data-testid="reply"]');
-      retweets = getCount('[data-testid="retweet"]');
-      likes = getCount('[data-testid="like"]');
-
-      // Detect X Article link
-      var isXArticle = false;
-      var articleUrl = null;
-      var allLinks = article.querySelectorAll('a');
-      for (var j = 0; j < allLinks.length; j++) {
-        var ah = (allLinks[j].getAttribute('href') || '');
-        if (ah.indexOf('/article/') !== -1) {
-          isXArticle = true;
-          articleUrl = ah.indexOf('http') === 0 ? ah : 'https://x.com' + ah;
-          break;
-        }
-      }
-
-      results.push({
-        id: tweetId,
-        author: handle,
-        text: text,
-        url: url,
-        replies: replies,
-        retweets: retweets,
-        likes: likes,
-        publishedAt: publishedAt,
-        isXArticle: isXArticle,
-        articleUrl: articleUrl
-      });
-    } catch (_) {}
-  }
-
-  return JSON.stringify(results);
-})();
-`;
-
-const EXTRACT_XARTICLE_JS = `
-(() => {
-  var titleEl = document.querySelector('article h1, article h2');
-  var title = titleEl ? titleEl.textContent.trim() : '';
-  var articleEl = document.querySelector('article');
-  var body = articleEl ? articleEl.textContent.trim() : '';
-  return JSON.stringify({ title: title, body: body });
-})();
-`;
+const FIRECRAWL_HOST = "api.firecrawl.dev";
+const FIRECRAWL_PATH = "/v2";
 
 // ---------------------------------------------------------------------------
-// Helpers
+// Config
 // ---------------------------------------------------------------------------
 
 let _config = null;
@@ -165,203 +42,199 @@ function getTwitterConfig() {
   return (cfg.sources && cfg.sources.twitter_browser) || {};
 }
 
-/**
- * Run an agent-browser command synchronously.
- * Returns stdout trimmed. Throws on non-zero exit or timeout.
- * Always passes --session-name so cron-context invocations inherit the saved X login.
- */
-function agent(args, timeout) {
-  timeout = timeout || 30000;
-  const fullArgs = ["--session-name", SESSION_NAME, ...args];
-  const stdout = execFileSync("agent-browser", fullArgs, {
-    timeout: timeout,
-    encoding: "utf-8",
-    stdio: ["pipe", "pipe", "pipe"],
-    env: { ...process.env, AGENT_BROWSER_SESSION_NAME: SESSION_NAME },
-    windowsHide: true,
-  });
-  return stdout.trim();
-}
+// ---------------------------------------------------------------------------
+// HTTPS request helper (avoids Node fetch bugs in module context)
+// ---------------------------------------------------------------------------
 
-/**
- * Check whether agent-browser CLI is installed.
- * --version doesn't accept --session-name, so invoke directly.
- */
-function isAgentAvailable() {
-  try {
-    execFileSync("agent-browser", ["--version"], {
-      timeout: 5000,
-      stdio: "ignore",
-      windowsHide: true,
+function httpsRequest(method, pathname, bodyData, timeoutMs) {
+  return new Promise((resolve, reject) => {
+    const body = bodyData ? JSON.stringify(bodyData) : null;
+    const apiKey = process.env.FIRECRAWL_API_KEY;
+
+    const options = {
+      hostname: FIRECRAWL_HOST,
+      path: FIRECRAWL_PATH + pathname,
+      method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      timeout: timeoutMs || 15000,
+    };
+
+    if (apiKey) {
+      options.headers["Authorization"] = `Bearer ${apiKey}`;
+    }
+
+    if (body) {
+      options.headers["Content-Length"] = Buffer.byteLength(body);
+    }
+
+    const req = https.request(options, (res) => {
+      let data = "";
+      res.on("data", (chunk) => (data += chunk));
+      res.on("end", () => {
+        try {
+          resolve({ status: res.statusCode, body: JSON.parse(data) });
+        } catch {
+          resolve({ status: res.statusCode, body: data });
+        }
+      });
     });
-    return true;
-  } catch (err) {
-    return false;
-  }
+
+    req.on("error", (err) => reject(err));
+    req.on("timeout", () => {
+      req.destroy();
+      reject(new Error("Request timeout"));
+    });
+
+    if (body) req.write(body);
+    req.end();
+  });
 }
 
 // ---------------------------------------------------------------------------
-// Page interaction
+// Firecrawl API helpers
 // ---------------------------------------------------------------------------
 
 /**
- * Navigate to a URL, then wait for a short render buffer.
- * Catches timeouts silently so callers don't crash on slow pages.
- * Skip networkidle — X keeps polling and never goes idle.
+ * Search Firecrawl for X.com content matching a query.
  */
-function navigateTo(url) {
-  agent(["open", url], 12000);
-  // Wait for actual tweet articles to render — X loads them async after
-  try {
-    agent(["wait", "article"], 8000);
-  } catch (_) {
-    try { agent(["wait", "3000"], 5000); } catch (_) {}
+async function firecrawlSearch(searchQuery, limit) {
+  const { status, body } = await httpsRequest("POST", "/search", {
+    query: `site:x.com ${searchQuery}`,
+    limit: Math.min(limit, 20),
+  });
+
+  if (status !== 200) {
+    const msg = typeof body === "object" ? JSON.stringify(body) : String(body);
+    throw new Error(`Firecrawl search returned ${status}: ${msg}`);
   }
+
+  return (body.data && body.data.web) || [];
 }
 
 /**
- * Evaluate JavaScript in the browser page context via agent-browser eval.
- * Handles agent-browser's double-encoded JSON-stringify semantics.
+ * Scrape an individual X.com tweet URL via Firecrawl to get
+ * structured markdown with author, timestamp, likes, retweets.
  */
-function pageEval(js) {
+async function firecrawlScrape(tweetUrl) {
   try {
-    const raw = agent(["eval", js], 15000);
-    return decodeEvalResult(raw);
-  } catch (_) {
+    const { status, body } = await httpsRequest("POST", "/scrape", {
+      url: tweetUrl,
+    }, 20000);
+
+    if (status !== 200) return null;
+    return body.data || null;
+  } catch {
     return null;
   }
 }
 
-/**
- * Detect whether X is showing a login/signup wall that prevents search.
- * Checks both the current URL and the presence of signup-wall text.
- * LOGIN_CACHED: after first successful check, skip re-checking.
- */
-let _loginChecked = false;
-
-function isLoginRequired() {
-  if (_loginChecked) return false;
-  try {
-    const url = agent(["get", "url"], 5000);
-    if (url.indexOf("/i/flow/login") !== -1 || url.indexOf("login") !== -1) {
-      return true;
-    }
-    const hasLoginWall = pageEval(
-      "JSON.stringify(!!document.body.innerText.match(/Happening now|Join today|Create account|Sign in to/))"
-    );
-    if (hasLoginWall === "true" || hasLoginWall === true) return true;
-    _loginChecked = true;
-    return false;
-  } catch (_) {
-    _loginChecked = true;
-    return false;  // assume logged in if check fails (avoid infinite retries)
-  }
-}
-
-/**
- * Extract tweet data from the current search results page using eval.
- * Returns an array of tweet objects (may be empty).
- */
-/**
- * Decode an agent-browser eval result. The CLI returns the result already
- * JSON-stringified, so when our eval JS itself does JSON.stringify(...), we
- * get a double-encoded string. First parse gives the inner JSON string;
- * second parse gives the object/array.
- */
-function decodeEvalResult(raw) {
-  let parsed = JSON.parse(raw);
-  if (typeof parsed === "string") {
-    try { parsed = JSON.parse(parsed); } catch (_) {}
-  }
-  return parsed;
-}
-
-function extractTweetsFromPage() {
-  // Diagnostic probe: distinguish "page didn't load" from "extraction broke"
-  try {
-    const probe = agent(
-      ["eval", "JSON.stringify({url: location.href, n: document.querySelectorAll('article').length})"],
-      3000
-    );
-    console.warn("[twitter-browser] page probe: " + probe);
-  } catch (_) {}
-
-  try {
-    const raw = agent(["eval", EXTRACT_TWEETS_JS], 20000);
-    const tweets = decodeEvalResult(raw);
-    if (!Array.isArray(tweets)) return [];
-    return tweets;
-  } catch (_) {
-    return [];
-  }
-}
-
 // ---------------------------------------------------------------------------
-// X Article handling
+// Parsing helpers
 // ---------------------------------------------------------------------------
 
 /**
- * Navigate to an X Article URL, extract its title and full body text.
- * Opens a new tab, extracts, closes the tab, and returns content.
- * Returns { title: string, body: string } with empty strings on failure.
+ * Parse Firecrawl scrape markdown into a structured tweet object.
+ * Expected format from v2/scrape:
+ *
+ *   # Post by @author
+ *   Author: display-name @handle
+ *   Posted: 2026-06-17T12:06:53.000Z
+ *   URL: https://x.com/user/status/123
+ *   Likes: 266 | Retweets: 11
+ *
+ *   ## Post
+ *   tweet text here
  */
-function extractXArticleContent(articleUrl) {
-  try {
-    agent(["tab", "new"], 10000);
-    try { agent(["wait", "500"], 3000); } catch (_) {}
-    navigateTo(articleUrl);
-    const content = extractXArticleBody();
-    try { agent(["tab", "close"], 10000); } catch (_) {}
-    return content;
-  } catch (err) {
-    try { agent(["tab", "close"], 5000); } catch (_) {}
-    return { title: "", body: "" };
-  }
+function parseTweetScrape(scrapeData) {
+  if (!scrapeData || !scrapeData.markdown) return null;
+
+  const md = scrapeData.markdown;
+
+  // Extract tweet ID from URL
+  const urlMatch = md.match(/URL:\s*(https?:\/\/[^\s]+)/);
+  const url = urlMatch ? urlMatch[1].replace(/\\/g, "") : "";
+
+  const idMatch = url.match(/\/status\/(\d+)/);
+  if (!idMatch) return null;
+  const tweetId = idMatch[1];
+
+  // Author handle
+  const authorMatch = md.match(/@(\w+)/);
+  const handle = authorMatch ? authorMatch[1] : "";
+
+  // Timestamp
+  const tsMatch = md.match(/Posted:\s*([^\n]+)/);
+  const publishedAt = tsMatch ? tsMatch[1].trim() : null;
+
+  // Engagement
+  const likesMatch = md.match(/Likes:\s*([\d,.]+)/);
+  const retweetsMatch = md.match(/Retweets:\s*([\d,.]+)/);
+  const likes = likesMatch ? parseInt(likesMatch[1].replace(/,/g, "")) || 0 : 0;
+  const retweets = retweetsMatch ? parseInt(retweetsMatch[1].replace(/,/g, "")) || 0 : 0;
+
+  // Tweet text — everything under "## Post" or "## Post\n\n" block
+  const textMatch = md.match(/## Post\n+([\s\S]*)/);
+  let text = textMatch ? textMatch[1].trim() : "";
+
+  // Clean up escaped characters from Firecrawl's markdown
+  text = text.replace(/\\([#_*[\]()])/g, "$1");
+
+  // Remove trailing junk (suggested follows, sign-up prompts)
+  const junkIdx = text.search(/\n\nSee new posts|Sign up|Get the app/i);
+  if (junkIdx > 0) text = text.slice(0, junkIdx).trim();
+
+  return {
+    id: tweetId,
+    author: handle,
+    text: text,
+    url: url,
+    likes: likes,
+    retweets: retweets,
+    publishedAt: publishedAt,
+  };
 }
 
 /**
- * Extract title and body text from the current page.
+ * Parse tweet data from a Firecrawl search result as fallback.
  */
-function extractXArticleBody() {
-  try {
-    const raw = agent(["eval", EXTRACT_XARTICLE_JS], 20000);
-    const parsed = decodeEvalResult(raw);
-    if (parsed && typeof parsed === "object") {
-      return {
-        title: (parsed.title || "").trim(),
-        body: (parsed.body || "").trim(),
-      };
-    }
-  } catch (_) {}
-  return { title: "", body: "" };
+function parseSearchResult(item) {
+  const url = item.url || "";
+  const idMatch = url.match(/\/status\/(\d+)/);
+  if (!idMatch) return null;
+
+  const handleMatch = url.match(/x\.com\/(\w+)\/status/);
+  const author = handleMatch ? handleMatch[1] : "";
+
+  return {
+    id: idMatch[1],
+    author: author,
+    text: item.description || "",
+    url: url,
+    likes: 0,
+    retweets: 0,
+    publishedAt: null,
+  };
 }
 
 // ---------------------------------------------------------------------------
-// ContentItem factory
+// ContentItem builder (matches existing scanner interface)
 // ---------------------------------------------------------------------------
 
-/**
- * Build a ContentItem from a raw tweet object and optional X Article content.
- */
-function buildContentItem(tweet, xArticleContent) {
-  let title = "";
-  if (xArticleContent && xArticleContent.title) {
-    title = xArticleContent.title;
-  } else if (tweet.text) {
-    title = tweet.text.split("\n")[0].slice(0, 120).trim();
-  }
-
-  let text = tweet.text || "";
-  if (xArticleContent && xArticleContent.body && xArticleContent.body.length > text.length) {
-    text = xArticleContent.body;
-  }
-  text = text.slice(0, 500);
+function buildContentItem(tweet) {
+  let title = tweet.text ? tweet.text.split("\n")[0].slice(0, 120).trim() : "";
+  let text = (tweet.text || "").slice(0, 500);
 
   return {
     id: tweet.id,
     title: title,
     url: tweet.url,
-    author: tweet.author.indexOf("@") === 0 ? tweet.author : "@" + tweet.author,
+    author: tweet.author
+      ? tweet.author.indexOf("@") === 0
+        ? tweet.author
+        : "@" + tweet.author
+      : "",
     text: text,
     published_at: tweet.publishedAt,
     source_type: "twitter",
@@ -369,7 +242,7 @@ function buildContentItem(tweet, xArticleContent) {
     engagement: {
       likes: tweet.likes || 0,
       shares: tweet.retweets || 0,
-      comments: tweet.replies || 0,
+      comments: 0,
     },
   };
 }
@@ -379,13 +252,13 @@ function buildContentItem(tweet, xArticleContent) {
 // ---------------------------------------------------------------------------
 
 /**
- * Fetch tweets and X Articles via browser automation.
+ * Fetch tweets from X.com via Firecrawl v2 API.
  *
  * For each search query:
- *   1. Navigate to X search (live/latest tab)
- *   2. Detect login wall; if present, warn and stop
- *   3. Extract tweet data via page eval
- *   4. For tweets linking to X Articles, navigate and extract the article body
+ *   1. Search Firecrawl for X.com content
+ *   2. Filter to individual tweet URLs (/status/)
+ *   3. Scrape each tweet for full content
+ *   4. Fall back to search result data if scraping fails
  *   5. Filter by lookback_hours and cap at max_tweets_per_query
  *
  * Never throws. Returns an array of ContentItem objects (possibly empty).
@@ -393,112 +266,92 @@ function buildContentItem(tweet, xArticleContent) {
  * @returns {Promise<Array>} Array of ContentItem objects
  */
 export async function fetchTwitterBrowser() {
-  // Check agent-browser availability
-  if (!isAgentAvailable()) {
-    console.warn(
-      "[twitter-browser] agent-browser CLI not found. " +
-      "Skipping Twitter browser source. Install with: npm install -g agent-browser"
-    );
-    return [];
-  }
-
   const cfg = getTwitterConfig();
   const queries = cfg.search_queries || [];
   const maxPerQuery = cfg.max_tweets_per_query ?? 20;
   const lookbackHours = cfg.lookback_hours ?? 24;
 
   if (!queries.length) {
-    console.warn("[twitter-browser] No search_queries configured in config.json sources.twitter_browser");
+    console.warn(
+      "[twitter-firecrawl] No search_queries configured in config.json sources.twitter_browser"
+    );
     return [];
   }
-
-  // Hard overall timeout: abort after 25s to avoid blocking the scheduled scan
-  let timedOut = false;
-  const overallTimeout = setTimeout(() => { timedOut = true; }, 25000);
 
   const cutoff = new Date(Date.now() - lookbackHours * 3600000);
   const allItems = [];
   const seenIds = new Set();
-  let loginDetected = false;
+  let rateLimited = false;
 
   for (const query of queries) {
-    if (loginDetected || timedOut) break;
+    if (allItems.length >= maxPerQuery) break;
 
-    const queryItems = [];
-
+    let results;
     try {
-      const searchUrl =
-        "https://x.com/search?q=" +
-        encodeURIComponent(query) +
-        "&f=live&src=typed_query";
-
-      navigateTo(searchUrl);
-
-      // Check for login wall before attempting extraction
-      if (isLoginRequired()) {
-        console.warn(
-          "[twitter-browser] X requires login to search. " +
-          "Log into X in a browser profile that agent-browser can reuse " +
-          "(e.g. via --profile or --session-name). Skipping all queries."
-        );
-        loginDetected = true;
-        break;
-      }
-
-      // Extract tweets from the page
-      const tweets = extractTweetsFromPage();
-      if (!tweets.length) {
-        console.warn("[twitter-browser] No tweets found for query: " + JSON.stringify(query));
-        continue;
-      }
-
-      // Process X Articles linked from these tweets
-      const xArticleTweets = tweets.filter(function (t) {
-        return t.isXArticle && t.articleUrl;
-      });
-      const xArticleCache = {};
-      for (var k = 0; k < xArticleTweets.length; k++) {
-        var xt = xArticleTweets[k];
-        var content = extractXArticleContent(xt.articleUrl);
-        xArticleCache[xt.id] = content;
-      }
-
-      // Build ContentItems, applying dedup, lookback filter, and per-query cap
-      for (var m = 0; m < tweets.length; m++) {
-        if (queryItems.length >= maxPerQuery) break;
-
-        var tweet = tweets[m];
-        if (seenIds.has(tweet.id)) continue;
-        if (!tweet.publishedAt) continue;
-
-        var published = new Date(tweet.publishedAt);
-        if (isNaN(published.getTime()) || published < cutoff) continue;
-
-        seenIds.add(tweet.id);
-
-        var articleContent = xArticleCache[tweet.id] || null;
-        var item = buildContentItem(tweet, articleContent);
-        queryItems.push(item);
-      }
-
+      results = await firecrawlSearch(query, maxPerQuery * 2);
       console.warn(
-        "[twitter-browser] Query " + JSON.stringify(query) + ": " + queryItems.length + " items"
+        `[twitter-firecrawl] Query "${query}": ${results.length} search results`
       );
-      allItems.push.apply(allItems, queryItems);
     } catch (err) {
-      console.warn(
-        "[twitter-browser] Error processing query " + JSON.stringify(query) + ": " + err.message
-      );
+      console.warn(`[twitter-firecrawl] Search failed for "${query}": ${err.message}`);
+      if (err.message.includes("429") || err.message.includes("rate limit") || err.message.includes("today's limit")) {
+        rateLimited = true;
+      }
+      continue;
+    }
+
+    // Filter to individual tweet URLs (/status/)
+    const tweetUrls = results
+      .map((r) => r.url || "")
+      .filter((u) => u.includes("/status/"))
+      .slice(0, maxPerQuery);
+
+    console.warn(
+      `[twitter-firecrawl] Query "${query}": ${tweetUrls.length} tweet URLs to scrape`
+    );
+
+    // Scrape individual tweets for rich data
+    const resultsMap = new Map(results.map((r) => [r.url, r]));
+    const scrapePromises = tweetUrls.map(async (url) => {
+      try {
+        const scrapeData = await firecrawlScrape(url);
+        const parsed = parseTweetScrape(scrapeData);
+        if (parsed) return parsed;
+
+        // Fallback to search result data
+        const searchItem = resultsMap.get(url);
+        return searchItem ? parseSearchResult(searchItem) : null;
+      } catch {
+        const searchItem = resultsMap.get(url);
+        return searchItem ? parseSearchResult(searchItem) : null;
+      }
+    });
+
+    const scrapedTweets = (await Promise.all(scrapePromises)).filter(Boolean);
+
+    // Build ContentItems with dedup + lookback filter
+    for (const tweet of scrapedTweets) {
+      if (seenIds.has(tweet.id)) continue;
+      if (allItems.length >= maxPerQuery) break;
+
+      if (tweet.publishedAt) {
+        const published = new Date(tweet.publishedAt);
+        if (!isNaN(published.getTime()) && published < cutoff) continue;
+      }
+
+      seenIds.add(tweet.id);
+      allItems.push(buildContentItem(tweet));
     }
   }
 
-  // Cleanup browser
-  clearTimeout(overallTimeout);
-  try {
-    agent(["close"], 5000);
-  } catch (_) {}
+  if (rateLimited) {
+    console.warn(
+      `[twitter-firecrawl] Firecrawl free tier rate limit reached. ` +
+      `Set FIRECRAWL_API_KEY in .env.local for 1000 free credits/month with higher rate limits. ` +
+      `Get one at https://firecrawl.dev`
+    );
+  }
 
-  if (timedOut) console.warn("[twitter-browser] Overall timeout reached — returned early");
-
+  console.warn(`[twitter-firecrawl] Total: ${allItems.length} items`);
   return allItems;
 }
