@@ -5410,5 +5410,28 @@
     "editorial_blurb": "Examines Europe's 2018 binary options ban as a regulatory template for US prediction market legislation. Argues the key question is not whether prediction markets should exist but who should have access — retail traders lose money while institutions use them for hedging. Compares ESMA's framework with pending Congressional bills to map what works on both sides of the Atlantic.",
     "share_quote": "Europe banned binary options for retail traders; the US should follow suit",
     "fetch_status": "web"
+  },
+  {
+    "id": 226,
+    "url": "https://arxiv.org/abs/2606.16852",
+    "title": "The Ghosts of Polymarket: When Off-Chain Matches Meet On-Chain Reverts",
+    "author": "Yiming Shen, Yuhan Jin, Shuohan Wu, Yanlin Wang, Jiachi Chen",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-06-15",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Some",
+    "concepts": [
+      "market manipulation",
+      "arbitrage",
+      "order book"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Polymarket matches orders off-chain for speed but settles on-chain for finality. This paper identifies a consistency gap they call Ghost Fills — orders matched off-chain that fail during on-chain settlement. Across 1.95M reverted transactions, the authors document four attack vectors that let traders selectively invalidate orders, realizing $1.49M in profit with 24.3% of filled orders reverting during peak hours.",
+    "share_quote": "polymarket's off-chain matching creates a $1.49 million loophole for traders to selectively invalidate orders",
+    "fetch_status": "web"
   }
 ]
