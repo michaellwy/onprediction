@@ -20,9 +20,7 @@ import { sendDigest } from "./lib/telegram.mjs";
 import { fetchRSS } from "./lib/sources/rss.mjs";
 import { fetchArxiv } from "./lib/sources/arxiv.mjs";
 import { fetchHackerNews } from "./lib/sources/hackernews.mjs";
-// Twitter browser source is skipped — agent-browser consistently times out
-// in the scanner context due to execFileSync blocking the event loop.
-// Run it manually when needed.
+import { fetchTwitterBrowser } from "./lib/sources/twitter-browser.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -81,12 +79,16 @@ async function main() {
       return { source: "hackernews", items: filtered };
     })(),
 
-    // Twitter via browser — DISABLED: agent-browser execFileSync blocks
-    // the event loop and consistently hangs in the scanner context.
-    // Run manually: node scripts/scanner/lib/sources/twitter-browser.mjs
+    // Twitter via browser (reduced timeouts + limited queries for reliability)
     (async () => {
-      console.log("  twitter-browser: skipped (agent-browser unreliable in scanner context)");
-      return { source: "twitter_browser", items: [] };
+      const items = await fetchTwitterBrowser();
+      // X Articles are long-form — skip heuristic filter, let AI judge them.
+      const xArticles = items.filter(t => t.source_name === "X Article");
+      const regular = items.filter(t => t.source_name !== "X Article");
+      const filteredRegular = filterTweets(regular, config.heuristic_filters, seenIds);
+      const allTwitter = [...xArticles, ...filteredRegular];
+      console.log(`  twitter-browser: ${items.length} items → ${allTwitter.length} after filters (${xArticles.length} X Articles, ${filteredRegular.length} regular)`);
+      return { source: "twitter_browser", items: allTwitter };
     })()
   ]);
 
