@@ -14,6 +14,7 @@
   "continuous double auction": "A trading mechanism where buy and sell orders are matched immediately as they arrive, with price-time priority determining execution order.",
   "continuous prediction markets": "Prediction markets with continuous payout curves that resolve along a spectrum instead of a binary yes/no, allowing traders to express shaped beliefs about where an outcome will land.",
   "corporate prediction markets": "Internal or external prediction markets used by companies for forecasting, decision-making, and treasury management, distinct from retail-facing political or sports markets.",
+  "correlation": "",
   "corruption value multiple": "The ratio of economic value at stake outside a market versus the cost of corrupting its oracle.",
   "covariance markets": "Markets that trade on the correlation between events, allowing positions on how outcomes relate to each other.",
   "credibility markets": "Markets where participants stake on the accuracy of claims or sources, building continuously updated trust scores rather than static reputations. Treats trustworthiness as a tradeable probability over time.",

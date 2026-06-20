@@ -128,6 +128,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "position collateralization": "mechanism",
   "nowcasting": "information",
   "endogeneity": "information",
+  "correlation": "information",
   "evidence markets": "mechanism",
 };
 
