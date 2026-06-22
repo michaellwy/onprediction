@@ -73,9 +73,8 @@ function toBulletLine(sentence) {
   let s = sentence.trim();
   // Strip trailing punctuation.
   s = s.replace(/[.!?]+$/, "");
-  // Lowercase only the first character. Preserve internal capitals (names,
-  // acronyms like UMA, LMSR, MetaDAO).
-  if (s.length > 0) s = s[0].toLowerCase() + s.slice(1);
+  // Don't lowercase the first character — the &gt; prefix already signals
+  // continuation, and lowercasing can mangle proper nouns like "Terry Lee".
   return s;
 }
 
@@ -89,7 +88,7 @@ function buildMessage(article) {
 
   let msg = `<b>${title}</b>`;
   msg += `\n${link}`;
-  if (bullets.length > 0) msg += `\n\n${bullets.join("\n")}`;
+  if (bullets.length > 0) msg += `\n\n${bullets.join("\n\n")}`;
   msg += `\n\n<i>more on <a href="https://onprediction.xyz">onprediction.xyz</a></i>`;
   return msg;
 }

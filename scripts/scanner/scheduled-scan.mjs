@@ -41,6 +41,7 @@ if (existsSync(envPath)) {
 
 const config = JSON.parse(readFileSync(join(__dirname, "config.json"), "utf-8"));
 const lookbackHours = 48;
+const recencyCutoff = new Date(Date.now() - lookbackHours * 60 * 60 * 1000);
 
 async function main() {
   const startTime = Date.now();
@@ -106,11 +107,18 @@ async function main() {
     allCandidates.push(...items);
   }
 
-  // Deduplicate across sources (by URL)
+  // Deduplicate across sources (by URL) and enforce recency
   const seenUrls = new Set();
   const deduped = [];
   for (const item of allCandidates) {
     if (!item.url || seenUrls.has(item.url)) continue;
+    // Secondary recency check — skip items without a valid date or older than lookback
+    if (item.published_at) {
+      const d = new Date(item.published_at);
+      if (isNaN(d.getTime()) || d < recencyCutoff) continue;
+    } else {
+      continue; // No date at all — can't verify recency
+    }
     seenUrls.add(item.url);
     deduped.push(item);
   }

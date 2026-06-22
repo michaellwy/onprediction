@@ -43,10 +43,12 @@
     },
     "twitter_browser": {
       "search_queries": [
-        "polymarket",
-        "prediction market"
+        "polymarket volume",
+        "prediction market 2026",
+        "kalshi news",
+        "futarchy prediction"
       ],
-      "max_tweets_per_query": 20,
+      "max_tweets_per_query": 15,
       "lookback_hours": 24
     }
   },

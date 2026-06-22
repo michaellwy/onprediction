@@ -5504,5 +5504,28 @@
     "editorial_blurb": "Lattica designs a shortfall-pricing risk engine that enables lending against collateralized prediction market positions, calibrated on Polymarket historical data. Uses Wang-distorted loss distributions within fixed-duration epochs to price lender tail risk where traditional liquidation-based lending fails due to bounded prices and discontinuous repricing. A dual-pool Monte Carlo simulation shows the risk engine pool earning 92.5% annualized return versus -27.2% for a flat-rate baseline.",
     "fetch_status": "web",
     "share_quote": "lending against prediction market positions demands a new risk engine where liquidation fails"
+  },
+  {
+    "id": 230,
+    "url": "https://yaicapital.substack.com/p/introducing-yai-markets",
+    "title": "Introducing: Yai Markets",
+    "author": "Yai Capital",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-06-22",
+    "primary_category": "Platforms",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "platform competition",
+      "liquidity provision",
+      "hedging",
+      "adverse selection"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Yai Capital announces Yai Markets, a DeFi-native prediction market infrastructure built on Solana targeting advanced traders and institutional liquidity providers. The post outlines three key innovations including synchronous crankless execution, atomic smart circuit breakers, and cross-protocol atomic hedging, positioning the platform as a successor to Polymarket's hybrid Web2/Web3 architecture.",
+    "share_quote": "prediction markets need native hedging rails to survive adverse selection"
   }
 ]

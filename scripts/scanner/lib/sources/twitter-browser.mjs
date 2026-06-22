@@ -5,7 +5,7 @@
  * Replaces the old agent-browser approach which blocked the Node event loop
  * with execFileSync and required a saved X login session.
  *
- * Uses Firecrawl's free tier (no API key needed for v2 endpoints).
+ * Falls back to DuckDuckGo via ddgs Python library when Firecrawl is rate-limited.
  *
  * Reads config from config.json sources.twitter_browser:
  *   - search_queries: array of search queries
@@ -17,6 +17,7 @@ import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import https from "https";
+import { execFileSync } from "child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FIRECRAWL_HOST = "api.firecrawl.dev";
@@ -131,8 +132,78 @@ async function firecrawlScrape(tweetUrl) {
 }
 
 // ---------------------------------------------------------------------------
+// DuckDuckGo search via ddgs Python library (no API key, works from VPS)
+// ---------------------------------------------------------------------------
+
+/**
+ * Fallback search using ddgs Python library when Firecrawl is rate-limited.
+ * Spawns python3 with the ddgs library and returns parsed JSON results.
+ */
+async function ddgsSearch(searchQuery, limit) {
+  // Escape single-quotes in the query for the shell-heredoc-style inline script
+  const safeQuery = searchQuery.replace(/'/g, "'\\''");
+  const script = [
+    "import sys, json;",
+    "from ddgs import DDGS;",
+    "try:",
+    "  with DDGS() as ddgs:",
+    `    results = list(ddgs.text('site:x.com ${safeQuery}', max_results=${limit}));`,
+    "    out = [];",
+    '    for r in results:',
+    "      url = r.get('link', r.get('href', ''));",
+    "      if '/status/' in url:",
+    "        out.append({'url': url, 'title': r.get('title', ''), 'description': r.get('body', '')});",
+    "    print(json.dumps(out));",
+    "except Exception as e:",
+    "    print(json.dumps({'error': str(e)}));",
+    "    sys.exit(1);",
+  ].join("\n");
+
+  try {
+    const result = execFileSync("python3", ["-c", script], {
+      timeout: 15000,
+      maxBuffer: 1024 * 1024,
+      encoding: "utf-8",
+    });
+    const parsed = JSON.parse(result.trim());
+    if (parsed.error) throw new Error(parsed.error);
+    return parsed;
+  } catch (err) {
+    throw new Error(`ddgs search failed: ${err.message}`);
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Parsing helpers
 // ---------------------------------------------------------------------------
+
+/**
+ * Twitter Snowflakes encode the creation time in bits 22+.
+ * Epoch: 2010-11-04T01:42:54.657Z (1288834974657 ms).
+ * Decoding is reliable, requires zero API calls, and works for any tweet.
+ */
+const TWITTER_EPOCH = 1288834974657;
+
+function snowflakeToDate(tweetId) {
+  const id = BigInt(tweetId);
+  return new Date(Number(id >> 22n) + TWITTER_EPOCH);
+}
+
+/**
+ * Derive a tweet's publishedAt from the Snowflake ID when the API/source
+ * didn't provide one. Returns ISO string or null if the ID isn't parseable.
+ */
+function derivePublishedAt(tweetId) {
+  try {
+    const d = snowflakeToDate(tweetId);
+    if (isNaN(d.getTime())) return null;
+    // Sanity: tweets older than 2010 or in the future indicate a bad ID
+    if (d.getTime() < TWITTER_EPOCH || d.getTime() > Date.now() + 86400000) return null;
+    return d.toISOString();
+  } catch {
+    return null;
+  }
+}
 
 /**
  * Parse Firecrawl scrape markdown into a structured tweet object.
@@ -164,9 +235,9 @@ function parseTweetScrape(scrapeData) {
   const authorMatch = md.match(/@(\w+)/);
   const handle = authorMatch ? authorMatch[1] : "";
 
-  // Timestamp
+  // Timestamp — fall back to Snowflake ID if Firecrawl scrape omitted it
   const tsMatch = md.match(/Posted:\s*([^\n]+)/);
-  const publishedAt = tsMatch ? tsMatch[1].trim() : null;
+  const publishedAt = tsMatch ? tsMatch[1].trim() : derivePublishedAt(tweetId);
 
   // Engagement
   const likesMatch = md.match(/Likes:\s*([\d,.]+)/);
@@ -179,7 +250,7 @@ function parseTweetScrape(scrapeData) {
   let text = textMatch ? textMatch[1].trim() : "";
 
   // Clean up escaped characters from Firecrawl's markdown
-  text = text.replace(/\\([#_*[\]()])/g, "$1");
+  text = text.replace(/\\([#_*\[\]()])/g, "$1");
 
   // Remove trailing junk (suggested follows, sign-up prompts)
   const junkIdx = text.search(/\n\nSee new posts|Sign up|Get the app/i);
@@ -207,6 +278,21 @@ function parseSearchResult(item) {
   const handleMatch = url.match(/x\.com\/(\w+)\/status/);
   const author = handleMatch ? handleMatch[1] : "";
 
+  // Try to extract date from search result metadata, then fall back to
+  // snowflake ID decoding (reliable, zero API calls).
+  let publishedAt = null;
+  if (item.date) {
+    publishedAt = item.date;
+  } else if (item.description) {
+    // X search results often include "Posted: ..." or similar in description
+    const dateMatch = item.description.match(/Posted:\s*([^\n]+)/i);
+    if (dateMatch) publishedAt = dateMatch[1].trim();
+  }
+  // Fallback: decode Snowflake ID — works regardless of source
+  if (!publishedAt) {
+    publishedAt = derivePublishedAt(idMatch[1]);
+  }
+
   return {
     id: idMatch[1],
     author: author,
@@ -214,7 +300,7 @@ function parseSearchResult(item) {
     url: url,
     likes: 0,
     retweets: 0,
-    publishedAt: null,
+    publishedAt: publishedAt,
   };
 }
 
@@ -252,13 +338,13 @@ function buildContentItem(tweet) {
 // ---------------------------------------------------------------------------
 
 /**
- * Fetch tweets from X.com via Firecrawl v2 API.
+ * Fetch tweets from X.com via Firecrawl v2 API with ddgs fallback.
  *
  * For each search query:
  *   1. Search Firecrawl for X.com content
- *   2. Filter to individual tweet URLs (/status/)
- *   3. Scrape each tweet for full content
- *   4. Fall back to search result data if scraping fails
+ *   2. On 429 / rate limit, fall back to ddgs (DuckDuckGo via Python)
+ *   3. Filter to individual tweet URLs (/status/)
+ *   4. Scrape each tweet for full content (Firecrawl only)
  *   5. Filter by lookback_hours and cap at max_tweets_per_query
  *
  * Never throws. Returns an array of ContentItem objects (possibly empty).
@@ -287,6 +373,7 @@ export async function fetchTwitterBrowser() {
     if (allItems.length >= maxPerQuery) break;
 
     let results;
+    let usedFallback = false;
     try {
       results = await firecrawlSearch(query, maxPerQuery * 2);
       console.warn(
@@ -296,8 +383,21 @@ export async function fetchTwitterBrowser() {
       console.warn(`[twitter-firecrawl] Search failed for "${query}": ${err.message}`);
       if (err.message.includes("429") || err.message.includes("rate limit") || err.message.includes("today's limit")) {
         rateLimited = true;
+        // Fallback to ddgs (DuckDuckGo via Python library)
+        console.warn(`[twitter-firecrawl] Falling back to ddgs for "${query}"`);
+        try {
+          results = await ddgsSearch(query, maxPerQuery * 2);
+          usedFallback = true;
+          console.warn(
+            `[twitter-firecrawl] ddgs fallback for "${query}": ${results.length} results`
+          );
+        } catch (ddgsErr) {
+          console.warn(`[twitter-firecrawl] ddgs fallback also failed for "${query}": ${ddgsErr.message}`);
+          continue;
+        }
+      } else {
+        continue;
       }
-      continue;
     }
 
     // Filter to individual tweet URLs (/status/)
@@ -310,34 +410,60 @@ export async function fetchTwitterBrowser() {
       `[twitter-firecrawl] Query "${query}": ${tweetUrls.length} tweet URLs to scrape`
     );
 
-    // Scrape individual tweets for rich data
+    // Scrape individual tweets for rich data (skip when using ddgs fallback — no Firecrawl credits left)
     const resultsMap = new Map(results.map((r) => [r.url, r]));
-    const scrapePromises = tweetUrls.map(async (url) => {
-      try {
-        const scrapeData = await firecrawlScrape(url);
-        const parsed = parseTweetScrape(scrapeData);
+    let scrapedTweets;
+    if (usedFallback) {
+      // ddgs only gives us URL, title, and description snippet — no rich engagement data.
+      // Use Snowflake ID decoding to derive the true timestamp instead of stamping "now".
+      scrapedTweets = tweetUrls.map((url) => {
+        const searchItem = resultsMap.get(url);
+        const parsed = searchItem ? parseSearchResult(searchItem) : null;
+        if (parsed && !parsed.publishedAt) {
+          parsed.publishedAt = derivePublishedAt(parsed.id);
+        }
         if (parsed) return parsed;
+        // Minimal stub from just the URL
+        const idMatch = url.match(/\/status\/(\d+)/);
+        const handleMatch = url.match(/x\.com\/(\w+)\/status/);
+        if (!idMatch) return null;
+        return {
+          id: idMatch[1],
+          author: handleMatch ? handleMatch[1] : "",
+          text: (searchItem && searchItem.title) || "",
+          url,
+          likes: 0,
+          retweets: 0,
+          publishedAt: derivePublishedAt(idMatch[1]),
+        };
+      }).filter(Boolean);
+    } else {
+      const scrapePromises = tweetUrls.map(async (url) => {
+        try {
+          const scrapeData = await firecrawlScrape(url);
+          const parsed = parseTweetScrape(scrapeData);
+          if (parsed) return parsed;
 
-        // Fallback to search result data
-        const searchItem = resultsMap.get(url);
-        return searchItem ? parseSearchResult(searchItem) : null;
-      } catch {
-        const searchItem = resultsMap.get(url);
-        return searchItem ? parseSearchResult(searchItem) : null;
-      }
-    });
-
-    const scrapedTweets = (await Promise.all(scrapePromises)).filter(Boolean);
+          // Fallback to search result data
+          const searchItem = resultsMap.get(url);
+          return searchItem ? parseSearchResult(searchItem) : null;
+        } catch {
+          const searchItem = resultsMap.get(url);
+          return searchItem ? parseSearchResult(searchItem) : null;
+        }
+      });
+      scrapedTweets = (await Promise.all(scrapePromises)).filter(Boolean);
+    }
 
     // Build ContentItems with dedup + lookback filter
     for (const tweet of scrapedTweets) {
       if (seenIds.has(tweet.id)) continue;
       if (allItems.length >= maxPerQuery) break;
 
-      if (tweet.publishedAt) {
-        const published = new Date(tweet.publishedAt);
-        if (!isNaN(published.getTime()) && published < cutoff) continue;
-      }
+      // Must have a valid published date within lookback window
+      if (!tweet.publishedAt) continue;
+      const published = new Date(tweet.publishedAt);
+      if (isNaN(published.getTime()) || published < cutoff) continue;
 
       seenIds.add(tweet.id);
       allItems.push(buildContentItem(tweet));

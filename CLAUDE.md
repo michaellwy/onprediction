@@ -35,16 +35,18 @@ npm run extract:quotes    # Backfill share_quote field via DeepSeek (--id N or -
 All `page.tsx` files are **server components** that export `metadata` and render a client content component. Interactive logic lives in the extracted `*Content.tsx` client components. This split enables Next.js metadata exports and pre-rendered HTML for SEO.
 
 ### Adding Articles
-Use the `/add-article` skill (`.claude/skills/add-article/SKILL.md`) — it codifies every step. Required updates:
+Required updates:
 1. `articles_database.json` — full metadata (see `prompt.md` for schema)
 2. `prediction-market-reading-list.csv` — `ID,Title,Date (D/M/YYYY),Author,URL`
 3. `npm run sync:concepts`
 4. Map any new concepts to clusters in `src/lib/concepts.ts` → `conceptToCluster`
 5. `npm run extract:quotes -- --id <NEW_ID>` (populates `share_quote` via DeepSeek)
 6. `npm run generate:og -- --id <NEW_ID>` (writes `public/og/article-<NEW_ID>.png`)
-7. Commit `public/og/article-<NEW_ID>.png` along with the DB updates
+7. **Commit and push to main** — Vercel auto-deploys from main
+8. **Wait for Vercel deploy** (check GitHub commit statuses) before proceeding — the broadcast and preview depend on the deploy being live
+9. **Run broadcast** — `node scripts/broadcast-new-articles.mjs` posts to @onprediction_reads
 
-Steps 5–6 are required for the Telegram broadcast and social share previews to work for the new article. The `/add-article` skill handles them automatically.
+Steps 5–6 are required for Telegram broadcast and social share previews. Step 9 must run after Vercel deployment is confirmed live.
 
 ### Concepts
 - Max **5 concepts per article**
