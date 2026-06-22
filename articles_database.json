@@ -5527,5 +5527,24 @@
     ],
     "editorial_blurb": "Yai Capital announces Yai Markets, a DeFi-native prediction market infrastructure built on Solana targeting advanced traders and institutional liquidity providers. The post outlines three key innovations including synchronous crankless execution, atomic smart circuit breakers, and cross-protocol atomic hedging, positioning the platform as a successor to Polymarket's hybrid Web2/Web3 architecture.",
     "share_quote": "prediction markets need native hedging rails to survive adverse selection"
+  },
+  {
+    "id": 231,
+    "url": "https://x.com/dayonelaw/status/2069160830332186887",
+    "title": "CFTC Proposes Rules for Prediction Markets",
+    "author": "Day One Law",
+    "author_twitter": "@dayonelaw",
+    "source_type": "Twitter",
+    "publish_date": "2026-06-22",
+    "primary_category": "Regulation",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "regulation",
+      "event contracts"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Day One Law's weekly legal update for crypto builders covers the CFTC's June 10 proposed rules that would narrow the definition of prohibited event contracts to terrorism, gaming (narrowly defined), entirely random events, and specific sports micro-bets. Includes practical compliance guidance for prediction market builders during the 45-day comment period.",
+    "share_quote": "prediction market builders face a narrow window to shape the CFTC's new event contract rules"
   }
 ]

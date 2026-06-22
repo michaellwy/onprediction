@@ -14,7 +14,8 @@ export type ConceptCluster =
   | "information"
   | "mechanism"
   | "governance"
-  | "business";
+  | "business"
+  | "regulation";
 
 export const clusterMeta: Record<ConceptCluster, { label: string; color: string }> = {
   oracle: { label: "Oracle & Resolution", color: "hsl(340, 55%, 55%)" },
@@ -23,6 +24,7 @@ export const clusterMeta: Record<ConceptCluster, { label: string; color: string 
   mechanism: { label: "Mechanism Design", color: "hsl(270, 50%, 55%)" },
   governance: { label: "Governance & Decisions", color: "hsl(150, 50%, 40%)" },
   business: { label: "Business & Platforms", color: "hsl(190, 55%, 45%)" },
+  regulation: { label: "Regulation & Policy", color: "hsl(0, 55%, 50%)" },
 };
 
 const conceptToCluster: Record<string, ConceptCluster> = {
@@ -130,6 +132,9 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "endogeneity": "information",
   "correlation": "information",
   "evidence markets": "mechanism",
+
+  // Regulation
+  "regulation": "regulation",
 };
 
 export function getConceptCluster(concept: string): ConceptCluster {
