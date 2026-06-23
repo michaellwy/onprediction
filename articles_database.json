@@ -5546,5 +5546,26 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Day One Law's weekly legal update for crypto builders covers the CFTC's June 10 proposed rules that would narrow the definition of prohibited event contracts to terrorism, gaming (narrowly defined), entirely random events, and specific sports micro-bets. Includes practical compliance guidance for prediction market builders during the 45-day comment period.",
     "share_quote": "prediction market builders face a narrow window to shape the CFTC's new event contract rules"
+  },
+  {
+    "id": 232,
+    "url": "https://x.com/mickeyhardy/status/2069124130213892248",
+    "title": "Prediction Markets Are a Civilizational Upgrade",
+    "author": "Mickey Hardy",
+    "author_twitter": "@mickeyhardy",
+    "source_type": "Twitter",
+    "publish_date": "2026-06-22",
+    "primary_category": "Fundamentals",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "info finance",
+      "futarchy",
+      "information aggregation",
+      "corporate prediction markets"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Mickey Hardy (Arcadia) argues prediction markets are not just better gambling but the next fundamental system for organizing human behavior — comparable to stock markets, insurance, and search engines — by converting probability itself into a measurable, allocatable asset. Covers applications across pharma, insurance, corporate forecasting, and geopolitics, with a long-term vision of society coordinating via financially-incentivized probability rather than narrative and hierarchy.",
+    "share_quote": "Prediction markets turn probability into a tradeable asset, replacing hierarchy with truth-seeking bets"
   }
 ]
