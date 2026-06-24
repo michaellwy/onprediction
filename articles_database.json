@@ -5567,5 +5567,29 @@
     "platforms_mentioned": [],
     "editorial_blurb": "Mickey Hardy (Arcadia) argues prediction markets are not just better gambling but the next fundamental system for organizing human behavior — comparable to stock markets, insurance, and search engines — by converting probability itself into a measurable, allocatable asset. Covers applications across pharma, insurance, corporate forecasting, and geopolitics, with a long-term vision of society coordinating via financially-incentivized probability rather than narrative and hierarchy.",
     "share_quote": "Prediction markets turn probability into a tradeable asset, replacing hierarchy with truth-seeking bets"
+  },
+  {
+    "id": 233,
+    "url": "https://www.washingtonpost.com/politics/2026/06/23/why-prediction-markets-election-picks-are-useful-even-when-they-seem-wrong/",
+    "title": "Why Prediction Markets' Election Picks Are Useful, Even When They Seem Wrong",
+    "author": "Jeremy B. Merrill, Leslie Shapiro, Mariana Alfaro",
+    "author_twitter": "@jeremybmerrill",
+    "source_type": "News Article",
+    "publish_date": "2026-06-23",
+    "primary_category": "Fundamentals",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "calibration",
+      "election markets",
+      "forecasting accuracy",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "WaPo analyzes 1,276 Kalshi markets and 829 Polymarket markets across 344 primary races and finds prediction markets are well-calibrated: candidates given 70-80% probability win about as often as predicted. High-profile misses (Spencer Pratt in LA, Massie in KY) are not failures of the market but the expected 25% outcome in a properly calibrated system where probabilities are often misunderstood as certainties.",
+    "share_quote": "prediction markets are right about as often as their probabilities suggest, not as often as headlines imply"
   }
 ]
