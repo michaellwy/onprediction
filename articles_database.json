@@ -5617,5 +5617,31 @@
     "editorial_blurb": "Scott Alexander reviews the Metaculus US Democracy Threat Index, a prediction market index tracking expected threats to American democracy through 2027-2028. The index peaked at 47% in late 2025 following election uncertainty before settling to 39% after orderly special elections and failed politicized prosecutions. Discusses conditional prediction markets as a tool to measure how electoral outcomes affect democratic health, and proposes a wishlist including cross-platform duplicates (Polymarket/Kalshi), better question design, and wider forecaster participation.",
     "fetch_status": "pdf",
     "share_quote": "prediction markets show democracy threats drop when elections go smoothly"
+  },
+  {
+    "id": 235,
+    "url": "https://liquidcontext.substack.com/p/two-concepts-of-markets",
+    "title": "Two Concepts of Markets",
+    "author": "Larissa de Lima",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-06-21",
+    "primary_category": "Fundamentals",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "information aggregation",
+      "price discovery",
+      "election markets",
+      "forecasting accuracy"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Iowa Electronic Markets"
+    ],
+    "editorial_blurb": "Draws on Isaiah Berlin's two concepts of liberty to frame two competing visions of markets: the 'market as camera' (Hayek's price discovery aggregating scattered private knowledge) versus the 'market as engine' (actively shaping the outcomes it measures). Uses prediction markets as a live case study, covering their history from 1880s New York curb betting through the Iowa Electronic Markets to Polymarket and Kalshi's $24B monthly volume. Highlights recent research showing prediction market accuracy is driven by fewer than 3% of skilled traders, not wisdom of crowds, and explores the political stakes of which outcomes get priced at all.",
+    "fetch_status": "pdf",
+    "share_quote": "prediction markets don't reveal truth, they manufacture it"
   }
 ]
