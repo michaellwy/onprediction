@@ -5591,5 +5591,31 @@
     ],
     "editorial_blurb": "WaPo analyzes 1,276 Kalshi markets and 829 Polymarket markets across 344 primary races and finds prediction markets are well-calibrated: candidates given 70-80% probability win about as often as predicted. High-profile misses (Spencer Pratt in LA, Massie in KY) are not failures of the market but the expected 25% outcome in a properly calibrated system where probabilities are often misunderstood as certainties.",
     "share_quote": "prediction markets are right about as often as their probabilities suggest, not as often as headlines imply"
+  },
+  {
+    "id": 234,
+    "url": "https://www.astralcodexten.com/p/the-metaculus-threat-to-democracy",
+    "title": "The Metaculus Democracy Threat Index",
+    "author": "Scott Alexander",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-06-25",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "decision markets",
+      "election markets",
+      "forecasting accuracy",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Metaculus",
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Scott Alexander reviews the Metaculus US Democracy Threat Index, a prediction market index tracking expected threats to American democracy through 2027-2028. The index peaked at 47% in late 2025 following election uncertainty before settling to 39% after orderly special elections and failed politicized prosecutions. Discusses conditional prediction markets as a tool to measure how electoral outcomes affect democratic health, and proposes a wishlist including cross-platform duplicates (Polymarket/Kalshi), better question design, and wider forecaster participation.",
+    "fetch_status": "pdf",
+    "share_quote": "prediction markets show democracy threats drop when elections go smoothly"
   }
 ]
