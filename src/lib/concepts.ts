@@ -134,6 +134,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "evidence markets": "mechanism",
 
   // Regulation
+  "Gambling Economy": "regulation",
   "regulation": "regulation",
 };
 

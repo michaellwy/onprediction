@@ -5643,5 +5643,31 @@
     "editorial_blurb": "Draws on Isaiah Berlin's two concepts of liberty to frame two competing visions of markets: the 'market as camera' (Hayek's price discovery aggregating scattered private knowledge) versus the 'market as engine' (actively shaping the outcomes it measures). Uses prediction markets as a live case study, covering their history from 1880s New York curb betting through the Iowa Electronic Markets to Polymarket and Kalshi's $24B monthly volume. Highlights recent research showing prediction market accuracy is driven by fewer than 3% of skilled traders, not wisdom of crowds, and explores the political stakes of which outcomes get priced at all.",
     "fetch_status": "pdf",
     "share_quote": "prediction markets don't reveal truth, they manufacture it"
+  },
+  {
+    "id": 236,
+    "url": "https://inthesetimes.com/article/prediction-markets-kalshi-polymarket-inflation-silicon-valley-capitalism",
+    "title": "The Explosive Growth of Prediction Markets Is a Symptom of a Deeply Sick Economy",
+    "author": "Hadas Thier",
+    "author_twitter": null,
+    "source_type": "News Article",
+    "publish_date": "2026-06-08",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "NEW: Gambling Economy",
+      "regulation",
+      "information asymmetry",
+      "insider trading",
+      "retail flow"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Argues that the explosive growth of prediction markets like Kalshi and Polymarket reflects economic desperation and financial nihilism among young Americans, not innovation. Cites a Bloomberg analysis showing retail traders lost 31M while bots and institutional investors captured nearly all profits. Critiques Trump-era CFTC deregulation under Michael Selig and warns that prediction markets extend the gambling economy into every domain of life — from elections to wars to wildfires — while being sold as democratized finance.",
+    "fetch_status": "pdf",
+    "share_quote": "Prediction markets don't democratize finance — they widen the casino's tent and let the house keep winning"
   }
 ]
