@@ -5669,5 +5669,32 @@
     "editorial_blurb": "Argues that the explosive growth of prediction markets like Kalshi and Polymarket reflects economic desperation and financial nihilism among young Americans, not innovation. Cites a Bloomberg analysis showing retail traders lost 31M while bots and institutional investors captured nearly all profits. Critiques Trump-era CFTC deregulation under Michael Selig and warns that prediction markets extend the gambling economy into every domain of life — from elections to wars to wildfires — while being sold as democratized finance.",
     "fetch_status": "pdf",
     "share_quote": "Prediction markets don't democratize finance — they widen the casino's tent and let the house keep winning"
+  },
+  {
+    "id": 237,
+    "url": "https://x.com/0xdevin_/status/2070615368562057262",
+    "title": "Kalshi World Cup Market Makers Are Getting Picked Apart by Informed Sports Sharps",
+    "author": "Devin",
+    "author_twitter": "@0xdevin_",
+    "source_type": "Twitter",
+    "publish_date": "2026-06-26",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "market making",
+      "adverse selection",
+      "information asymmetry",
+      "retail flow",
+      "liquidity provision"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket",
+      "Betfair"
+    ],
+    "editorial_blurb": "Detailed analysis of how Kalshi market makers (quant firms like SIG) shade lines against expected retail flow during the 2026 World Cup, creating persistent edges for informed sports traders. Covers the France vs Norway case study where public rotation news was ignored by models for three days, the fee structure that prevents clean arbitrage while allowing informed one-sided betting, and structural issues like the lack of taker speedbumps. Notes .7B in World Cup volume with highly skewed profit distribution toward sharp traders.",
+    "fetch_status": "pdf",
+    "share_quote": "Kalshi market makers shade lines against retail and get systematically picked apart by sports sharps"
   }
 ]
