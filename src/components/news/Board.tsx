@@ -45,9 +45,14 @@ export function Board({
                 {group.relative || group.weekday}
               </span>
               {live && group.relative === "Today" && (
-                <span className="relative ml-0.5 flex h-2 w-2 items-center justify-center self-center" aria-label="Live" title="Live feed">
-                  <span className="nt-live-halo absolute inline-flex h-2 w-2 rounded-full bg-[hsl(var(--nt-live))]" />
-                  <span className="relative inline-flex h-[5px] w-[5px] rounded-full bg-[hsl(var(--nt-live))]" />
+                <span className="ml-0.5 flex items-center gap-1.5 self-center" title="Live feed">
+                  <span className="relative flex h-2.5 w-2.5 items-center justify-center" aria-hidden>
+                    <span className="nt-live-halo absolute inline-flex h-2.5 w-2.5 rounded-full bg-[hsl(var(--nt-live))]" />
+                    <span className="relative inline-flex h-[7px] w-[7px] rounded-full bg-[hsl(var(--nt-live))]" />
+                  </span>
+                  <span className="text-[10.5px] font-semibold uppercase tracking-[0.12em] text-[hsl(var(--nt-live))]">
+                    Live
+                  </span>
                 </span>
               )}
             </div>
