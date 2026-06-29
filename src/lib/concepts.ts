@@ -135,7 +135,6 @@ const conceptToCluster: Record<string, ConceptCluster> = {
 
   // Regulation
   "Gambling Economy": "regulation",
-  "regulation": "regulation",
 };
 
 export function getConceptCluster(concept: string): ConceptCluster {

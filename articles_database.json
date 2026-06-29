@@ -5540,7 +5540,6 @@
     "content_type": "Analysis",
     "difficulty": "Some",
     "concepts": [
-      "regulation",
       "event contracts"
     ],
     "platforms_mentioned": [],
@@ -5657,7 +5656,6 @@
     "difficulty": "None",
     "concepts": [
       "NEW: Gambling Economy",
-      "regulation",
       "information asymmetry",
       "insider trading",
       "retail flow"
@@ -5712,7 +5710,6 @@
       "insider trading",
       "market manipulation",
       "information asymmetry",
-      "regulation",
       "retail flow"
     ],
     "platforms_mentioned": [
@@ -5738,7 +5735,6 @@
       "Gambling Economy",
       "platform competition",
       "insider trading",
-      "regulation",
       "information aggregation"
     ],
     "platforms_mentioned": [
