@@ -219,6 +219,20 @@ export function FilterSidebar({
           ))}
         </div>
       </FilterSection>
+
+      {/* Byline */}
+      <p className="mt-6 px-2 text-[12px] leading-relaxed text-muted-foreground/60">
+        Built by{" "}
+        <a
+          href="https://x.com/michael_lwy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-muted-foreground/80 hover:text-foreground transition-colors underline underline-offset-2"
+        >
+          @michael_lwy
+        </a>
+        {" "}&mdash; feel free to reach out
+      </p>
     </aside>
   );
 }

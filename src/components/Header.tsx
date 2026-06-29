@@ -7,6 +7,7 @@ import { Menu, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AuthButton } from "@/components/AuthButton";
 import { SubmitArticleModal } from "@/components/SubmitArticleModal";
+import { LogoMark } from "@/components/LogoMark";
 
 export function Header() {
   const pathname = usePathname();
@@ -24,19 +25,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group min-w-0">
-            <svg
-              viewBox="0 0 32 32"
-              className="w-7 h-7 sm:w-10 sm:h-10 text-primary shrink-0 group-hover:rotate-180 transition-transform duration-500"
-              aria-hidden="true"
-            >
-              <rect
-                x="7.5" y="7.5"
-                width="17" height="17"
-                rx="4"
-                transform="rotate(45 16 16)"
-                fill="currentColor"
-              />
-            </svg>
+            <LogoMark />
             <div className="min-w-0">
               <h1 className="font-display text-lg sm:text-xl font-semibold text-foreground leading-none tracking-tight">
                 On Prediction
