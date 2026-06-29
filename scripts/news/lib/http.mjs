@@ -19,9 +19,11 @@ export const ymd = (d) => d.toISOString().slice(0, 10);
 
 export function decode(s) {
   return s
-    .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&apos;/g, "'")
-    .replace(/&#(\d+);/g, (_, d) => String.fromCharCode(+d));
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16))) // hex: &#x27;
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(+d))                         // decimal: &#39;
+    .replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&nbsp;/g, " ")
+    .replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&"); // ampersand LAST so it can't double-unescape an earlier replacement
 }
 
 export async function fetchText(url, headers = {}) {
