@@ -34,8 +34,11 @@ export function BoardRow({ story, now, selected, expanded, onSelect }: Props) {
       data-story-id={story.id || story.slug}
       className={cn(
         "transition-colors",
-        // Mobile: tint the row that's folded open. Desktop: tint the selected row.
-        expanded && "bg-[hsl(var(--nt-ember)/0.045)]",
+        // Highlight states are breakpoint-scoped so exactly one row is active per
+        // view: mobile tints the folded-open row (expanded); desktop tints the
+        // Stage selection (selected). expanded must NOT tint at lg, or a clicked
+        // row stays highlighted after arrow-nav moves the selection elsewhere.
+        expanded && "max-lg:bg-[hsl(var(--nt-ember)/0.045)]",
         selected && "lg:bg-[hsl(var(--nt-ember)/0.045)]"
       )}
     >
@@ -46,13 +49,15 @@ export function BoardRow({ story, now, selected, expanded, onSelect }: Props) {
         aria-expanded={expanded}
         className={cn(
           "block w-full px-4 py-3.5 text-left transition-colors",
-          !expanded && !selected && "hover:bg-[hsl(var(--nt-ink)/0.035)]"
+          !expanded && "max-lg:hover:bg-[hsl(var(--nt-ink)/0.035)]",
+          !selected && "lg:hover:bg-[hsl(var(--nt-ink)/0.035)]"
         )}
       >
         <h3
           className={cn(
-            "text-[16px] leading-[1.34] tracking-[-0.005em] line-clamp-2",
-            selected || expanded ? "font-semibold text-[hsl(var(--nt-ink))]" : "font-medium text-[hsl(var(--nt-ink)/0.92)]"
+            "text-[16px] leading-[1.34] tracking-[-0.005em] line-clamp-2 font-medium text-[hsl(var(--nt-ink)/0.92)]",
+            expanded && "max-lg:font-semibold max-lg:text-[hsl(var(--nt-ink))]",
+            selected && "lg:font-semibold lg:text-[hsl(var(--nt-ink))]"
           )}
         >
           {headlineCase(story.headline)}
