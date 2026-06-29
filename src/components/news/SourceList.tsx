@@ -12,11 +12,11 @@ export function SourceList({ story, now }: { story: NewsStory; now: number }) {
   const titleFor = new Map(story.sources.map((s) => [s.url, s.title || null]));
 
   return (
-    <section className="mt-9 border-t border-[hsl(var(--nt-hairline))] pt-6">
+    <section className="mt-5 border-t border-[hsl(var(--nt-hairline))] pt-4 lg:mt-9 lg:pt-6">
       <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[hsl(var(--nt-ink-dim))]">
         Coverage
       </h2>
-      <ul className="mt-4 space-y-3">
+      <ul className="mt-3 space-y-3 lg:mt-4">
         {sources.map((s, i) => {
           const outlet = s.outlet || hostName(s.url);
           const title = titleFor.get(s.url) || null;

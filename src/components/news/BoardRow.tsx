@@ -34,8 +34,8 @@ export function BoardRow({ story, now, selected, expanded, onSelect }: Props) {
       className={cn(
         "transition-colors",
         // Mobile: tint the row that's folded open. Desktop: tint the selected row.
-        expanded && "bg-[hsl(var(--nt-ember)/0.07)]",
-        selected && "lg:bg-[hsl(var(--nt-ember)/0.07)]"
+        expanded && "bg-[hsl(var(--nt-ember)/0.045)]",
+        selected && "lg:bg-[hsl(var(--nt-ember)/0.045)]"
       )}
     >
       <button
