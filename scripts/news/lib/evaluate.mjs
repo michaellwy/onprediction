@@ -279,6 +279,33 @@ export async function assignToStories(newItems, activeStories) {
   return out;
 }
 
+const DUP_SYS = `You decide whether a NEW prediction-market news story reports the SAME specific development as one of several EXISTING stories.
+
+SAME development = the same single announcement, filing, lawsuit, funding round, product launch, hack, ruling, report or milestone — even when reworded, re-framed, or written from a different angle (e.g. "users lose $3M in a frontend hack" and "platform confirms third-party breach, will refund after phishing attack" are the SAME hack; "revenue tops $1B" and "annualized revenue surpassed $1 billion" are the SAME milestone). Sharing only a company, a topic, or the broader theme is NOT the same development — two different lawsuits, a funding round vs. an IPO report, a hack vs. a regulatory probe are all DIFFERENT.
+
+You get the NEW story (headline + summary) and a numbered list of EXISTING stories. Return ONLY a JSON array with one object: [{"match": <index of the SAME development, or -1 if none>}]. Default to -1 when unsure.`;
+
+/**
+ * Semantic same-event check used by the ingest dedup pass. Returns the index of
+ * the matching candidate (into `candidates`) or -1. One DeepSeek call.
+ */
+export async function findDuplicateStory(story, candidates) {
+  if (!candidates || !candidates.length) return -1;
+  const list = candidates
+    .map((c, i) => `[${i}] ${c.headline}${c.summary ? " — " + String(c.summary).slice(0, 180) : ""}`)
+    .join("\n");
+  const user = `NEW story:\nheadline: ${story.headline}\nsummary: ${story.summary || ""}\n\nEXISTING stories:\n${list}`;
+  try {
+    const arr = parseJsonArray(await callDeepSeek(DUP_SYS, user, { maxTokens: 200 }));
+    const m = Array.isArray(arr) ? arr[0] : null;
+    const idx = m && Number.isInteger(m.match) ? m.match : -1;
+    return idx >= 0 && idx < candidates.length ? idx : -1;
+  } catch (e) {
+    console.error(`  dedup check failed: ${e.message}`);
+    return -1;
+  }
+}
+
 const UPDATE_SYS = `A prediction-market news story is already live on the feed. New coverage just arrived. Decide whether the new coverage adds MATERIAL new information (new facts, figures, named parties, a fresh development) or merely repeats what is already known.
 
 You get the CURRENT story (headline + summary) and EXCERPTS from the new coverage.

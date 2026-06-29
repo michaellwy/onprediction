@@ -267,6 +267,25 @@ export async function getActiveStories(hours = 48) {
 }
 
 /**
+ * Recent stories (published AND hidden) for the semantic dedup pass. Includes
+ * hidden ones so a development the editor already hid isn't silently recreated
+ * as a fresh story. Keyed on published_at so it spans a story's break date.
+ */
+export async function getRecentStoriesForDedup(days = 10) {
+  const sb = client();
+  const cutoff = new Date(Date.now() - days * 864e5).toISOString();
+  const { data, error } = await sb
+    .from("news_stories")
+    .select("id, cluster_key, headline, summary, status, lead_url, lead_source, platforms, tags")
+    .in("status", ["published", "hidden"])
+    .gte("published_at", cutoff)
+    .order("published_at", { ascending: false })
+    .limit(500);
+  if (error) throw new Error(error.message);
+  return data || [];
+}
+
+/**
  * Append new outlet sources to an existing story and bump its activity clock so
  * it stays matchable. If `update` is supplied (a material new-info rewrite),
  * also refresh headline/summary and bump published_at so the feed resurfaces it.
