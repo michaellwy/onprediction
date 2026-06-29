@@ -40,6 +40,7 @@ export function NewsTerminal() {
   const [now, setNow] = useState(0); // 0 until mounted — keeps SSR/hydration aligned
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
   const dayEls = useRef<Map<string, HTMLElement>>(new Map());
 
   // Live clock — re-derives relative ages while the feed is open.
@@ -134,6 +135,29 @@ export function NewsTerminal() {
     [displayed, selectedId]
   );
 
+  // Desktop keyboard nav: ↑/↓ move the Stage selection to the prev/next story and
+  // keep that row in view. Ignored while typing or while focus is in the Stage
+  // (so reading-pane scroll still works there).
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+      const el = document.activeElement as HTMLElement | null;
+      if (el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.isContentEditable)) return;
+      if (stageRef.current && el && stageRef.current.contains(el)) return;
+      if (!displayed.length) return;
+      e.preventDefault();
+      const idx = displayed.findIndex((s) => storyKey(s) === selectedId);
+      const cur = idx < 0 ? 0 : idx;
+      const next = e.key === "ArrowDown" ? Math.min(displayed.length - 1, cur + 1) : Math.max(0, cur - 1);
+      const id = storyKey(displayed[next]);
+      setSelectedId(id);
+      const row = scrollRef.current?.querySelector<HTMLElement>(`[data-story-id="${id}"]`);
+      row?.scrollIntoView({ block: "nearest" });
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [displayed, selectedId]);
+
   const onSelect = useCallback((id: string) => {
     setSelectedId(id); // drives the desktop Stage
     setExpandedId((prev) => (prev === id ? null : id)); // mobile accordion: tap again to fold
@@ -184,7 +208,7 @@ export function NewsTerminal() {
         </div>
 
         {/* Stage — desktop only (mobile reads the folded-open accordion in the board) */}
-        <div className="hidden min-h-0 flex-1 overflow-y-auto bg-[hsl(var(--nt-surface-0))] scrollbar-subtle lg:block">
+        <div ref={stageRef} className="hidden min-h-0 flex-1 overflow-y-auto bg-[hsl(var(--nt-surface-0))] scrollbar-subtle lg:block">
           <Stage story={selectedStory} now={now} />
         </div>
       </div>

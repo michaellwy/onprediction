@@ -31,6 +31,7 @@ export function BoardRow({ story, now, selected, expanded, onSelect }: Props) {
 
   return (
     <div
+      data-story-id={story.id || story.slug}
       className={cn(
         "transition-colors",
         // Mobile: tint the row that's folded open. Desktop: tint the selected row.
