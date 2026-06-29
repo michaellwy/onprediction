@@ -10,7 +10,7 @@ import { SourceList } from "./SourceList";
 interface Props {
   story: NewsStory | undefined;
   now: number;
-  onBack: () => void;
+  onBack?: () => void;
 }
 
 export function Stage({ story, now, onBack }: Props) {

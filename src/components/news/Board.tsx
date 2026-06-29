@@ -7,6 +7,7 @@ import { BoardRow } from "./BoardRow";
 interface Props {
   days: DayGroup[];
   selectedId: string | null;
+  expandedId: string | null;
   onSelect: (id: string) => void;
   now: number;
   hasMore: boolean;
@@ -21,7 +22,7 @@ interface Props {
 }
 
 export function Board({
-  days, selectedId, onSelect, now, hasMore, isLoading, loadMore, canLoadMore, scrollRef, registerDay, live,
+  days, selectedId, expandedId, onSelect, now, hasMore, isLoading, loadMore, canLoadMore, scrollRef, registerDay, live,
 }: Props) {
   return (
     <div ref={scrollRef} className="relative min-h-0 flex-1 overflow-y-auto scrollbar-subtle">
@@ -64,6 +65,7 @@ export function Board({
                   story={s}
                   now={now}
                   selected={selectedId === (s.id || s.slug)}
+                  expanded={expandedId === (s.id || s.slug)}
                   onSelect={() => onSelect(s.id || s.slug)}
                 />
               ))}
