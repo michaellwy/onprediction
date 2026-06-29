@@ -24,14 +24,15 @@ import { fetchGoogleNews, fetchGoogleNewsRange, hostOf } from "./lib/google-news
 import { fetchFederalRegister, fetchCFTC, fetchCommentaryFeeds } from "./lib/extra-sources.mjs";
 import {
   gateScoreAll, shapeStory, analyzeStories, makeClusterKey,
-  assignToStories, updateStoryText, GATE_MIN, PUBLISH_MIN_SCORE,
+  assignToStories, updateStoryText, findDuplicateStory, GATE_MIN, PUBLISH_MIN_SCORE,
 } from "./lib/evaluate.mjs";
+import { classifyTaste } from "./lib/taste-classifier.mjs";
 import { preGateFilter } from "./lib/heuristic-filter.mjs";
 import { enrichStory } from "./lib/enrich.mjs";
 import { fetchArticleText, mapPool } from "./lib/article-text.mjs";
 import {
   upsertRawItems, getUngatedRawItems, setGateResults, setArticleText,
-  getActiveStories, appendToStory, storeStories,
+  getActiveStories, getRecentStoriesForDedup, appendToStory, attachCoverage, storeStories,
 } from "./lib/store.mjs";
 import { sendTelegramMessage, escapeHtml } from "../scanner/lib/telegram.mjs";
 
@@ -62,6 +63,29 @@ function dedupeByUrl(items) {
     seen.add(it.url); seen.add(key); out.push(it);
   }
   return out;
+}
+
+// Significant tokens (4+ chars) of a story's headline + summary, for cheaply
+// shortlisting dedup candidates before the LLM same-event check.
+function sigTokens(s) {
+  return new Set((`${s.headline} ${s.summary || ""}`.toLowerCase().match(/[a-z0-9$]{4,}/g) || []));
+}
+function dedupShortlist(story, recent, { min = 3, cap = 8 } = {}) {
+  const a = sigTokens(story);
+  const plats = new Set((story.platforms || []).map((p) => p.toLowerCase()));
+  return recent
+    .map((c) => {
+      const b = sigTokens(c);
+      let overlap = 0;
+      for (const t of a) if (b.has(t)) overlap++;
+      // A shared platform is a strong hint even with few shared words.
+      const platShare = (c.platforms || []).some((p) => plats.has(p.toLowerCase()));
+      return { c, score: overlap + (platShare ? 2 : 0) };
+    })
+    .filter((x) => x.score >= min)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, cap)
+    .map((x) => x.c);
 }
 
 function buildDigest(stories) {
@@ -160,19 +184,48 @@ async function main() {
     }
   }
 
-  // 6. Interpret + persist the new stories. A story publishes if it clears the
-  //    news-value bar AND isn't sourced ONLY from known junk domains. Niche
-  //    outlets (not on the reputation allowlist) still publish — only all-spam
-  //    stories are held (below_bar, hidden).
+  // 6. Interpret, dedup, taste-gate, then persist the new stories.
   let newlyPublished = [];
   if (newStories.length) {
+    // 6a. Interpret first (clean headline + summary) so dedup and taste both read
+    //     the rewritten text, not raw source titles.
     const analyzed = await analyzeStories(newStories);
-    const publishable = (s) => (s.score || 0) >= PUBLISH_MIN_SCORE && !s.spam_only;
-    const published = analyzed.filter(publishable);
-    const belowBar = analyzed.filter((s) => !publishable(s));
+
+    // 6b. Semantic dedup: the cluster step matches raw items against the live
+    //     7-day window only. Here we re-check each SHAPED story against recent
+    //     stories (published AND hidden) for the SAME development — catching
+    //     re-framings the text matcher misses, and events already hidden. A match
+    //     folds the new sources into the existing story instead of creating a dup.
+    const recent = await getRecentStoriesForDedup(10);
+    const fresh = [];
+    let deduped = 0;
+    for (const s of analyzed) {
+      const shortlist = dedupShortlist(s, recent);
+      const idx = shortlist.length ? await findDuplicateStory(s, shortlist) : -1;
+      if (idx >= 0) {
+        const match = shortlist[idx];
+        try { await attachCoverage(match, s.sources, { changed: false }); } catch (e) { console.error(`  fold failed: ${e.message}`); }
+        deduped++;
+        console.error(`  deduped "${s.headline.slice(0, 50)}" → existing ${match.status} story "${match.headline.slice(0, 45)}"`);
+      } else {
+        fresh.push(s);
+      }
+    }
+
+    // 6c. Taste gate: confident NOISE (metric churn, rehash, roundup, opinion) is
+    //     held even if it clears the score bar. Signal/uncertain proceed.
+    const taste = fresh.length
+      ? await classifyTaste(fresh.map((s) => ({ id: s.cluster_key, headline: s.headline, summary: s.summary })))
+      : new Map();
+
+    const publishable = (s) =>
+      (s.score || 0) >= PUBLISH_MIN_SCORE && !s.spam_only && taste.get(s.cluster_key)?.verdict !== "noise";
+    const published = fresh.filter(publishable);
+    const belowBar = fresh.filter((s) => !publishable(s));
     newlyPublished = await storeStories({ published, belowBar });
+    const heldNoise = belowBar.filter((s) => taste.get(s.cluster_key)?.verdict === "noise").length;
     const heldJunk = belowBar.filter((s) => (s.score || 0) >= PUBLISH_MIN_SCORE && s.spam_only).length;
-    console.error(`Opened ${published.length} new stories (${belowBar.length} below bar, ${heldJunk} held as junk-only).`);
+    console.error(`Opened ${published.length} new stories (${deduped} deduped into existing, ${belowBar.length} below bar: ${heldNoise} taste-noise, ${heldJunk} junk-only).`);
 
     // Enrich each new story with additional outlet coverage: more outlets and,
     // when a more-reputable wire is found, promote it to lead + re-headline.
