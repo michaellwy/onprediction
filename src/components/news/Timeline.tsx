@@ -64,7 +64,7 @@ export function Timeline({ days, activeKey, onJump }: Props) {
 
         <div
           ref={spineRef}
-          className="relative min-w-0 flex-1 overflow-x-auto scrollbar-none"
+          className="relative min-w-0 flex-1 touch-pan-x select-none overflow-x-auto overscroll-x-contain scrollbar-none [-webkit-overflow-scrolling:touch]"
           style={{ height: TRACK_H }}
         >
           {/* baseline */}
