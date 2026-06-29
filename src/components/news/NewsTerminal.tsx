@@ -76,9 +76,10 @@ export function NewsTerminal() {
 
   const days = useMemo(() => groupStoriesByDay(displayed, now), [displayed, now]);
 
-  // Keep a valid selection: default to the most important visible story, and
-  // re-default when filters exclude the current pick. Never touches the mobile
-  // view flag (auto-selection must not yank a phone user into the stage).
+  // Keep a valid selection: default to the MOST RECENT visible story (the feed is
+  // newest-first, so displayed[0]), and re-default when filters exclude the
+  // current pick. Never touches the mobile view flag (auto-selection must not
+  // yank a phone user into the stage).
   useEffect(() => {
     if (displayed.length === 0) {
       if (selectedId !== null) setSelectedId(null);
@@ -86,8 +87,7 @@ export function NewsTerminal() {
     }
     const stillVisible = selectedId && displayed.some((s) => storyKey(s) === selectedId);
     if (!stillVisible) {
-      const top = displayed.reduce((a, b) => (b.importance > a.importance ? b : a));
-      setSelectedId(storyKey(top));
+      setSelectedId(storyKey(displayed[0]));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayed]);
