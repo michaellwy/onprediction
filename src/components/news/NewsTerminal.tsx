@@ -9,7 +9,6 @@ import { BoardControls } from "./BoardControls";
 import { Timeline } from "./Timeline";
 import { Board } from "./Board";
 import { Stage } from "./Stage";
-import { cn } from "@/lib/utils";
 
 const storyKey = (s: NewsStory) => s.id || s.slug;
 
@@ -33,7 +32,7 @@ export function NewsTerminal() {
   const { items, isLoading, hasMore, loadMore, fetchedAt } = useNews(null, null);
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [openedOnMobile, setOpenedOnMobile] = useState(false);
+  const [expandedId, setExpandedId] = useState<string | null>(null); // mobile accordion (null = all folded)
   const [commandText, setCommandText] = useState("");
   const [activeLens, setActiveLens] = useState<NewsCategory | null>(null);
   const [activeDay, setActiveDay] = useState<string | null>(null);
@@ -136,20 +135,16 @@ export function NewsTerminal() {
   );
 
   const onSelect = useCallback((id: string) => {
-    setSelectedId(id);
-    setOpenedOnMobile(true);
+    setSelectedId(id); // drives the desktop Stage
+    setExpandedId((prev) => (prev === id ? null : id)); // mobile accordion: tap again to fold
   }, []);
 
   return (
     <div className="news-terminal h-[calc(100vh-64px)] overflow-hidden" data-news-theme="light">
       <div className="mx-auto flex h-full max-w-6xl bg-[hsl(var(--nt-surface-0))]">
-        {/* Board column — controls + timeline live here */}
-        <div
-          className={cn(
-            "flex min-h-0 w-full flex-col lg:w-[516px] lg:flex-none",
-            openedOnMobile ? "hidden lg:flex" : "flex"
-          )}
-        >
+        {/* Board column — controls + timeline live here. Always visible: on
+            mobile stories fold open inline (accordion); the Stage is desktop-only. */}
+        <div className="flex min-h-0 w-full flex-col lg:w-[516px] lg:flex-none">
           <BoardControls
             commandText={commandText}
             onCommandText={setCommandText}
@@ -175,6 +170,7 @@ export function NewsTerminal() {
           <Board
             days={days}
             selectedId={selectedId}
+            expandedId={expandedId}
             onSelect={onSelect}
             now={now}
             hasMore={hasMore}
@@ -187,14 +183,9 @@ export function NewsTerminal() {
           />
         </div>
 
-        {/* Stage — shown on mobile only after a story is opened */}
-        <div
-          className={cn(
-            "min-h-0 flex-1 overflow-y-auto bg-[hsl(var(--nt-surface-0))] scrollbar-subtle",
-            openedOnMobile ? "block" : "hidden lg:block"
-          )}
-        >
-          <Stage story={selectedStory} now={now} onBack={() => setOpenedOnMobile(false)} />
+        {/* Stage — desktop only (mobile reads the folded-open accordion in the board) */}
+        <div className="hidden min-h-0 flex-1 overflow-y-auto bg-[hsl(var(--nt-surface-0))] scrollbar-subtle lg:block">
+          <Stage story={selectedStory} now={now} />
         </div>
       </div>
     </div>
