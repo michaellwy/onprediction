@@ -222,7 +222,7 @@ export function FilterSidebar({
 
       {/* Byline — aligned flush with the section titles (no horizontal padding).
           !mt to beat the aside's space-y-1, which otherwise caps the gap at 4px. */}
-      <p className="!mt-8 text-[14px] leading-relaxed text-muted-foreground/70">
+      <p className="!mt-4 text-[14px] leading-relaxed text-muted-foreground/70">
         Built by{" "}
         <a
           href="https://x.com/michael_lwy"
