@@ -31,16 +31,18 @@ export function SourceList({ story, now }: { story: NewsStory; now: number }) {
                 rel="noopener noreferrer"
                 className="group min-w-0 flex-1 text-[14.5px] leading-snug"
               >
-                <span className="font-semibold text-[hsl(var(--nt-ink))]">{outlet}</span>
+                <span className="font-semibold text-[hsl(var(--nt-ink))] underline decoration-transparent underline-offset-[3px] transition-colors duration-150 group-hover:text-[hsl(var(--nt-ember))] group-hover:decoration-[hsl(var(--nt-ember)/0.5)]">
+                  {outlet}
+                </span>
                 {title ? (
                   <>
                     <span className="text-[hsl(var(--nt-ink-faint))]">: </span>
-                    <span className="text-[hsl(var(--nt-ink)/0.8)] group-hover:text-[hsl(var(--nt-ink))]">
+                    <span className="text-[hsl(var(--nt-ink)/0.8)] transition-colors duration-150 group-hover:text-[hsl(var(--nt-ember))]">
                       {title}
                     </span>
                   </>
                 ) : (
-                  <span className="text-[hsl(var(--nt-ink-faint))]"> · {hostName(s.url)}</span>
+                  <span className="text-[hsl(var(--nt-ink-faint))] transition-colors duration-150 group-hover:text-[hsl(var(--nt-ember)/0.8)]"> · {hostName(s.url)}</span>
                 )}
               </a>
               <time className="nt-num shrink-0 text-[12px] text-[hsl(var(--nt-ink-faint))]">{when}</time>
