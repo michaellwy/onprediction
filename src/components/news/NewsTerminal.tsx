@@ -37,7 +37,7 @@ export function NewsTerminal() {
   const [commandText, setCommandText] = useState("");
   const [activeLens, setActiveLens] = useState<NewsCategory | null>(null);
   const [activeDay, setActiveDay] = useState<string | null>(null);
-  const [showTimeline, setShowTimeline] = useState(false); // date histogram is opt-in
+  const [showTimeline, setShowTimeline] = useState(true); // date histogram shown by default (toggleable)
   const [now, setNow] = useState(0); // 0 until mounted — keeps SSR/hydration aligned
 
   const scrollRef = useRef<HTMLDivElement>(null);

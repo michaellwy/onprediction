@@ -28,6 +28,25 @@ export function cleanSummary(summary: string): string {
   return (summary || "").replace(/\s*\n\s*/g, " ").replace(/\s*[—–]\s*/g, ", ").trim();
 }
 
+/**
+ * Split a (clean) summary into 1-2 balanced paragraphs so long blurbs get a
+ * breathing break. Short summaries stay one paragraph. Breaks on the sentence
+ * boundary nearest the midpoint.
+ */
+export function summaryParagraphs(text: string): string[] {
+  const sentences = (text.match(/[^.!?]+[.!?]+(?:["')\]]+)?/g) || [text]).map((s) => s.trim()).filter(Boolean);
+  if (text.length < 320 || sentences.length < 3) return [text];
+  const half = text.length / 2;
+  const out: string[] = [];
+  let cur = "";
+  for (const s of sentences) {
+    cur = cur ? `${cur} ${s}` : s;
+    if (out.length === 0 && cur.length >= half) { out.push(cur); cur = ""; }
+  }
+  if (cur) out.push(cur);
+  return out.length ? out : [text];
+}
+
 // Words kept lowercase in headline case unless they open or close the headline.
 // AP style: articles, coordinating conjunctions, and short (<=3 letter)
 // prepositions only — prepositions of 4+ letters ("From", "With", "Over") are
