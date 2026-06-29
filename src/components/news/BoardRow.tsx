@@ -34,7 +34,7 @@ export function BoardRow({ story, now, selected, onSelect }: Props) {
     >
       <h3
         className={cn(
-          "text-[15px] leading-[1.34] tracking-[-0.005em] line-clamp-2",
+          "text-[16px] leading-[1.34] tracking-[-0.005em] line-clamp-2",
           selected ? "font-semibold text-[hsl(var(--nt-ink))]" : "font-medium text-[hsl(var(--nt-ink)/0.92)]"
         )}
       >

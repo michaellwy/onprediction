@@ -3,7 +3,7 @@
 import { ChevronLeft } from "lucide-react";
 import type { NewsStory } from "@/types/news";
 import { relativeTime, absoluteTime } from "@/lib/newsTime";
-import { cleanSummary, headlineCase } from "./terminalData";
+import { cleanSummary, summaryParagraphs, headlineCase } from "./terminalData";
 import { CategoryPill } from "./CategoryPill";
 import { SourceList } from "./SourceList";
 
@@ -53,9 +53,11 @@ export function Stage({ story, now, onBack }: Props) {
       </h1>
 
       {summary && (
-        <p className="mt-4 max-w-[600px] text-[15.5px] leading-[1.6] text-[hsl(var(--nt-ink)/0.82)]">
-          {summary}
-        </p>
+        <div className="mt-4 max-w-[600px] space-y-4 text-[17px] leading-[1.62] text-[hsl(var(--nt-ink)/0.82)]">
+          {summaryParagraphs(summary).map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
       )}
 
       <SourceList story={story} now={now} />
