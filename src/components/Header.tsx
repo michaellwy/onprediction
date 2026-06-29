@@ -50,16 +50,16 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden sm:flex items-center gap-2">
             <Link
-              href="/forum"
+              href="/news"
               className={cn(
                 "relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
-                pathname?.startsWith("/forum")
+                pathname?.startsWith("/news")
                   ? "text-primary"
                   : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
               )}
             >
-              Forum
-              {pathname?.startsWith("/forum") && (
+              Intel
+              {pathname?.startsWith("/news") && (
                 <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary/70" />
               )}
             </Link>
@@ -78,16 +78,16 @@ export function Header() {
               )}
             </Link>
             <Link
-              href="/news"
+              href="/forum"
               className={cn(
                 "relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
-                pathname?.startsWith("/news")
+                pathname?.startsWith("/forum")
                   ? "text-primary"
                   : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
               )}
             >
-              News
-              {pathname?.startsWith("/news") && (
+              Forum
+              {pathname?.startsWith("/forum") && (
                 <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary/70" />
               )}
             </Link>
@@ -170,15 +170,15 @@ export function Header() {
             </div>
             <nav className="p-2">
               <Link
-                href="/forum"
+                href="/news"
                 className={cn(
                   "flex items-center h-11 px-3 rounded-md text-sm font-medium transition-colors",
-                  pathname?.startsWith("/forum")
+                  pathname?.startsWith("/news")
                     ? "text-primary bg-primary/5"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
                 )}
               >
-                Forum
+                Intel
               </Link>
               <Link
                 href="/"
@@ -192,15 +192,15 @@ export function Header() {
                 Articles
               </Link>
               <Link
-                href="/news"
+                href="/forum"
                 className={cn(
                   "flex items-center h-11 px-3 rounded-md text-sm font-medium transition-colors",
-                  pathname?.startsWith("/news")
+                  pathname?.startsWith("/forum")
                     ? "text-primary bg-primary/5"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
                 )}
               >
-                News
+                Forum
               </Link>
               <Link
                 href="/concepts"
