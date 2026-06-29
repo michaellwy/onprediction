@@ -220,18 +220,19 @@ export function FilterSidebar({
         </div>
       </FilterSection>
 
-      {/* Byline */}
-      <p className="mt-6 px-2 text-[12px] leading-relaxed text-muted-foreground/60">
+      {/* Byline — aligned flush with the section titles (no horizontal padding).
+          !mt to beat the aside's space-y-1, which otherwise caps the gap at 4px. */}
+      <p className="!mt-8 text-[14px] leading-relaxed text-muted-foreground/70">
         Built by{" "}
         <a
           href="https://x.com/michael_lwy"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-muted-foreground/80 hover:text-foreground transition-colors underline underline-offset-2"
+          className="text-foreground/70 hover:text-foreground transition-colors underline underline-offset-2"
         >
           @michael_lwy
         </a>
-        {" "}&mdash; feel free to reach out
+        , come say hi to me!
       </p>
     </aside>
   );
