@@ -251,18 +251,6 @@ function HomeContentInner() {
               <footer className="border-t border-border/30 mt-16">
                 <div className="py-8 text-xs text-muted-foreground/60 text-center space-y-1">
                   <p>The best content for prediction market builders and researchers.</p>
-                  <p>
-                    Built by{" "}
-                    <a
-                      href="https://x.com/michael_lwy"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground/80 hover:text-foreground transition-colors underline underline-offset-2"
-                    >
-                      @michael_lwy
-                    </a>
-                    {" "}&mdash; feel free to reach out
-                  </p>
                 </div>
               </footer>
             </div>
