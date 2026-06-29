@@ -105,17 +105,25 @@ async function main() {
   console.error(`${onTopic.length} new on-topic items clear the gate.`);
   if (!onTopic.length) return finish([]);
 
-  // 3. Fetch article text for the new on-topic items (cache it back).
-  let got = 0;
+  // 3. Fetch article text for the new on-topic items (cache it back). Also read
+  //    each article's OWN publish date from the page and use it as the story's
+  //    date — the Google News pubDate is the index/syndication time, not the
+  //    byline date, so trust the article itself when it states one.
+  let got = 0, dated = 0;
   await mapPool(onTopic, 6, async (it) => {
-    const { url, text } = await fetchArticleText(it.url);
+    const { url, text, published } = await fetchArticleText(it.url);
     it.resolved_url = url || it.url;
     it.article_text = text || "";
     it.score = it.gate_score;
     if (text) got++;
+    if (published) {
+      it.published_at = new Date(published).toISOString();
+      it.broke_day = it.published_at.slice(0, 10);
+      dated++;
+    }
     await setArticleText(it.url_hash, url, text);
   });
-  console.error(`  got text for ${got}/${onTopic.length}`);
+  console.error(`  got text for ${got}/${onTopic.length}; real publish date for ${dated}/${onTopic.length}`);
 
   // 4. Match each new item against the live window: existing story or new group.
   //    7-day window: hacks, lawsuits and fundraises keep drawing follow-up

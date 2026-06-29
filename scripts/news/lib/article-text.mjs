@@ -39,8 +39,36 @@ function extractText(html) {
 }
 
 /**
- * Get { url, text } for a story link. Resolves Google News redirects first.
- * Returns text "" if blocked/paywalled/unparseable.
+ * The article's OWN publication date, read from the page — JSON-LD datePublished,
+ * the standard article/og meta tags, or a <time datetime>. Returns ms epoch, or
+ * null if none found / unparseable. Prefer this over the Google News index time,
+ * which is the syndication moment rather than the byline date.
+ */
+function extractPublishedDate(html) {
+  const head = html.slice(0, 60000); // dates live in <head>/early JSON-LD
+  const patterns = [
+    /"datePublished"\s*:\s*"([^"]+)"/i,
+    /<meta[^>]+property=["'](?:article:published_time|og:published_time)["'][^>]+content=["']([^"']+)["']/i,
+    /<meta[^>]+content=["']([^"']+)["'][^>]+property=["'](?:article:published_time|og:published_time)["']/i,
+    /<meta[^>]+itemprop=["']datePublished["'][^>]+content=["']([^"']+)["']/i,
+    /<meta[^>]+name=["'](?:parsely-pub-date|publishdate|pubdate|date|sailthru\.date)["'][^>]+content=["']([^"']+)["']/i,
+    /<time[^>]+datetime=["']([^"']+)["']/i,
+  ];
+  for (const re of patterns) {
+    const m = head.match(re);
+    if (m) {
+      const t = Date.parse(m[1]);
+      // Sanity window: a real article date, not a bogus 1970 or far-future value.
+      if (!Number.isNaN(t) && t > Date.parse("2000-01-01") && t < Date.now() + 864e5) return t;
+    }
+  }
+  return null;
+}
+
+/**
+ * Get { url, text, published } for a story link. Resolves Google News redirects
+ * first. `published` is the article's own publish date (ms epoch) read from the
+ * page, or null. Returns text "" if blocked/paywalled/unparseable.
  */
 export async function fetchArticleText(link) {
   let url = link;
@@ -49,12 +77,14 @@ export async function fetchArticleText(link) {
   } catch { /* keep original */ }
   try {
     const r = await fetch(url, { headers: { "User-Agent": UA }, redirect: "follow", signal: AbortSignal.timeout(15000) });
-    if (!r.ok) return { url, text: "" };
-    const text = extractText(await r.text());
+    if (!r.ok) return { url, text: "", published: null };
+    const html = await r.text();
+    const published = extractPublishedDate(html);
+    const text = extractText(html);
     // Keep enough to capture background paragraphs (prior rounds, context, etc.)
-    return { url, text: text.length > 200 ? text.slice(0, 6000) : "" };
+    return { url, text: text.length > 200 ? text.slice(0, 6000) : "", published };
   } catch {
-    return { url, text: "" };
+    return { url, text: "", published: null };
   }
 }
 
