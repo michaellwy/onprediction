@@ -5,6 +5,13 @@ import type { NewsStory } from "@/types/news";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
+// Fixed labels so day headers format IDENTICALLY on the server and the client.
+// toLocaleDateString() uses the runtime's default locale, which differs between
+// the SSR host (en-US → "Jun 29") and a user's browser (e.g. en-GB → "29 Jun"),
+// causing a React hydration mismatch. We render the day-first form explicitly.
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
 /** Local calendar-day key (YYYY-MM-DD) for a story timestamp. */
 export function dayKeyOf(iso: string): string {
   const d = new Date(iso);
@@ -49,12 +56,8 @@ export function groupStoriesByDay(stories: NewsStory[], now: number): DayGroup[]
     return {
       key,
       ts,
-      label: d.toLocaleDateString(undefined, {
-        month: "short",
-        day: "numeric",
-        ...(d.getFullYear() !== curYear ? { year: "numeric" } : {}),
-      }),
-      weekday: d.toLocaleDateString(undefined, { weekday: "short" }),
+      label: `${d.getDate()} ${MONTHS[d.getMonth()]}${d.getFullYear() !== curYear ? ` ${d.getFullYear()}` : ""}`,
+      weekday: WEEKDAYS[d.getDay()],
       relative: key === todayKey ? "Today" : key === yesterdayKey ? "Yesterday" : "",
       count: byKey.get(key)!.length,
       stories: byKey.get(key)!,
@@ -90,7 +93,8 @@ export function relativeTime(iso: string, now: number): string {
   if (h < 24) return `${h}h`;
   const d = Math.floor(h / 24);
   if (d < 7) return `${d}d`;
-  return new Date(then).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+  const dt = new Date(then);
+  return `${dt.getDate()} ${MONTHS[dt.getMonth()]}`;
 }
 
 /** Absolute, human timestamp for tooltips. */
