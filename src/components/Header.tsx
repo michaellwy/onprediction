@@ -58,7 +58,7 @@ export function Header() {
                   : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
               )}
             >
-              Intel
+              News
               {pathname?.startsWith("/news") && (
                 <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary/70" />
               )}
@@ -178,7 +178,7 @@ export function Header() {
                     : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
                 )}
               >
-                Intel
+                News
               </Link>
               <Link
                 href="/"
