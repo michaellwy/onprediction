@@ -6,6 +6,7 @@
 
 import { createClient } from "@supabase/supabase-js";
 import { djb2 } from "./google-news.mjs";
+import { rankOrUnranked } from "./source-reputation.mjs";
 
 function client() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -233,6 +234,7 @@ async function upsertStory(sb, story, status) {
     story_id: storyId,
     outlet: s.outlet,
     url: s.url,
+    title: s.title ?? null,
     published_at: s.published_at ? new Date(s.published_at).toISOString() : null,
   }));
   await sb.from("news_story_sources").upsert(srcRows, { onConflict: "story_id,url", ignoreDuplicates: true });
@@ -244,14 +246,122 @@ async function upsertStory(sb, story, status) {
   return storyId;
 }
 
+// ---------- Incremental match-or-create (live pipeline) ----------
+
+/**
+ * Published stories recent enough that an incoming item could belong to one.
+ * Keyed on last_activity_at (bumped on every append) so an ongoing story stays
+ * in the matching window as long as coverage keeps landing.
+ */
+export async function getActiveStories(hours = 48) {
+  const sb = client();
+  const cutoff = new Date(Date.now() - hours * 3600e3).toISOString();
+  const { data, error } = await sb
+    .from("news_stories")
+    .select("id, cluster_key, slug, headline, summary, why_it_matters, primary_category, tags, platforms, outlet_count, score, published_at, last_activity_at")
+    .eq("status", "published")
+    .gte("last_activity_at", cutoff)
+    .order("last_activity_at", { ascending: false });
+  if (error) throw new Error(error.message);
+  return data || [];
+}
+
+/**
+ * Append new outlet sources to an existing story and bump its activity clock so
+ * it stays matchable. If `update` is supplied (a material new-info rewrite),
+ * also refresh headline/summary and bump published_at so the feed resurfaces it.
+ * If one of the incoming sources is more reputable than the current lead, it is
+ * promoted to lead (so a late Reuters pickup replaces an SEO republish). The
+ * slug is intentionally left unchanged (it is a permalink).
+ */
+export async function appendToStory(story, sources, update) {
+  const sb = client();
+  const storyId = story.id;
+  const srcRows = (sources || []).map((s) => ({
+    story_id: storyId,
+    outlet: s.outlet,
+    url: s.url,
+    title: s.title ?? null,
+    published_at: s.published_at ? new Date(s.published_at).toISOString() : null,
+  }));
+  if (srcRows.length) {
+    await sb.from("news_story_sources").upsert(srcRows, { onConflict: "story_id,url", ignoreDuplicates: true });
+  }
+
+  const nowIso = new Date().toISOString();
+  const patch = { last_activity_at: nowIso };
+  const { count } = await sb.from("news_story_sources").select("*", { count: "exact", head: true }).eq("story_id", storyId);
+  if (typeof count === "number") patch.outlet_count = count;
+
+  // Promote a more-reputable incoming source to lead.
+  const leadRank = rankOrUnranked(story.lead_url, story.lead_source);
+  const better = (sources || [])
+    .map((s) => ({ s, r: rankOrUnranked(s.url, s.outlet) }))
+    .filter((x) => x.r < leadRank)
+    .sort((a, b) => a.r - b.r)[0];
+  if (better) { patch.lead_url = better.s.url; patch.lead_source = better.s.outlet; }
+
+  if (update && update.changed) {
+    patch.headline = update.headline;
+    patch.summary = update.summary;
+    if (update.why_it_matters) patch.why_it_matters = update.why_it_matters;
+    patch.published_at = nowIso; // resurface a genuine development to the top of the feed
+  }
+  await sb.from("news_stories").update(patch).eq("id", storyId);
+  return { outlet_count: typeof count === "number" ? count : null, promotedLead: !!better };
+}
+
+/**
+ * Attach extra outlet coverage to an existing story (coverage enrichment).
+ * Like appendToStory, it upserts sources, recomputes outlet_count and promotes a
+ * more-reputable incoming source to lead. UNLIKE appendToStory it does NOT bump
+ * published_at or last_activity_at: enriching a historical story must not
+ * resurface it to the top of the feed or re-open its match window. Slug (the
+ * permalink) is left unchanged even when the headline is rewritten.
+ * Returns { outlet_count, promotedLead, leadSource }.
+ */
+export async function attachCoverage(story, sources, update) {
+  const sb = client();
+  const storyId = story.id;
+  const srcRows = (sources || []).map((s) => ({
+    story_id: storyId,
+    outlet: s.outlet,
+    url: s.url,
+    title: s.title ?? null,
+    published_at: s.published_at ? new Date(s.published_at).toISOString() : null,
+  }));
+  if (srcRows.length) {
+    await sb.from("news_story_sources").upsert(srcRows, { onConflict: "story_id,url", ignoreDuplicates: true });
+  }
+
+  const patch = {};
+  const { count } = await sb.from("news_story_sources").select("*", { count: "exact", head: true }).eq("story_id", storyId);
+  if (typeof count === "number") patch.outlet_count = count;
+
+  const leadRank = rankOrUnranked(story.lead_url, story.lead_source);
+  const better = (sources || [])
+    .map((s) => ({ s, r: rankOrUnranked(s.url, s.outlet) }))
+    .filter((x) => x.r < leadRank)
+    .sort((a, b) => a.r - b.r)[0];
+  if (better) { patch.lead_url = better.s.url; patch.lead_source = better.s.outlet; }
+
+  if (update && update.changed) {
+    patch.headline = update.headline;
+    patch.summary = update.summary;
+    if (update.why_it_matters) patch.why_it_matters = update.why_it_matters;
+  }
+  if (Object.keys(patch).length) await sb.from("news_stories").update(patch).eq("id", storyId);
+  return { outlet_count: typeof count === "number" ? count : null, promotedLead: !!better, leadSource: better?.s.outlet || story.lead_source };
+}
+
 /** Persist the evaluated stories. Returns the published rows that were inserted (new). */
 export async function storeStories({ published, belowBar }) {
   const sb = client();
   const newlyPublished = [];
   for (const s of published) {
     const { data: pre } = await sb.from("news_stories").select("id").eq("cluster_key", s.cluster_key).maybeSingle();
-    await upsertStory(sb, s, "published");
-    if (!pre) newlyPublished.push(s);
+    const storyId = await upsertStory(sb, s, "published");
+    if (!pre) newlyPublished.push({ ...s, id: storyId });
   }
   for (const s of belowBar) await upsertStory(sb, s, "below_bar");
   return newlyPublished;

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -36,6 +36,15 @@
     --cat-business: 190 55% 45%;
     --cat-regulation: 0 60% 45%;
     --cat-commentary: 25 25% 50%;
+
+    /* News beats - editorial palette, distinct hues */
+    --news-regulation: 0 60% 48%;
+    --news-funding: 150 48% 38%;
+    --news-platforms: 212 58% 48%;
+    --news-markets: 35 72% 46%;
+    --news-security: 350 58% 46%;
+    --news-adoption: 268 45% 54%;
+    --news-opinion: 25 22% 48%;
 
     /* Difficulty colors - neutral tones to avoid clashing with categories */
     --diff-beginner: 160 25% 55%;
@@ -114,6 +123,15 @@
   background: hsl(var(--muted-foreground) / 0.2);
 }
 
+/* Fully hidden scrollbar — used by the news timeline spine (drag/scroll without chrome) */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 /* Selection styling */
 ::selection {
   background: hsl(var(--primary) / 0.15);
@@ -133,6 +151,17 @@
 
 .font-sans {
   font-family: var(--font-sans);
+}
+
+@keyframes news-card-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.news-card {
+  animation: news-card-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .news-card { animation: none; }
 }
 
 .font-display {
@@ -170,3 +199,70 @@
   animation: fadeSlideIn 0.3s ease-out forwards;
   opacity: 0;
 }
+
+/* ────────────────────────────────────────────────────────────────────────
+   News "situation room" terminal — page-scoped dual warm palette.
+   Theme is swapped by flipping data-news-theme on the .news-terminal root;
+   only the variable block changes. Newsreader is the sole typeface here.
+   ──────────────────────────────────────────────────────────────────────── */
+.news-terminal {
+  /* Light theme mirrors the site's own tokens so the terminal blends
+     seamlessly with the rest of the site (like the articles page). */
+  --nt-surface-0: 0 0% 100%;
+  --nt-surface-1: 30 20% 99%;
+  --nt-ink: 20 15% 15%;
+  --nt-ink-dim: 20 10% 40%;
+  --nt-ink-faint: 20 8% 56%;
+  --nt-ember: 24 75% 50%;
+  --nt-hairline: 30 10% 88%;
+  --nt-live: 150 66% 40%;
+
+  /* Sans is the default voice (board, chrome, summaries). Serif is opt-in,
+     reserved for the stage headline. Background lives on the inner panel so the
+     terminal can be width-constrained like the articles page. */
+  color: hsl(var(--nt-ink));
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Light "warm paper" is the default; declared above so SSR (no data attr yet)
+   renders light and matches the post-hydration default. */
+.news-terminal[data-news-theme="dark"] {
+  --nt-surface-0: 43 20% 7%;
+  --nt-surface-1: 40 20% 10%;
+  --nt-ink: 42 34% 89%;
+  --nt-ink-dim: 42 13% 60%;
+  --nt-ink-faint: 42 11% 44%;
+  --nt-ember: 23 73% 56%;
+  --nt-hairline: 40 14% 18%;
+  --nt-live: 150 56% 52%;
+}
+
+/* The single ambient motion: a slow ember pulse on the LIVE marker. */
+@keyframes nt-blink {
+  0%, 55% { opacity: 1; }
+  75% { opacity: 0.25; }
+  100% { opacity: 1; }
+}
+.nt-live-dot {
+  animation: nt-blink 2.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nt-live-dot { animation: none; }
+}
+
+/* Live status: a soft radar pulse on the green dot — a calm halo that expands
+   and fades, not a hard blink. Transform + opacity only (GPU-friendly). */
+@keyframes nt-live-ping {
+  0%   { transform: scale(1); opacity: 0.5; }
+  70%  { opacity: 0; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+.nt-live-halo { animation: nt-live-ping 2.6s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .nt-live-halo { animation: none; opacity: 0; }
+}
+
+/* Tabular figures everywhere numbers appear in the tape. */
+.nt-num { font-variant-numeric: tabular-nums; }

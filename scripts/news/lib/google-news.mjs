@@ -9,8 +9,10 @@ import { UA, djb2, hostOf, ymd, decode, fetchText } from "./http.mjs";
 // Re-export for back-compat with modules that imported these from here.
 export { djb2, hostOf };
 
-// Queries that define the prediction-market news surface.
-const QUERIES = ['"prediction market"', "Polymarket", "Kalshi"];
+// Queries that define the prediction-market news surface. "prediction contracts"
+// and "event contracts" catch industry coverage (e.g. a Reuters story on a broker
+// launching event contracts) that never says "prediction market" / a platform name.
+const QUERIES = ['"prediction market"', "Polymarket", "Kalshi", '"prediction contracts"', '"event contracts"'];
 
 const GN_BASE = "https://news.google.com/rss/search";
 const gnUrl = (q) => `${GN_BASE}?q=${encodeURIComponent(q)}&hl=en-US&gl=US&ceid=US:en`;
@@ -72,6 +74,29 @@ export async function fetchGoogleNews(days = 2) {
     } catch (e) {
       console.error(`  google_news "${q}" failed: ${e.message}`);
     }
+  }
+  return items;
+}
+
+/**
+ * Relevance-mode search for ONE arbitrary query (e.g. a story's headline), used
+ * by coverage enrichment to find other outlets reporting the same development.
+ * Returns normalized items (urls are news.google.com redirects — resolve with
+ * fetchArticleText before storing). `source` is the real outlet name (parsed
+ * from Google's " - Outlet" title suffix), so reputation ranking works by name.
+ */
+export async function searchGoogleNews(query, { limit = 40 } = {}) {
+  const items = [];
+  try {
+    for (const it of parseGoogleRss(await fetchText(gnUrl(query), { "User-Agent": UA }))) {
+      if (!it.link || !it.title) continue;
+      const ts = it.pubDate ? Date.parse(it.pubDate) : null;
+      const broke_day = ts && !Number.isNaN(ts) ? ymd(new Date(ts)) : ymd(new Date());
+      items.push(toItem(it, broke_day));
+      if (items.length >= limit) break;
+    }
+  } catch (e) {
+    console.error(`  gn search "${query.slice(0, 48)}" failed: ${e.message}`);
   }
   return items;
 }

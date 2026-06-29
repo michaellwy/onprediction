@@ -1,0 +1,38 @@
+{
+  "_comment": "Single source of truth for news-outlet reputation. Read by both src/lib/sourceReputation.ts (frontend) and scripts/news/lib/source-reputation.mjs (pipeline). tiers = reputation allowlist (1=best), used for lead selection + source ordering. denylist = known SEO / content-mill / price-shill / PR-wire / gambling-affiliate domains; a story is HELD only when EVERY one of its sources is denylisted (so a single junk republish can't open a story, but one real outlet is enough to publish). Commentary newsletters are intentionally absent from tiers — discovery-only, never cited.",
+  "denylist": [
+    "grafa.com", "techtimes.com", "weex.com", "mezha.net", "bitcoinethereumnews.com",
+    "tradingview.com", "financemagnates.com", "coinmarketcap.com", "defirate.com",
+    "binance.com", "kucoin.com", "bitget.com", "coinspot.io", "moomoo.com", "yellow.com", "bloomingbit.io",
+    "prnewswire.com", "globenewswire.com",
+    "casino.org", "sportsbettingdime.com", "affpapa.com", "playusa.com", "gamblingnews.com", "igamingtoday.com", "sigma.world"
+  ],
+  "tiers": [
+    {
+      "tier": 1,
+      "label": "Major wires, national press, top financial outlets",
+      "domains": ["reuters.com", "bloomberg.com", "wsj.com", "nytimes.com", "ft.com", "washingtonpost.com",
+        "apnews.com", "npr.org", "cnbc.com", "politico.com", "axios.com", "theinformation.com", "economist.com"],
+      "names": ["Reuters", "Bloomberg", "WSJ", "The Wall Street Journal", "New York Times", "NYT", "Financial Times",
+        "Washington Post", "AP", "Associated Press", "NPR", "CNBC", "Politico", "Axios", "The Information", "The Economist"]
+    },
+    {
+      "tier": 2,
+      "label": "Established business / tech / quality crypto press",
+      "domains": ["forbes.com", "fortune.com", "businessinsider.com", "markets.businessinsider.com", "techcrunch.com",
+        "barrons.com", "marketwatch.com", "cnn.com", "theguardian.com", "bbc.com", "bbc.co.uk", "time.com",
+        "semafor.com", "theblock.co", "coindesk.com", "decrypt.co", "blockworks.co", "yahoo.com"],
+      "names": ["Forbes", "Fortune", "Business Insider", "TechCrunch", "Barron's", "MarketWatch", "CNN", "The Guardian",
+        "BBC", "Time", "Semafor", "The Block", "CoinDesk", "Decrypt", "Blockworks", "Yahoo", "Yahoo Finance"]
+    },
+    {
+      "tier": 3,
+      "label": "Credible niche / industry / primary sources",
+      "domains": ["cointelegraph.com", "crypto.news", "cryptobriefing.com", "dlnews.com", "beincrypto.com", "protos.com",
+        "federalregister.gov", "cftc.gov", "law360.com", "sportico.com",
+        "legalsportsreport.com", "sbcnews.co.uk", "sbcamericas.com"],
+      "names": ["Cointelegraph", "Crypto.news", "Crypto Briefing", "DL News", "BeInCrypto", "Protos",
+        "Federal Register", "CFTC", "Law360", "Sportico", "Legal Sports Report"]
+    }
+  ]
+}

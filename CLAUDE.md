@@ -195,6 +195,21 @@ supabase/
 - Share button on ArticleCard uses `/articles/{id}` URL via `src/lib/share.ts`; Telegram broadcast links the same way — recipients get the preview, then land on the homepage card
 - Pipeline runs in prebuild on every Vercel deploy (idempotent via hash sidecars)
 
+## News Feed (`/news`) & Taste Curation
+- Separate from the curated article reading list. Supabase-backed (`news_stories` table), AI-ingested from Google News + Federal Register + CFTC + commentary feeds. Read at runtime via the `get_news_feed` RPC (`src/hooks/useNews.ts`); `public/api/news.json` (latest 60, via `scripts/generate-news-seed.js`) is the build-time first-paint seed.
+- **`news_stories.status`** gates visibility: `published` (in feed + search + seed), `hidden` (manually curated out — reversible, still in DB), `below_bar` (auto-held by ingest: all-spam-sourced or under `PUBLISH_MIN_SCORE`). The read RLS policy + every RPC only expose `published`.
+- **Pipeline** (`scripts/news/ingest.mjs`, designed for a ~20-min cron): scrape recent → spam pre-gate → AI on-topic gate + score (`lib/evaluate.mjs`, DeepSeek) → fetch text → match-or-create against the live 7-day window → publish stories clearing `PUBLISH_MIN_SCORE` (7) that aren't all-spam. `.github/workflows/news-ingest.yml` exists but is NOT active (uncommitted, on `news-feed` branch — scheduled workflows only fire from the default branch).
+- **Source reputation** (`src/lib/sourceReputation.json`, read by BOTH frontend `sourceReputation.ts` and pipeline `lib/source-reputation.mjs`): `tiers` allowlist (1=best) picks the lead source; `denylist` of SEO/content-mill/affiliate domains — a story is held only when EVERY source is denylisted.
+
+### Taste curation tooling (`scripts/news/`)
+Signal-vs-noise is a SEPARATE judgment from the on-topic gate: many on-topic, high-scoring stories (volume-record churn, opinion, roundups, dupes) are noise. The editor's taste lives in **`scripts/news/taste.md`** (read verbatim as the classifier rubric — edit the prose to retune; no code change). Core rule: *a specific event by a named entity with figures/jurisdiction = signal; a trend/metric/opinion/rehash = noise.*
+- `lib/taste-classifier.mjs` — `classifyTaste(stories)` → `{verdict: signal|noise|uncertain, reason}` per story (DeepSeek, retries transient failures).
+- `taste-review.mjs` — classify the hidden backlog into buckets; `--publish-signal` flips the signal bucket to `published`. Writes `taste-review.json`.
+- `taste-eval.mjs` — validates the classifier against real decisions. NOTE: `status='hidden'` is NOT a clean "noise" label — the backlog was bulk-hidden as a reset and is mostly unreviewed-but-good, so treat hidden as unlabeled, not negative.
+- `export-review.mjs` / `apply-review.mjs` — manual review path: export published stories to an editable TSV/CSV, mark `keep`/`hide` + optional `down`/`deny` source action, apply back (hides stories + edits `sourceReputation.json`).
+- **After any status change, re-run `node scripts/generate-news-seed.js`** to refresh the SSR seed. Curation via the service-role key + Supabase REST (`SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_SUPABASE_URL` in `.env.local`).
+- News DB migrations: `supabase/migrations/20260627*` + later `news_*`.
+
 ## Forum (Legacy)
 - Uses **query params** (`/forum/post?id=<uuid>`) not dynamic routes
 - Author names are **denormalized** at write time from `user_profiles.display_name`

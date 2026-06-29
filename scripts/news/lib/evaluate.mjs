@@ -9,6 +9,7 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { callDeepSeek, parseJsonArray } from "./deepseek.mjs";
 import { hostOf, djb2 } from "./google-news.mjs";
+import { reputationRank, rankOrUnranked, isSpamDomain } from "./source-reputation.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO = join(__dirname, "..", "..", "..");
@@ -41,6 +42,20 @@ function slugify(s) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "").slice(0, 60);
 }
 
+/** Stable per-story key. New incremental stories mint one from a label + lead url. */
+export function makeClusterKey(label, leadUrl) {
+  return `${slugify(label || "story")}-${djb2(leadUrl).slice(0, 4)}`;
+}
+
+// Summary normalization shared by the new-story analyzer and the in-place
+// updater: join arrays, swap em/en dashes for commas, and DROP meta-excuse
+// summaries (so a card never says "the excerpt is unavailable").
+function cleanSummary(raw) {
+  let s = (Array.isArray(raw) ? raw.filter(Boolean).join(" ") : (raw || "")).replace(/\s*[—–]\s*/g, ", ").trim();
+  if (/excerpt|unavailable|no specific details|not provided|according to the headline|article does not|does not (specify|mention|provide)/i.test(s)) s = "";
+  return s;
+}
+
 // Canonical names for common aliases so the auto-grown platform vocabulary stays
 // clean. Unknown platforms pass through (lightly title-cased) so new entrants
 // auto-populate without code changes.
@@ -70,35 +85,6 @@ export function normalizePlatforms(arr) {
   return out;
 }
 
-const STOPWORDS = new Set("the a an of to in on for and or as is are be over with at by from new report says source amid its his her their this that into out up".split(" "));
-function headlineTokens(h) {
-  return new Set((h || "").toLowerCase().replace(/[^a-z0-9 ]+/g, " ").split(/\s+/).filter((w) => w.length > 2 && !STOPWORDS.has(w)));
-}
-function jaccard(a, b) {
-  if (!a.size || !b.size) return 0;
-  let inter = 0;
-  for (const t of a) if (b.has(t)) inter++;
-  return inter / (a.size + b.size - inter);
-}
-
-const leadOf = (members) => members.slice().sort((a, b) => (b.score || 0) - (a.score || 0))[0];
-
-/**
- * Deterministic backstop to the LLM merge: collapse clusters whose lead
- * headlines are near-identical (high token overlap). Conservative threshold so
- * it only kills true duplicates, not distinct developments of a story.
- */
-function collapseClusters(clusters, threshold = 0.7) {
-  const accepted = [];
-  for (const c of [...clusters].sort((a, b) => (leadOf(b.members).score || 0) - (leadOf(a.members).score || 0))) {
-    const toks = headlineTokens(leadOf(c.members).title);
-    const hit = accepted.find((a) => jaccard(a._toks, toks) >= threshold);
-    if (hit) hit.members.push(...c.members);
-    else accepted.push({ ...c, _toks: toks });
-  }
-  return accepted.map(({ _toks, ...c }) => c);
-}
-
 export const GATE_MIN = 5;
 // No hard daily cap — anything that clears the meaningful-news bar publishes.
 export const PUBLISH_MIN_SCORE = 7;
@@ -124,18 +110,15 @@ score (only meaningful when on_topic): 1-10 news value — regulation, lawsuits,
 
 Respond ONLY a JSON array.`;
 
-const CLUSTER_SYS = `You are given prediction-market news headlines. Group together the ones that report the SAME underlying development — the same single announcement, filing, lawsuit, funding round, hack, ruling, or report — even when the wording differs or outlets reported it on different days (some report late). Group reworded or follow-up coverage of the same event together. But do NOT group different events that merely share a company, regulator, or theme: two different state lawsuits are TWO stories, a funding round and an IPO-talks report are TWO stories, a hack and a regulatory probe are TWO stories. Examples of ONE story: "Trump Jr. takes a stake in Kalshi" + "Kalshi grants Trump Jr. shares" + "Trump Jr. set for Kalshi windfall". Return ONLY a JSON array of groups: [{"label":"short-story-slug","ids":["id1","id2",...]}]. Every id appears in exactly one group.`;
-
-const MERGE_SYS = `You are given preliminary prediction-market story groups, each with an index and a representative headline. Merge groups that report the SAME underlying development (same single lawsuit, same funding round, same hack, same ruling, same announcement) — including the same story reworded or reported on different days. Do NOT merge different events that merely share a company, regulator, or theme: different lawsuits, different regulatory actions, a raise vs an IPO report, a hack vs a probe are SEPARATE stories. Return ONLY a JSON array where each element is an array of indices that belong together, e.g. [[0,4],[1],[2,7]]. Every index appears exactly once.`;
-
 const ANALYZE_SYS = `You write entries for a prediction-market news feed read by sharp insiders. For each story (you get the original headline + an excerpt of the actual article) return JSON with:
 - "id": echo the story id exactly
 - "headline": REWRITE as a clean factual sentence. STRICT rules:
-  - LEAD WITH THE PREDICTION-MARKET COMPANY/PLATFORM as the grammatical subject, FIRST (Polymarket, Kalshi, Novig, DraftKings, Cboe, Coinbase, Metaculus, etc.). The PM entity opens the headline. e.g. NOT "Ex-Kalshi Attorney Heads Legal at Novig" but "Novig hired a former Kalshi and CFTC attorney to lead legal affairs". If the actor is a regulator/court acting on a platform, you may lead with the regulator (e.g. "The CFTC is investigating Polymarket"), but a PM company must appear early.
+  - LEAD WITH THE PREDICTION-MARKET COMPANY/PLATFORM as the grammatical subject, FIRST (Polymarket, Kalshi, Novig, DraftKings, Cboe, Coinbase, Metaculus, etc.). The PM entity opens the headline. e.g. NOT "Ex-Kalshi Attorney Heads Legal at Novig" but "Novig hires a former Kalshi and CFTC attorney to lead legal affairs". If the actor is a regulator/court acting on a platform, you may lead with the regulator (e.g. "The CFTC investigates Polymarket"), but a PM company must appear early.
+  - TENSE: use the journalistic HEADLINE PRESENT — write completed events in the simple present, never the past ("Kalshi raises $40 billion" NOT "Kalshi raised $40 billion"; "New Mexico sues Kalshi" NOT "New Mexico sued Kalshi"; "Polymarket loses $3 million in a hack" NOT "lost"). Use present continuous for genuinely ongoing action ("The CFTC is investigating Polymarket"). Use "to" + verb for the still-future ("Kalshi to raise at a $40 billion valuation"). NEVER use past tense ("-ed") for the main verb.
   - Sentence case: capitalize only the first word and proper nouns/acronyms (CFTC, Kalshi, S&P, IPO, DOJ). Do NOT title-case every word.
   - NEVER start with a quote and NEVER use a colon hook (no "'An Absolute Mess:' ..."). NO colons. NO semicolons. NO em dashes. NO quotation marks in the headline.
   - Plain simple words, no jargon, no corporate-speak, no clickbait. Active voice. Name the exact actor. Lead with the exact number when the excerpt has it (never "millions"/"a windfall" if the precise figure is available).
-  - Examples: "Novig hired a former Kalshi and CFTC attorney to lead legal affairs" / "Kalshi is raising at a $40 billion valuation" / "Polymarket paid influencers over $350,000 to promote odds without disclosure" / "Cboe partnered with Charles Schwab to launch S&P 500 prediction contracts".
+  - Examples (note present tense): "Novig hires a former Kalshi and CFTC attorney to lead legal affairs" / "Kalshi raises at a $40 billion valuation" / "Polymarket pays influencers over $350,000 to promote odds without disclosure" / "Cboe partners with Charles Schwab to launch S&P 500 prediction contracts" / "New Mexico sues Kalshi over sports event contracts".
 - "summary": ONE paragraph of 2-3 complete sentences (a single string, NOT a list/array) written FOR A PREDICTION-MARKET PRACTITIONER. It must ADD substance BEYOND the headline — never just restate it. Pull the specific details a sharp PM reader wants from the article excerpt: for a fundraise, who is LEADING the round, the new valuation, and the prior round's size/valuation/leads; for an investigation/lawsuit, what SPECIFICALLY is alleged, which entity/jurisdiction, and the regulatory status; for a launch/deal, what exactly ships, the real numbers (volume, users, dollars), and the counterparties. Use ONLY facts in the excerpt; never invent figures. NEVER write meta-statements about the source ("the article excerpt is unavailable", "no specific details can be provided", "according to the headline") — if you genuinely lack details, write a tight factual sentence from what the headline conveys instead, but never an apology or an excuse. Plain, confident, conversational. Do NOT use em dashes. Do NOT use "not X, but Y" phrasing.
 - "why_it_matters": ONE plain sentence on why it matters for how prediction markets work.
 - "category": EXACTLY ONE of [${CATEGORIES.join(", ")}]:
@@ -162,75 +145,6 @@ export async function gateScoreAll(items) {
   });
 }
 
-/** STAGE: cluster on-topic items into distinct stories. Returns [{cluster_key, members}]. */
-export async function clusterItems(kept) {
-  const byId = new Map(kept.map((k) => [k.id, k]));
-
-  // Pass 1: batch clustering
-  const prelim = []; // [{ label, members:[item] }]
-  for (let off = 0; off < kept.length; off += 150) {
-    const batch = kept.slice(off, off + 150);
-    const list = batch.map((it) => `${it.id} ${it.title.slice(0, 120)}`).join("\n");
-    try {
-      for (const g of parseJsonArray(await callDeepSeek(CLUSTER_SYS, `Headlines:\n${list}`))) {
-        const members = (g.ids || []).map((id) => byId.get(String(id))).filter(Boolean);
-        if (members.length) prelim.push({ label: g.label, members });
-      }
-    } catch (e) { console.error(`  cluster batch failed: ${e.message}`); }
-  }
-
-  // Pass 2: iterative chunked merge. A single merge call over hundreds of
-  // representatives is unreliable (the LLM can lump everything into one group),
-  // and a plain chunked pass misses duplicates that land in different chunks.
-  // So: sort by a headline signature (similar stories become adjacent and share
-  // a chunk), merge in safe small chunks, and repeat a few rounds to propagate
-  // cross-chunk merges. A guard rejects any chunk whose merge swallows >70% of
-  // it, so collapse can never run away.
-  console.error(`  clustering: ${prelim.length} preliminary clusters`);
-  const leadOf = (p) => p.members.slice().sort((a, b) => (b.score || 0) - (a.score || 0))[0];
-  const sigOf = (p) => [...headlineTokens(leadOf(p).title)].sort().slice(0, 4).join(" ");
-  const CHUNK = 40;
-  let clusters = prelim;
-  for (let round = 0; round < 4 && clusters.length > 2; round++) {
-    clusters.sort((a, b) => sigOf(a).localeCompare(sigOf(b)));
-    const next = [];
-    for (let off = 0; off < clusters.length; off += CHUNK) {
-      const chunk = clusters.slice(off, off + CHUNK);
-      if (chunk.length <= 2) { next.push(...chunk); continue; }
-      const reps = chunk.map((p, i) => `${i} ${leadOf(p).title.slice(0, 110)}`).join("\n");
-      let groups = [];
-      try { groups = parseJsonArray(await callDeepSeek(MERGE_SYS, `Groups:\n${reps}`)); } catch (e) { console.error(`  merge chunk failed: ${e.message}`); }
-      const valid = Array.isArray(groups) && groups.length && groups.every((g) => Array.isArray(g) && g.length);
-      const maxGroup = valid ? Math.max(...groups.map((g) => g.length)) : 0;
-      if (valid && maxGroup < chunk.length * 0.4) {
-        const used = new Set();
-        for (const idxs of groups) {
-          const members = idxs.flatMap((i) => { used.add(i); return chunk[i]?.members || []; });
-          if (members.length) next.push({ label: chunk[idxs[0]]?.label, members });
-        }
-        chunk.forEach((p, i) => { if (!used.has(i)) next.push(p); });
-      } else {
-        next.push(...chunk);
-      }
-    }
-    console.error(`  merge round ${round + 1}: ${clusters.length} -> ${next.length}`);
-    const converged = next.length >= clusters.length;
-    clusters = next;
-    if (converged) break;
-  }
-
-  // Collapse near-duplicate clusters, then assign a stable cluster_key.
-  const collapsed = collapseClusters(clusters);
-  console.error(`  distinct clusters: ${collapsed.length}`);
-  return collapsed.map((c) => {
-    const seen = new Set();
-    const members = c.members.filter((m) => (seen.has(m.url) ? false : seen.add(m.url)));
-    const lead = members.slice().sort((a, b) => (b.score || 0) - (a.score || 0))[0];
-    const cluster_key = `${slugify(c.label || lead.title)}-${djb2(lead.url).slice(0, 4)}`;
-    return { cluster_key, members };
-  });
-}
-
 /**
  * Build story metadata from a cluster's members (no LLM).
  * Commentary/newsletter sources (source_type "commentary") are DISCOVERY-ONLY:
@@ -244,10 +158,22 @@ export function shapeStory(members) {
   if (!citable.length) return null; // only newsletter coverage — can't cite, drop
 
   citable.sort((a, b) => String(a.broke_day).localeCompare(String(b.broke_day)));
-  const lead = citable.slice().sort((a, b) => (b.score || 0) - (a.score || 0))[0];
   const urlOf = (m) => m.resolved_url || m.url;
+  // Lead with the MOST REPUTABLE outlet (Reuters/Bloomberg over an SEO republish),
+  // breaking ties by gate score. So the headline, share link and broadcast all
+  // point at the best available source, not whichever the gate scored highest.
+  const lead = citable.slice().sort((a, b) =>
+    (rankOrUnranked(urlOf(a), a.source) - rankOrUnranked(urlOf(b), b.source)) || ((b.score || 0) - (a.score || 0))
+  )[0];
   const score = Math.max(...citable.map((m) => m.score || 0));
   const outlet_count = new Set(citable.map((m) => hostOf(urlOf(m)))).size;
+  // Best (lowest) reputation tier across the cluster. null = no allowlisted outlet
+  // covers it yet → held below the bar until a credible one does.
+  const ranks = citable.map((m) => reputationRank(urlOf(m), m.source)).filter((r) => r != null);
+  const best_rank = ranks.length ? Math.min(...ranks) : null;
+  // Held only when EVERY source is a known junk domain — one real outlet (even a
+  // niche one not on the allowlist) is enough to publish.
+  const spam_only = citable.every((m) => isSpamDomain(urlOf(m)));
   const pubTimes = citable.map((m) => (m.published_at ? Date.parse(m.published_at) : null)).filter((t) => t);
   const published_at = pubTimes.length ? new Date(Math.min(...pubTimes)).toISOString() : null;
   // Use the richest article text available across the cluster's citable members,
@@ -265,9 +191,11 @@ export function shapeStory(members) {
     score,
     outlet_count,
     importance: score + Math.min(outlet_count, 12) * 0.4,
+    best_rank,
+    spam_only,
     broke_on: citable[0].broke_day,
     published_at,
-    sources: citable.map((m) => ({ outlet: m.source || hostOf(urlOf(m)), url: urlOf(m), published_at: m.published_at })),
+    sources: citable.map((m) => ({ outlet: m.source || hostOf(urlOf(m)), url: urlOf(m), title: m.title ?? null, published_at: m.published_at })),
   };
 }
 
@@ -293,9 +221,7 @@ export async function analyzeStories(stories) {
     const tags = (a.tags || []).map((t) => conceptNameToSlug(t)).filter((slug) => conceptSlugSet.has(slug));
     const category = CATEGORIES.includes(a.category) ? a.category : null;
     const headline = typeof a.headline === "string" && a.headline.trim() ? a.headline.trim() : s.headline;
-    let summary = (Array.isArray(a.summary) ? a.summary.filter(Boolean).join(" ") : (a.summary || "")).replace(/\s*[—–]\s*/g, ", ").trim();
-    // Never surface a meta-excuse summary — drop it (card then shows headline + sources only).
-    if (/excerpt|unavailable|no specific details|not provided|according to the headline|article does not|does not (specify|mention|provide)/i.test(summary)) summary = "";
+    const summary = cleanSummary(a.summary);
     const { article_text, ...rest } = s;
     return {
       ...rest,
@@ -308,4 +234,85 @@ export async function analyzeStories(stories) {
       platforms: normalizePlatforms(a.platforms),
     };
   });
+}
+
+// ---------- Incremental match-or-create (replaces global re-clustering) ----------
+
+const ASSIGN_SYS = `You triage incoming prediction-market news against the stories already live on the feed.
+
+You are given:
+A) EXISTING active stories, each as "[S<n>] headline".
+B) NEW incoming items, each as "<id> | title".
+
+For every NEW item decide which single underlying development it reports:
+- If it is the SAME development as an existing story (same announcement, filing, lawsuit, funding round, hack, ruling, or report — even reworded or a follow-up), assign that story's S-tag (e.g. "S2").
+- If two or more NEW items report the same development as EACH OTHER and no existing story covers it, give them a SHARED key "new:<short-slug>".
+- Otherwise give the item its own unique "new:<short-slug>".
+
+Sharing a company, regulator, or theme is NOT the same story: two different lawsuits are two stories; a funding round and an IPO report are two stories; a hack and a regulatory probe are two stories.
+
+Return ONLY a JSON array, one object per NEW item: [{"id":"<id>","group":"S2"}, {"id":"<id>","group":"new:kalshi-raise"}]. Every NEW id appears exactly once.`;
+
+/**
+ * Assign each new on-topic item to an existing active story or a new group.
+ * Returns Map<itemId, group> where group is "S<index>" (index into
+ * activeStories) or "new:<slug>". Items sharing a "new:" group form one story.
+ */
+export async function assignToStories(newItems, activeStories) {
+  const out = new Map();
+  if (!newItems.length) return out;
+  const sList = activeStories.length
+    ? activeStories.map((s, i) => `[S${i}] ${s.headline}`).join("\n")
+    : "(none yet)";
+  // Low daily volume — one call handles a normal run. Chunk only as a backstop;
+  // a chunk can't see another chunk's "new:" groups, but per-run new-item counts
+  // are small enough that this rarely splits same-event coverage.
+  for (let off = 0; off < newItems.length; off += 60) {
+    const batch = newItems.slice(off, off + 60);
+    const list = batch.map((it) => `${it.id} | ${it.title.slice(0, 140)}`).join("\n");
+    try {
+      for (const a of parseJsonArray(await callDeepSeek(ASSIGN_SYS, `EXISTING active stories:\n${sList}\n\nNEW items:\n${list}`))) {
+        if (a && a.id != null && typeof a.group === "string" && a.group.trim()) out.set(String(a.id), a.group.trim());
+      }
+    } catch (e) { console.error(`  assign batch failed: ${e.message}`); }
+  }
+  return out;
+}
+
+const UPDATE_SYS = `A prediction-market news story is already live on the feed. New coverage just arrived. Decide whether the new coverage adds MATERIAL new information (new facts, figures, named parties, a fresh development) or merely repeats what is already known.
+
+You get the CURRENT story (headline + summary) and EXCERPTS from the new coverage.
+
+Return ONLY a JSON array with exactly one object:
+[{"changed": true|false, "headline": "...", "summary": "...", "why_it_matters": "..."}]
+- changed=false when the new coverage adds nothing material. Omit the other fields.
+- changed=true when it adds material info: rewrite the headline and summary to fold in the new facts. Keep the feed's strict style: lead with the prediction-market company as the grammatical subject; HEADLINE PRESENT TENSE (completed events in the simple present, e.g. "Kalshi raises $40 billion" NOT "raised"; present continuous only for ongoing action; "to" + verb for the future) — never past tense ("-ed") for the main verb; sentence case; NO colons, semicolons, em dashes or quotation marks in the headline; summary is ONE 2-3 sentence paragraph that adds substance (never a meta-excuse like "the excerpt is unavailable"). Use ONLY facts present in the current story or the new excerpts. Never invent figures.`;
+
+/**
+ * Decide whether newly-arrived coverage materially updates an existing story,
+ * and if so produce the rewritten headline/summary. Pure interpretation — no
+ * DB writes. Returns {changed:false} or {changed:true, headline, summary, why_it_matters?}.
+ */
+export async function updateStoryText(story, newTexts) {
+  const excerpts = (newTexts || [])
+    .filter((t) => (t || "").length > 80)
+    .map((t, i) => `[${i + 1}] ${t.slice(0, 2500)}`)
+    .join("\n\n");
+  if (!excerpts) return { changed: false }; // nothing new to learn from
+  const user = `CURRENT story:\nheadline: ${story.headline}\nsummary: ${story.summary || ""}\n\nNEW coverage excerpts:\n${excerpts}`;
+  try {
+    const arr = parseJsonArray(await callDeepSeek(UPDATE_SYS, user, { maxTokens: 1400 }));
+    const obj = Array.isArray(arr) ? arr[0] : null;
+    if (obj && obj.changed && typeof obj.headline === "string" && obj.headline.trim()) {
+      const summary = cleanSummary(obj.summary);
+      if (!summary) return { changed: false };
+      return {
+        changed: true,
+        headline: obj.headline.trim(),
+        summary,
+        why_it_matters: typeof obj.why_it_matters === "string" && obj.why_it_matters.trim() ? obj.why_it_matters.trim() : null,
+      };
+    }
+  } catch (e) { console.error(`  update-story call failed: ${e.message}`); }
+  return { changed: false };
 }

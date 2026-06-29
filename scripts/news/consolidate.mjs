@@ -90,12 +90,12 @@ async function main() {
     const dropIds = drop.map((d) => d.id);
 
     // Gather every source across the group, dedup by url, re-home on the keeper.
-    const { data: srcs } = await sb.from("news_story_sources").select("outlet,url,published_at").in("story_id", [keep.id, ...dropIds]);
+    const { data: srcs } = await sb.from("news_story_sources").select("outlet,url,title,published_at").in("story_id", [keep.id, ...dropIds]);
     const seen = new Set();
     const merged = (srcs || []).filter((s) => (seen.has(s.url) ? false : seen.add(s.url)));
 
     await sb.from("news_story_sources").delete().in("story_id", [keep.id, ...dropIds]);
-    await sb.from("news_story_sources").upsert(merged.map((s) => ({ story_id: keep.id, outlet: s.outlet, url: s.url, published_at: s.published_at })), { onConflict: "story_id,url", ignoreDuplicates: true });
+    await sb.from("news_story_sources").upsert(merged.map((s) => ({ story_id: keep.id, outlet: s.outlet, url: s.url, title: s.title ?? null, published_at: s.published_at })), { onConflict: "story_id,url", ignoreDuplicates: true });
     await sb.from("news_stories").delete().in("id", dropIds);
     await sb.from("news_stories").update({ outlet_count: merged.length }).eq("id", keep.id);
     folded += dropIds.length;
