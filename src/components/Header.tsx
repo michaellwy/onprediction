@@ -78,6 +78,20 @@ export function Header() {
               )}
             </Link>
             <Link
+              href="/news"
+              className={cn(
+                "relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
+                pathname?.startsWith("/news")
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
+              )}
+            >
+              News
+              {pathname?.startsWith("/news") && (
+                <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary/70" />
+              )}
+            </Link>
+            <Link
               href="/concepts"
               className={cn(
                 "relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
@@ -176,6 +190,17 @@ export function Header() {
                 )}
               >
                 Articles
+              </Link>
+              <Link
+                href="/news"
+                className={cn(
+                  "flex items-center h-11 px-3 rounded-md text-sm font-medium transition-colors",
+                  pathname?.startsWith("/news")
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
+                )}
+              >
+                News
               </Link>
               <Link
                 href="/concepts"

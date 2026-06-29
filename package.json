@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-sitemap.js && node scripts/generate-feed.js && node scripts/generate-public-data.js && node scripts/generate-llms-full.js && node scripts/generate-ask-context.js && node scripts/generate-og-images.mjs",
+    "prebuild": "node scripts/generate-sitemap.js && node scripts/generate-feed.js && node scripts/generate-public-data.js && node scripts/generate-llms-full.js && node scripts/generate-ask-context.js && node scripts/generate-news-seed.js && node scripts/generate-og-images.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -15,9 +15,11 @@
     "generate:llms": "node scripts/generate-llms-full.js",
     "generate:og": "node scripts/generate-og-images.mjs",
     "extract:quotes": "node scripts/extract-share-quotes.mjs",
-    "scan": "node scripts/scanner/scan.mjs",
-    "scan:dry": "node scripts/scanner/scan.mjs --dry-run",
-    "scan:full": "node scripts/scanner/scan.mjs --with-accounts"
+    "generate:news": "node scripts/generate-news-seed.js",
+    "news:ingest": "node scripts/news/ingest.mjs",
+    "scan": "node scripts/scanner/scheduled-scan.mjs",
+    "scan:dry": "node scripts/scanner/scheduled-scan.mjs --dry-run",
+    "scan:full": "node scripts/scanner/scheduled-scan.mjs --with-accounts"
   },
   "dependencies": {
     "@fontsource/playfair-display": "^5.2.8",

@@ -28,6 +28,7 @@ void articles;
 const pages = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },
   { loc: "/concepts", changefreq: "monthly", priority: "0.8" },
+  { loc: "/news", changefreq: "daily", priority: "0.8" },
   { loc: "/forum", changefreq: "daily", priority: "0.7" },
   ...conceptPages,
 ];

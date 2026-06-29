@@ -1,0 +1,204 @@
+#!/usr/bin/env node
+/**
+ * Incremental live-feed ingest — the whole news pipeline in one cheap pass.
+ * Replaces the old harvest + build split. Designed to run on a short cron
+ * (~every 20 min). Each run does work proportional to the HANDFUL OF NEW ITEMS,
+ * never the whole archive:
+ *
+ *   scrape recent  →  keep only new URLs  →  spam pre-gate  →  AI on-topic gate
+ *   →  fetch article text  →  match each new item against the last ~48h of live
+ *   stories: append its outlet (and rewrite the story in place if it adds real
+ *   new info), or open a brand-new story.
+ *
+ * There is no global re-clustering and no full rebuild of the stories table, so
+ * the run stays fast no matter how much history has accumulated.
+ *
+ *   node scripts/news/ingest.mjs [--since YYYY-MM-DD] [--broadcast] [--deploy]
+ */
+
+import { readFileSync, existsSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+
+import { fetchGoogleNews, fetchGoogleNewsRange, hostOf } from "./lib/google-news.mjs";
+import { fetchFederalRegister, fetchCFTC, fetchCommentaryFeeds } from "./lib/extra-sources.mjs";
+import {
+  gateScoreAll, shapeStory, analyzeStories, makeClusterKey,
+  assignToStories, updateStoryText, GATE_MIN, PUBLISH_MIN_SCORE,
+} from "./lib/evaluate.mjs";
+import { preGateFilter } from "./lib/heuristic-filter.mjs";
+import { enrichStory } from "./lib/enrich.mjs";
+import { fetchArticleText, mapPool } from "./lib/article-text.mjs";
+import {
+  upsertRawItems, getUngatedRawItems, setGateResults, setArticleText,
+  getActiveStories, appendToStory, storeStories,
+} from "./lib/store.mjs";
+import { sendTelegramMessage, escapeHtml } from "../scanner/lib/telegram.mjs";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const args = process.argv.slice(2);
+const BROADCAST = args.includes("--broadcast");
+const DEPLOY = args.includes("--deploy");
+const sinceIdx = args.indexOf("--since");
+const SINCE = sinceIdx !== -1 ? args[sinceIdx + 1] : null;
+
+const envPath = join(__dirname, "..", "..", ".env.local");
+if (existsSync(envPath)) {
+  for (const line of readFileSync(envPath, "utf-8").split("\n")) {
+    const t = line.trim(); if (!t || t.startsWith("#")) continue;
+    const i = t.indexOf("="); if (i === -1) continue;
+    const k = t.slice(0, i).trim(); if (!process.env[k]) process.env[k] = t.slice(i + 1).trim();
+  }
+}
+
+const todayYmd = new Date().toISOString().slice(0, 10);
+const urlOf = (m) => m.resolved_url || m.url;
+
+function dedupeByUrl(items) {
+  const seen = new Set(); const out = [];
+  for (const it of items) {
+    const key = hostOf(it.url) + "|" + it.title.toLowerCase().slice(0, 55);
+    if (seen.has(it.url) || seen.has(key)) continue;
+    seen.add(it.url); seen.add(key); out.push(it);
+  }
+  return out;
+}
+
+function buildDigest(stories) {
+  const lines = ["<b>📊 Prediction Market News</b>", ""];
+  for (const s of stories) {
+    lines.push(`<b>${escapeHtml(s.headline)}</b>`);
+    for (const b of (s.summary || "").split("\n").filter(Boolean)) lines.push(`• ${escapeHtml(b)}`);
+    lines.push(`<a href="${s.lead_url}">${escapeHtml(s.lead_source || hostOf(s.lead_url))}</a>`);
+    lines.push("");
+  }
+  lines.push("<i>more on onprediction.xyz/news</i>");
+  return lines.join("\n");
+}
+
+async function main() {
+  const mode = SINCE ? `${SINCE} → ${todayYmd}` : "recent window";
+  console.error(`=== Ingest (${mode}) ===`);
+
+  // 1. Scrape the recent surface. Window size only affects how far back a
+  //    late-indexed item can still be admitted — it does NOT add cost, because
+  //    everything already seen is dropped before any AI runs.
+  const rangeDays = SINCE ? Math.round((Date.parse(todayYmd) - Date.parse(SINCE)) / 864e5) + 1 : 2;
+  const [google, fedReg, cftc, commentary] = await Promise.all([
+    SINCE ? fetchGoogleNewsRange(SINCE, todayYmd) : fetchGoogleNews(2),
+    fetchFederalRegister(rangeDays),
+    fetchCFTC(rangeDays),
+    fetchCommentaryFeeds(rangeDays),
+  ]);
+  const scraped = dedupeByUrl([...google, ...fedReg, ...cftc, ...commentary]);
+  const { kept, dropped } = preGateFilter(scraped);
+  console.error(`Scraped ${scraped.length} unique (google:${google.length} fedreg:${fedReg.length} cftc:${cftc.length} commentary:${commentary.length}); pre-gate dropped ${dropped.length} spam, ${kept.length} kept.`);
+  await upsertRawItems(kept);
+
+  // 2. Only genuinely-new URLs (no gate verdict yet) cost anything downstream.
+  const ungated = await getUngatedRawItems();
+  if (!ungated.length) { console.error("No new items — feed already up to date."); return finish([]); }
+  console.error(`Gating ${ungated.length} new items...`);
+  const gated = await gateScoreAll(ungated);
+  await setGateResults(gated.map((g) => ({ url_hash: g.url_hash, on_topic: g.on_topic, gate_score: g.gate_score })));
+  const onTopic = gated.filter((g) => g.on_topic && (g.gate_score || 0) >= GATE_MIN);
+  console.error(`${onTopic.length} new on-topic items clear the gate.`);
+  if (!onTopic.length) return finish([]);
+
+  // 3. Fetch article text for the new on-topic items (cache it back).
+  let got = 0;
+  await mapPool(onTopic, 6, async (it) => {
+    const { url, text } = await fetchArticleText(it.url);
+    it.resolved_url = url || it.url;
+    it.article_text = text || "";
+    it.score = it.gate_score;
+    if (text) got++;
+    await setArticleText(it.url_hash, url, text);
+  });
+  console.error(`  got text for ${got}/${onTopic.length}`);
+
+  // 4. Match each new item against the live window: existing story or new group.
+  //    7-day window: hacks, lawsuits and fundraises keep drawing follow-up
+  //    coverage for days, so a still-active story should absorb it, not fork.
+  const active = await getActiveStories(24 * 7);
+  console.error(`Matching ${onTopic.length} items against ${active.length} active stories...`);
+  const assign = await assignToStories(onTopic, active);
+
+  const groups = new Map(); // group key -> items[]
+  for (const it of onTopic) {
+    const g = assign.get(String(it.id)) || `new:solo-${it.id}`; // model dropped it → own story
+    if (!groups.has(g)) groups.set(g, []);
+    groups.get(g).push(it);
+  }
+
+  // 5. Apply: append-to-existing (with optional in-place update) or shape-new.
+  const newStories = [];
+  let appended = 0, updated = 0;
+  for (const [key, members] of groups) {
+    const m = /^S(\d+)$/.exec(key);
+    const story = m ? active[Number(m[1])] : null;
+    if (story) {
+      const sources = members.map((it) => ({ outlet: it.source || hostOf(urlOf(it)), url: urlOf(it), title: it.title ?? null, published_at: it.published_at }));
+      const upd = await updateStoryText(story, members.map((it) => it.article_text));
+      const res = await appendToStory(story, sources, upd);
+      appended++; if (upd.changed) updated++;
+      console.error(`  + ${members.length} outlet(s) → "${story.headline.slice(0, 60)}"${upd.changed ? " [updated]" : ""}${res.promotedLead ? " [lead promoted]" : ""}`);
+    } else {
+      const leadUrl = urlOf(members.slice().sort((a, b) => (b.score || 0) - (a.score || 0))[0]);
+      const clusterKey = makeClusterKey(key.replace(/^new:/, ""), leadUrl);
+      for (const it of members) it.cluster_key = clusterKey;
+      const shaped = shapeStory(members);
+      if (shaped) newStories.push(shaped);
+    }
+  }
+
+  // 6. Interpret + persist the new stories. A story publishes if it clears the
+  //    news-value bar AND isn't sourced ONLY from known junk domains. Niche
+  //    outlets (not on the reputation allowlist) still publish — only all-spam
+  //    stories are held (below_bar, hidden).
+  let newlyPublished = [];
+  if (newStories.length) {
+    const analyzed = await analyzeStories(newStories);
+    const publishable = (s) => (s.score || 0) >= PUBLISH_MIN_SCORE && !s.spam_only;
+    const published = analyzed.filter(publishable);
+    const belowBar = analyzed.filter((s) => !publishable(s));
+    newlyPublished = await storeStories({ published, belowBar });
+    const heldJunk = belowBar.filter((s) => (s.score || 0) >= PUBLISH_MIN_SCORE && s.spam_only).length;
+    console.error(`Opened ${published.length} new stories (${belowBar.length} below bar, ${heldJunk} held as junk-only).`);
+
+    // Enrich each new story with additional outlet coverage: more outlets and,
+    // when a more-reputable wire is found, promote it to lead + re-headline.
+    // Best-effort — failures never block the run. Sync the in-memory copy so the
+    // Telegram broadcast reflects any promoted lead / rewritten headline.
+    for (const s of newlyPublished) {
+      try {
+        const r = await enrichStory(s, { apply: true });
+        if (r.added) {
+          if (r.promote && r.leadUrl) { s.lead_source = r.promote; s.lead_url = r.leadUrl; }
+          if (r.changed) { if (r.newHeadline) s.headline = r.newHeadline; if (r.newSummary) s.summary = r.newSummary; }
+          console.error(`  enriched "${s.headline.slice(0, 50)}": +${r.added} outlet(s)${r.promote ? `, lead → ${r.promote}` : ""}${r.changed ? " [re-headlined]" : ""}`);
+        }
+      } catch (e) { console.error(`  enrich failed: ${e.message}`); }
+    }
+  }
+  console.error(`Appended to ${appended} existing stories (${updated} materially updated).`);
+  return finish(newlyPublished);
+}
+
+async function finish(newlyPublished) {
+  // Broadcast only genuinely-new published stories so a 20-min cron never spams.
+  if (BROADCAST && newlyPublished.length && process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_BROADCAST_CHAT_ID) {
+    try {
+      await sendTelegramMessage(buildDigest(newlyPublished.slice(0, 8)), {
+        chatId: process.env.TELEGRAM_BROADCAST_CHAT_ID, botToken: process.env.TELEGRAM_BOT_TOKEN,
+      });
+      console.error(`Broadcast ${newlyPublished.length} new stories.`);
+    } catch (e) { console.error(`Telegram failed: ${e.message}`); }
+  }
+  if (DEPLOY && process.env.VERCEL_DEPLOY_HOOK_URL) {
+    try { await fetch(process.env.VERCEL_DEPLOY_HOOK_URL, { method: "POST" }); console.error("Deploy hook pinged."); }
+    catch (e) { console.error(`Deploy hook failed: ${e.message}`); }
+  }
+}
+
+main().catch((e) => { console.error("FATAL", e); process.exit(1); });
