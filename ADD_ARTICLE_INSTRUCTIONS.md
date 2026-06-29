@@ -22,6 +22,16 @@ After updating both, run `npm run sync:concepts` to sync any new concept definit
    ID,Title,Date (D/M/YYYY),Author,URL
    ```
 6. **Run `npm run sync:concepts`** — this auto-populates any missing concept definitions in `concept_definitions.json`
+7. **Map new concepts** in `src/lib/concepts.ts` → `conceptToCluster` if needed
+8. **Run `npm run extract:quotes -- --id <NEW_ID>`** — populates `share_quote` via DeepSeek
+9. **Run `npm run generate:og -- --id <NEW_ID>`** — writes OG share card
+10. **Commit and push to main** — Vercel auto-deploys
+11. **Wait for Vercel deployment** — Poll GitHub commit statuses until Vercel reports `success`:
+    ```
+    curl -s "https://api.github.com/repos/michaellwy/onprediction/commits/main/status" | python3 -c "import json,sys; d=json.load(sys.stdin); statuses=[s for s in d.get('statuses',[]) if s.get('context')=='Vercel']; print(statuses[0]['state'] if statuses else 'no status')"
+    ```
+    Do **not** proceed until Vercel shows `success`. The broadcast links depend on the deploy being live.
+12. **Run broadcast** — `node scripts/broadcast-new-articles.mjs` sends to @onprediction_reads
 
 ## When User Adds a New PDF
 
