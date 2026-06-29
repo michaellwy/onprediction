@@ -5722,5 +5722,32 @@
     "editorial_blurb": "Investigates how easy it is to rig prediction markets on Rotten Tomatoes movie scores — a handful of compromised critics could swing scores enough to cash out on Kalshi. Chronicles multiple real insider trading cases: the Khai Rated critic who tanked Alien: Earth scores, the Maduro raid trader, MrBeast's video editor, the Google employee arrested for betting on search trends. Examines why CFTC enforcement has weakened under Trump while platforms like Kalshi struggle to self-police.",
     "fetch_status": "pdf",
     "share_quote": "It took me about nine minutes to figure out how to rig a win on Kalshi"
+  },
+  {
+    "id": 239,
+    "url": "https://medium.com/enrique-dans/meta-and-prediction-markets-what-could-possibly-go-wrong-d24a7ea22740",
+    "title": "Meta and prediction markets: what could possibly go wrong?",
+    "author": "Enrique Dans",
+    "author_twitter": "edans",
+    "source_type": "Blog",
+    "publish_date": "2026-06-28",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "Gambling Economy",
+      "platform competition",
+      "insider trading",
+      "regulation",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Meta"
+    ],
+    "editorial_blurb": "Argues that prediction markets are following the same trajectory as social media — starting with idealistic narratives about information aggregation but devolving into gambling, manipulation, and regulatory arbitrage. Highlights Meta's new prediction market app Arena, insider trading cases like the US Special Forces Maduro raid bet, and regulatory crackdowns in Brazil, Minnesota, and Spain. Warns that putting prediction markets in Meta's hands repeats social media's biggest mistakes with the added danger of real-money incentives.",
+    "fetch_status": "pdf",
+    "share_quote": "prediction markets are repeating social media's mistakes with real-money stakes"
   }
 ]
