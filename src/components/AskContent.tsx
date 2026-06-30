@@ -5,6 +5,7 @@ import { Send, Loader2, RotateCcw, Sparkles, ExternalLink } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useAskLibrary } from "@/hooks/useAskLibrary";
+import { getArticleCountLabel } from "@/lib/articles";
 import { cn } from "@/lib/utils";
 
 const SITE_URL = "https://onprediction.xyz";
@@ -61,19 +62,62 @@ const markdownComponents = {
   },
 };
 
-const EXAMPLE_QUESTIONS = [
+const ARTICLE_COUNT = getArticleCountLabel();
+
+// Pool of starter questions; 5 are sampled at random on each visit.
+const QUESTION_POOL = [
   "How does UMA's oracle work?",
   "What is LMSR and how does it price trades?",
   "Why do prediction markets need liquidity?",
   "What's the difference between Polymarket and Kalshi?",
   "What are the arguments for insider trading in prediction markets?",
+  "How do prediction markets aggregate information?",
+  "Are prediction markets well calibrated?",
+  "What is adverse selection and why does it matter for market makers?",
+  "How does an automated market maker differ from an order book?",
+  "What is futarchy and how would it work in practice?",
+  "How do oracles get manipulated, and what is corruption value?",
+  "Why is resolution ambiguity such a hard problem for prediction markets?",
+  "What is the role of arbitrage in keeping market prices accurate?",
+  "How do scoring rules incentivize honest forecasts?",
+  "What is a semantic tick size?",
+  "Does the 'yes bias' actually exist in prediction markets?",
+  "How does leverage work on prediction markets, and is it safe?",
+  "What are the regulatory hurdles facing prediction markets in the US?",
+  "How did Polymarket handle the 2024 election markets?",
+  "What is regulatory arbitrage and how do platforms use it?",
+  "How do network effects shape competition between platforms?",
+  "Can prediction markets be used for corporate decision-making?",
+  "What is the wisdom of crowds, and when does it fail?",
+  "How are prediction markets different from sports betting?",
+  "What is the case for treating insider information as supply?",
+  "How do market makers hedge their exposure?",
+  "What makes a good resolution source for a market?",
+  "Why do thin markets produce unreliable prices?",
+  "How do decision markets differ from prediction markets?",
+  "What are the main criticisms of prediction markets as forecasting tools?",
 ];
+
+function sampleQuestions(count: number): string[] {
+  const pool = [...QUESTION_POOL];
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  return pool.slice(0, count);
+}
 
 export function AskContent() {
   const { messages, isStreaming, error, remainingQuestions, ask, reset } = useAskLibrary();
   const [input, setInput] = useState("");
+  // Deterministic on first render (SSR/hydration), then randomized after mount.
+  const [exampleQuestions, setExampleQuestions] = useState(() => QUESTION_POOL.slice(0, 5));
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setExampleQuestions(sampleQuestions(5));
+  }, []);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -108,13 +152,13 @@ export function AskContent() {
                 Ask the Library
               </h1>
               <p className="text-sm text-muted-foreground text-center max-w-md mb-8 animate-list-item" style={{ animationDelay: "100ms" }}>
-                Ask questions about prediction markets and get answers synthesized from our curated library of 100+ articles, with citations.
+                Ask questions about prediction markets and get answers synthesized from our curated library of {ARTICLE_COUNT} articles, with citations.
               </p>
               <div className="w-full max-w-md space-y-2">
                 <p className="text-xs text-muted-foreground/60 text-center mb-2 animate-list-item" style={{ animationDelay: "150ms" }}>
                   Try asking:
                 </p>
-                {EXAMPLE_QUESTIONS.map((q, i) => (
+                {exampleQuestions.map((q, i) => (
                   <button
                     key={q}
                     onClick={() => handleExampleClick(q)}
