@@ -17,11 +17,14 @@ export const metadata: Metadata = {
     description:
       `AI-powered Q&A over ${count} curated prediction market articles.`,
     url: `${siteConfig.url}/ask`,
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Ask the Library | On Prediction",
     description:
       `AI-powered Q&A over ${count} curated prediction market articles.`,
+    images: ["/og-image.png"],
   },
 };
 

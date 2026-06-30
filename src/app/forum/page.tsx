@@ -14,11 +14,14 @@ export const metadata: Metadata = {
     description:
       "Discuss prediction market articles and ideas.",
     url: `${siteConfig.url}/forum`,
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Discussions | On Prediction",
     description:
       "Discuss prediction market articles and ideas.",
+    images: ["/og-image.png"],
   },
 };
 
