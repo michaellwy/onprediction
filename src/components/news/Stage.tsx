@@ -2,7 +2,7 @@
 
 import { ChevronLeft } from "lucide-react";
 import type { NewsStory } from "@/types/news";
-import { relativeTime, absoluteTime } from "@/lib/newsTime";
+import { relativeAgo, fullTimestamp, absoluteTime } from "@/lib/newsTime";
 import { cleanSummary, summaryParagraphs, headlineCase } from "./terminalData";
 import { CategoryPill } from "./CategoryPill";
 import { SourceList } from "./SourceList";
@@ -42,7 +42,9 @@ export function Stage({ story, now, onBack }: Props) {
         <CategoryPill category={story.primary_category} />
         {now > 0 && (
           <time className="nt-num text-[12px] font-medium text-[hsl(var(--nt-ink-faint))]" title={absoluteTime(story.published_at)}>
-            {relativeTime(story.published_at, now)} ago
+            <span className="text-[hsl(var(--nt-ink-dim))]">{relativeAgo(story.published_at, now)}</span>
+            <span className="px-1.5 text-[hsl(var(--nt-ink-faint))]">·</span>
+            {fullTimestamp(story.published_at)}
           </time>
         )}
       </div>
@@ -60,7 +62,7 @@ export function Stage({ story, now, onBack }: Props) {
         </div>
       )}
 
-      <SourceList story={story} now={now} />
+      <SourceList story={story} />
     </article>
   );
 }

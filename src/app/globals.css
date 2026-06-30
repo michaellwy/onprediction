@@ -37,14 +37,17 @@
     --cat-regulation: 0 60% 45%;
     --cat-commentary: 25 25% 50%;
 
-    /* News beats - editorial palette, distinct hues */
-    --news-regulation: 0 60% 48%;
-    --news-funding: 150 48% 38%;
-    --news-platforms: 212 58% 48%;
-    --news-markets: 35 72% 46%;
-    --news-security: 350 58% 46%;
-    --news-adoption: 268 45% 54%;
-    --news-opinion: 25 22% 48%;
+    /* News beats — muted editorial palette, deliberately distinct from the
+       brighter articles-page tags. Seven hues spread ≥34° apart: red belongs to
+       Security alone, Regulation is indigo-violet (law/authority), Platforms
+       keeps blue, Adoption is plum-rose, Opinion a near-neutral taupe. */
+    --news-regulation: 268 26% 54%;  /* indigo violet */
+    --news-funding: 150 30% 40%;     /* pine green */
+    --news-platforms: 205 42% 49%;   /* blue */
+    --news-markets: 40 46% 48%;      /* amber ochre */
+    --news-security: 6 52% 53%;      /* brick red */
+    --news-adoption: 325 30% 56%;    /* plum rose */
+    --news-opinion: 30 12% 54%;      /* taupe grey */
 
     /* Difficulty colors - neutral tones to avoid clashing with categories */
     --diff-beginner: 160 25% 55%;

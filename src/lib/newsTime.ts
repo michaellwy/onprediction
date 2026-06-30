@@ -97,6 +97,45 @@ export function relativeTime(iso: string, now: number): string {
   return `${dt.getDate()} ${MONTHS[dt.getMonth()]}`;
 }
 
+/**
+ * Relative age with an explicit "ago" suffix — "9h ago", "3d ago" — for places
+ * that read better spelled out than the terse gutter form. Buckets escalate
+ * m → h → d → w; anything older than ~8 weeks falls back to a short date (no
+ * "ago"). Returns "" pre-hydration (now === 0), same as relativeTime.
+ */
+export function relativeAgo(iso: string, now: number): string {
+  if (!now) return "";
+  const then = Date.parse(iso);
+  if (Number.isNaN(then)) return "";
+  const diff = Math.max(0, now - then);
+  const min = Math.floor(diff / 6e4);
+  if (min < 1) return "just now";
+  if (min < 60) return `${min}m ago`;
+  const h = Math.floor(min / 60);
+  if (h < 24) return `${h}h ago`;
+  const d = Math.floor(h / 24);
+  if (d < 7) return `${d}d ago`;
+  const w = Math.floor(d / 7);
+  if (w < 8) return `${w}w ago`;
+  const dt = new Date(then);
+  return `${dt.getDate()} ${MONTHS[dt.getMonth()]}`;
+}
+
+/**
+ * Full human timestamp — "Jun 21, 2026 8:30 AM". Formatted from explicit parts
+ * (not toLocaleString) so SSR and client agree; rendered client-side only on the
+ * Stage, where the selection is set after mount.
+ */
+export function fullTimestamp(iso: string): string {
+  const t = Date.parse(iso);
+  if (Number.isNaN(t)) return "";
+  const d = new Date(t);
+  let h = d.getHours();
+  const ampm = h < 12 ? "AM" : "PM";
+  h = h % 12 || 12;
+  return `${MONTHS[d.getMonth()]} ${pad(d.getDate())}, ${d.getFullYear()} ${h}:${pad(d.getMinutes())} ${ampm}`;
+}
+
 /** Absolute, human timestamp for tooltips. */
 export function absoluteTime(iso: string): string {
   const t = Date.parse(iso);
