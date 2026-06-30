@@ -42,6 +42,12 @@ export function NewsTerminal() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const dayEls = useRef<Map<string, HTMLElement>>(new Map());
+  const pendingSlugRef = useRef<string | null>(null); // ?story= slug awaiting resolution
+
+  // Read the deep-link target once on mount (client-only, avoids Suspense).
+  useEffect(() => {
+    pendingSlugRef.current = new URLSearchParams(window.location.search).get("story");
+  }, []);
 
   // Live clock — re-derives relative ages while the feed is open.
   useEffect(() => {
@@ -92,6 +98,24 @@ export function NewsTerminal() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayed]);
 
+  // Resolve a ?story= deep link once its story is in the feed (seed first, then
+  // the full-feed background sync), select it and scroll its row into view.
+  useEffect(() => {
+    const slug = pendingSlugRef.current;
+    if (!slug) return;
+    const story = items.find((s) => s.slug === slug);
+    if (!story) return; // not loaded yet — wait for the next sync
+    pendingSlugRef.current = null;
+    const id = storyKey(story);
+    setSelectedId(id); // desktop Stage
+    setExpandedId(id); // mobile accordion folds open
+    requestAnimationFrame(() => {
+      scrollRef.current
+        ?.querySelector<HTMLElement>(`[data-story-id="${id}"]`)
+        ?.scrollIntoView({ block: "center" });
+    });
+  }, [items]);
+
   const registerDay = useCallback((key: string, el: HTMLElement | null) => {
     if (el) dayEls.current.set(key, el);
     else dayEls.current.delete(key);
@@ -134,6 +158,17 @@ export function NewsTerminal() {
     () => displayed.find((s) => storyKey(s) === selectedId),
     [displayed, selectedId]
   );
+
+  // Keep the address bar's ?story= in sync with the open story, so the URL is
+  // itself shareable. Hold off while a deep link is still resolving so we don't
+  // clobber it with the auto-selected newest story.
+  useEffect(() => {
+    if (pendingSlugRef.current || !selectedStory) return;
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("story") === selectedStory.slug) return;
+    url.searchParams.set("story", selectedStory.slug);
+    window.history.replaceState(null, "", url);
+  }, [selectedStory]);
 
   // Desktop keyboard nav: ↑/↓ move the Stage selection to the prev/next story and
   // keep that row in view. Ignored while typing or while focus is in the Stage
