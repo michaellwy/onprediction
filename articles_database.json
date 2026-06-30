@@ -5745,5 +5745,31 @@
     "editorial_blurb": "Argues that prediction markets are following the same trajectory as social media — starting with idealistic narratives about information aggregation but devolving into gambling, manipulation, and regulatory arbitrage. Highlights Meta's new prediction market app Arena, insider trading cases like the US Special Forces Maduro raid bet, and regulatory crackdowns in Brazil, Minnesota, and Spain. Warns that putting prediction markets in Meta's hands repeats social media's biggest mistakes with the added danger of real-money incentives.",
     "fetch_status": "pdf",
     "share_quote": "prediction markets are repeating social media's mistakes with real-money stakes"
+  },
+  {
+    "id": 240,
+    "url": "https://www.nytimes.com/2026/06/28/business/donk-polymarket-prediction-markets.html",
+    "title": "How Polymarket Traders Revolted Over One Silly Syllable",
+    "author": "Helen Lewis",
+    "author_twitter": "HelenJiLewis",
+    "source_type": "News Article",
+    "publish_date": "2026-06-28",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "oracle design",
+      "dispute resolution",
+      "market manipulation",
+      "polymarket",
+      "platform competition"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Examines how a $5.7 million Polymarket bet on whether a gamer said \"donk\" sparked a revolt over the platform's optimistic oracle resolution system. When one firm's token-weighted vote effectively decided the outcome, traders accused Polymarket of becoming a popularity contest with a wallet rather than a truth machine — exposing deep tensions in how decentralized prediction markets handle ambiguous outcomes.",
+    "share_quote": "a $5.7 million bet on a single syllable exposed polymarket as a popularity contest, not a truth machine",
+    "fetch_status": "pdf"
   }
 ]
