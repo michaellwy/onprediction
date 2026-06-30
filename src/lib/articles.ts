@@ -10,6 +10,13 @@ export function getArticles(): Article[] {
   );
 }
 
+// Article count rounded down to the nearest 10, e.g. "230+".
+// Used in copy that advertises the library size.
+export function getArticleCountLabel(): string {
+  const count = getArticles().length;
+  return `${Math.floor(count / 10) * 10}+`;
+}
+
 export function getUniqueCategories(): string[] {
   const articles = getArticles();
   const categories = new Set<string>();
