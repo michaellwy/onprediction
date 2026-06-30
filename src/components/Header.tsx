@@ -37,7 +37,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden sm:flex items-center gap-2">
+          <nav className="hidden lg:flex items-center gap-2">
             <Link
               href="/news"
               className={cn(
@@ -122,7 +122,7 @@ export function Header() {
           </nav>
 
           {/* Mobile Navigation */}
-          <div className="flex sm:hidden">
+          <div className="flex lg:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="flex items-center justify-center w-11 h-11 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/60 transition-colors"
@@ -135,7 +135,7 @@ export function Header() {
           {/* Mobile Menu Overlay */}
           {menuOpen && (
             <div
-              className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-40 sm:hidden"
+              className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => setMenuOpen(false)}
             />
           )}
@@ -143,7 +143,7 @@ export function Header() {
           {/* Mobile Menu Sheet */}
           <div
             className={cn(
-              "fixed inset-y-0 right-0 w-64 bg-background border-l border-border z-50 sm:hidden",
+              "fixed inset-y-0 right-0 w-64 bg-background border-l border-border z-50 lg:hidden",
               "transform transition-transform duration-200 ease-out",
               menuOpen ? "translate-x-0" : "translate-x-full"
             )}
