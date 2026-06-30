@@ -16,10 +16,13 @@ export const metadata: Metadata = {
     title: "Prediction Market Concepts | On Prediction",
     description: `Explore ${conceptCount} prediction market concepts organized into 6 clusters.`,
     url: `${siteConfig.url}/concepts`,
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Prediction Market Concepts | On Prediction",
     description: `Explore ${conceptCount} prediction market concepts organized into 6 clusters.`,
+    images: ["/og-image.png"],
   },
 };
 
