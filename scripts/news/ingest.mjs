@@ -29,7 +29,7 @@ import {
 import { classifyTaste } from "./lib/taste-classifier.mjs";
 import { preGateFilter } from "./lib/heuristic-filter.mjs";
 import { enrichStory } from "./lib/enrich.mjs";
-import { fetchArticleText, mapPool } from "./lib/article-text.mjs";
+import { fetchArticleText, mapPool, isTruncatedTitle } from "./lib/article-text.mjs";
 import {
   upsertRawItems, getUngatedRawItems, setGateResults, setArticleText,
   getActiveStories, getRecentStoriesForDedup, appendToStory, attachCoverage, storeStories,
@@ -135,10 +135,13 @@ async function main() {
   //    byline date, so trust the article itself when it states one.
   let got = 0, dated = 0;
   await mapPool(onTopic, 6, async (it) => {
-    const { url, text, published } = await fetchArticleText(it.url);
+    const { url, text, published, title } = await fetchArticleText(it.url);
     it.resolved_url = url || it.url;
     it.article_text = text || "";
     it.score = it.gate_score;
+    // A few feeds hand us a headline cropped with an ellipsis. The page's canonical
+    // og:title is the full headline — use it so coverage rows are never cut off.
+    if (isTruncatedTitle(it.title) && title && !isTruncatedTitle(title)) it.title = title;
     if (text) got++;
     if (published) {
       it.published_at = new Date(published).toISOString();

@@ -37,12 +37,15 @@ export function Board({
             <div
               ref={(el) => registerDay(group.key, el)}
               data-day={group.key}
-              className="sticky top-0 z-10 flex items-baseline gap-2 border-b border-[hsl(var(--nt-hairline))] bg-[hsl(var(--nt-surface-0)/0.9)] px-4 py-1.5 backdrop-blur-sm"
+              className="sticky top-0 z-10 flex items-center gap-2.5 border-b border-[hsl(var(--nt-hairline))] bg-[hsl(var(--nt-surface-0))] px-4 py-1.5"
             >
-              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[hsl(var(--nt-ink))]">
-                {group.label}
+              <span className="flex items-center gap-2">
+                <span aria-hidden className="h-3 w-[3px] rounded-full bg-[hsl(var(--nt-ember))]" />
+                <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[hsl(var(--nt-ink))]">
+                  {group.label}
+                </span>
               </span>
-              <span className="text-[10.5px] uppercase tracking-[0.12em] text-[hsl(var(--nt-ink-faint))]">
+              <span className="text-[10.5px] uppercase tracking-[0.14em] text-[hsl(var(--nt-ink-dim))]">
                 {group.relative || group.weekday}
               </span>
               {live && group.relative === "Today" && (

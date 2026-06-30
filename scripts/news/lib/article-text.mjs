@@ -66,9 +66,43 @@ function extractPublishedDate(html) {
 }
 
 /**
- * Get { url, text, published } for a story link. Resolves Google News redirects
- * first. `published` is the article's own publish date (ms epoch) read from the
- * page, or null. Returns text "" if blocked/paywalled/unparseable.
+ * The article's canonical headline, read from og:title / twitter:title (the clean
+ * publisher headline — preferred over a feed title, which some sources truncate
+ * with an ellipsis). Returns "" if neither tag is present. The <title> tag is NOT
+ * used as a fallback: it usually carries a " | Site" suffix that would need fragile
+ * stripping, and a truncated feed title is better kept than a mangled one.
+ */
+function extractTitle(html) {
+  const head = html.slice(0, 60000);
+  const patterns = [
+    /<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i,
+    /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:title["']/i,
+    /<meta[^>]+name=["']twitter:title["'][^>]+content=["']([^"']+)["']/i,
+  ];
+  for (const re of patterns) {
+    const m = head.match(re);
+    if (m && m[1].trim()) {
+      let s = decode(m[1].replace(/\s+/g, " ").trim());
+      // Strip a trailing " | Site" / " - Site" suffix some publishers append to
+      // og:title (the outlet is already shown separately). Conservative: only a
+      // short tail with no sentence punctuation, so real titles stay intact.
+      s = s.replace(/\s*[|–—-]\s*[^|–—]{1,30}$/, (suf) => (/[.!?:]/.test(suf) ? suf : "")).trim() || s;
+      return s;
+    }
+  }
+  return "";
+}
+
+/** A feed title that arrived cropped (trailing ellipsis). */
+export function isTruncatedTitle(t) {
+  return !!t && /(\.\.\.|…|\s\.\.)\s*$/.test(t.trim());
+}
+
+/**
+ * Get { url, text, published, title } for a story link. Resolves Google News
+ * redirects first. `published` is the article's own publish date (ms epoch) read
+ * from the page, or null; `title` is the canonical og:title (or ""). Returns
+ * text "" if blocked/paywalled/unparseable.
  */
 export async function fetchArticleText(link) {
   let url = link;
@@ -77,14 +111,15 @@ export async function fetchArticleText(link) {
   } catch { /* keep original */ }
   try {
     const r = await fetch(url, { headers: { "User-Agent": UA }, redirect: "follow", signal: AbortSignal.timeout(15000) });
-    if (!r.ok) return { url, text: "", published: null };
+    if (!r.ok) return { url, text: "", published: null, title: "" };
     const html = await r.text();
     const published = extractPublishedDate(html);
+    const title = extractTitle(html);
     const text = extractText(html);
     // Keep enough to capture background paragraphs (prior rounds, context, etc.)
-    return { url, text: text.length > 200 ? text.slice(0, 6000) : "", published };
+    return { url, text: text.length > 200 ? text.slice(0, 6000) : "", published, title };
   } catch {
-    return { url, text: "", published: null };
+    return { url, text: "", published: null, title: "" };
   }
 }
 

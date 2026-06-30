@@ -1,12 +1,11 @@
 "use client";
 
 import type { NewsStory } from "@/types/news";
-import { relativeTime, hostName } from "@/lib/newsTime";
+import { hostName } from "@/lib/newsTime";
 import { rankedSourcesFor } from "./terminalData";
 
-export function SourceList({ story, now }: { story: NewsStory; now: number }) {
+export function SourceList({ story }: { story: NewsStory }) {
   const sources = rankedSourcesFor(story);
-  const when = now > 0 ? relativeTime(story.published_at, now) : "";
 
   // Per-source headline, when the feed carries it (keyed by url).
   const titleFor = new Map(story.sources.map((s) => [s.url, s.title || null]));
@@ -45,7 +44,6 @@ export function SourceList({ story, now }: { story: NewsStory; now: number }) {
                   <span className="text-[hsl(var(--nt-ink-faint))] transition-colors duration-150 group-hover:text-[hsl(var(--nt-ember)/0.8)]"> · {hostName(s.url)}</span>
                 )}
               </a>
-              <time className="nt-num shrink-0 text-[12px] text-[hsl(var(--nt-ink-faint))]">{when}</time>
             </li>
           );
         })}

@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import type { NewsStory } from "@/types/news";
-import { relativeTime, absoluteTime, hostName } from "@/lib/newsTime";
+import { relativeAgo, absoluteTime, hostName } from "@/lib/newsTime";
 import { rankedSourcesFor, headlineCase, cleanSummary, summaryParagraphs } from "./terminalData";
 import { CategoryPill } from "./CategoryPill";
 import { SourceList } from "./SourceList";
@@ -77,7 +77,7 @@ export function BoardRow({ story, now, selected, expanded, onSelect }: Props) {
               title={absoluteTime(story.published_at)}
               className="nt-num ml-auto shrink-0 pl-2 text-[11.5px] font-medium text-[hsl(var(--nt-ink-faint))]"
             >
-              {relativeTime(story.published_at, now)}
+              {relativeAgo(story.published_at, now)}
             </time>
           )}
           {/* Fold affordance — mobile only (desktop uses the Stage panel). */}
@@ -116,7 +116,7 @@ export function BoardRow({ story, now, selected, expanded, onSelect }: Props) {
                   ))}
                 </div>
               )}
-              <SourceList story={story} now={now} />
+              <SourceList story={story} />
             </motion.div>
           </motion.div>
         )}
