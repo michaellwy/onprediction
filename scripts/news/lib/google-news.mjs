@@ -68,7 +68,10 @@ export async function fetchGoogleNews(days = 2) {
         if (!it.link || !it.title) continue;
         const ts = it.pubDate ? Date.parse(it.pubDate) : null;
         if (ts && !Number.isNaN(ts) && ts < cutoff) continue; // older than the window
-        const broke_day = ts && !Number.isNaN(ts) ? ymd(new Date(ts)) : ymd(new Date());
+        // Undated entries leave broke_day null rather than claiming today — the
+        // article-page fetch may still supply a real date downstream, and a story
+        // that never gets one is held below the bar instead of dated "now".
+        const broke_day = ts && !Number.isNaN(ts) ? ymd(new Date(ts)) : null;
         items.push(toItem(it, broke_day));
       }
     } catch (e) {
@@ -91,7 +94,7 @@ export async function searchGoogleNews(query, { limit = 40 } = {}) {
     for (const it of parseGoogleRss(await fetchText(gnUrl(query), { "User-Agent": UA }))) {
       if (!it.link || !it.title) continue;
       const ts = it.pubDate ? Date.parse(it.pubDate) : null;
-      const broke_day = ts && !Number.isNaN(ts) ? ymd(new Date(ts)) : ymd(new Date());
+      const broke_day = ts && !Number.isNaN(ts) ? ymd(new Date(ts)) : null; // don't fabricate today
       items.push(toItem(it, broke_day));
       if (items.length >= limit) break;
     }
