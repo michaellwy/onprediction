@@ -285,6 +285,8 @@ For every NEW item decide which single underlying development it reports:
 
 Sharing a company, regulator, or theme is NOT the same story: two different lawsuits are two stories; a funding round and an IPO report are two stories; a hack and a regulatory probe are two stories.
 
+Within a SINGLE case, a milestone that changes the legal posture is a NEW development, not a follow-up: a filing, a remand, a preliminary injunction or TRO, a ruling on the merits, a verdict, a settlement and an appeal are each their OWN story. Only routine procedural steps and additional reporting on the SAME ruling are the same development. (So "judge remands the suit to state court" and "judge temporarily blocks the platform from operating" in the same case are TWO stories.)
+
 Return ONLY a JSON array, one object per NEW item: [{"id":"<id>","group":"S2"}, {"id":"<id>","group":"new:kalshi-raise"}]. Every NEW id appears exactly once.`;
 
 /**
@@ -316,6 +318,8 @@ export async function assignToStories(newItems, activeStories) {
 const DUP_SYS = `You decide whether a NEW prediction-market news story reports the SAME specific development as one of several EXISTING stories.
 
 SAME development = the same single announcement, filing, lawsuit, funding round, product launch, hack, ruling, report or milestone — even when reworded, re-framed, or written from a different angle (e.g. "users lose $3M in a frontend hack" and "platform confirms third-party breach, will refund after phishing attack" are the SAME hack; "revenue tops $1B" and "annualized revenue surpassed $1 billion" are the SAME milestone). Sharing only a company, a topic, or the broader theme is NOT the same development — two different lawsuits, a funding round vs. an IPO report, a hack vs. a regulatory probe are all DIFFERENT.
+
+Distinct milestones WITHIN ONE case are also DIFFERENT developments: a filing, a remand, a preliminary injunction or TRO, a ruling on the merits, a verdict, a settlement and an appeal are each their own story, even though they share the case and parties. e.g. "a judge remands the suit to state court" and "a judge temporarily blocks the platform from operating" are DIFFERENT developments. Only additional reporting on the SAME ruling is the same development.
 
 You get the NEW story (headline + summary) and a numbered list of EXISTING stories. Return ONLY a JSON array with one object: [{"match": <index of the SAME development, or -1 if none>}]. Default to -1 when unsure.`;
 
