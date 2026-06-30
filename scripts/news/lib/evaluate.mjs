@@ -146,6 +146,38 @@ export async function gateScoreAll(items) {
 }
 
 /**
+ * Break date of a cluster from its source publish timestamps (ms epoch).
+ * NOT the raw minimum: a single stale early outlet (an older, loosely-related
+ * article the matcher swept in) or a block of generic pre-coverage must not set
+ * the date weeks before the story actually broke. So we peel a LEADING MINORITY
+ * of sources off the front whenever they sit more than GAP_DAYS before the rest,
+ * repeatedly, and date the story to where the BULK of coverage begins.
+ *   - DraftKings DKeX: a lone Jun-1 item before a Jun-26 launch → dropped → Jun 26
+ *   - Kalshi/ADI: a Jun 8-19 generic-ADI block before the Jun-26 Kalshi tie-up → Jun 26
+ *   - dense stories (Meta, CFTC) are untouched — no early gap to peel.
+ * Returns an ISO string, or null if there are no timestamps.
+ */
+const BREAK_GAP_DAYS = 6;
+const BREAK_MINORITY = 0.4;
+export function breakDate(times) {
+  const sorted = times.filter((t) => t).sort((a, b) => a - b);
+  if (sorted.length <= 2) return sorted.length ? new Date(sorted[0]).toISOString() : null;
+  const total = sorted.length;
+  let rest = sorted;
+  for (;;) {
+    // Find the first gap larger than the threshold.
+    let gapAt = -1;
+    for (let i = 1; i < rest.length; i++) {
+      if (rest[i] - rest[i - 1] > BREAK_GAP_DAYS * 864e5) { gapAt = i; break; }
+    }
+    // No early gap, or the leading block is too big to be a stale minority → stop.
+    if (gapAt === -1 || gapAt >= rest.length || gapAt / total >= BREAK_MINORITY) break;
+    rest = rest.slice(gapAt); // drop the leading minority, re-scan the remainder
+  }
+  return new Date(rest[0]).toISOString();
+}
+
+/**
  * Build story metadata from a cluster's members (no LLM).
  * Commentary/newsletter sources (source_type "commentary") are DISCOVERY-ONLY:
  * they help cluster a story but are never the lead and never shown as a source.
@@ -175,7 +207,7 @@ export function shapeStory(members) {
   // niche one not on the allowlist) is enough to publish.
   const spam_only = citable.every((m) => isSpamDomain(urlOf(m)));
   const pubTimes = citable.map((m) => (m.published_at ? Date.parse(m.published_at) : null)).filter((t) => t);
-  const published_at = pubTimes.length ? new Date(Math.min(...pubTimes)).toISOString() : null;
+  const published_at = breakDate(pubTimes); // bulk-of-coverage date, not raw min
   // Use the richest article text available across the cluster's citable members,
   // not just the lead's (the lead outlet is often bot-blocked while a sibling has text).
   const textMember = citable
@@ -193,7 +225,9 @@ export function shapeStory(members) {
     importance: score + Math.min(outlet_count, 12) * 0.4,
     best_rank,
     spam_only,
-    broke_on: citable[0].broke_day,
+    // Keep broke_on aligned with the computed break date (its calendar day), so
+    // the fallback stamp and any broke_on consumer agree with published_at.
+    broke_on: published_at ? published_at.slice(0, 10) : (citable[0].broke_day ?? null),
     published_at,
     sources: citable.map((m) => ({ outlet: m.source || hostOf(urlOf(m)), url: urlOf(m), title: m.title ?? null, published_at: m.published_at })),
   };

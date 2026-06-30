@@ -218,8 +218,13 @@ async function main() {
       ? await classifyTaste(fresh.map((s) => ({ id: s.cluster_key, headline: s.headline, summary: s.summary })))
       : new Map();
 
+    // A story with NO determinable date (no source pubDate and no page date) is
+    // held below the bar rather than published with a fabricated "today" stamp —
+    // it would otherwise jump to the top of the feed claiming to have just broken.
     const publishable = (s) =>
-      (s.score || 0) >= PUBLISH_MIN_SCORE && !s.spam_only && taste.get(s.cluster_key)?.verdict !== "noise";
+      (s.score || 0) >= PUBLISH_MIN_SCORE && !s.spam_only
+      && taste.get(s.cluster_key)?.verdict !== "noise"
+      && !!(s.published_at || s.broke_on);
     const published = fresh.filter(publishable);
     const belowBar = fresh.filter((s) => !publishable(s));
     newlyPublished = await storeStories({ published, belowBar });

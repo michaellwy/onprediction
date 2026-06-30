@@ -217,7 +217,10 @@ async function upsertStory(sb, story, status) {
     await sb.from("news_stories").update(base).eq("id", storyId);
   } else {
     // Order the feed by when the story actually broke (real timestamp from the
-    // source when available — keeps date AND time), not insert time.
+    // source when available — keeps date AND time), not insert time. The final
+    // `new Date()` fallback only reaches undatable stories, which the ingest
+    // publishable() check already routes to below_bar — so it never dates a
+    // FEED-VISIBLE story as "today".
     const publishedAt = story.published_at
       ? new Date(story.published_at).toISOString()
       : (story.broke_on ? `${story.broke_on}T12:00:00Z` : new Date().toISOString());
@@ -288,7 +291,12 @@ export async function getRecentStoriesForDedup(days = 10) {
 /**
  * Append new outlet sources to an existing story and bump its activity clock so
  * it stays matchable. If `update` is supplied (a material new-info rewrite),
- * also refresh headline/summary and bump published_at so the feed resurfaces it.
+ * refresh headline/summary/why_it_matters in place. `published_at` is NEVER
+ * touched here: it is the story's true break date (earliest source), and a
+ * stream of follow-up/syndicated coverage must not re-date a week-old saga to
+ * "now" and float it back to the top of the feed. Freshness for the matching
+ * window is tracked separately by `last_activity_at`. A genuinely new
+ * development is a separate story (the assign/dedup stage splits it out).
  * If one of the incoming sources is more reputable than the current lead, it is
  * promoted to lead (so a late Reuters pickup replaces an SEO republish). The
  * slug is intentionally left unchanged (it is a permalink).
@@ -324,7 +332,8 @@ export async function appendToStory(story, sources, update) {
     patch.headline = update.headline;
     patch.summary = update.summary;
     if (update.why_it_matters) patch.why_it_matters = update.why_it_matters;
-    patch.published_at = nowIso; // resurface a genuine development to the top of the feed
+    // NOTE: published_at is deliberately left unchanged — see the doc comment.
+    // The story keeps its real break date even when its text is updated.
   }
   await sb.from("news_stories").update(patch).eq("id", storyId);
   return { outlet_count: typeof count === "number" ? count : null, promotedLead: !!better };
