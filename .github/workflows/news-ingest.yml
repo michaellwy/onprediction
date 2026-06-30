@@ -2,8 +2,10 @@ name: News Ingest
 
 on:
   schedule:
-    # Every 20 minutes — incremental, so each run is fast and cheap.
-    - cron: "*/20 * * * *"
+    # Top of every hour. GitHub throttles high-frequency schedules hardest,
+    # so an hourly cron is honored more reliably than the old */20 (which was
+    # being dropped to ~every 2-4h in practice). Still best-effort timing.
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 # A slow run must never overlap the next tick.
