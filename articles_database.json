@@ -5771,5 +5771,27 @@
     "editorial_blurb": "Examines how a $5.7 million Polymarket bet on whether a gamer said \"donk\" sparked a revolt over the platform's optimistic oracle resolution system. When one firm's token-weighted vote effectively decided the outcome, traders accused Polymarket of becoming a popularity contest with a wallet rather than a truth machine — exposing deep tensions in how decentralized prediction markets handle ambiguous outcomes.",
     "share_quote": "a $5.7 million bet on a single syllable exposed polymarket as a popularity contest, not a truth machine",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 241,
+    "url": "https://alejandrosoumah.substack.com/p/value-is-not-at-settlement",
+    "title": "Value Is Not at Settlement",
+    "author": "Alejandro Soumah",
+    "author_twitter": "absurdistphil",
+    "source_type": "Substack",
+    "publish_date": "2026-05-20",
+    "primary_category": "Fundamentals",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "liquidity provision",
+      "price discovery",
+      "market structure",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Argues that value in prediction markets is generated not at settlement but through the ongoing process of liquidity allocation and repricing. Explores how prediction markets differ from traditional markets at the microstructure level — the key distinction being the representation of the asset, not the mechanism — and how their bounded outcome space makes them composable, enabling liquidity to attach to things that previously had value but no market.",
+    "share_quote": "liquidity allocation, not settlement, is where prediction markets create real value",
+    "fetch_status": "web"
   }
 ]
