@@ -207,9 +207,19 @@ async function main() {
       const idx = shortlist.length ? await findDuplicateStory(s, shortlist) : -1;
       if (idx >= 0) {
         const match = shortlist[idx];
-        try { await attachCoverage(match, s.sources, { changed: false }); } catch (e) { console.error(`  fold failed: ${e.message}`); }
+        // The fold target is usually the SAME event reworded — keep its headline.
+        // But the assigner sometimes splits out a NEWER/bigger development in the
+        // same saga (e.g. a TRO after a remand in one case) that dedup then pulls
+        // back in. Re-run the material-update check so a center-of-gravity shift
+        // re-headlines the story instead of freezing it on the first framing; a
+        // true restatement returns changed:false and the headline is left intact.
+        // (published_at stays frozen by design — see fix-published-dates.mjs.)
+        let upd = { changed: false };
+        try { upd = await updateStoryText(match, [`${s.headline}. ${s.summary || ""}`]); }
+        catch (e) { console.error(`  fold update-check failed: ${e.message}`); }
+        try { await attachCoverage(match, s.sources, upd); } catch (e) { console.error(`  fold failed: ${e.message}`); }
         deduped++;
-        console.error(`  deduped "${s.headline.slice(0, 50)}" → existing ${match.status} story "${match.headline.slice(0, 45)}"`);
+        console.error(`  deduped "${s.headline.slice(0, 50)}" → existing ${match.status} story "${match.headline.slice(0, 45)}"${upd.changed ? " [re-headlined]" : ""}`);
       } else {
         fresh.push(s);
       }
