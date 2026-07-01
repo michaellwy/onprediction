@@ -7,6 +7,31 @@
 import { createClient } from "@supabase/supabase-js";
 import { djb2 } from "./google-news.mjs";
 import { rankOrUnranked } from "./source-reputation.mjs";
+import { breakDate } from "./evaluate.mjs";
+
+/**
+ * Recompute the break date from ALL sources now attached to a story and return a
+ * date to move published_at *earlier* to — or null to leave it. Only ever moves
+ * DOWN: follow-up/syndicated coverage must never resurface a settled story (the
+ * invariant appendToStory/attachCoverage were built around). But when a fold or
+ * enrichment attaches originally-old sources — e.g. a fresh retrospective's
+ * cluster gains the Jan-2025 primaries it's actually about — the stored date is
+ * simply wrong and must correct down to the true earliest coverage. Guarded by a
+ * >2-day gap so ordinary same-week coverage never churns the date.
+ */
+async function earlierBreakDate(sb, storyId, currentPublishedAt) {
+  let cur = currentPublishedAt ? Date.parse(currentPublishedAt) : null;
+  if (cur == null) {
+    const { data } = await sb.from("news_stories").select("published_at").eq("id", storyId).single();
+    cur = data?.published_at ? Date.parse(data.published_at) : Infinity;
+  }
+  const { data: srcs } = await sb.from("news_story_sources").select("published_at").eq("story_id", storyId);
+  const times = (srcs || []).map((r) => (r.published_at ? Date.parse(r.published_at) : null)).filter(Boolean);
+  if (!times.length) return null;
+  const bd = breakDate(times);
+  if (bd && Date.parse(bd) < cur - 2 * 864e5) return bd;
+  return null;
+}
 
 function client() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -291,10 +316,10 @@ export async function getRecentStoriesForDedup(days = 10) {
 /**
  * Append new outlet sources to an existing story and bump its activity clock so
  * it stays matchable. If `update` is supplied (a material new-info rewrite),
- * refresh headline/summary/why_it_matters in place. `published_at` is NEVER
- * touched here: it is the story's true break date (earliest source), and a
- * stream of follow-up/syndicated coverage must not re-date a week-old saga to
- * "now" and float it back to the top of the feed. Freshness for the matching
+ * refresh headline/summary/why_it_matters in place. `published_at` only ever
+ * moves EARLIER (via earlierBreakDate) — never later: it is the story's true
+ * break date, and a stream of follow-up/syndicated coverage must not re-date a
+ * week-old saga to "now" and float it back to the top of the feed. Freshness for the matching
  * window is tracked separately by `last_activity_at`. A genuinely new
  * development is a separate story (the assign/dedup stage splits it out).
  * If one of the incoming sources is more reputable than the current lead, it is
@@ -320,6 +345,10 @@ export async function appendToStory(story, sources, update) {
   const { count } = await sb.from("news_story_sources").select("*", { count: "exact", head: true }).eq("story_id", storyId);
   if (typeof count === "number") patch.outlet_count = count;
 
+  // Correct the date DOWN if newly-appended sources reveal earlier true coverage.
+  const earlier = await earlierBreakDate(sb, storyId, story.published_at);
+  if (earlier) { patch.published_at = earlier; patch.broke_on = earlier.slice(0, 10); }
+
   // Promote a more-reputable incoming source to lead.
   const leadRank = rankOrUnranked(story.lead_url, story.lead_source);
   const better = (sources || [])
@@ -343,8 +372,9 @@ export async function appendToStory(story, sources, update) {
  * Attach extra outlet coverage to an existing story (coverage enrichment).
  * Like appendToStory, it upserts sources, recomputes outlet_count and promotes a
  * more-reputable incoming source to lead. UNLIKE appendToStory it does NOT bump
- * published_at or last_activity_at: enriching a historical story must not
- * resurface it to the top of the feed or re-open its match window. Slug (the
+ * last_activity_at: enriching a historical story must not re-open its match
+ * window. published_at may still move EARLIER (never later) when enrichment
+ * attaches older primaries that reveal the true break date. Slug (the
  * permalink) is left unchanged even when the headline is rewritten.
  * Returns { outlet_count, promotedLead, leadSource }.
  */
@@ -365,6 +395,12 @@ export async function attachCoverage(story, sources, update) {
   const patch = {};
   const { count } = await sb.from("news_story_sources").select("*", { count: "exact", head: true }).eq("story_id", storyId);
   if (typeof count === "number") patch.outlet_count = count;
+
+  // Enrichment is exactly where a fresh retrospective's cluster gains the older
+  // primaries it's really about — correct the date DOWN to the true earliest
+  // coverage (never up; last_activity_at is deliberately still untouched here).
+  const earlier = await earlierBreakDate(sb, storyId, story.published_at);
+  if (earlier) { patch.published_at = earlier; patch.broke_on = earlier.slice(0, 10); }
 
   const leadRank = rankOrUnranked(story.lead_url, story.lead_source);
   const better = (sources || [])

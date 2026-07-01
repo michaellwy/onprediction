@@ -33,6 +33,7 @@ function mapRow(row: Record<string, unknown>): NewsStory {
       outlet: (s.outlet as string) ?? null,
       url: s.url as string,
       title: (s.title as string) ?? null,
+      published_at: (s.published_at as string) ?? null,
     })),
   };
 }

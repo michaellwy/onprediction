@@ -136,6 +136,19 @@ export function fullTimestamp(iso: string): string {
   return `${MONTHS[d.getMonth()]} ${pad(d.getDate())}, ${d.getFullYear()} ${h}:${pad(d.getMinutes())} ${ampm}`;
 }
 
+/**
+ * Compact day-first date for the Coverage list — "9 Jan 2025". Formatted in UTC
+ * (not local) so it is deterministic across SSR and the browser (the seed renders
+ * this at first paint), and always shows the year so a reader can spot a source
+ * that is months or years off from the rest of a story's coverage.
+ */
+export function sourceDate(iso: string): string {
+  const t = Date.parse(iso);
+  if (Number.isNaN(t)) return "";
+  const d = new Date(t);
+  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+
 /** Absolute, human timestamp for tooltips. */
 export function absoluteTime(iso: string): string {
   const t = Date.parse(iso);

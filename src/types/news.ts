@@ -4,6 +4,10 @@ export interface NewsStorySource {
   // Per-source article headline. Exists upstream in news_raw_items.title but is
   // not yet propagated into the feed; optional until the pipeline carries it.
   title?: string | null;
+  // The source article's own byline date (ISO). Drives the Coverage list's
+  // per-outlet timestamp and chronological order. Null when the ingest could
+  // not read a date for that outlet.
+  published_at?: string | null;
 }
 
 // News-native beats (distinct from the article taxonomy in types/article.ts).
