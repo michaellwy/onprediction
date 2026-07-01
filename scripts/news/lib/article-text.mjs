@@ -66,6 +66,22 @@ function extractPublishedDate(html) {
 }
 
 /**
+ * Fallback publish date read from the URL path (…/YYYY/MM/DD/…), used when the
+ * page exposes no machine-readable date. Many publishers (Forbes, Fortune, NYT,
+ * NPR) date-stamp the permalink even when the byline meta is missing, so this
+ * recovers a real date instead of letting the story keep the Google News
+ * syndication time. Full Y/M/D only — the safest, least ambiguous form.
+ * Returns ms epoch, or null.
+ */
+function dateFromUrl(u) {
+  const m = /\/(20\d{2})\/(\d{2})\/(\d{2})(?:\/|$|[?#])/.exec(u || "");
+  if (!m) return null;
+  const t = Date.parse(`${m[1]}-${m[2]}-${m[3]}T12:00:00Z`);
+  if (!Number.isNaN(t) && t > Date.parse("2000-01-01") && t < Date.now() + 864e5) return t;
+  return null;
+}
+
+/**
  * The article's canonical headline, read from og:title / twitter:title (the clean
  * publisher headline — preferred over a feed title, which some sources truncate
  * with an ellipsis). Returns "" if neither tag is present. The <title> tag is NOT
@@ -111,15 +127,15 @@ export async function fetchArticleText(link) {
   } catch { /* keep original */ }
   try {
     const r = await fetch(url, { headers: { "User-Agent": UA }, redirect: "follow", signal: AbortSignal.timeout(15000) });
-    if (!r.ok) return { url, text: "", published: null, title: "" };
+    if (!r.ok) return { url, text: "", published: dateFromUrl(url), title: "" };
     const html = await r.text();
-    const published = extractPublishedDate(html);
+    const published = extractPublishedDate(html) ?? dateFromUrl(url);
     const title = extractTitle(html);
     const text = extractText(html);
     // Keep enough to capture background paragraphs (prior rounds, context, etc.)
     return { url, text: text.length > 200 ? text.slice(0, 6000) : "", published, title };
   } catch {
-    return { url, text: "", published: null, title: "" };
+    return { url, text: "", published: dateFromUrl(url), title: "" };
   }
 }
 
