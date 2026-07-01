@@ -4,12 +4,55 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import type { NewsStory } from "@/types/news";
 import { relativeAgo, absoluteTime, hostName } from "@/lib/newsTime";
-import { rankedSourcesFor, headlineCase, cleanSummary, summaryParagraphs } from "./terminalData";
+import { rankedSourcesFor, headlineCase, cleanSummary, summaryParagraphs, coverageTier } from "./terminalData";
 import { CategoryPill } from "./CategoryPill";
 import { SourceList } from "./SourceList";
 import { cn } from "@/lib/utils";
 
 const MAX_OUTLETS = 3;
+
+/**
+ * Coverage-breadth flag — an organic "everyone's covering this" signal keyed off
+ * the true outlet_count, distinct from the AI importance score. Three ascending
+ * bars encode magnitude (broad lights two, major all three) beside the real
+ * count, so a widely-picked-up story reads as loud at a glance. Only rendered
+ * for stories past the broad threshold; the number is aria-legible on its own.
+ */
+function CoverageFlag({ count, major }: { count: number; major: boolean }) {
+  const lit = major ? 3 : 2;
+  return (
+    <span
+      className="flex shrink-0 items-center gap-1.5"
+      title={`Corroborated by ${count} reputable sources`}
+    >
+      <span aria-hidden className="flex items-end gap-[2px]" style={{ height: 11 }}>
+        {[5, 8, 11].map((h, i) => (
+          <span
+            key={i}
+            className="w-[2.5px] rounded-[1px]"
+            style={{
+              height: h,
+              backgroundColor: i < lit ? "hsl(var(--nt-ember))" : "hsl(var(--nt-ember) / 0.22)",
+            }}
+          />
+        ))}
+      </span>
+      <span
+        className={cn(
+          "nt-num flex items-baseline gap-1 leading-none",
+          major
+            ? "text-[11.5px] font-semibold text-[hsl(var(--nt-ember))]"
+            : "text-[11.5px] font-medium text-[hsl(var(--nt-ember)/0.85)]"
+        )}
+      >
+        {count}
+        <span className="text-[10px] font-medium uppercase tracking-[0.08em] text-[hsl(var(--nt-ember)/0.6)]">
+          sources
+        </span>
+      </span>
+    </span>
+  );
+}
 
 interface Props {
   story: NewsStory;
@@ -28,6 +71,13 @@ export function BoardRow({ story, now, selected, expanded, onSelect }: Props) {
   const shown = sources.slice(0, MAX_OUTLETS).map((s) => s.outlet || hostName(s.url));
   const extra = Math.max(0, sources.length - shown.length);
   const summary = cleanSummary(story.summary);
+
+  // Coverage breadth flag replaces the plain "+N more" when many reputable
+  // outlets corroborate a story. It counts the SAME credible set the row lists
+  // and the Coverage panel opens (sources.length), so the flag's number always
+  // equals the links a reader can click — no raw-vs-credible mismatch.
+  const coverage = coverageTier(sources.length);
+  const broad = coverage !== "single";
 
   return (
     <div
@@ -68,26 +118,32 @@ export function BoardRow({ story, now, selected, expanded, onSelect }: Props) {
           {shown.length > 0 && (
             <p className="min-w-0 truncate text-[12.5px] text-[hsl(var(--nt-ink-dim))]">
               {shown.join(", ")}
-              {extra > 0 && <span className="text-[hsl(var(--nt-ink-faint))]"> +{extra} more</span>}
+              {!broad && extra > 0 && (
+                <span className="text-[hsl(var(--nt-ink-faint))]"> +{extra} more</span>
+              )}
             </p>
           )}
-          {now > 0 && (
-            <time
-              dateTime={story.published_at}
-              title={absoluteTime(story.published_at)}
-              className="nt-num ml-auto shrink-0 pl-2 text-[11.5px] font-medium text-[hsl(var(--nt-ink-faint))]"
-            >
-              {relativeAgo(story.published_at, now)}
-            </time>
-          )}
-          {/* Fold affordance — mobile only (desktop uses the Stage panel). */}
-          <ChevronRight
-            className={cn(
-              "h-4 w-4 shrink-0 text-[hsl(var(--nt-ink-faint))] transition-transform duration-200 lg:hidden",
-              expanded && "rotate-90"
+
+          <div className="ml-auto flex shrink-0 items-center gap-2.5 pl-1">
+            {broad && <CoverageFlag count={sources.length} major={coverage === "major"} />}
+            {now > 0 && (
+              <time
+                dateTime={story.published_at}
+                title={absoluteTime(story.published_at)}
+                className="nt-num shrink-0 text-[11.5px] font-medium text-[hsl(var(--nt-ink-faint))]"
+              >
+                {relativeAgo(story.published_at, now)}
+              </time>
             )}
-            aria-hidden
-          />
+            {/* Fold affordance — mobile only (desktop uses the Stage panel). */}
+            <ChevronRight
+              className={cn(
+                "h-4 w-4 shrink-0 text-[hsl(var(--nt-ink-faint))] transition-transform duration-200 lg:hidden",
+                expanded && "rotate-90"
+              )}
+              aria-hidden
+            />
+          </div>
         </div>
       </button>
 
