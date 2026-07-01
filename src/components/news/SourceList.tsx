@@ -2,6 +2,7 @@
 
 import type { NewsStory, NewsStorySource } from "@/types/news";
 import { hostName, sourceDate } from "@/lib/newsTime";
+import { reputationRank } from "@/lib/sourceReputation";
 
 /** Timestamp value for sorting; undated sources sink to the bottom. */
 function dateVal(s: NewsStorySource): number {
@@ -9,11 +10,18 @@ function dateVal(s: NewsStorySource): number {
   return Number.isNaN(t) ? -Infinity : t;
 }
 
+/** Bare host for dedup — mirrors rankSources() so the same bar applies. */
+function hostKey(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "").toLowerCase();
+  } catch {
+    return url;
+  }
+}
+
 export function SourceList({ story }: { story: NewsStory }) {
-  // Show the coverage newest-first so a stale outlier or an implausibly wide
-  // date span is obvious at a glance. Start from the real source rows (they
-  // carry the per-outlet title + date), then add the lead only if it isn't
-  // already among them.
+  // Start from the real source rows (they carry the per-outlet title + date),
+  // then add the lead if it isn't already among them.
   const merged: NewsStorySource[] = [...story.sources];
   if (story.lead_url && !merged.some((s) => s.url === story.lead_url)) {
     merged.push({
@@ -23,7 +31,26 @@ export function SourceList({ story }: { story: NewsStory }) {
       published_at: story.published_at ?? null,
     });
   }
-  const sources = merged.sort((a, b) => dateVal(b) - dateVal(a));
+
+  // Same bar as the reputation ranker: keep only allowlisted outlets and dedupe
+  // by host (two pieces from one domain collapse to one). We reorder the result
+  // newest-first — instead of by rank — so a stale outlier or an implausibly
+  // wide coverage span is obvious, but the low-quality/SEO filter is unchanged.
+  const seen = new Set<string>();
+  const reputable: NewsStorySource[] = [];
+  for (const s of merged) {
+    if (reputationRank(s.url, s.outlet) == null) continue;
+    const h = hostKey(s.url) || s.url;
+    if (seen.has(h)) continue;
+    seen.add(h);
+    reputable.push(s);
+  }
+  reputable.sort((a, b) => dateVal(b) - dateVal(a));
+
+  // Nothing cleared the bar → fall back to the lead alone (as rankedSourcesFor did).
+  const sources: NewsStorySource[] = reputable.length
+    ? reputable
+    : [{ outlet: story.lead_source ?? hostName(story.lead_url), url: story.lead_url, title: null, published_at: story.published_at ?? null }];
 
   return (
     <section className="mt-5 border-t border-[hsl(var(--nt-hairline))] pt-4 lg:mt-9 lg:pt-6">
