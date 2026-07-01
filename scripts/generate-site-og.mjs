@@ -158,8 +158,8 @@ function v3() {
 
   const main = el("div", { position: "relative", display: "flex", flexDirection: "column", alignItems: "flex-start" }, [
     el("div", {
-      fontFamily: "Sans", fontWeight: 700, fontSize: 20, letterSpacing: "0.3em",
-      color: EMBER, marginBottom: 24, display: "flex",
+      fontFamily: "Sans", fontWeight: 700, fontSize: 27, letterSpacing: "0.3em",
+      color: EMBER, marginBottom: 26, display: "flex",
     }, "PREDICTION MARKETS"),
     el("div", {
       fontFamily: "Display", fontWeight: 700, fontSize: 116, lineHeight: 0.96,
@@ -171,7 +171,7 @@ function v3() {
   ]);
 
   const footer = el("div", {
-    position: "relative", fontFamily: "Sans", fontWeight: 400, fontSize: 30, color: INK_DIM, display: "flex",
+    position: "relative", fontFamily: "Sans", fontWeight: 400, fontSize: 40, color: INK_DIM, display: "flex",
   }, "Curated research and signal");
 
   return el("div", {
