@@ -23,6 +23,25 @@ export function rankedSourcesFor(story: NewsStory): RankedSource[] {
   return [{ outlet: story.lead_source ?? hostName(story.lead_url), url: story.lead_url, rank: 99 }];
 }
 
+// Coverage breadth as an organic importance signal, independent of the AI
+// score: how many *reputable* outlets corroborate the story — i.e. the count of
+// sources that clear the reputation bar (rankedSourcesFor), which is exactly the
+// list the Coverage panel opens. Deliberately NOT the raw outlet_count: that
+// conflates real breadth with SEO/aggregator amplification (a minor story can
+// show 22 raw outlets but 1 credible one), and it would never match the panel.
+// The median story has just 1 credible source, so this tail is thin — "broad"
+// is ~top fifth, "major" ~top 1-in-14. Single source of truth; retune here.
+export const COVERAGE_BROAD = 4;
+export const COVERAGE_MAJOR = 8;
+
+export type CoverageTier = "single" | "broad" | "major";
+
+export function coverageTier(credibleCount: number): CoverageTier {
+  if (credibleCount >= COVERAGE_MAJOR) return "major";
+  if (credibleCount >= COVERAGE_BROAD) return "broad";
+  return "single";
+}
+
 /** Whitespace-normalize a summary, softening em/en dashes into commas. */
 export function cleanSummary(summary: string): string {
   return (summary || "").replace(/\s*\n\s*/g, " ").replace(/\s*[—–]\s*/g, ", ").trim();
