@@ -5793,5 +5793,29 @@
     "editorial_blurb": "Argues that value in prediction markets is generated not at settlement but through the ongoing process of liquidity allocation and repricing. Explores how prediction markets differ from traditional markets at the microstructure level — the key distinction being the representation of the asset, not the mechanism — and how their bounded outcome space makes them composable, enabling liquidity to attach to things that previously had value but no market.",
     "share_quote": "liquidity allocation, not settlement, is where prediction markets create real value",
     "fetch_status": "web"
+  },
+  {
+    "id": 242,
+    "url": "https://x.com/thatdegenvc/status/2072003432094003222",
+    "title": "Prediction Market Betting Profiles: The New Resume",
+    "author": "tommy",
+    "author_twitter": "thatdegenvc",
+    "source_type": "Twitter",
+    "publish_date": "2026-06-30",
+    "primary_category": "Applications",
+    "content_type": "Twitter Thread",
+    "difficulty": "None",
+    "concepts": [
+      "legibility",
+      "information aggregation",
+      "network effects"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Argues that onchain prediction market betting profiles reveal deeper insights about individuals than traditional resumes. With structured data on specific questions, resolution criteria, and outcomes, a trader's history shows how they price information and manage risk — suggesting Polymarket and Kalshi profiles may eventually appear on job applications and investor decks.",
+    "share_quote": "betting profiles reveal how you price risk better than any resume ever could",
+    "fetch_status": "pdf"
   }
 ]
