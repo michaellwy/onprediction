@@ -47,10 +47,26 @@ export function SourceList({ story }: { story: NewsStory }) {
   }
   reputable.sort((a, b) => dateVal(b) - dateVal(a));
 
-  // Nothing cleared the bar → fall back to the lead alone (as rankedSourcesFor did).
-  const sources: NewsStorySource[] = reputable.length
-    ? reputable
-    : [{ outlet: story.lead_source ?? hostName(story.lead_url), url: story.lead_url, title: null, published_at: story.published_at ?? null }];
+  // Nothing cleared the reputation bar (e.g. a lone legit-but-unlisted outlet like
+  // Bloomberg Law) → fall back to the real source rows, which carry the per-outlet
+  // title, deduped by host and newest-first. Only synthesize a bare, title-less
+  // lead when there are no source rows at all.
+  let sources: NewsStorySource[];
+  if (reputable.length) {
+    sources = reputable;
+  } else if (merged.length) {
+    const seenHost = new Set<string>();
+    sources = merged
+      .filter((s) => {
+        const h = hostKey(s.url) || s.url;
+        if (seenHost.has(h)) return false;
+        seenHost.add(h);
+        return true;
+      })
+      .sort((a, b) => dateVal(b) - dateVal(a));
+  } else {
+    sources = [{ outlet: story.lead_source ?? hostName(story.lead_url), url: story.lead_url, title: null, published_at: story.published_at ?? null }];
+  }
 
   return (
     <section className="mt-5 border-t border-[hsl(var(--nt-hairline))] pt-4 lg:mt-9 lg:pt-6">
