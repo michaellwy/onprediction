@@ -5817,5 +5817,31 @@
     "editorial_blurb": "Argues that onchain prediction market betting profiles reveal deeper insights about individuals than traditional resumes. With structured data on specific questions, resolution criteria, and outcomes, a trader's history shows how they price information and manage risk — suggesting Polymarket and Kalshi profiles may eventually appear on job applications and investor decks.",
     "share_quote": "betting profiles reveal how you price risk better than any resume ever could",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 243,
+    "url": "https://x.com/setofsevens/status/2072391844315758994",
+    "title": "Polymarket's Blockchain Migration: Compliance, Migration Paths, and the Future of On-Chain Markets",
+    "author": "Henry Lau",
+    "author_twitter": "setofsevens",
+    "source_type": "Twitter",
+    "publish_date": "2026-07-01",
+    "primary_category": "Platforms",
+    "content_type": "Twitter Thread",
+    "difficulty": "Some",
+    "concepts": [
+      "oracle design",
+      "regulatory classification",
+      "market structure",
+      "liquidity fragmentation",
+      "polymarket"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Deep-dive analysis of Polymarket International's likely blockchain migration as it pursues CFTC compliance. Covers three technical migration paths — mirror-and-cutoff, dual chain instances, and sunset switchover — along with changes to KYC requirements and dispute resolution mechanisms. Argues dual chain instances are the most probable outcome, balancing compliance with continuity.",
+    "share_quote": "migrating to a new chain means betting on compliance without killing liquidity",
+    "fetch_status": "pdf"
   }
 ]
