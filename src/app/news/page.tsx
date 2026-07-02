@@ -13,14 +13,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Prediction Market News | On Prediction",
-    description: "Curated, analyzed prediction-market news, updated daily.",
+    description: "Curated prediction-market research and signals.",
     url: `${siteConfig.url}/news`,
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Prediction Market News | On Prediction",
-    description: "Curated, analyzed prediction-market news, updated daily.",
+    description: "Curated prediction-market research and signals.",
     images: ["/og-image.png"],
   },
 };
