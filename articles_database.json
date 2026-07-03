@@ -5843,5 +5843,29 @@
     "editorial_blurb": "Deep-dive analysis of Polymarket International's likely blockchain migration as it pursues CFTC compliance. Covers three technical migration paths — mirror-and-cutoff, dual chain instances, and sunset switchover — along with changes to KYC requirements and dispute resolution mechanisms. Argues dual chain instances are the most probable outcome, balancing compliance with continuity.",
     "share_quote": "migrating to a new chain means betting on compliance without killing liquidity",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 244,
+    "url": "https://x.com/thenarrator/status/2072868836672700458",
+    "title": "Prediction Market Retention Playbook: 8 Mechanics from Casinos, Games, and Memecoins",
+    "author": "good",
+    "author_twitter": "thenarrator",
+    "source_type": "Twitter",
+    "publish_date": "2026-07-03",
+    "primary_category": "Design",
+    "content_type": "Twitter Thread",
+    "difficulty": "None",
+    "concepts": [
+      "network effects",
+      "platform competition",
+      "liquidity provision"
+    ],
+    "platforms_mentioned": [
+      "Ares",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Lays out an 8-point retention playbook for prediction market platforms, arguing the winners will be decided by habit-forming product mechanics rather than oracle quality or market breadth. Covers first-trade urgency, daily streaks, one-tap re-betting, leaderboard copy trading, shareable win moments, customizable flex cards, market-specific referral fees, and visible leverage controls. Borrows patterns from casinos, mobile games, and memecoins, and highlights Ares as a platform already shipping many of these ideas.",
+    "share_quote": "prediction market winners are built on habit mechanics, not oracle quality",
+    "fetch_status": "pdf"
   }
 ]
