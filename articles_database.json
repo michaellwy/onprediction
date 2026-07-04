@@ -5867,5 +5867,28 @@
     "editorial_blurb": "Lays out an 8-point retention playbook for prediction market platforms, arguing the winners will be decided by habit-forming product mechanics rather than oracle quality or market breadth. Covers first-trade urgency, daily streaks, one-tap re-betting, leaderboard copy trading, shareable win moments, customizable flex cards, market-specific referral fees, and visible leverage controls. Borrows patterns from casinos, mobile games, and memecoins, and highlights Ares as a platform already shipping many of these ideas.",
     "share_quote": "prediction market winners are built on habit mechanics, not oracle quality",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 245,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7028398",
+    "title": "Settlement Manipulation in Prediction Markets",
+    "author": "David Dai, Ruizhe Jia, Shihao Yu",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2026-01-01",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "market manipulation",
+      "oracle design",
+      "corruption value multiple",
+      "adverse selection",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "An academic paper from Stanford and Singapore Management University studying how prediction market participants can manipulate the settlement process itself — the mechanism by which outcome data feeds into market resolution. Extends the manipulation literature beyond the trading phase to examine oracle-level attacks, where traders profit by influencing or anticipating biased settlement rather than by trading on superior information. Formalizes the conditions under which settlement manipulation is profitable and discusses implications for oracle design, dispute resolution frameworks, and market integrity.",
+    "share_quote": "settlement manipulation can be more profitable than trading on inside information",
+    "fetch_status": "pdf"
   }
 ]
