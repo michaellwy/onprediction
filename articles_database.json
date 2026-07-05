@@ -5890,5 +5890,32 @@
     "editorial_blurb": "An academic paper from Stanford and Singapore Management University studying how prediction market participants can manipulate the settlement process itself — the mechanism by which outcome data feeds into market resolution. Extends the manipulation literature beyond the trading phase to examine oracle-level attacks, where traders profit by influencing or anticipating biased settlement rather than by trading on superior information. Formalizes the conditions under which settlement manipulation is profitable and discusses implications for oracle design, dispute resolution frameworks, and market integrity.",
     "share_quote": "settlement manipulation can be more profitable than trading on inside information",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 246,
+    "url": "http://users.nber.org/~jwolfers/Papers/DoesMoneyMatter.pdf",
+    "title": "Prediction Markets: Does Money Matter?",
+    "author": "Emile Servan-Schreiber, Justin Wolfers, David M. Pennock, Brian Galebach",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2004-09-01",
+    "primary_category": "Fundamentals",
+    "content_type": "Research Paper",
+    "difficulty": "Some",
+    "concepts": [
+      "information aggregation",
+      "calibration",
+      "continuous prediction markets",
+      "market scoring rules",
+      "adverse selection"
+    ],
+    "platforms_mentioned": [
+      "TradeSports",
+      "NewsFutures",
+      "Iowa Electronic Markets"
+    ],
+    "editorial_blurb": "A landmark experimental study comparing the accuracy of real-money (TradeSports) versus play-money (NewsFutures) prediction markets during the 2003-2004 NFL season. Both market types showed significant predictive power and remarkably similar accuracy — the play-money markets performed as well as the real-money markets. The authors hypothesize that this reflects two countervailing forces: real-money markets better motivate information discovery, while play-money markets may yield more efficient information aggregation by attracting a larger and more diverse pool of traders unconstrained by gambling regulations.",
+    "share_quote": "play-money prediction markets can match real-money ones in forecasting accuracy",
+    "fetch_status": "web"
   }
 ]
