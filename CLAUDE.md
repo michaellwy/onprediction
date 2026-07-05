@@ -76,7 +76,7 @@ src/
     forum/page.tsx          # Discussions — server wrapper with metadata
     forum/new/page.tsx      # Create new forum post (noindex)
     forum/post/page.tsx     # Individual post (uses ?id= query param)
-    articles/[id]/page.tsx  # OG-metadata shell — redirects to /?article={id}
+    articles/[id]/page.tsx  # Indexable article detail page (SSG, in sitemap)
   components/
     HomeContent.tsx         # Client component — article list with filters/search/sort
     ConceptsContent.tsx     # Client component — concept graph & index
@@ -193,7 +193,7 @@ supabase/
 - `share_quote` field on each article in `articles_database.json` — 8-14 word AI-composed pull quote (DeepSeek via `scripts/extract-share-quotes.mjs`)
 - `public/og/article-{id}.png` — 1200x630 PNG generated at build time via Satori + resvg-js (`scripts/generate-og-images.mjs`). Layout: title, pull quote with orange left rule, author + source, category pill, brand mark. Skip-if-unchanged via `public/og/article-{id}.hash` sidecars (gitignored)
 - Fonts vendored at `scripts/og-assets/` (Source Sans 3 + Playfair Display Italic, static WOFF — Satori does NOT support variable fonts)
-- `/articles/[id]/page.tsx` — minimal SSG redirect shell. Exports per-article OpenGraph + Twitter metadata pointing at the OG PNG. Renders `<meta http-equiv="refresh">` + JS `window.location.replace` to bounce humans to `/?article={id}` (homepage with that card expanded). `robots: noindex, follow`. NOT in sitemap.
+- `/articles/[id]/page.tsx` — full SSG article detail page (server component + `ArticlePageContent.tsx` client component). Indexed, self-canonical, in the sitemap. Exports per-article OpenGraph + Twitter metadata pointing at the OG PNG, plus WebPage/Article JSON-LD. Renders title, pull quote, editorial blurb, concept links, related reading, read-original CTA and the article discussion panel. "View in Library" links to `/?article={id}` (homepage with that card expanded).
 - Share button on ArticleCard uses `/articles/{id}` URL via `src/lib/share.ts`; Telegram broadcast links the same way — recipients get the preview, then land on the homepage card
 - Pipeline runs in prebuild on every Vercel deploy (idempotent via hash sidecars)
 
