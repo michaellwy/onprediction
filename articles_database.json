@@ -2726,7 +2726,6 @@
     "content_type": "Opinion",
     "difficulty": "Some",
     "concepts": [
-      "NEW: cross-subsidization",
       "liquidity provision",
       "adverse selection",
       "hedging"
@@ -2753,7 +2752,6 @@
     "difficulty": "Some",
     "concepts": [
       "NEW: implied correlation",
-      "NEW: relative value trading",
       "arbitrage"
     ],
     "platforms_mentioned": [
@@ -5470,7 +5468,6 @@
     "difficulty": "Some",
     "concepts": [
       "parlays",
-      "correlation",
       "price discovery"
     ],
     "platforms_mentioned": [

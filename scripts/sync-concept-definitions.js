@@ -33,7 +33,16 @@ for (const concept of conceptsFromArticles) {
   }
 }
 
-// 4. Sort keys alphabetically and write back
+// 4. Prune concepts no longer referenced by any article
+const pruned = [];
+for (const concept of Object.keys(existing)) {
+  if (!conceptsFromArticles.has(concept)) {
+    delete existing[concept];
+    pruned.push(concept);
+  }
+}
+
+// 5. Sort keys alphabetically and write back
 const sorted = {};
 for (const key of Object.keys(existing).sort((a, b) =>
   a.localeCompare(b, undefined, { sensitivity: "base" })
@@ -43,7 +52,7 @@ for (const key of Object.keys(existing).sort((a, b) =>
 
 fs.writeFileSync(DEFS_PATH, JSON.stringify(sorted, null, 2) + "\n");
 
-// 5. Log summary
+// 6. Log summary
 const total = Object.keys(sorted).length;
 const defined = Object.values(sorted).filter((v) => v !== "").length;
 const missing = total - defined;
@@ -51,3 +60,7 @@ const missing = total - defined;
 console.log(
   `${total} concepts total, ${newCount} new, ${defined} defined, ${missing} missing definitions`
 );
+if (pruned.length > 0) {
+  console.log(`Pruned ${pruned.length} orphaned concept(s): ${pruned.join(", ")}`);
+  console.log("Check src/lib/concepts.ts for stale conceptToCluster entries.");
+}

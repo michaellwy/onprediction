@@ -117,18 +117,15 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "regulatory arbitrage": "business",
   "distribution moat": "business",
   "regulatory classification": "business",
-  "cross-subsidization": "business",
   "demand markets": "business",
   "AI agents": "business",
   "federal preemption": "business",
   "polymarket": "business",
   "implied correlation": "liquidity",
-  "relative value trading": "liquidity",
   "yes bias": "information",
   "position collateralization": "mechanism",
   "nowcasting": "information",
   "endogeneity": "information",
-  "correlation": "information",
   "evidence markets": "mechanism",
 };
 
