@@ -53,7 +53,18 @@ export function cleanSummary(summary: string): string {
  * boundary nearest the midpoint.
  */
 export function summaryParagraphs(text: string): string[] {
-  const sentences = (text.match(/[^.!?]+[.!?]+(?:["')\]]+)?/g) || [text]).map((s) => s.trim()).filter(Boolean);
+  // A terminator only ends a sentence when whitespace + a capital/opening token
+  // follows — a bare "." inside "Crypto.com" or "Inc.," is not a boundary (the
+  // trim-and-rejoin below would otherwise inject a stray space or split a brand
+  // name across paragraphs). The unterminated tail is kept as its own sentence.
+  const sentences: string[] = [];
+  const boundary = /[.!?]+["')\]]*\s+(?=[A-Z0-9$"'(])/g;
+  let last = 0;
+  for (let m = boundary.exec(text); m; m = boundary.exec(text)) {
+    sentences.push(text.slice(last, m.index + m[0].length).trim());
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) sentences.push(text.slice(last).trim());
   if (text.length < 320 || sentences.length < 3) return [text];
   const half = text.length / 2;
   const out: string[] = [];
