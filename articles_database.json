@@ -5912,5 +5912,30 @@
     "editorial_blurb": "A landmark experimental study comparing the accuracy of real-money (TradeSports) versus play-money (NewsFutures) prediction markets during the 2003-2004 NFL season. Both market types showed significant predictive power and remarkably similar accuracy — the play-money markets performed as well as the real-money markets. The authors hypothesize that this reflects two countervailing forces: real-money markets better motivate information discovery, while play-money markets may yield more efficient information aggregation by attracting a larger and more diverse pool of traders unconstrained by gambling regulations.",
     "share_quote": "play-money prediction markets can match real-money ones in forecasting accuracy",
     "fetch_status": "web"
+  },
+  {
+    "id": 247,
+    "url": "https://x.com/ZEITFinance/status/2074426046095483052",
+    "title": "Wildfire Derivatives",
+    "author": "Ivan (@allquantor)",
+    "author_twitter": "allquantor",
+    "source_type": "Twitter",
+    "publish_date": "2026-07-07",
+    "primary_category": "Applications",
+    "content_type": "Twitter Thread",
+    "difficulty": "Some",
+    "concepts": [
+      "NEW:parametric insurance",
+      "hedging",
+      "regulatory classification",
+      "polymarket",
+      "info finance"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Explores the uncomfortable overlap between prediction markets and parametric insurance through the lens of Polymarket's wildfire contracts during the 2025 Los Angeles fires. Argues that when traditional insurance fails due to overhead and bureaucracy, event contracts function as frictionless climate hedges with instant, objective payouts that bypass adjusters and claims processing.",
+    "share_quote": "when insurance fails, prediction markets become the fastest climate hedge",
+    "fetch_status": "pdf"
   }
 ]
