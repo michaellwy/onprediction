@@ -5937,5 +5937,28 @@
     "editorial_blurb": "Explores the uncomfortable overlap between prediction markets and parametric insurance through the lens of Polymarket's wildfire contracts during the 2025 Los Angeles fires. Argues that when traditional insurance fails due to overhead and bureaucracy, event contracts function as frictionless climate hedges with instant, objective payouts that bypass adjusters and claims processing.",
     "share_quote": "when insurance fails, prediction markets become the fastest climate hedge",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 248,
+    "url": "https://marginalrevolution.com/marginalrevolution/2026/07/from-prediction-markets-to-decision-markets-and-beyond.html",
+    "title": "From Prediction Markets to Decision Markets and Beyond!",
+    "author": "Alex Tabarrok",
+    "author_twitter": "ATabarrok",
+    "source_type": "Blog",
+    "publish_date": "2026-07-07",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "decision markets",
+      "conditional tokens",
+      "election markets",
+      "futarchy",
+      "info finance"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Alex Tabarrok uses Polymarket's Maine Democratic primary market as a worked example of how conditional probability estimates can be reverse-engineered from prediction market price moves, then argues that Robin Hanson's decision markets (conditional contracts with refund provisions) would give cleaner, continuous estimates of exactly the quantities decision-makers need. A short, accessible case for moving beyond raw prediction markets toward decision markets and futarchy.",
+    "share_quote": "prediction markets show what will happen, but decision markets show what to do about it",
+    "fetch_status": "web"
   }
 ]
