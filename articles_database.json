@@ -5960,5 +5960,31 @@
     "editorial_blurb": "Alex Tabarrok uses Polymarket's Maine Democratic primary market as a worked example of how conditional probability estimates can be reverse-engineered from prediction market price moves, then argues that Robin Hanson's decision markets (conditional contracts with refund provisions) would give cleaner, continuous estimates of exactly the quantities decision-makers need. A short, accessible case for moving beyond raw prediction markets toward decision markets and futarchy.",
     "share_quote": "prediction markets show what will happen, but decision markets show what to do about it",
     "fetch_status": "web"
+  },
+  {
+    "id": 249,
+    "url": "https://panteraresearchlab.xyz/research/crypto-on-the-clock/",
+    "title": "Crypto on the Clock",
+    "author": "Ally Zach, Danning Sui",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2026-07-06",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "market making",
+      "liquidity provision",
+      "market manipulation",
+      "platform competition",
+      "polymarket"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Pantera Research Lab's empirical study of the $7.8B short-term crypto prediction market on Polymarket and Kalshi, analyzing fee economics, maker rebate structures, and settlement-driven trading patterns. Finds Polymarket's 5-minute market is 86% bot-driven by wallet count, with Binance spot volume spiking 12-17x in the final seconds of still-even cycles, consistent with settlement-driven strategies.",
+    "share_quote": "polymarket's 5-minute markets are 86% bots, and binance volume spikes 12x in the final seconds",
+    "fetch_status": "web"
   }
 ]
