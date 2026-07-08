@@ -4587,7 +4587,6 @@
     "content_type": "Research Paper",
     "difficulty": "Some",
     "concepts": [
-      "polymarket",
       "forecasting accuracy",
       "information aggregation"
     ],
@@ -4610,7 +4609,6 @@
     "content_type": "Analysis",
     "difficulty": "None",
     "concepts": [
-      "polymarket",
       "platform competition",
       "regulatory classification"
     ],
@@ -5756,7 +5754,6 @@
       "oracle design",
       "dispute resolution",
       "market manipulation",
-      "polymarket",
       "platform competition"
     ],
     "platforms_mentioned": [
@@ -5828,8 +5825,7 @@
       "oracle design",
       "regulatory classification",
       "market structure",
-      "liquidity fragmentation",
-      "polymarket"
+      "liquidity fragmentation"
     ],
     "platforms_mentioned": [
       "Polymarket",
@@ -5928,7 +5924,6 @@
       "parametric insurance",
       "hedging",
       "regulatory classification",
-      "polymarket",
       "info finance"
     ],
     "platforms_mentioned": [
@@ -5976,8 +5971,7 @@
       "market making",
       "liquidity provision",
       "market manipulation",
-      "platform competition",
-      "polymarket"
+      "platform competition"
     ],
     "platforms_mentioned": [
       "Polymarket",
