@@ -5980,5 +5980,29 @@
     "editorial_blurb": "Pantera Research Lab's empirical study of the $7.8B short-term crypto prediction market on Polymarket and Kalshi, analyzing fee economics, maker rebate structures, and settlement-driven trading patterns. Finds Polymarket's 5-minute market is 86% bot-driven by wallet count, with Binance spot volume spiking 12-17x in the final seconds of still-even cycles, consistent with settlement-driven strategies.",
     "share_quote": "polymarket's 5-minute markets are 86% bots, and binance volume spikes 12x in the final seconds",
     "fetch_status": "web"
+  },
+  {
+    "id": 250,
+    "url": "https://x.com/lzminsky/status/2075235328995033576",
+    "title": "Institutional Adoption of Event Contracts Through Structured Products",
+    "author": "Lauris",
+    "author_twitter": "lzminsky",
+    "source_type": "Twitter",
+    "publish_date": "2026-07-09",
+    "primary_category": "Microstructure",
+    "content_type": "Twitter Thread",
+    "difficulty": "Some",
+    "concepts": [
+      "event contracts",
+      "info finance",
+      "market structure",
+      "hedging"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Argues that institutional adoption of prediction market event contracts will follow the same path as synthetic risk transfer in credit markets — not through convincing risk managers to hold naked binaries, but through structured product wrappers that plug into existing credit/yield mandates. Traces the €800bn SRT/CLN market as precedent, then presents Marex's April 2026 note tied to Kalshi event contracts (up to $10M, 7% coupon if Nvidia remains largest company) as the first clear signal of this trend.",
+    "share_quote": "event contracts will reach institutions through structured notes, not naked binaries",
+    "fetch_status": "pdf"
   }
 ]
