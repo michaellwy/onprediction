@@ -6028,5 +6028,29 @@
     "editorial_blurb": "Develops and estimates a volatility model tailored to binary prediction markets, combining a Wright-Fisher deadline-resolution component (capturing how binary uncertainty resolves over time) and a Glosten-Milgrom order-flow component (capturing volatility from informed trading via spreads and volume). Using a large panel of Kalshi contracts, finds that structural specifications dominate plain ARCH/GARCH benchmarks, and combining the structural model with residual GARCH dynamics gives the best forecasts. Volatility is highest near fifty-fifty prices, rises near resolution, and varies across categories with the timing of information arrival.",
     "share_quote": "prediction market volatility spikes near fifty-fifty prices and surges as resolution approaches",
     "fetch_status": "web"
+  },
+  {
+    "id": 252,
+    "url": "https://x.com/lzminsky/status/2076780601743487460",
+    "title": "A Hedge Is Not a Product",
+    "author": "Lauris",
+    "author_twitter": "lzminsky",
+    "source_type": "Twitter",
+    "publish_date": "2026-07-13",
+    "primary_category": "Microstructure",
+    "content_type": "Twitter Thread",
+    "difficulty": "Some",
+    "concepts": [
+      "basis risk",
+      "hedging",
+      "event contracts",
+      "market structure"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Distinguishes between two meanings of 'hedge' — trader/market-making (position offset) and corporate finance (exposure matching) — and argues that prediction markets' contract-first approach creates persistent basis risk for would-be corporate hedgers. Warns that mis-selling mismatched binaries as corporate hedges would hand ammunition to regulators and undermine the CFTC's policy case for event contracts.",
+    "share_quote": "hedging with event contracts leaves corporate treasuries exposed to basis risk",
+    "fetch_status": "pdf"
   }
 ]

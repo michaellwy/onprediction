@@ -3,6 +3,7 @@
   "AI agents": "Autonomous software systems that trade on prediction markets, potentially improving liquidity and accuracy.",
   "arbitrage": "Exploiting price differences for equivalent outcomes across markets or platforms for risk-free profit.",
   "attention markets": "Markets that trade on what topics or events will capture public attention and discourse.",
+  "basis risk": "The residual mismatch between an exposure being hedged and the instrument used to hedge it — arising from differences in timing, magnitude, probability distribution, or risk factor sensitivity. In the context of prediction market event contracts, basis risk is significant because binary contracts are designed around a specific event definition rather than the full cash-flow profile of a corporate exposure, making them a rough hedge at best.",
   "batched auctions": "Collecting orders over a time window and clearing them simultaneously at a single price to reduce manipulation.",
   "bid-ask spread": "The difference between the highest price a buyer will pay and the lowest price a seller will accept, representing the cost of immediacy for traders.",
   "binary contracts": "Prediction market contracts that resolve to exactly one of two values, typically $1 (yes) or $0 (no), based on whether a specified event occurs. The binary structure eliminates ambiguity at resolution and enables direct probabilistic interpretation of prices.",
