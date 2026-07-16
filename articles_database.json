@@ -6077,5 +6077,38 @@
     "editorial_blurb": "Andy Hall and Elliot developed an AI system that grades prediction market resolution rules for clarity using a 10-point rubric, finding it can predict which contracts will be disputed at rates well above chance. Tested on thousands of contracts from Polymarket and Kalshi, the approach demonstrates how AI could help write clearer governance and contract language at scale.",
     "share_quote": "ai can predict which rules will spark disputes better than chance",
     "fetch_status": "web"
+  },
+  {
+    "id": 254,
+    "url": "https://contraryresearch.substack.com/p/are-prediction-markets-doomed-to",
+    "title": "Are Prediction Markets Doomed to Fail?",
+    "author": "Contrary Research",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2026-07-16",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "event contracts",
+      "market structure",
+      "regulatory classification",
+      "platform competition"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket",
+      "PredictIt",
+      "Augur",
+      "Iowa Electronic Markets",
+      "DraftKings",
+      "Crypto.com",
+      "Gemini",
+      "Interactive Brokers",
+      "CME Group"
+    ],
+    "editorial_blurb": "Contrary Research delivers a comprehensive deep dive into the prediction market industry, tracing its history from the Iowa Electronic Markets through Kalshi and Polymarket's current dominance to the latest sportsbook entrants. The piece analyzes business models, regulatory classification debates, and the critical skew in win distribution that distinguishes prediction markets from sports betting.",
+    "share_quote": "prediction markets survive by solving regulatory riddles, not by predicting events",
+    "fetch_status": "web"
   }
 ]
