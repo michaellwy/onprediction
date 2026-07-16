@@ -6052,5 +6052,30 @@
     "editorial_blurb": "Distinguishes between two meanings of 'hedge' — trader/market-making (position offset) and corporate finance (exposure matching) — and argues that prediction markets' contract-first approach creates persistent basis risk for would-be corporate hedgers. Warns that mis-selling mismatched binaries as corporate hedges would hand ammunition to regulators and undermine the CFTC's policy case for event contracts.",
     "share_quote": "hedging with event contracts leaves corporate treasuries exposed to basis risk",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 253,
+    "url": "https://freesystems.substack.com/p/superintelligent-governance-and-the",
+    "title": "Can AI Fix Bad Rules?",
+    "author": "Andy Hall, Elliot",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2026-07-16",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "resolution criteria",
+      "dispute resolution",
+      "oracle design",
+      "AI agents"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Andy Hall and Elliot developed an AI system that grades prediction market resolution rules for clarity using a 10-point rubric, finding it can predict which contracts will be disputed at rates well above chance. Tested on thousands of contracts from Polymarket and Kalshi, the approach demonstrates how AI could help write clearer governance and contract language at scale.",
+    "share_quote": "ai can predict which rules will spark disputes better than chance",
+    "fetch_status": "web"
   }
 ]
