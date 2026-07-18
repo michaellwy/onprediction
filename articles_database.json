@@ -6110,5 +6110,28 @@
     "editorial_blurb": "Contrary Research delivers a comprehensive deep dive into the prediction market industry, tracing its history from the Iowa Electronic Markets through Kalshi and Polymarket's current dominance to the latest sportsbook entrants. The piece analyzes business models, regulatory classification debates, and the critical skew in win distribution that distinguishes prediction markets from sports betting.",
     "share_quote": "prediction markets survive by solving regulatory riddles, not by predicting events",
     "fetch_status": "web"
+  },
+  {
+    "id": 255,
+    "url": "https://resolutionpending.substack.com/p/what-happens-to-the-other-side-of",
+    "title": "What Happens to the Other Side of the Trade?",
+    "author": "Aaron",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2026-07-17",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "insider trading",
+      "event contracts",
+      "market manipulation"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Following the Gabriel Perez insider trading case on Kalshi — where Trump’s teleprompter operator allegedly used advance knowledge of prepared remarks to win over 00,000 — Aaron asks the harder question: who eats the loss when insiders profit? The piece explores the exchange’s rulebook on restitution, the limits of counterparty protection in event contract markets, and parallels with Spotify streaming manipulation where the resolution source itself can be gamed after settlement.",
+    "share_quote": "the question isn't just catching the insider but deciding who bears the loss",
+    "fetch_status": "web"
   }
 ]
