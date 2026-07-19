@@ -1,6 +1,7 @@
 {
   "adverse selection": "Risk that counterparties trade because they have superior information, causing losses for the market maker.",
   "AI agents": "Autonomous software systems that trade on prediction markets, potentially improving liquidity and accuracy.",
+  "AMM (automated market maker)": "A smart contract or algorithm that provides liquidity and prices trades automatically based on a fixed mathematical formula, eliminating the need for traditional order books and designated counterparties.",
   "arbitrage": "Exploiting price differences for equivalent outcomes across markets or platforms for risk-free profit.",
   "attention markets": "Markets that trade on what topics or events will capture public attention and discourse.",
   "basis risk": "The residual mismatch between an exposure being hedged and the instrument used to hedge it — arising from differences in timing, magnitude, probability distribution, or risk factor sensitivity. In the context of prediction market event contracts, basis risk is significant because binary contracts are designed around a specific event definition rather than the full cash-flow profile of a corporate exposure, making them a rough hedge at best.",
@@ -42,6 +43,7 @@
   "information aggregation": "The process by which markets combine dispersed private knowledge into a single consensus price signal.",
   "information asymmetry": "When some traders possess materially better knowledge about likely outcomes than other participants.",
   "insider trading": "Trading on material non-public information (MNPI) obtained through a breach of a confidentiality duty or implied promise. In prediction markets, this arises when participants trade on privileged access to information about upcoming events, creating adverse selection for other traders.",
+  "interval securities": "A security that pays out if the outcome of a random variable falls within a specified interval. Enables prediction markets for continuous variables by allowing traders to express arbitrary endpoint precision.",
   "Kelly criterion": "A formula for optimal bet sizing that maximizes long-run growth by balancing edge against risk of ruin.",
   "Keynesian Beauty Contest": "A dynamic in forecasting contests where participants predict what others will predict rather than their true belief, causing private information to be underweighted and forecasts to converge on the public consensus.",
   "legibility": "The degree to which market prices reveal specific underlying information. Prediction markets have high legibility because contracts reference explicit events, making the information behind a price move visible to all participants unlike stocks where price moves have ambiguous causes.",

@@ -6133,5 +6133,28 @@
     "editorial_blurb": "Following the Gabriel Perez insider trading case on Kalshi — where Trump’s teleprompter operator allegedly used advance knowledge of prepared remarks to win over 00,000 — Aaron asks the harder question: who eats the loss when insiders profit? The piece explores the exchange’s rulebook on restitution, the limits of counterparty protection in event contract markets, and parallels with Spotify streaming manipulation where the resolution source itself can be gamed after settlement.",
     "share_quote": "the question isn't just catching the insider but deciding who bears the loss",
     "fetch_status": "web"
+  },
+  {
+    "id": 256,
+    "url": "https://arxiv.org/abs/2102.07308",
+    "title": "Log-Time Prediction Markets for Interval Securities",
+    "author": "Miroslav Dudík, Xintong Wang, David M. Pennock, David M. Rothschild",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2021-02-15",
+    "primary_category": "Design",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "interval securities",
+      "LMSR (logarithmic market scoring rule)",
+      "AMM (automated market maker)",
+      "market scoring rules",
+      "liquidity provision"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Designs the first computationally efficient prediction market for continuous outcome distributions using interval securities. Achieves logarithmic-time operations by decomposing the LMSR into a balanced binary tree, and extends to parallel submarkets at multiple resolutions with constant bounded loss.",
+    "fetch_status": "web",
+    "share_quote": "Efficient prediction markets for continuous variables are possible using interval securities and a binary tree decomposition of the LMSR"
   }
 ]
