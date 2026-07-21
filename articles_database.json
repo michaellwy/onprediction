@@ -6178,5 +6178,32 @@
     "editorial_blurb": "Proposes using quasi-experimental methods from econometrics — regression discontinuity design and difference-in-differences — to turn prediction markets into causal tools for evaluating candidates and policies. Instead of futarchy's wholesale replacement of governance with markets, this approach uses conditional markets on vote margins and election-day weather to isolate a candidate's true impact from confounding factors.",
     "fetch_status": "web",
     "share_quote": "Prediction markets can test a candidate's true impact if you design them like a natural experiment"
+  },
+  {
+    "id": 258,
+    "url": "https://www.astralcodexten.com/p/mantic-monday-the-monkeys-paw-curls",
+    "title": "Mantic Monday: The Monkey's Paw Curls",
+    "author": "Scott Alexander",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-01-13",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "decision markets",
+      "resolution criteria",
+      "oracle design",
+      "insider trading",
+      "election markets"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Manifold"
+    ],
+    "editorial_blurb": "Scott Alexander proposes a novel secondary-market mechanism to solve the confounding problem in conditional decision markets, where standard predictions conflate a candidate's causal impact with correlated background conditions. Also surveys the state of prediction markets at billions in monthly volume, covering resolution criteria disputes (\"rulescucks\"), insider trading controversies, and the UMA oracle design behind Polymarket's resolution system.",
+    "fetch_status": "web",
+    "share_quote": "decision markets can separate a candidate’s causal impact from correlated background noise"
   }
 ]
