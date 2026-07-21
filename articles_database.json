@@ -6156,5 +6156,27 @@
     "editorial_blurb": "Designs the first computationally efficient prediction market for continuous outcome distributions using interval securities. Achieves logarithmic-time operations by decomposing the LMSR into a balanced binary tree, and extends to parallel submarkets at multiple resolutions with constant bounded loss.",
     "fetch_status": "web",
     "share_quote": "Efficient prediction markets for continuous variables are possible using interval securities and a binary tree decomposition of the LMSR"
+  },
+  {
+    "id": 257,
+    "url": "https://thequantummilkman.substack.com/p/its-sometimes-sunny-in-philadelphia",
+    "title": "It's Sometimes Sunny in Philadelphia",
+    "author": "Bolton",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-07-20",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "quasi-experimental design",
+      "election markets",
+      "causal inference",
+      "futarchy"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Proposes using quasi-experimental methods from econometrics — regression discontinuity design and difference-in-differences — to turn prediction markets into causal tools for evaluating candidates and policies. Instead of futarchy's wholesale replacement of governance with markets, this approach uses conditional markets on vote margins and election-day weather to isolate a candidate's true impact from confounding factors.",
+    "fetch_status": "web",
+    "share_quote": "Prediction markets can test a candidate's true impact if you design them like a natural experiment"
   }
 ]

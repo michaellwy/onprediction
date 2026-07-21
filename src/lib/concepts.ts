@@ -129,6 +129,8 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "endogeneity": "information",
   "evidence markets": "mechanism",
   "interval securities": "mechanism",
+  "causal inference": "information",
+  "quasi-experimental design": "mechanism",
 };
 
 export function getConceptCluster(concept: string): ConceptCluster {
