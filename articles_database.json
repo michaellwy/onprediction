@@ -227,30 +227,6 @@
     "share_quote": "polymarket’s 35x user surge hides deep flaws in oracle design and dispute resolution"
   },
   {
-    "id": 13,
-    "url": "https://medium.com/quantum-economics/my-polymarket-conspiracy-theory",
-    "title": "My Polymarket Conspiracy Theory",
-    "author": "Lou Kerner",
-    "author_twitter": null,
-    "source_type": "Blog",
-    "publish_date": "2024-10-20",
-    "primary_category": "Commentary",
-    "content_type": "Opinion",
-    "difficulty": "None",
-    "concepts": [
-      "oracle design",
-      "dispute resolution",
-      "election markets",
-      "corruption value multiple"
-    ],
-    "platforms_mentioned": [
-      "Polymarket"
-    ],
-    "editorial_blurb": "Speculates on how Polymarket's 2024 presidential election market could be manipulated through its oracle system. Argues that Fox News was chosen as an oracle despite being unlikely to call the election for a non-Trump candidate, and that UMA token holders could sway disputed resolution votes given UMA's small market cap.",
-    "fetch_status": "pdf",
-    "share_quote": "fox news as oracle creates a built-in bias that favors trump"
-  },
-  {
     "id": 11,
     "url": "https://research.mintventures.fund/2024/10/09/Unveiling-Polymarket-The-Positioning-Expansion-and-Shadows-of-Crypto-Prediction-Markets/",
     "title": "Unveiling Polymarket: The Positioning, Expansion, and Shadows of Crypto Prediction Markets",
@@ -299,6 +275,30 @@
     "editorial_blurb": "Technical primer on prediction market design, from wisdom of crowds theory to decentralized oracle mechanisms. Argues prediction markets could systematize event probabilities to expand financial markets like derivatives did historically, but current implementations face challenges in liquidity fragmentation, oracle incentives, and complexity.",
     "fetch_status": "web",
     "share_quote": "prediction markets could systematize event probabilities like derivatives did for finance"
+  },
+  {
+    "id": 13,
+    "url": "https://medium.com/quantum-economics/my-polymarket-conspiracy-theory",
+    "title": "My Polymarket Conspiracy Theory",
+    "author": "Lou Kerner",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2024-10-20",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "oracle design",
+      "dispute resolution",
+      "election markets",
+      "corruption value multiple"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Speculates on how Polymarket's 2024 presidential election market could be manipulated through its oracle system. Argues that Fox News was chosen as an oracle despite being unlikely to call the election for a non-Trump candidate, and that UMA token holders could sway disputed resolution votes given UMA's small market cap.",
+    "fetch_status": "pdf",
+    "share_quote": "fox news as oracle creates a built-in bias that favors trump"
   },
   {
     "id": 14,
@@ -6205,5 +6205,25 @@
     "editorial_blurb": "Scott Alexander proposes a novel secondary-market mechanism to solve the confounding problem in conditional decision markets, where standard predictions conflate a candidate's causal impact with correlated background conditions. Also surveys the state of prediction markets at billions in monthly volume, covering resolution criteria disputes (\"rulescucks\"), insider trading controversies, and the UMA oracle design behind Polymarket's resolution system.",
     "fetch_status": "web",
     "share_quote": "decision markets can separate a candidate’s causal impact from correlated background noise"
+  },
+  {
+    "id": 259,
+    "title": "What we know about the typical Polymarket user",
+    "url": "https://www.pewresearch.org/short-reads/2026/07/22/what-we-know-about-the-typical-polymarket-user/",
+    "author": "Kaitlyn Radde",
+    "author_twitter": null,
+    "publish_date": "July 22, 2026",
+    "fetch_status": "web",
+    "primary_category": "Platforms",
+    "difficulty": "None",
+    "concepts": [
+      "Prediction Markets"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Pew Research Center analyzed nearly 12,000 Polymarket accounts over six weeks and found the typical user placed 46 trades across 10 active days, with an average trade value of $6.50 and a net loss of under $2. More than half of traders (58%) gained or lost less than $100, while sports traders were substantially more active than those focused on politics or crypto.",
+    "share_quote": "most polymarket users lose money, but rarely more than a hundred dollars"
   }
 ]
