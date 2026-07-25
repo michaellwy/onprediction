@@ -7,11 +7,18 @@
     {
       "source": "/u/api/send",
       "destination": "https://cloud.umami.is/api/send"
+    },
+    {
+      "source": "/news/feed.xml",
+      "destination": "/api/news-feed"
     }
   ],
   "functions": {
     "api/ask.mjs": {
       "maxDuration": 30
+    },
+    "api/news-feed.mjs": {
+      "maxDuration": 10
     }
   }
 }
