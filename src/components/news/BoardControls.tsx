@@ -3,6 +3,7 @@
 import { Search, X, BarChart3 } from "lucide-react";
 import type { NewsCategory } from "@/types/news";
 import { CategoryDropdown } from "./CategoryDropdown";
+import { FeedPopover } from "./FeedPopover";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -55,6 +56,7 @@ export function BoardControls({
       >
         <BarChart3 className="h-4 w-4" strokeWidth={2} />
       </button>
+      <FeedPopover />
     </div>
   );
 }
