@@ -9,6 +9,7 @@ On Prediction indexes articles, papers, podcasts, and tweets about prediction ma
 ## Main Pages
 
 - Homepage (articles): https://onprediction.xyz/
+- News: https://onprediction.xyz/news
 - Concepts: https://onprediction.xyz/concepts
 - Forum: https://onprediction.xyz/forum
 
@@ -16,7 +17,9 @@ On Prediction indexes articles, papers, podcasts, and tweets about prediction ma
 
 - Articles JSON: https://onprediction.xyz/api/articles.json
 - Concepts JSON: https://onprediction.xyz/api/concepts.json
-- RSS Feed: https://onprediction.xyz/feed.xml
+- Articles RSS Feed: https://onprediction.xyz/feed.xml
+- News RSS Feed (live): https://onprediction.xyz/news/feed.xml
+- News JSON (live): https://onprediction.xyz/api/news-feed?format=json
 - Full content dump: https://onprediction.xyz/llms-full.txt
 
 ## Categories

@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     "Curated prediction-market news, updated daily — regulation, platform launches, funding and major market events. AI-analyzed, tagged and searchable.",
   alternates: {
     canonical: `${siteConfig.url}/news`,
+    types: {
+      "application/rss+xml": `${siteConfig.url}/news/feed.xml`,
+    },
   },
   openGraph: {
     title: "Prediction Market News | On Prediction",
