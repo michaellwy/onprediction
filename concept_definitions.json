@@ -23,6 +23,7 @@
   "cross-platform arbitrage": "Trading the same event across different prediction market platforms to profit from price discrepancies.",
   "decision markets": "Prediction markets explicitly designed to inform specific decisions by forecasting outcomes of each option.",
   "demand markets": "Markets that capture consumer purchase intent as a probability signal before production, replacing surveys and focus groups with skin-in-the-game demand forecasting.",
+  "derivatives": "Financial instruments whose value derives from an underlying asset, index, or event — including options, futures, and event contracts. Prediction market contracts are structurally derivatives, so their prices may embed risk premia and market frictions rather than being pure probability estimates.",
   "dispute resolution": "Mechanisms for challenging and adjudicating contested market outcomes when participants disagree on results.",
   "distribution markets": "Markets that trade on full probability distributions rather than single binary yes/no outcomes.",
   "distribution moat": "The competitive advantage a multi-asset platform (like Robinhood) holds over specialized prediction market platforms (like Kalshi, Polymarket) by offering event contracts alongside stocks, options, crypto, and futures—allowing it to cross-sell PMs to an existing large user base and undercut standalone platforms on fees.",
@@ -75,7 +76,6 @@
   "peer prediction": "Methods for eliciting honest subjective reports by comparing respondents against each other statistically.",
   "platform competition": "How prediction market platforms differentiate, compete for users, and defend market share.",
   "position collateralization": "Using prediction market positions as collateral to borrow capital, unlocking liquidity without selling. This addresses the capital lock-up problem in long-dated markets and enables composability with the broader DeFi ecosystem.",
-  "Prediction Markets": "Platforms where participants trade contracts whose payouts depend on the outcome of future events, with prices reflecting the market's collective probability estimate for each outcome.",
   "price discovery": "The process through which trading activity reveals the fair value or true probability of an event.",
   "probability infrastructure": "The concept of prediction market mechanisms as a general-purpose layer that embeds live probability signals into decision surfaces beyond trading, such as attention, credibility, and demand.",
   "proper scoring rules": "Incentive-compatible functions that reward forecasters most when they report their true beliefs honestly.",
@@ -92,6 +92,7 @@
   "time arbitrage": "Profiting from a delay between when information becomes known and when the prediction market price adjusts to reflect it.",
   "toxic flow": "Order flow from informed traders that systematically moves against the market maker's positions.",
   "UMA protocol": "Optimistic oracle system where outcomes are assumed correct unless disputed, using economic bonds for security.",
+  "variance risk premium": "The difference between the variance implied by option or event-contract prices and the realized variance of the underlying — the compensation investors demand for bearing volatility risk. In prediction markets, a nonzero variance risk premium means contract prices deviate from true probabilities by a systematic risk component.",
   "wash trading": "Executing offsetting buy and sell transactions to inflate apparent trading volume without taking real market risk. On prediction markets, wash trading can artificially boost platform metrics and distort liquidity signals, and is federally prohibited under the Commodity Exchange Act.",
   "wisdom of crowds": "The phenomenon where aggregated group estimates often outperform individual experts in forecasting accuracy.",
   "yes bias": "The systematic tendency for YES shares in prediction markets to be overpriced relative to true probabilities, potentially explaining what was previously attributed to favorite-longshot bias."

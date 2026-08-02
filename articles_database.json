@@ -6225,5 +6225,29 @@
     ],
     "editorial_blurb": "Pew Research Center analyzed nearly 12,000 Polymarket accounts over six weeks and found the typical user placed 46 trades across 10 active days, with an average trade value of $6.50 and a net loss of under $2. More than half of traders (58%) gained or lost less than $100, while sports traders were substantially more active than those focused on politics or crypto.",
     "share_quote": "most polymarket users lose money, but rarely more than a hundred dollars"
+  },
+  {
+    "id": 260,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6748186",
+    "title": "Cryptocurrency Prediction Markets through the Derivatives Lens: Evidence from Kalshi and Polymarket",
+    "author": "Seungju Lee; Yebon Lee; Jaewook Lee",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2026-01-01",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "derivatives",
+      "variance risk premium",
+      "price discovery"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "An academic paper that examines cryptocurrency prediction markets through the lens of derivatives pricing, using trade data from Kalshi and Polymarket. Treats event contracts as option-like claims and analyzes their prices for variance risk premia, volatility patterns, and skewness — asking how much of a prediction market price reflects a probability forecast versus compensation for risk. Offers a framework for reading crypto prediction market prices as derivatives quotes rather than pure consensus estimates.",
+    "share_quote": "prediction market prices are derivatives quotes, not just probability forecasts",
+    "fetch_status": "pdf"
   }
 ]
