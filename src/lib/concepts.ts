@@ -133,6 +133,8 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "quasi-experimental design": "mechanism",
   "derivatives": "mechanism",
   "variance risk premium": "mechanism",
+  "over/under markets": "mechanism",
+  "payout mechanisms": "mechanism",
 };
 
 export function getConceptCluster(concept: string): ConceptCluster {

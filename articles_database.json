@@ -6249,5 +6249,54 @@
     "editorial_blurb": "An academic paper that examines cryptocurrency prediction markets through the lens of derivatives pricing, using trade data from Kalshi and Polymarket. Treats event contracts as option-like claims and analyzes their prices for variance risk premia, volatility patterns, and skewness — asking how much of a prediction market price reflects a probability forecast versus compensation for risk. Offers a framework for reading crypto prediction market prices as derivatives quotes rather than pure consensus estimates.",
     "share_quote": "prediction market prices are derivatives quotes, not just probability forecasts",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 261,
+    "url": "https://x.com/justigor/status/2084102977694978442",
+    "title": "Complex Core, Simple Surface: Dynamic O/Us, Ranges, and Duels on One Market",
+    "author": "Igor",
+    "author_twitter": "@justigor",
+    "source_type": "Twitter",
+    "publish_date": "2026-08-03",
+    "primary_category": "Design",
+    "content_type": "Twitter Thread",
+    "difficulty": "Some",
+    "concepts": [
+      "interval securities",
+      "distribution markets",
+      "over/under markets"
+    ],
+    "platforms_mentioned": [
+      "Polysights",
+      "Trepa",
+      "Ito Markets"
+    ],
+    "editorial_blurb": "A thread by Igor (@justigor) arguing that the primitive can be complex while the trading surface stays simple: complexity belongs in the mechanism, and the thing the trader actually touches should let them express a view for a price they like. Walks through a World Cup campaign built on fantasy points as the underlying, where one market supported four different interaction types — dynamic over/unders, range tickets, precision payoffs, and head-to-head duels like Messi vs Kane — and where third parties (Polysights, Trepa) built their own surfaces on the same core. Extends the logic to crypto, where range views on ETH are options-adjacent beliefs with the cognitive tax removed, and to new underlyings like GPU-hour rates, arguing that anything that resolves to a number can trade. Lesson: don't simplify the thing being traded — simplify how people express what they think about it.",
+    "share_quote": "complexity belongs in the mechanism, not in what the trader touches",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 262,
+    "url": "https://dev.andromedacomputer.net/Payout_Mechanisms_in_Trepa.pdf",
+    "title": "Comparative Analysis of Payout Mechanisms in Trepa: From Median Cutoff to Hybrid Consolation Floor",
+    "author": "Ilich Blanco",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2026-07-27",
+    "primary_category": "Design",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "Keynesian Beauty Contest",
+      "incentive compatibility",
+      "proper scoring rules",
+      "payout mechanisms"
+    ],
+    "platforms_mentioned": [
+      "Trepa"
+    ],
+    "editorial_blurb": "A research report from Andromeda Computer comparing three payout mechanisms for Trepa, a one-minute forecasting game on Solana where participants submit numerical BTC/USD estimates and are rewarded by proximity to the true outcome: (A) the current median-error cutoff with water-filling, (B) a continuous accuracy-proportional distribution with no cutoff, and (C) a hybrid design keeping the cutoff but adding a consolation floor for losers. Multi-agent equilibrium simulations across 540 configurations show no mechanism is universally optimal — the median cutoff yields higher equilibrium private-signal weight on average (0.375 vs 0.297), the continuous design matches or beats it for low risk-aversion agents, and the cutoff dominates for high risk-aversion agents — while a hybrid with a 0.5F consolation floor outperforms both pure designs in 70% of cases, raising private-signal weight while eliminating total-loss trauma and improving Sybil resistance. Recommends a segmented pool strategy, with open-source simulation code for independent verification.",
+    "share_quote": "no single payout design wins every game, but a hybrid consolation floor beats pure designs in 70% of cases",
+    "fetch_status": "pdf"
   }
 ]
