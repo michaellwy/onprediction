@@ -6298,5 +6298,33 @@
     "editorial_blurb": "A research report from Andromeda Computer comparing three payout mechanisms for Trepa, a one-minute forecasting game on Solana where participants submit numerical BTC/USD estimates and are rewarded by proximity to the true outcome: (A) the current median-error cutoff with water-filling, (B) a continuous accuracy-proportional distribution with no cutoff, and (C) a hybrid design keeping the cutoff but adding a consolation floor for losers. Multi-agent equilibrium simulations across 540 configurations show no mechanism is universally optimal — the median cutoff yields higher equilibrium private-signal weight on average (0.375 vs 0.297), the continuous design matches or beats it for low risk-aversion agents, and the cutoff dominates for high risk-aversion agents — while a hybrid with a 0.5F consolation floor outperforms both pure designs in 70% of cases, raising private-signal weight while eliminating total-loss trauma and improving Sybil resistance. Recommends a segmented pool strategy, with open-source simulation code for independent verification.",
     "share_quote": "no single payout design wins every game, but a hybrid consolation floor beats pure designs in 70% of cases",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 263,
+    "url": "https://x.com/uselotusxyz/status/2043739264068837578",
+    "title": "The Execution Layer Prediction Markets Need",
+    "author": "Lotus",
+    "author_twitter": "@uselotusxyz",
+    "source_type": "Twitter",
+    "publish_date": "2026-04-13",
+    "primary_category": "Microstructure",
+    "content_type": "Twitter Thread",
+    "difficulty": "Some",
+    "concepts": [
+      "liquidity aggregation",
+      "liquidity fragmentation",
+      "execution quality",
+      "cross-platform arbitrage",
+      "price discovery"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Limitless",
+      "Predict.fun",
+      "Opinion Labs"
+    ],
+    "editorial_blurb": "Announces Lotus, an execution layer for prediction markets that aggregates fragmented liquidity across venues without owning any itself. The same events trade in isolated silos with different formats, resolution rules, and depth, producing poor price discovery and high slippage — the same problem DeFi DEXs faced before aggregators. Lotus combines orderbooks and odds into a unified market view, canonicalizes truly equivalent markets via a verification process called Bloom, and smart-routes orders across venues and market formats to minimize slippage, accounting for differences in oracles, resolution methods, and counterparty risk. Users submit one order, pay one fee, and receive a single aggregated position — positioned as the 1inch prediction markets have needed, with the post citing a $35M infrastructure fund backing the thesis.",
+    "share_quote": "fragmented odds hide the real price, so one order now spans every venue",
+    "fetch_status": "pdf"
   }
 ]
