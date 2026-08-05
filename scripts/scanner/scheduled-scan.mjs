@@ -175,6 +175,11 @@ async function main() {
   // ── Update history ──────────────────────────────────────────────
   updateHistory(history, allCandidates, topPicks);
   console.log(`Done in ${stats.duration_sec}s.`);
+
+  // Batch job — exit explicitly. Without this, undici keep-alive sockets
+  // from fetch() calls (Telegram, arXiv, HN) hold the event loop open and
+  // the process lingers for minutes, making the cron runner wait on it.
+  process.exit(0);
 }
 
 main().catch(async (err) => {

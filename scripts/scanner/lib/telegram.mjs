@@ -30,6 +30,9 @@ export async function sendTelegramMessage(html, { chatId, botToken } = {}) {
     throw new Error(`Telegram API error (${response.status}): ${err}`);
   }
 
+  // Consume the body so undici can close the keep-alive socket — otherwise
+  // the socket stays open and keeps the Node process alive after the scan.
+  await response.text();
   return true;
 }
 
@@ -119,6 +122,8 @@ export async function sendDigest(results, stats) {
     throw new Error(`Telegram API error (${response.status}): ${err}`);
   }
 
+  // Consume body — keeps undici sockets from pinning the process open.
+  await response.text();
   return true;
 }
 
