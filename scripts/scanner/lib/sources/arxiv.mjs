@@ -9,7 +9,7 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ARXIV_API_BASE = "http://export.arxiv.org/api/query";
+const ARXIV_API_BASE = "https://export.arxiv.org/api/query";
 
 // arXiv's all: search is permissive — even narrow queries like "polymarket" can
 // surface unrelated papers. Require an explicit PM keyword in title+abstract.
@@ -53,17 +53,14 @@ export async function fetchArxiv() {
         `${ARXIV_API_BASE}?search_query=all:${encodeURIComponent(query)}` +
         `&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending`;
 
-      const response = await fetch(url);
-      if (!response.ok) {
-        console.warn(`[arxiv] API error for query "${query}": ${response.status}`);
-        await sleep(3000);
+      xml = await fetchWithRetry(url, query);
+      if (xml === null) {
+        await sleep(4000);
         continue;
       }
-
-      xml = await response.text();
     } catch (err) {
       console.warn(`[arxiv] Query "${query}" failed: ${err.message}`);
-      await sleep(3000);
+      await sleep(4000);
       continue;
     }
 
@@ -103,10 +100,42 @@ export async function fetchArxiv() {
       });
     }
 
-    await sleep(3000);
+    await sleep(4000);
   }
 
   return results.slice(0, maxResults);
+}
+
+/**
+ * Fetch an arXiv URL with retry/backoff on 429 (rate limit) and 503 (server
+ * load) — arXiv enforces ~1 req/3s and is stricter during peak hours. The
+ * scan fires 6 queries, and unthrottled bursts were getting 429/503'd,
+ * silently zeroing the source. Returns the response text, or null if all
+ * attempts failed.
+ */
+async function fetchWithRetry(url, query) {
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const response = await fetch(url);
+      if (response.status === 429 || response.status === 503) {
+        const backoff = 5000 * attempt;
+        console.warn(`[arxiv] Query "${query}" attempt ${attempt} hit ${response.status} — backing off ${backoff / 1000}s`);
+        await sleep(backoff);
+        continue;
+      }
+      if (!response.ok) {
+        console.warn(`[arxiv] API error for query "${query}": ${response.status}`);
+        await sleep(4000);
+        return null;
+      }
+      return await response.text();
+    } catch (err) {
+      console.warn(`[arxiv] Query "${query}" attempt ${attempt} network error: ${err.message}`);
+      if (attempt < 3) await sleep(5000 * attempt);
+    }
+  }
+  console.warn(`[arxiv] Query "${query}" gave up after 3 attempts`);
+  return null;
 }
 
 // --- XML Parsing ---

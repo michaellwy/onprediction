@@ -40,8 +40,16 @@ if (existsSync(envPath)) {
 }
 
 const config = JSON.parse(readFileSync(join(__dirname, "config.json"), "utf-8"));
-const lookbackHours = 48;
-const recencyCutoff = new Date(Date.now() - lookbackHours * 60 * 60 * 1000);
+// Per-source lookback (hours). Each source's config governs its own recency
+// window — the old hardcoded 48h silently contradicted the 7-day arXiv config
+// (and the 72h/168h RSS/HN windows), starving arXiv on non-posting days.
+function lookbackHoursFor(source) {
+  const s = config.sources && config.sources[source];
+  if (!s) return 48;
+  if (s.lookback_hours) return s.lookback_hours;
+  if (s.lookback_days) return s.lookback_days * 24;
+  return 48;
+}
 
 async function main() {
   const startTime = Date.now();
@@ -95,11 +103,14 @@ async function main() {
 
   // ── Collect results, track source stats ──────────────────────────
   const sourceStats = {};
+  const sourceErrors = [];
   let allCandidates = [];
 
   for (const result of sourceResults) {
     if (result.status === "rejected") {
-      console.error(`Source failed: ${result.reason.message}`);
+      const msg = result.reason?.message || String(result.reason);
+      console.error(`Source failed: ${msg}`);
+      sourceErrors.push(msg);
       continue;
     }
     const { source, items } = result.value;
@@ -107,15 +118,17 @@ async function main() {
     allCandidates.push(...items);
   }
 
-  // Deduplicate across sources (by URL) and enforce recency
+  // Deduplicate across sources (by URL) and enforce per-source recency
   const seenUrls = new Set();
   const deduped = [];
   for (const item of allCandidates) {
     if (!item.url || seenUrls.has(item.url)) continue;
-    // Secondary recency check — skip items without a valid date or older than lookback
+    const source = item.source_type || item.source || "";
+    const cutoff = new Date(Date.now() - lookbackHoursFor(source) * 60 * 60 * 1000);
+    // Secondary recency check — skip items without a valid date or older than the source's lookback
     if (item.published_at) {
       const d = new Date(item.published_at);
-      if (isNaN(d.getTime()) || d < recencyCutoff) continue;
+      if (isNaN(d.getTime()) || d < cutoff) continue;
     } else {
       continue; // No date at all — can't verify recency
     }
@@ -134,6 +147,10 @@ async function main() {
   // ── Stats ───────────────────────────────────────────────────────
   const stats = {
     sources: sourceStats,
+    source_errors: sourceErrors,
+    lookback: Object.fromEntries(
+      ["rss", "arxiv", "hackernews", "twitter_browser"].map(s => [s, lookbackHoursFor(s)])
+    ),
     total_raw: totalRaw,
     total_filtered: totalFiltered,
     results: topPicks.length,
@@ -143,7 +160,6 @@ async function main() {
       score: m.score,
       skip_reason: m.skip_reason
     })),
-    lookbackHours,
     duration_sec: ((Date.now() - startTime) / 1000).toFixed(1)
   };
 

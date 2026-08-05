@@ -53,18 +53,18 @@ export async function sendDigest(results, stats) {
 
   let msg = `<b>OnPrediction Daily Scout</b>\n${dateStr}\n\n`;
 
-  // Source summary
-  const sourceLines = [];
-  for (const [source, s] of Object.entries(stats.sources || {})) {
-    if (s.raw === 0) continue;
-    sourceLines.push(`${s.raw} from ${sourceLabel(source)}`);
-  }
-  if (sourceLines.length > 0) {
-    msg += `Scanned ${sourceLines.join(", ")}.\n`;
-  }
+  // Source summary — full status incl. zero sources so silent failures are visible
+  const srcCounts = Object.entries(stats.sources || {})
+    .map(([s, v]) => `${sourceLabel(s)}:${v.raw}`)
+    .join(" · ");
+  if (srcCounts) msg += `${srcCounts}\n`;
   msg += `${stats.total_filtered} after dedup · ${stats.results} above threshold`;
   if (stats.duration_sec) msg += ` · ${stats.duration_sec}s`;
-  msg += `\n\n`;
+  msg += `\n`;
+  if (stats.source_errors && stats.source_errors.length) {
+    msg += `⚠️ ${esc(stats.source_errors.slice(0, 3).join("; "))}\n`;
+  }
+  msg += `\n`;
 
   // Top picks
   if (results.length > 0) {

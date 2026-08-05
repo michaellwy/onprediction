@@ -32,7 +32,10 @@ export function saveMarkdown(results, stats, isDryRun) {
     md += `**Found:** ${stats.raw || stats.total_raw} → ${stats.filtered || stats.total_filtered} candidates → ${results.length} results  \n`;
   }
 
-  md += `**Lookback:** ${stats.lookbackHours || "?"} hours  \n`;
+  const lookbackStr = stats.lookback
+    ? Object.entries(stats.lookback).map(([k, v]) => `${k}:${v}h`).join(", ")
+    : (stats.lookbackHours || "?");
+  md += `**Lookback:** ${lookbackStr}  \n`;
   md += `**Duration:** ${stats.duration_sec || "?"}s  \n\n`;
   md += `---\n\n`;
 

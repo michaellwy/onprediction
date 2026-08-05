@@ -2,19 +2,45 @@
   "sources": {
     "rss": {
       "feeds": [
-        { "url": "https://astralcodexten.substack.com/feed", "name": "Astral Codex Ten" },
-        { "url": "https://www.overcomingbias.com/feed", "name": "Overcoming Bias" },
-        { "url": "https://marginalrevolution.com/feed", "name": "Marginal Revolution" },
-        { "url": "https://thezvi.substack.com/feed", "name": "The Zvi" },
-        { "url": "https://www.lesswrong.com/feed.xml", "name": "LessWrong" },
-        { "url": "https://forum.effectivealtruism.org/feed.xml", "name": "EA Forum" },
-        { "url": "https://goodjudgment.substack.com/feed", "name": "Good Judgment Project" },
-        { "url": "https://thediff.substack.com/feed", "name": "The Diff" },
-        { "url": "https://defiweekly.substack.com/feed", "name": "DeFi Weekly" },
-        { "url": "https://kalshi.com/blog/feed", "name": "Kalshi Blog" }
+        {
+          "url": "https://astralcodexten.substack.com/feed",
+          "name": "Astral Codex Ten"
+        },
+        {
+          "url": "https://www.overcomingbias.com/feed",
+          "name": "Overcoming Bias"
+        },
+        {
+          "url": "https://marginalrevolution.com/feed",
+          "name": "Marginal Revolution"
+        },
+        {
+          "url": "https://thezvi.substack.com/feed",
+          "name": "The Zvi"
+        },
+        {
+          "url": "https://www.lesswrong.com/feed.xml",
+          "name": "LessWrong"
+        },
+        {
+          "url": "https://forum.effectivealtruism.org/feed.xml",
+          "name": "EA Forum"
+        },
+        {
+          "url": "https://goodjudgment.substack.com/feed",
+          "name": "Good Judgment Project"
+        },
+        {
+          "url": "https://thediff.substack.com/feed",
+          "name": "The Diff"
+        },
+        {
+          "url": "https://defiweekly.substack.com/feed",
+          "name": "DeFi Weekly"
+        }
       ],
       "lookback_hours": 72,
-      "max_per_feed": 3
+      "max_per_feed": 5
     },
     "hackernews": {
       "keywords": [
@@ -43,13 +69,13 @@
     },
     "twitter_browser": {
       "search_queries": [
-        "polymarket volume",
-        "prediction market 2026",
-        "kalshi news",
-        "futarchy prediction"
+        "polymarket",
+        "kalshi",
+        "futarchy",
+        "prediction market design"
       ],
-      "max_tweets_per_query": 15,
-      "lookback_hours": 24
+      "max_tweets_per_query": 5,
+      "lookback_hours": 48
     }
   },
   "heuristic_filters": {
