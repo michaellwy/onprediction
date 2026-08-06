@@ -6326,5 +6326,28 @@
     "editorial_blurb": "Announces Lotus, an execution layer for prediction markets that aggregates fragmented liquidity across venues without owning any itself. The same events trade in isolated silos with different formats, resolution rules, and depth, producing poor price discovery and high slippage — the same problem DeFi DEXs faced before aggregators. Lotus combines orderbooks and odds into a unified market view, canonicalizes truly equivalent markets via a verification process called Bloom, and smart-routes orders across venues and market formats to minimize slippage, accounting for differences in oracles, resolution methods, and counterparty risk. Users submit one order, pay one fee, and receive a single aggregated position — positioned as the 1inch prediction markets have needed, with the post citing a $35M infrastructure fund backing the thesis.",
     "share_quote": "fragmented odds hide the real price, so one order now spans every venue",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 264,
+    "url": "https://www.morganstanley.com/content/dam/im/assets/publication/thought-leadership/consilient-observer/article_thewisdomofcrowds_ltr.pdf",
+    "title": "The Wisdom of Crowds in Markets: Crowd Behavior in Prediction, Betting, and Stock Markets",
+    "author": "Michael Mauboussin, Dan Callahan",
+    "author_twitter": "@mjmauboussin",
+    "source_type": "Company Blog",
+    "publish_date": "2026-08-05",
+    "primary_category": "Fundamentals",
+    "content_type": "Analysis",
+    "difficulty": "None",
+    "concepts": [
+      "efficient market hypothesis",
+      "wisdom of crowds",
+      "sports betting",
+      "parimutuel markets",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Mauboussin and Callahan review the wisdom of crowds across prediction markets, sports betting markets, parimutuel betting markets, and the stock market, covering each market's history, accuracy, information aggregation mechanism, and failure modes. The key distinction: the three betting markets are zero-sum before costs, while the stock market has positive expected returns over time. Uses the framework to explain why markets efficiently capture known information and where diversity breakdowns create opportunities for excess returns.",
+    "share_quote": "crowds price information well until diversity collapses and returns appear",
+    "fetch_status": "pdf"
   }
 ]
