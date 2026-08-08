@@ -73,6 +73,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "info finance": "information",
   "superforecasting": "information",
   "efficient market hypothesis": "information",
+  "no-trade theorem": "information",
   "Brier score": "information",
   "information asymmetry": "information",
   "distribution markets": "information",

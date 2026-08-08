@@ -66,6 +66,7 @@
   "multi-outcome markets": "Prediction markets where an event is divided into multiple mutually exclusive outcome ranges (e.g., price brackets), each tradeable. Contrasts with binary markets that only ask yes/no questions.",
   "network effects": "When a platform becomes more valuable to each user as more participants join and trade on it.",
   "no-loss prediction markets": "Designs where participants risk only potential yield, not principal, lowering the barrier to entry.",
+  "no-trade theorem": "Milgrom and Stokey result showing rational traders with common priors cannot profit from private information alone, which predicts thin trading in pure information markets. Explains why prediction markets need liquidity subsidies, betting interest, or payoff structures beyond information revelation to sustain volume.",
   "noise decomposition": "Separating observed price movements into components attributable to genuine new information versus random microstructure noise, used to assess how much of a market's short-term variance reflects real signal.",
   "nowcasting": "Using prediction market prices as real-time proxies for economic indicators that are officially reported with a delay, such as inflation or employment figures. Enables faster decision-making by treating continuously updated market odds as a high-frequency data source.",
   "opportunity markets": "Markets for discovering and pricing unexploited opportunities across domains using crowd forecasting.",

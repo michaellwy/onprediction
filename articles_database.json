@@ -6349,5 +6349,57 @@
     "editorial_blurb": "Mauboussin and Callahan review the wisdom of crowds across prediction markets, sports betting markets, parimutuel betting markets, and the stock market, covering each market's history, accuracy, information aggregation mechanism, and failure modes. The key distinction: the three betting markets are zero-sum before costs, while the stock market has positive expected returns over time. Uses the framework to explain why markets efficiently capture known information and where diversity breakdowns create opportunities for excess returns.",
     "share_quote": "crowds price information well until diversity collapses and returns appear",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 265,
+    "url": "https://x.com/dwflabs/status/2085359186557485170",
+    "title": "How Prediction Markets Finally Broke Through",
+    "author": "DWF Labs",
+    "author_twitter": "@dwflabs",
+    "source_type": "Twitter",
+    "publish_date": "2026-08-06",
+    "primary_category": "Business",
+    "content_type": "Twitter Thread",
+    "difficulty": "None",
+    "concepts": [
+      "no-trade theorem",
+      "platform competition",
+      "event contracts",
+      "sports betting",
+      "info finance"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Traces prediction markets from Renaissance papal betting through the 2024 election boom, and explains why early attempts like Intrade and Augur failed while Kalshi and Polymarket finally broke through. Covers the saver, gambler, and sharp participant problem at the core of prediction market design, and sketches where the industry is headed: bespoke hedging, perpetual and combinatorial markets, and AI agents.",
+    "share_quote": "the no-trade theorem died the moment sharp money met election chaos",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 266,
+    "url": "https://reports.tiger-research.com/p/52m-regulatory-gap-in-asias-prediction-eng",
+    "title": "$43M Regulatory Gap in Asia's Prediction Markets",
+    "author": "Ryan Yoon",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-08-06",
+    "primary_category": "Regulation",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "regulatory classification",
+      "election markets",
+      "event contracts",
+      "regulatory arbitrage",
+      "derivatives"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Compares how the US, UK, EU, and Japan built regulatory pathways for prediction markets while Asian jurisdictions have none. Estimates South Korea forgoes up to $43M in annual tax revenue as $52M flows through offshore platforms into its election markets, and lays out three paths forward: gambling law, derivatives law, or a new third category.",
+    "share_quote": "asia's $52m election bets dodge every regulator and taxman",
+    "fetch_status": "web"
   }
 ]
