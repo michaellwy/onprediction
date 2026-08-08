@@ -7,6 +7,7 @@
 
 import { execFile } from "child_process";
 import { promisify } from "util";
+import { fetchWithTimeout } from "./timeout.mjs";
 
 const execFileAsync = promisify(execFile);
 
@@ -56,7 +57,7 @@ Respond ONLY with a JSON array, no other text. Example:
  * @param {Object} config - ai_ranking config
  * @returns {Array} Top-scoring items with AI metadata
  */
-export async function rankCandidates(candidates, config) {
+export async function rankCandidates(candidates, config, deadline = null) {
   if (candidates.length === 0) return { topPicks: [], nearMisses: [], all: [] };
 
   const batchSize = config.max_candidates_per_batch || 25;
@@ -71,10 +72,21 @@ export async function rankCandidates(candidates, config) {
   // Process in batches
   const allScored = [];
   for (let offset = 0; offset < sorted.length; offset += batchSize) {
+    if (deadline && Date.now() > deadline) {
+      console.warn(`  AI ranking: scan deadline reached — skipping remaining ${sorted.length - offset} items`);
+      break;
+    }
     const batch = sorted.slice(offset, offset + batchSize);
     console.log(`  AI batch ${Math.floor(offset / batchSize) + 1}: scoring ${batch.length} items...`);
 
-    const scored = await scoreBatch(batch, config);
+    let scored = [];
+    try {
+      scored = await scoreBatch(batch, config);
+    } catch (err) {
+      // One failed API batch must not kill the whole scan (a stalled or
+      // rejected DeepSeek connection previously hung the scan to timeout).
+      console.error(`  AI batch failed (continuing without scores): ${err.message}`);
+    }
     allScored.push(...scored);
   }
 
@@ -179,7 +191,7 @@ async function scoreBatch(batch, config) {
  * Call DeepSeek API (primary path — OpenAI-compatible chat completions).
  */
 async function callDeepSeek(userPrompt, config) {
-  const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
+  const response = await fetchWithTimeout("https://api.deepseek.com/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -194,7 +206,7 @@ async function callDeepSeek(userPrompt, config) {
         { role: "user", content: userPrompt }
       ]
     })
-  });
+  }, 60000);
 
   if (!response.ok) {
     const err = await response.text();
@@ -228,7 +240,7 @@ async function callCLI(userPrompt) {
  * Call Claude via the Anthropic API (fallback).
  */
 async function callAnthropic(userPrompt, config) {
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
+  const response = await fetchWithTimeout("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -241,7 +253,7 @@ async function callAnthropic(userPrompt, config) {
       system: SYSTEM_PROMPT,
       messages: [{ role: "user", content: userPrompt }]
     })
-  });
+  }, 60000);
 
   if (!response.ok) {
     const err = await response.text();

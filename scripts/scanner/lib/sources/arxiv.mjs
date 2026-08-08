@@ -7,6 +7,7 @@
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { fetchWithTimeout } from "../timeout.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ARXIV_API_BASE = "https://export.arxiv.org/api/query";
@@ -116,7 +117,7 @@ export async function fetchArxiv() {
 async function fetchWithRetry(url, query) {
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const response = await fetch(url);
+      const response = await fetchWithTimeout(url, {}, 30000);
       if (response.status === 429 || response.status === 503) {
         const backoff = 5000 * attempt;
         console.warn(`[arxiv] Query "${query}" attempt ${attempt} hit ${response.status} — backing off ${backoff / 1000}s`);

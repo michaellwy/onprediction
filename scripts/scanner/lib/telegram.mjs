@@ -2,6 +2,8 @@
  * Send scan results to Telegram — HTML formatting with inline links.
  */
 
+import { fetchWithTimeout } from "./timeout.mjs";
+
 export async function sendTelegramMessage(html, { chatId, botToken } = {}) {
   const token = botToken || process.env.TELEGRAM_BOT_TOKEN;
   const chat = chatId || process.env.TELEGRAM_CHAT_ID;
@@ -14,7 +16,7 @@ export async function sendTelegramMessage(html, { chatId, botToken } = {}) {
     text = text.slice(0, 3990) + "\n\n…truncated…";
   }
 
-  const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+  const response = await fetchWithTimeout(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -23,7 +25,7 @@ export async function sendTelegramMessage(html, { chatId, botToken } = {}) {
       parse_mode: "HTML",
       disable_web_page_preview: false
     })
-  });
+  }, 30000);
 
   if (!response.ok) {
     const err = await response.text();

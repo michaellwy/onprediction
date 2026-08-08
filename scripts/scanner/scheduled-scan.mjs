@@ -21,6 +21,7 @@ import { fetchRSS } from "./lib/sources/rss.mjs";
 import { fetchArxiv } from "./lib/sources/arxiv.mjs";
 import { fetchHackerNews } from "./lib/sources/hackernews.mjs";
 import { fetchTwitterBrowser } from "./lib/sources/twitter-browser.mjs";
+import { withDeadline } from "./lib/timeout.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -60,36 +61,38 @@ async function main() {
   const historySeenUrls = getSeenUrls(history);
 
   // ── Run ALL sources in parallel ──────────────────────────────────
+  // Each source is raced against a 180s deadline so a single stalled
+  // upstream (arXiv/HN/Twitter) can never hang the whole scan.
   const sourceResults = await Promise.allSettled([
     // RSS feeds (Substack, blogs, company blogs)
-    (async () => {
+    withDeadline((async () => {
       const items = await fetchRSS();
       const filtered = items.filter(item => !historySeenUrls.has(item.url));
       const skipped = items.length - filtered.length;
       console.log(`  rss: ${items.length} items → ${filtered.length} after history dedup${skipped ? ` (${skipped} already seen)` : ""}`);
       return { source: "rss", items: filtered };
-    })(),
+    })(), 180000, "source rss"),
 
     // arXiv
-    (async () => {
+    withDeadline((async () => {
       const items = await fetchArxiv();
       const filtered = items.filter(item => !historySeenUrls.has(item.url));
       const skipped = items.length - filtered.length;
       console.log(`  arxiv: ${items.length} items → ${filtered.length} after history dedup${skipped ? ` (${skipped} already seen)` : ""}`);
       return { source: "arxiv", items: filtered };
-    })(),
+    })(), 180000, "source arxiv"),
 
     // Hacker News
-    (async () => {
+    withDeadline((async () => {
       const items = await fetchHackerNews();
       const filtered = items.filter(item => !historySeenUrls.has(item.url));
       const skipped = items.length - filtered.length;
       console.log(`  hackernews: ${items.length} items → ${filtered.length} after history dedup${skipped ? ` (${skipped} already seen)` : ""}`);
       return { source: "hackernews", items: filtered };
-    })(),
+    })(), 180000, "source hackernews"),
 
     // Twitter via browser (reduced timeouts + limited queries for reliability)
-    (async () => {
+    withDeadline((async () => {
       const items = await fetchTwitterBrowser();
       // X Articles are long-form — skip heuristic filter, let AI judge them.
       const xArticles = items.filter(t => t.source_name === "X Article");
@@ -98,7 +101,7 @@ async function main() {
       const allTwitter = [...xArticles, ...filteredRegular];
       console.log(`  twitter-browser: ${items.length} items → ${allTwitter.length} after filters (${xArticles.length} X Articles, ${filteredRegular.length} regular)`);
       return { source: "twitter_browser", items: allTwitter };
-    })()
+    })(), 180000, "source twitter")
   ]);
 
   // ── Collect results, track source stats ──────────────────────────
@@ -141,7 +144,11 @@ async function main() {
   console.log(`Total: ${totalRaw} candidates, ${totalFiltered} after cross-source dedup`);
 
   // ── AI ranking ──────────────────────────────────────────────────
-  const { topPicks, nearMisses, all } = await rankCandidates(deduped, config.ai_ranking);
+  // Hard global deadline (360s) — the cron wrapper kills the process at
+  // 420s, so the scan must always finish, save its report, and exit on its
+  // own terms. rankCandidates skips remaining batches past the deadline.
+  const scanDeadline = Date.now() + 360000;
+  const { topPicks, nearMisses, all } = await rankCandidates(deduped, config.ai_ranking, scanDeadline);
   console.log(`AI-ranked: ${topPicks.length} above threshold, ${nearMisses.length} near-misses`);
 
   // ── Stats ───────────────────────────────────────────────────────
@@ -169,8 +176,14 @@ async function main() {
 
   // ── Send Telegram digest ────────────────────────────────────────
   console.log(`Sending to Telegram...`);
-  await sendDigest(topPicks, stats);
-  console.log(`Telegram digest sent!`);
+  try {
+    await sendDigest(topPicks, stats);
+    console.log(`Telegram digest sent!`);
+  } catch (err) {
+    // Non-fatal: the markdown report is already saved and the cron wrapper
+    // delivers it. A Telegram hiccup must not fail the scan.
+    console.error(`Telegram digest failed (report still saved): ${err.message}`);
+  }
 
   // ── Update history ──────────────────────────────────────────────
   updateHistory(history, allCandidates, topPicks);

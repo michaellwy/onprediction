@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { fetchWithTimeout } from "../timeout.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -29,7 +30,7 @@ export async function fetchHackerNews() {
   for (const keyword of keywords) {
     try {
       const url = `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(keyword)}&tags=story&hitsPerPage=20`;
-      const res = await fetch(url);
+      const res = await fetchWithTimeout(url, {}, 15000);
       if (!res.ok) {
         console.warn(`[hackernews] API returned ${res.status} for keyword "${keyword}"`);
         continue;
