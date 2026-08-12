@@ -6401,5 +6401,31 @@
     "editorial_blurb": "Compares how the US, UK, EU, and Japan built regulatory pathways for prediction markets while Asian jurisdictions have none. Estimates South Korea forgoes up to $43M in annual tax revenue as $52M flows through offshore platforms into its election markets, and lays out three paths forward: gambling law, derivatives law, or a new third category.",
     "share_quote": "asia's $52m election bets dodge every regulator and taxman",
     "fetch_status": "web"
+  },
+  {
+    "id": 267,
+    "url": "https://x.com/alanwu/status/2062898456167907724",
+    "title": "The Price Is Not the Probability",
+    "author": "Alan Wu",
+    "author_twitter": "@alanwu",
+    "source_type": "Twitter",
+    "publish_date": "2026-06-05",
+    "primary_category": "Microstructure",
+    "content_type": "Twitter Thread",
+    "difficulty": "Some",
+    "concepts": [
+      "order book",
+      "dispute resolution",
+      "price discovery",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "UMA"
+    ],
+    "editorial_blurb": "Explains why prediction market prices are not probabilities: the contract about an event is not the event, and rules, resolvers, collateral economics and mixed trading motives all distort the clearing price. Walks through concrete cases, including UMA's resolution of the Zelenskyy suit market and the divergent Cardi B halftime settlements on Polymarket and Kalshi. Closes on why order books clear trades rather than average beliefs, and why tail markets can stay wrong.",
+    "share_quote": "Prices clear trades, not beliefs, so markets can stay wrong",
+    "fetch_status": "pdf"
   }
 ]
