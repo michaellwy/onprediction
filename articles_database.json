@@ -6499,5 +6499,30 @@
     "editorial_blurb": "Analyzes 23 million moneyline trades on Kalshi across major sport leagues and finds two systematic ways market prices fail as probabilities. Calibration is not static: parameters sit near perfect-calibration values mid-contract but depart sharply as expiry approaches, with the final ten minutes producing a step-like Prelec curve consistent with insurance-demand behavior by traders holding losing positions. Cross-game parlays are systematically overpriced relative to the product of their leg prices, with overpricing growing in leg count and a separate market-level markup at the parlay-pricing stage. The practical takeaway: treating prediction-market prices as probabilities requires conditioning on time to expiry and product type, not just price.",
     "fetch_status": "web",
     "share_quote": "parlays are systematically overpriced, and the gap grows with each added leg"
+  },
+  {
+    "id": 271,
+    "url": "https://arxiv.org/html/2607.06166v2",
+    "title": "When Do Prophets Profit in Prediction Markets?",
+    "author": "Anri Gu, Nicole Kagan, Alec Sun, Jibang Wu, Haifeng Xu",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2026-07-07",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "proper scoring rules",
+      "forecasting accuracy",
+      "order book",
+      "AI agents",
+      "incentive compatibility"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Classical theory ties forecasting accuracy to trading profit, but only for automated market makers; on central limit order book exchanges, informed forecasters routinely lose money while uninformed heuristics profit. The authors prove a formal equivalence that works in both settings: for any strictly proper scoring rule, a \"proper betting\" strategy depending only on your prediction and the market price earns positive expected profit whenever your forecast beats the price, and it is essentially the only strategy with such a robust guarantee. Across thousands of AI model forecasts, proper betting is the only strategy that reliably converts accuracy into profit, with optimal play varying by forecasting persona. A month-long live deployment on Kalshi returned +80.33% with a Sharpe ratio of 3.35.",
+    "fetch_status": "web",
+    "share_quote": "accurate forecasts lose money until you bet the proper way"
   }
 ]
