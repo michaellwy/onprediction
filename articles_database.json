@@ -6450,5 +6450,29 @@
     "editorial_blurb": "The CFTC's staff letter makes a novel argument: displaying event contracts in sportsbook odds format (minus 150, plus 200) can itself be a deceptive practice under Rule 180.1, even when every number on screen is accurate. A 60-cent contract and a minus-150 moneyline are the same trade, but the odds format hides the probability, the order book, and who is on the other side. On an exchange, competing traders set the price and the venue takes no position; at a sportsbook, the house writes the line and folds its margin into the number. Regulated exchanges and intermediaries must confirm receipt of the letter by August 31, and enforcement lawyers will know who was told.",
     "fetch_status": "web",
     "share_quote": "regulators now treat sportsbook odds as a deceptive mask over exchange prices"
+  },
+  {
+    "id": 269,
+    "url": "https://arxiv.org/abs/2608.00666",
+    "title": "Executable Arbitrage and Market Efficiency in Prediction Markets",
+    "author": "Jonas Gebele, Timm Mutzel, Florian Matthes",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2026-08-01",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "market efficiency",
+      "negative risk markets",
+      "arbitrage",
+      "order book"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Distinguishes payoff-space no-arbitrage, which follows from terminal payoffs, from protocol-executable no-arbitrage, which depends on what position transformations traders can actually perform. Using Polymarket's negative-risk markets and the NegRisk Adapter, the authors reconstruct depth-aware portfolio values and transaction histories to measure payoff-bound violations: an estimated $1.12 million in arbitrage profit across two realization channels. Violations concentrate on the unsupported YES side, while adapter-supported NO-side violations are rarer and shorter-lived. The takeaway: market efficiency depends not only on payoff structure, but on whether protocols expose payoff equivalences as executable primitives.",
+    "fetch_status": "pdf",
+    "share_quote": "Arbitrage isn't just about payoffs; it's about what the protocol lets you trade"
   }
 ]
