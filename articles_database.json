@@ -6427,5 +6427,28 @@
     "editorial_blurb": "Explains why prediction market prices are not probabilities: the contract about an event is not the event, and rules, resolvers, collateral economics and mixed trading motives all distort the clearing price. Walks through concrete cases, including UMA's resolution of the Zelenskyy suit market and the divergent Cardi B halftime settlements on Polymarket and Kalshi. Closes on why order books clear trades rather than average beliefs, and why tail markets can stay wrong.",
     "share_quote": "Prices clear trades, not beliefs, so markets can stay wrong",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 268,
+    "url": "https://www.desilvalawoffices.com/articles/blog/2026/august/cftc-american-odds-letter-rule-180-1-and-event-c/",
+    "title": "CFTC American Odds Letter: Rule 180.1 and Event Contracts",
+    "author": "R Tamara de Silva",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2026-08-11",
+    "primary_category": "Regulation",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "event contracts",
+      "sports betting",
+      "regulatory classification",
+      "market structure",
+      "price discovery"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "The CFTC's staff letter makes a novel argument: displaying event contracts in sportsbook odds format (minus 150, plus 200) can itself be a deceptive practice under Rule 180.1, even when every number on screen is accurate. A 60-cent contract and a minus-150 moneyline are the same trade, but the odds format hides the probability, the order book, and who is on the other side. On an exchange, competing traders set the price and the venue takes no position; at a sportsbook, the house writes the line and folds its margin into the number. Regulated exchanges and intermediaries must confirm receipt of the letter by August 31, and enforcement lawyers will know who was told.",
+    "fetch_status": "web",
+    "share_quote": "regulators now treat sportsbook odds as a deceptive mask over exchange prices"
   }
 ]
