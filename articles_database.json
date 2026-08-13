@@ -6474,5 +6474,30 @@
     "editorial_blurb": "Distinguishes payoff-space no-arbitrage, which follows from terminal payoffs, from protocol-executable no-arbitrage, which depends on what position transformations traders can actually perform. Using Polymarket's negative-risk markets and the NegRisk Adapter, the authors reconstruct depth-aware portfolio values and transaction histories to measure payoff-bound violations: an estimated $1.12 million in arbitrage profit across two realization channels. Violations concentrate on the unsupported YES side, while adapter-supported NO-side violations are rarer and shorter-lived. The takeaway: market efficiency depends not only on payoff structure, but on whether protocols expose payoff equivalences as executable primitives.",
     "fetch_status": "pdf",
     "share_quote": "Arbitrage isn't just about payoffs; it's about what the protocol lets you trade"
+  },
+  {
+    "id": 270,
+    "url": "https://arxiv.org/html/2607.14430v1",
+    "title": "Prices, Probabilities, and Parlays: Systematic Bias in Sports Prediction Markets",
+    "author": "Niusha Moshrefi",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2026-07-15",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "sports betting",
+      "calibration",
+      "parlays",
+      "event contracts",
+      "market efficiency"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Analyzes 23 million moneyline trades on Kalshi across major sport leagues and finds two systematic ways market prices fail as probabilities. Calibration is not static: parameters sit near perfect-calibration values mid-contract but depart sharply as expiry approaches, with the final ten minutes producing a step-like Prelec curve consistent with insurance-demand behavior by traders holding losing positions. Cross-game parlays are systematically overpriced relative to the product of their leg prices, with overpricing growing in leg count and a separate market-level markup at the parlay-pricing stage. The practical takeaway: treating prediction-market prices as probabilities requires conditioning on time to expiry and product type, not just price.",
+    "fetch_status": "web",
+    "share_quote": "parlays are systematically overpriced, and the gap grows with each added leg"
   }
 ]
