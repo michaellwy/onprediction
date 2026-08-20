@@ -6524,5 +6524,37 @@
     "editorial_blurb": "Classical theory ties forecasting accuracy to trading profit, but only for automated market makers; on central limit order book exchanges, informed forecasters routinely lose money while uninformed heuristics profit. The authors prove a formal equivalence that works in both settings: for any strictly proper scoring rule, a \"proper betting\" strategy depending only on your prediction and the market price earns positive expected profit whenever your forecast beats the price, and it is essentially the only strategy with such a robust guarantee. Across thousands of AI model forecasts, proper betting is the only strategy that reliably converts accuracy into profit, with optimal play varying by forecasting persona. A month-long live deployment on Kalshi returned +80.33% with a Sharpe ratio of 3.35.",
     "fetch_status": "web",
     "share_quote": "accurate forecasts lose money until you bet the proper way"
+  },
+  {
+    "id": 272,
+    "url": "https://x.com/_drNeyo/status/2090467732147826798",
+    "title": "Prediction Markets Behave Like Exchanges, Not Products",
+    "author": "Eniola",
+    "author_twitter": "@_drNeyo",
+    "source_type": "Twitter",
+    "content_type": "Twitter Thread",
+    "publish_date": "2026-08-20",
+    "primary_category": "Business",
+    "difficulty": "Some",
+    "concepts": [
+      "platform competition",
+      "network effects",
+      "liquidity provision",
+      "market structure",
+      "distribution moat"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi",
+      "Trepa",
+      "Fireplace",
+      "Augur",
+      "PredictIt",
+      "Intrade",
+      "OPINION"
+    ],
+    "editorial_blurb": "Two prediction market startups — Trepa and Fireplace — shut down within 90 minutes of each other in the sector's best year ever, as Kalshi and Polymarket absorbed 93.3% of volume. The postmortem's core argument: prediction markets behave like exchanges, not products, where liquidity begets liquidity and winner-take-most is the natural shape of the market. A sharp case that the standalone prediction market platform may already be a dead category — with four questions every new builder should ask first.",
+    "share_quote": "liquidity begets liquidity, and prediction markets are winner-take-most",
+    "fetch_status": "pdf"
   }
 ]
