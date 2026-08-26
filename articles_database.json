@@ -6556,5 +6556,29 @@
     "editorial_blurb": "Two prediction market startups — Trepa and Fireplace — shut down within 90 minutes of each other in the sector's best year ever, as Kalshi and Polymarket absorbed 93.3% of volume. The postmortem's core argument: prediction markets behave like exchanges, not products, where liquidity begets liquidity and winner-take-most is the natural shape of the market. A sharp case that the standalone prediction market platform may already be a dead category — with four questions every new builder should ask first.",
     "share_quote": "liquidity begets liquidity, and prediction markets are winner-take-most",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 273,
+    "url": "https://www.lesswrong.com/posts/MjHvZ3AdrzDgBJEav/integrated-strategic-forecasting-a-new-rand-x-metaculus",
+    "title": "Integrated Strategic Forecasting: A New RAND x Metaculus Methodology",
+    "author": "Molly Hickman",
+    "author_twitter": "@celloMolly",
+    "source_type": "Forum Post",
+    "content_type": "Explainer",
+    "publish_date": "2026-08-25",
+    "primary_category": "Applications",
+    "difficulty": "Some",
+    "concepts": [
+      "strategic forecasting",
+      "scenario planning",
+      "value of information",
+      "wisdom of crowds"
+    ],
+    "platforms_mentioned": [
+      "Metaculus"
+    ],
+    "editorial_blurb": "RAND and Metaculus just published a joint paper on integrated strategic forecasting (ISF), a five-step method that fuses scenario planning with crowdsourced forecasting. Scenario planning imagines plausible futures but can't say which are likely; crowdsourced forecasting assigns probabilities but only to narrow, operationalized questions. ISF bridges the gap: decompose scenarios into drivers and signals, turn them into Value-of-Information-filtered forecasting questions, then feed the evolving probabilities back into the scenarios. A concrete blueprint for putting probabilistic forecasting to work in government and corporate strategy.",
+    "share_quote": "scenario planning imagines futures; crowdsourced forecasting prices them",
+    "fetch_status": "web"
   }
 ]
