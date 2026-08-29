@@ -6580,5 +6580,29 @@
     "editorial_blurb": "RAND and Metaculus just published a joint paper on integrated strategic forecasting (ISF), a five-step method that fuses scenario planning with crowdsourced forecasting. Scenario planning imagines plausible futures but can't say which are likely; crowdsourced forecasting assigns probabilities but only to narrow, operationalized questions. ISF bridges the gap: decompose scenarios into drivers and signals, turn them into Value-of-Information-filtered forecasting questions, then feed the evolving probabilities back into the scenarios. A concrete blueprint for putting probabilistic forecasting to work in government and corporate strategy.",
     "share_quote": "scenario planning imagines futures; crowdsourced forecasting prices them",
     "fetch_status": "web"
+  },
+  {
+    "id": 274,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7074638",
+    "title": "Prediction Markets between the United States and the European Union: A Comparative Analysis of the Legal Classification of Event Contracts",
+    "author": "Filippo Annunziata, Thomaz de Arruda",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "content_type": "Research Paper",
+    "publish_date": "2026-01-01",
+    "primary_category": "Regulation",
+    "difficulty": "Some",
+    "concepts": [
+      "regulatory classification",
+      "event contracts",
+      "regulatory arbitrage"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "A comparative legal analysis of how the United States and the European Union classify event contracts — the standardized binary contracts at the core of prediction markets. On the US side the debate has centered on the CFTC and whether event contracts are commodities, derivatives, or gambling; in Europe the picture fragments further, with member states split between gambling law, financial-instrument regimes, and bespoke regulatory tests. Annunziata and de Arruda map the two regimes against each other, asking what an event contract 'is' in law — and why that answer shapes where prediction markets can operate at all.",
+    "share_quote": "an event contract's legal classification decides where prediction markets can operate",
+    "fetch_status": "pdf"
   }
 ]
