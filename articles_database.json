@@ -6604,5 +6604,30 @@
     "editorial_blurb": "A comparative legal analysis of how the United States and the European Union classify event contracts — the standardized binary contracts at the core of prediction markets. On the US side the debate has centered on the CFTC and whether event contracts are commodities, derivatives, or gambling; in Europe the picture fragments further, with member states split between gambling law, financial-instrument regimes, and bespoke regulatory tests. Annunziata and de Arruda map the two regimes against each other, asking what an event contract 'is' in law — and why that answer shapes where prediction markets can operate at all.",
     "share_quote": "an event contract's legal classification decides where prediction markets can operate",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 275,
+    "url": "https://cityjournal.substack.com/p/the-coming-supreme-court-battle-over",
+    "title": "The Coming Supreme Court Battle Over Prediction Markets",
+    "author": "C. Jarrett Dieterle",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "content_type": "Analysis",
+    "publish_date": "2026-08-20",
+    "primary_category": "Regulation",
+    "difficulty": "Some",
+    "concepts": [
+      "federal preemption",
+      "sports betting",
+      "event contracts",
+      "regulatory classification"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "States and Kalshi are warring over whether sports-event contracts are gambling or federally regulated derivatives — and the fight looks headed to the Supreme Court. The Third Circuit sided with Kalshi on CFTC preemption, but the Ninth Circuit, hearing Nevada's challenge, appears poised to create the circuit split that forces the justices to step in. Dieterle walks through the statutory hooks (the 1974 CEA amendments, CFMA 2000, Dodd-Frank) and reads the Court's recent anti-preemption voting patterns to handicap how it would rule — with the major questions doctrine looming as Kalshi's biggest risk.",
+    "fetch_status": "web",
+    "share_quote": "the Supreme Court may decide if sports betting is gambling or derivatives"
   }
 ]
