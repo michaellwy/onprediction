@@ -131,6 +131,8 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "demand markets": "business",
   "AI agents": "business",
   "federal preemption": "business",
+  "institutional adoption": "business",
+  "path dependence": "business",
   "implied correlation": "liquidity",
   "yes bias": "information",
   "position collateralization": "mechanism",

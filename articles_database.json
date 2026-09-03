@@ -6629,5 +6629,57 @@
     "editorial_blurb": "States and Kalshi are warring over whether sports-event contracts are gambling or federally regulated derivatives — and the fight looks headed to the Supreme Court. The Third Circuit sided with Kalshi on CFTC preemption, but the Ninth Circuit, hearing Nevada's challenge, appears poised to create the circuit split that forces the justices to step in. Dieterle walks through the statutory hooks (the 1974 CEA amendments, CFMA 2000, Dodd-Frank) and reads the Court's recent anti-preemption voting patterns to handicap how it would rule — with the major questions doctrine looming as Kalshi's biggest risk.",
     "fetch_status": "web",
     "share_quote": "the Supreme Court may decide if sports betting is gambling or derivatives"
+  },
+  {
+    "id": 276,
+    "url": "https://rooseveltinstitute.org/publications/prediction-markets-across-sports-media-and-finance-institutional-entrenchment-and-the-risk-of-path-dependence/",
+    "title": "Prediction Markets Across Sports, Media, and Finance: Institutional Entrenchment and the Risk of Path Dependence",
+    "author": "Shahrzad Shams",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "content_type": "Analysis",
+    "publish_date": "2026-09-01",
+    "primary_category": "Regulation",
+    "difficulty": "Some",
+    "concepts": [
+      "path dependence",
+      "institutional adoption",
+      "sports betting",
+      "event contracts"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket",
+      "FanDuel",
+      "DraftKings"
+    ],
+    "editorial_blurb": "In just a few years, prediction markets have gone from obscure tools concentrated in the niche corners of elite policy, academia, intelligence, and analytics communities to rapidly expanding fixtures throughout American economic, political, and cultural life. Roosevelt's Shahrzad Shams maps their embedding into sports, media, and finance — three of the top five US sports leagues now have formal partnerships with prediction market platforms, a quarter of the top 20 media companies integrate their products, and sportsbooks like DraftKings and FanDuel are blurring the line between gambling and trading. Drawing on path dependence theory, she warns that every new partnership narrows the window for meaningful regulation: the longer policymakers wait, the more calcified these arrangements become, and the harder they are to unwind.",
+    "fetch_status": "web",
+    "share_quote": "every new betting partnership makes prediction markets harder to regulate"
+  },
+  {
+    "id": 277,
+    "url": "https://noah-news.com/kalshis-federal-preemption-defence-keeps-losing-to-state-gambling-law/",
+    "title": "Kalshi's Federal Preemption Defence Keeps Losing to State Gambling Law",
+    "author": "Craig Paige",
+    "author_twitter": null,
+    "source_type": "News Article",
+    "content_type": "Analysis",
+    "publish_date": "2026-09-01",
+    "primary_category": "Regulation",
+    "difficulty": "None",
+    "concepts": [
+      "federal preemption",
+      "sports betting",
+      "event contracts",
+      "regulatory classification"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Connecticut is the latest state to sue Kalshi, and the pattern is becoming a rout: Nevada, Washington, Michigan, and New York have already cordoned off sports prediction contracts, with New York seeking $36 billion and a court-ordered shutdown. Courts keep rejecting Kalshi's federal preemption defence with the same reasoning — when the product looks like sports betting, states can treat it like sports betting, derivatives wrapper or not. Paige notes the commercial irony: the CFTC keeps intervening on Kalshi's behalf while each state loss shrinks the addressable market its Cantor Fitzgerald institutional channel depends on.",
+    "fetch_status": "web",
+    "share_quote": "state courts keep ruling that sports contracts look like betting, whatever the derivatives wrapper says"
   }
 ]
