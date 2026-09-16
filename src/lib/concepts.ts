@@ -34,6 +34,8 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "corporate prediction markets": "business",
   "corruption value multiple": "oracle",
   "self-resolving markets": "oracle",
+  "semantic governance": "oracle",
+  "settlement finality": "oracle",
 
   // Liquidity & Trading
   "liquidity aggregation": "liquidity",

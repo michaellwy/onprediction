@@ -6681,5 +6681,30 @@
     "editorial_blurb": "Connecticut is the latest state to sue Kalshi, and the pattern is becoming a rout: Nevada, Washington, Michigan, and New York have already cordoned off sports prediction contracts, with New York seeking $36 billion and a court-ordered shutdown. Courts keep rejecting Kalshi's federal preemption defence with the same reasoning — when the product looks like sports betting, states can treat it like sports betting, derivatives wrapper or not. Paige notes the commercial irony: the CFTC keeps intervening on Kalshi's behalf while each state loss shrinks the addressable market its Cantor Fitzgerald institutional channel depends on.",
     "fetch_status": "web",
     "share_quote": "state courts keep ruling that sports contracts look like betting, whatever the derivatives wrapper says"
+  },
+  {
+    "id": 278,
+    "url": "https://arxiv.org/abs/2609.15368",
+    "title": "Resolution Is Not Settlement, Part I: Oracle Adjudication and Semantic Governance on Polymarket",
+    "author": "Maksym Nechepurenko",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "content_type": "Research Paper",
+    "publish_date": "2026-09-14",
+    "primary_category": "Design",
+    "difficulty": "Extensive",
+    "concepts": [
+      "semantic governance",
+      "settlement finality",
+      "oracle design",
+      "dispute resolution",
+      "UMA protocol"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Polymarket resolution is not a timestamp, it is a state machine, and this paper reconstructs every state. Working from Polygon logs frozen at block 79,721,080, Nechepurenko decodes 504,332 oracle lifecycle events covering 184,148 requests, 159,447 proposals, 1,604 disputes, and 159,133 settlements across 185,550 initialized questions. The core finding is that technical request age is not semantic resolution age: modern request-to-first-proposal medians run 176,388 to 744,151 seconds, while reset-to-successor-proposal medians run 300 to 2,909 seconds, and 83% of exact clarification events land after request creation but before the first proposal. The boundary discipline is the real contribution for builders, since oracle finality is not protocol finality is not cash finality.",
+    "fetch_status": "web",
+    "share_quote": "polymarket resolution is a state machine, not a timestamp, and oracle finality is not cash finality"
   }
 ]
