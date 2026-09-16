@@ -6703,7 +6703,7 @@
     "platforms_mentioned": [
       "Polymarket"
     ],
-    "editorial_blurb": "Polymarket resolution is not a timestamp, it is a state machine, and this paper reconstructs every state. Working from Polygon logs frozen at block 79,721,080, Nechepurenko decodes 504,332 oracle lifecycle events covering 184,148 requests, 159,447 proposals, 1,604 disputes, and 159,133 settlements across 185,550 initialized questions. The core finding is that technical request age is not semantic resolution age: modern request-to-first-proposal medians run 176,388 to 744,151 seconds, while reset-to-successor-proposal medians run 300 to 2,909 seconds, and 83% of exact clarification events land after request creation but before the first proposal. The boundary discipline is the real contribution for builders, since oracle finality is not protocol finality is not cash finality.",
+    "editorial_blurb": "Polymarket markets don't resolve at one moment. They move through a chain: rules written, oracle asked, answer proposed, disputed or not, answer final, payout recorded, money collected. Each step takes its own time. Asking the oracle can start days before a market is answerable; on newer routes the median wait to a first answer is 2 to 8.6 days, while a post-dispute reset resolves in 5 to 48 minutes. Rules also keep changing mid-resolution. Disputes are rare, about 1% of proposals. The lesson for leverage builders: don't use a countdown timer, treat each state separately. Part I of two.",
     "fetch_status": "web",
     "share_quote": "polymarket resolution is a state machine, not a timestamp, and oracle finality is not cash finality"
   }
