@@ -6731,5 +6731,29 @@
     "editorial_blurb": "A Bocconi law professor reads the transatlantic puzzle at the centre of prediction market regulation: US appeals courts are split on whether event contracts are federally regulated derivatives or state-regulated wagers, with the Third Circuit accepting CFTC jurisdiction in April and the Ninth Circuit rejecting it on August 28. Annunziata shows that EU law already lands where the Ninth Circuit landed, treating a contract on a discrete fact like who wins a match as a wager rather than a financial instrument, which is why Belgium, France, Italy, Poland and Romania have blocked access to the platforms. The classification question is a choice between protecting retail savers and letting them speculate, and it is now before the Supreme Court and the European Commission.",
     "share_quote": "it resembles a bet in function and a derivative in form",
     "fetch_status": "web"
+  },
+  {
+    "id": 280,
+    "url": "https://arxiv.org/abs/2609.16642",
+    "title": "From Public Evidence to Contractual Outcome: First and Stable Decidability on Kalshi",
+    "author": "Maksym Nechepurenko",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2026-09-15",
+    "primary_category": "Design",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "resolution criteria",
+      "oracle design",
+      "settlement finality",
+      "event contracts"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Public evidence can make an outcome knowable before Kalshi records its own determination, and this paper builds a clock for that gap: first decidability, the earliest moment the rules and a source release map to one outcome, and stable decidability, the earliest moment after which that mapping never changes again. The empirical result is an observability finding rather than a claim about markets: across 152,694 historical Kalshi tickers the author recovered current rule text for all 25 pilot identities but no exact or bounded historical rule version and no exact source-release object, leaving zero historically eligible events. A prospective monitoring stack covering three official source programmes across 25 markets is now enrolling.",
+    "share_quote": "public evidence can settle a contract before the venue records its determination",
+    "fetch_status": "web"
   }
 ]
