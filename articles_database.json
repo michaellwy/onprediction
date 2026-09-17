@@ -6706,5 +6706,30 @@
     "editorial_blurb": "Polymarket markets don't resolve at one moment. They move through a chain: rules written, oracle asked, answer proposed, disputed or not, answer final, payout recorded, money collected. Each step takes its own time. Asking the oracle can start days before a market is answerable; on newer routes the median wait to a first answer is 2 to 8.6 days, while a post-dispute reset resolves in 5 to 48 minutes. Rules also keep changing mid-resolution. Disputes are rare, about 1% of proposals. The lesson for leverage builders: don't use a countdown timer, treat each state separately. Part I of two.",
     "fetch_status": "web",
     "share_quote": "polymarket resolution is a state machine, not a timestamp, and oracle finality is not cash finality"
+  },
+  {
+    "id": 279,
+    "url": "https://theconversation.com/when-a-bet-may-not-be-gambling-the-puzzle-of-prediction-markets-291707",
+    "title": "When a Bet May Not Be Gambling: The Puzzle of Prediction Markets",
+    "author": "Filippo Annunziata",
+    "author_twitter": null,
+    "source_type": "News Article",
+    "publish_date": "2026-09-15",
+    "primary_category": "Regulation",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "regulatory classification",
+      "event contracts",
+      "federal preemption",
+      "derivatives",
+      "sports betting"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "A Bocconi law professor reads the transatlantic puzzle at the centre of prediction market regulation: US appeals courts are split on whether event contracts are federally regulated derivatives or state-regulated wagers, with the Third Circuit accepting CFTC jurisdiction in April and the Ninth Circuit rejecting it on August 28. Annunziata shows that EU law already lands where the Ninth Circuit landed, treating a contract on a discrete fact like who wins a match as a wager rather than a financial instrument, which is why Belgium, France, Italy, Poland and Romania have blocked access to the platforms. The classification question is a choice between protecting retail savers and letting them speculate, and it is now before the Supreme Court and the European Commission.",
+    "share_quote": "it resembles a bet in function and a derivative in form",
+    "fetch_status": "web"
   }
 ]
