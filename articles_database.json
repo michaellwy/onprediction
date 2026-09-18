@@ -6755,5 +6755,30 @@
     "editorial_blurb": "Public evidence can make an outcome knowable before Kalshi records its own determination, and this paper builds a clock for that gap: first decidability, the earliest moment the rules and a source release map to one outcome, and stable decidability, the earliest moment after which that mapping never changes again. The empirical result is an observability finding rather than a claim about markets: across 152,694 historical Kalshi tickers the author recovered current rule text for all 25 pilot identities but no exact or bounded historical rule version and no exact source-release object, leaving zero historically eligible events. A prospective monitoring stack covering three official source programmes across 25 markets is now enrolling.",
     "share_quote": "public evidence can settle a contract before the venue records its determination",
     "fetch_status": "web"
+  },
+  {
+    "id": 281,
+    "url": "https://arxiv.org/abs/2609.17610",
+    "title": "On-Demand Combinatorial Event Markets on Kalshi: Instantiation, Concentration, and Effective Market Breadth",
+    "author": "Maksym Nechepurenko",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "content_type": "Research Paper",
+    "publish_date": "2026-09-14",
+    "primary_category": "Microstructure",
+    "difficulty": "Extensive",
+    "concepts": [
+      "effective market breadth",
+      "combinatorial prediction markets",
+      "market structure",
+      "parlays",
+      "long-tail markets"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Kalshi's multivariate-event interface doesn't ship a catalogue of parlays; it mints market objects on demand from whatever legs a request names. Over one registered seven-day window the author pulled 7,611,594 unique REST tickers, created at roughly 1.09 million per day with heavy hourly bursts. The hierarchy then compresses hard: 5.26 million distinct event keys sit under just three observed collection keys, one of which holds 94.82 percent of all objects, and 66 million leg occurrences reduce to 83,701 primitives with an effective count near 720. Only 35.38 percent of objects had any volume or open interest at retrieval, REST and WebSocket surfaces overlap on a mere 276,177 tickers, and every observed 24-hour volume reading was zero. On-demand instantiation is a market-architecture phenomenon, not a storage artifact — ticker count is not economic breadth.",
+    "fetch_status": "web",
+    "share_quote": "ticker count is not economic breadth — three collections carry 7.6 million kalshi objects"
   }
 ]

@@ -118,6 +118,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "long-tail markets": "business",
   "network effects": "business",
   "market structure": "business",
+  "effective market breadth": "business",
   "platform competition": "business",
   "election markets": "business",
   "sports betting": "business",
