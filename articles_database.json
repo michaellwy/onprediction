@@ -6780,5 +6780,30 @@
     "editorial_blurb": "Kalshi's multivariate-event interface doesn't ship a catalogue of parlays; it mints market objects on demand from whatever legs a request names. Over one registered seven-day window the author pulled 7,611,594 unique REST tickers, created at roughly 1.09 million per day with heavy hourly bursts. The hierarchy then compresses hard: 5.26 million distinct event keys sit under just three observed collection keys, one of which holds 94.82 percent of all objects, and 66 million leg occurrences reduce to 83,701 primitives with an effective count near 720. Only 35.38 percent of objects had any volume or open interest at retrieval, REST and WebSocket surfaces overlap on a mere 276,177 tickers, and every observed 24-hour volume reading was zero. On-demand instantiation is a market-architecture phenomenon, not a storage artifact — ticker count is not economic breadth.",
     "fetch_status": "web",
     "share_quote": "ticker count is not economic breadth — three collections carry 7.6 million kalshi objects"
+  },
+  {
+    "id": 282,
+    "url": "https://arxiv.org/abs/2609.23969",
+    "title": "Prediction Markets Beat the Weather Forecast on Tomorrow's High Temperature",
+    "author": "Alexander W. Crosier",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "content_type": "Research Paper",
+    "publish_date": "2026-09-21",
+    "primary_category": "Applications",
+    "difficulty": "Extensive",
+    "concepts": [
+      "weather markets",
+      "information aggregation",
+      "forecasting accuracy",
+      "price discovery",
+      "market efficiency"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Five years of Kalshi temperature markets across seven U.S. cities, read hour by hour as a probability distribution over tomorrow's daily high. At the end of the market's first hour of trading its root-mean-square error sits about 10 percent below the National Blend of Models, the most accurate single public product, and it still leads by 11 percent at the NBM's final bulletin on the target morning. The advantage is largest where forecasting is hardest, in Philadelphia, Chicago, and New York in winter when cold-front timing matters, and nearly vanishes in Miami where tropical air keeps highs predictable. An event study settles the direction of information flow: public forecast revisions travel toward the market roughly four times further than the market travels toward them, so prices do not jump when the National Weather Service publishes.",
+    "fetch_status": "web",
+    "share_quote": "the public forecast drifts toward the market four times further than the market drifts toward it"
   }
 ]

@@ -110,6 +110,7 @@
   "value of information": "A criterion for prioritizing forecasting questions by how much resolving them would change a decision, favoring drivers that are both important and uncertain.",
   "variance risk premium": "The difference between the variance implied by option or event-contract prices and the realized variance of the underlying — the compensation investors demand for bearing volatility risk. In prediction markets, a nonzero variance risk premium means contract prices deviate from true probabilities by a systematic risk component.",
   "wash trading": "Executing offsetting buy and sell transactions to inflate apparent trading volume without taking real market risk. On prediction markets, wash trading can artificially boost platform metrics and distort liquidity signals, and is federally prohibited under the Commodity Exchange Act.",
+  "weather markets": "Contracts that settle on a measurable weather outcome — most often a city's daily high or low temperature, or monthly heating and cooling degree days — creating a market-implied forecast that firms in energy, agriculture, aviation, and logistics can read for operational decisions.",
   "wisdom of crowds": "The phenomenon where aggregated group estimates often outperform individual experts in forecasting accuracy.",
   "yes bias": "The systematic tendency for YES shares in prediction markets to be overpriced relative to true probabilities, potentially explaining what was previously attributed to favorite-longshot bias."
 }
