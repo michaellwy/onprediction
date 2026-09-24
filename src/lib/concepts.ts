@@ -101,6 +101,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "market manipulation": "mechanism",
   "market surveillance": "business",
   "wash trading": "liquidity",
+  "volume inflation": "liquidity",
   "LOX (log-odds excess lateness)": "mechanism",
   "Keynesian Beauty Contest": "mechanism",
 

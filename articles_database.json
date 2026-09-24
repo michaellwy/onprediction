@@ -6805,5 +6805,30 @@
     "editorial_blurb": "Five years of Kalshi temperature markets across seven U.S. cities, read hour by hour as a probability distribution over tomorrow's daily high. At the end of the market's first hour of trading its root-mean-square error sits about 10 percent below the National Blend of Models, the most accurate single public product, and it still leads by 11 percent at the NBM's final bulletin on the target morning. The advantage is largest where forecasting is hardest, in Philadelphia, Chicago, and New York in winter when cold-front timing matters, and nearly vanishes in Miami where tropical air keeps highs predictable. An event study settles the direction of information flow: public forecast revisions travel toward the market roughly four times further than the market travels toward them, so prices do not jump when the National Weather Service publishes.",
     "fetch_status": "web",
     "share_quote": "the public forecast drifts toward the market four times further than the market drifts toward it"
+  },
+  {
+    "id": 283,
+    "url": "https://rajivsethi.substack.com/p/volume-inflation-without-wash-trading",
+    "title": "Volume Inflation Without Wash Trading",
+    "author": "Rajiv Sethi",
+    "author_twitter": "@rajivatbarnard",
+    "source_type": "Substack",
+    "publish_date": "2026-09-23",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "volume inflation",
+      "wash trading",
+      "adverse selection",
+      "market making",
+      "liquidity provision"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Kalshi's perpetual futures on Bitcoin and Ether topped a billion dollars of volume in their first week, and a recent paper flagged a striking anomaly in the trade-level data: almost sixty percent of the Ether perp's volume came from trades of nearly identical dollar size, which it attributed to wash trading. Sethi offers a cleaner explanation grounded in Kalshi's market-maker rewards. Because a perp tracks its underlying almost instantly, a maker who posts at the minimum size needed for the rebate is exposed to adverse selection, and any quote that survives even briefly gets picked off in a single fill by arbitrageurs watching the spot price. Volume therefore clusters at the reward threshold without any colluding counterparties, but the rewards end up flowing to aggressive low-latency traders rather than buying the resting liquidity they were meant to purchase. Sethi argues the fee refunds Kalshi pays high-volume takers make this worse, and notes a recent CFTC advisory warning that incentive schemes built around volume targets invite exactly this kind of distortion.",
+    "fetch_status": "web",
+    "share_quote": "they seem designed less for the provision of liquidity than the inflation of volume"
   }
 ]
