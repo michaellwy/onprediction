@@ -133,6 +133,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "regulatory arbitrage": "business",
   "distribution moat": "business",
   "regulatory classification": "business",
+  "regulatory capture": "business",
   "demand markets": "business",
   "AI agents": "business",
   "federal preemption": "business",

@@ -6830,5 +6830,30 @@
     "editorial_blurb": "Kalshi's perpetual futures on Bitcoin and Ether topped a billion dollars of volume in their first week, and a recent paper flagged a striking anomaly in the trade-level data: almost sixty percent of the Ether perp's volume came from trades of nearly identical dollar size, which it attributed to wash trading. Sethi offers a cleaner explanation grounded in Kalshi's market-maker rewards. Because a perp tracks its underlying almost instantly, a maker who posts at the minimum size needed for the rebate is exposed to adverse selection, and any quote that survives even briefly gets picked off in a single fill by arbitrageurs watching the spot price. Volume therefore clusters at the reward threshold without any colluding counterparties, but the rewards end up flowing to aggressive low-latency traders rather than buying the resting liquidity they were meant to purchase. Sethi argues the fee refunds Kalshi pays high-volume takers make this worse, and notes a recent CFTC advisory warning that incentive schemes built around volume targets invite exactly this kind of distortion.",
     "fetch_status": "web",
     "share_quote": "they seem designed less for the provision of liquidity than the inflation of volume"
+  },
+  {
+    "id": 284,
+    "url": "https://www.lawfaremedia.org/article/the-cftc-is-tying-its-own-hands-on-prediction-markets",
+    "title": "The CFTC Is Tying Its Own Hands on Prediction Markets",
+    "author": "Reed Shaw",
+    "author_twitter": null,
+    "source_type": "News Article",
+    "content_type": "Analysis",
+    "publish_date": "2026-09-24",
+    "primary_category": "Regulation",
+    "difficulty": "Some",
+    "concepts": [
+      "regulatory capture",
+      "federal preemption",
+      "event contracts",
+      "path dependence"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Industry-friendly regulators at the CFTC are not merely going easy on prediction markets, they are trying to make it structurally hard for a future, less friendly commission to reverse course. Shaw walks through a proposed rule that gives the CFTC just 10 days to open a public-interest review of a newly listed event contract, then treats the agency's failure to act as affirmative final approval of that contract after 100 days. Because the deemed approval would attach to hundreds of thousands of contracts the commission never touched, the proposal manufactures reliance interests and a 'justification tax' that any future delisting must distinguish, arguably weaponizing the Supreme Court's change-in-position doctrine against regulators. Shaw's focus is procedural rather than the substance of the 'gaming' definitions: the CEA sets no deadline for initiating review, Congress declined to add one where it added a 10-day clock for exchange rules elsewhere in the same section, and a shrinking, DOGE-purged agency cannot plausibly screen 162,000 daily contract listings in 10 days.",
+    "fetch_status": "web",
+    "share_quote": "an effort to create legal meaning from agency inaction that could outlast the current administration"
   }
 ]
