@@ -6855,5 +6855,28 @@
     "editorial_blurb": "Industry-friendly regulators at the CFTC are not merely going easy on prediction markets, they are trying to make it structurally hard for a future, less friendly commission to reverse course. Shaw walks through a proposed rule that gives the CFTC just 10 days to open a public-interest review of a newly listed event contract, then treats the agency's failure to act as affirmative final approval of that contract after 100 days. Because the deemed approval would attach to hundreds of thousands of contracts the commission never touched, the proposal manufactures reliance interests and a 'justification tax' that any future delisting must distinguish, arguably weaponizing the Supreme Court's change-in-position doctrine against regulators. Shaw's focus is procedural rather than the substance of the 'gaming' definitions: the CEA sets no deadline for initiating review, Congress declined to add one where it added a 10-day clock for exchange rules elsewhere in the same section, and a shrinking, DOGE-purged agency cannot plausibly screen 162,000 daily contract listings in 10 days.",
     "fetch_status": "web",
     "share_quote": "an effort to create legal meaning from agency inaction that could outlast the current administration"
+  },
+  {
+    "id": 285,
+    "url": "https://www.galaxy.com/insights/research/cftc-mention-market-guidance-manipulation-risks",
+    "title": "CFTC ‘Mention Market’ Guidance Shows Challenge of Policing Novel Contracts",
+    "author": "Zack Pokorny",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "content_type": "Analysis",
+    "publish_date": "2026-09-25",
+    "primary_category": "Regulation",
+    "difficulty": "Some",
+    "concepts": [
+      "mention markets",
+      "market manipulation",
+      "market surveillance",
+      "event contracts",
+      "insider trading"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Mention markets — contracts that settle on whether a named person says a specific word, attends an event, or appears somewhere — are the one prediction market category where the outcome is under a single individual's control, and the CFTC's Division of Market Oversight has now said so formally. The guidance treats mention markets as 'presumptively readily susceptible to manipulation' under Core Principle 3 and lays out a four-factor scorecard for Designated Contract Markets: constraints on the controlling individual, exposure to outside pressure, independent verification and public scrutiny, and the robustness of the exchange's own trading controls. Pokorny's read is that the advisory works as a transparency and surveillance filter — keeping low-verifiability markets like a remark on a private phone call off exchanges — but cannot close the central gap. Every control the CFTC contemplates presumes the manipulator has an economic interest or is coordinating with someone who does, while the named individual can just say the words regardless, and the First Amendment blocks any rule reaching them.",
+    "fetch_status": "web",
+    "share_quote": "the market's named individual can simply say the words for any reason, thereby manipulating the outcome"
   }
 ]
