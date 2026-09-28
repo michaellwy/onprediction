@@ -6878,5 +6878,30 @@
     "editorial_blurb": "Mention markets — contracts that settle on whether a named person says a specific word, attends an event, or appears somewhere — are the one prediction market category where the outcome is under a single individual's control, and the CFTC's Division of Market Oversight has now said so formally. The guidance treats mention markets as 'presumptively readily susceptible to manipulation' under Core Principle 3 and lays out a four-factor scorecard for Designated Contract Markets: constraints on the controlling individual, exposure to outside pressure, independent verification and public scrutiny, and the robustness of the exchange's own trading controls. Pokorny's read is that the advisory works as a transparency and surveillance filter — keeping low-verifiability markets like a remark on a private phone call off exchanges — but cannot close the central gap. Every control the CFTC contemplates presumes the manipulator has an economic interest or is coordinating with someone who does, while the named individual can just say the words regardless, and the First Amendment blocks any rule reaching them.",
     "fetch_status": "web",
     "share_quote": "the market's named individual can simply say the words for any reason, thereby manipulating the outcome"
+  },
+  {
+    "id": 286,
+    "url": "https://www.licentium.io/post/new-york-v-polymarket-us-state-gambling-law-and-a-cftc-designated-exchange",
+    "title": "New York v Polymarket US: State Gambling Law and a CFTC-Designated Exchange",
+    "author": "Illia Prokopiev",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "content_type": "Analysis",
+    "publish_date": "2026-09-26",
+    "primary_category": "Regulation",
+    "difficulty": "Extensive",
+    "concepts": [
+      "federal preemption",
+      "event contracts",
+      "regulatory classification",
+      "sports betting",
+      "derivatives"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "On 24 September 2026 the New York Attorney General filed a verified petition against QCX LLC, which trades as Polymarket US, pleading eight predicates of illegality under Executive Law § 63(12) drawn from the state Constitution, the Penal Law, the Racing Law and the federal Wire Act. Prokopiev reads the counts one by one and finds the Penal Law predicates strongest, because a $3.01 stake on the Mets fits the statutory definition of gambling on its face — the contested element is 'unlawful', which New York defines as 'not specifically authorized by law', leaving Polymarket to argue that a CFTC designation and an unreviewed self-certification supply that authorization. Preemption therefore decides the case, and the circuits are split: the Third Circuit treated self-certified sports contracts as swaps within the CFTC's exclusive jurisdiction and 'presumptively approved', while the Ninth Circuit held they are not swaps and that Rule 40.11 still bars gaming contracts, and the district court closest to this forum rejected preemption outright. On the authority available in September 2026 a New York court is more likely to reject preemption than accept it, and the author also flags what the petition overreaches on: a Racing Law penalty capped at $5 million that the prayer ignores, a treble-gain fine that has no civil vehicle in a § 63(12) proceeding, and restitution language broad enough to pay winning traders too.",
+    "fetch_status": "web",
+    "share_quote": "the word 'specifically' favours the state, so a cftc designation may not be enough"
   }
 ]
