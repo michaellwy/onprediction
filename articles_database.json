@@ -6903,5 +6903,53 @@
     "editorial_blurb": "On 24 September 2026 the New York Attorney General filed a verified petition against QCX LLC, which trades as Polymarket US, pleading eight predicates of illegality under Executive Law § 63(12) drawn from the state Constitution, the Penal Law, the Racing Law and the federal Wire Act. Prokopiev reads the counts one by one and finds the Penal Law predicates strongest, because a $3.01 stake on the Mets fits the statutory definition of gambling on its face — the contested element is 'unlawful', which New York defines as 'not specifically authorized by law', leaving Polymarket to argue that a CFTC designation and an unreviewed self-certification supply that authorization. Preemption therefore decides the case, and the circuits are split: the Third Circuit treated self-certified sports contracts as swaps within the CFTC's exclusive jurisdiction and 'presumptively approved', while the Ninth Circuit held they are not swaps and that Rule 40.11 still bars gaming contracts, and the district court closest to this forum rejected preemption outright. On the authority available in September 2026 a New York court is more likely to reject preemption than accept it, and the author also flags what the petition overreaches on: a Racing Law penalty capped at $5 million that the prayer ignores, a treble-gain fine that has no civil vehicle in a § 63(12) proceeding, and restitution language broad enough to pay winning traders too.",
     "fetch_status": "web",
     "share_quote": "the word 'specifically' favours the state, so a cftc designation may not be enough"
+  },
+  {
+    "id": 287,
+    "url": "https://arxiv.org/abs/2609.31390",
+    "title": "AlphaOpsBench: Benchmarking End-to-End Alpha Strategy Operationalization in Prediction Markets",
+    "author": "Huaiyu Jia, Mingxuan Zhao, Jincheng Gao, Zifan Peng, Wentao Zhang, Siguang Li, Shuo Sun",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2026-09-25",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "AI agents",
+      "market making",
+      "execution quality",
+      "order book"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "LLMs can write plausible prediction-market trading strategies, but a strategy that runs is not one that means what its author intended. This benchmark pairs 581 source-grounded strategy descriptions with 1.28 million Polymarket markets and 183.6 million executions, then asks whether a model can turn a coarse economic idea into faithful, executable code. Strict end-to-end validity is rare, and fees and liquidity reshape trading paths rather than merely taxing returns.",
+    "share_quote": "runnable artifacts are not the same as faithful operationalization",
+    "fetch_status": "web"
+  },
+  {
+    "id": 288,
+    "url": "https://www.ingame.com/kalshi-longest-parlay-odds/",
+    "title": "On Kalshi's Longest Parlays, Odds Are Completely Detached From Probability",
+    "author": "Daniel O'Boyle",
+    "author_twitter": null,
+    "source_type": "News Article",
+    "publish_date": "2026-09-25",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "parlays",
+      "longshot bias",
+      "market making",
+      "execution quality"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Kalshi's ultra-long parlays are priced with almost no relationship to the odds implied by their legs. Takers on combinations below a cent have lost well over half their stakes, and thousands of parlays implying a one-in-a-thousand chance likely had less than a one-in-a-billion chance of hitting. They show almost no price sensitivity, and because Kalshi counts both sides of each trade, these bets are 60% of volume but 1% of fee revenue. Market makers capture the difference.",
+    "share_quote": "kalshi's longest parlays are priced almost entirely detached from their odds",
+    "fetch_status": "web"
   }
 ]
