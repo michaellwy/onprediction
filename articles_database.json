@@ -6951,5 +6951,79 @@
     "editorial_blurb": "Kalshi's ultra-long parlays are priced with almost no relationship to the odds implied by their legs. Takers on combinations below a cent have lost well over half their stakes, and thousands of parlays implying a one-in-a-thousand chance likely had less than a one-in-a-billion chance of hitting. They show almost no price sensitivity, and because Kalshi counts both sides of each trade, these bets are 60% of volume but 1% of fee revenue. Market makers capture the difference.",
     "share_quote": "kalshi's longest parlays are priced almost entirely detached from their odds",
     "fetch_status": "web"
+  },
+  {
+    "id": 289,
+    "url": "https://www.galaxy.com/insights/research/polymarket-trader-behavior-onchain-analysis-retail-profit-loss-specialization",
+    "title": "The Behavior of Polymarket Traders: An Onchain Analysis of 2.9 Million Accounts",
+    "author": "Will Owens",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "content_type": "Analysis",
+    "publish_date": "2026-10-01",
+    "primary_category": "Microstructure",
+    "difficulty": "Some",
+    "concepts": [
+      "trader specialization",
+      "retail flow",
+      "information aggregation",
+      "market making"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Drawing on Polymarket's full onchain settlement record, Galaxy tracked 2.9 million human-paced accounts: 69.2% finished below break-even and the population is down $338.9m in aggregate. Losing raises churn — 15.2% of accounts hadn't traded again within 30 days of a loss, against 6.1% after a win. Specialization pays only where traders plausibly have an edge: sports specialists, 47% of the group, are least profitable at 25.1%, while tech and science reach 41.2%.",
+    "fetch_status": "web",
+    "share_quote": "69% of polymarket's retail accounts lose; the crowd is down $339m in aggregate"
+  },
+  {
+    "id": 290,
+    "url": "https://arxiv.org/abs/2610.00165",
+    "title": "Outcome Determination and Settlement Finality on Kalshi: Public State Paths, Prospective Measurement, and Empirical Identification",
+    "author": "Maksym Nechepurenko",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "content_type": "Research Paper",
+    "publish_date": "2026-09-15",
+    "primary_category": "Design",
+    "difficulty": "Extensive",
+    "concepts": [
+      "settlement finality",
+      "resolution criteria",
+      "event contracts",
+      "market structure"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "A Kalshi market doesn't finalize at one clock, and this registered 7+7 study separates the endpoint from the path. Exact public finalization is observed for 7,357,576 of 7,611,594 MVE market objects and 71,657 of 152,694 ordinary markets — yet only 126,806 MVE and 70,979 ordinary tickers have an exact determination-to-endpoint pair. MVE pairs average 9.676 seconds; ordinary pairs average 322.50 seconds and stretch to 7,133. Settlement speed is not one scalar until endpoint, risk set and observation surface are fixed.",
+    "fetch_status": "web",
+    "share_quote": "kalshi's public finality is two layers: near-complete endpoints, sparse exact paths"
+  },
+  {
+    "id": 291,
+    "url": "https://arxiv.org/abs/2610.00183",
+    "title": "Two Models of Event Finality: Functional Alignment, Contestability, and Empirical Comparability on Polymarket and Kalshi",
+    "author": "Maksym Nechepurenko",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "content_type": "Research Paper",
+    "publish_date": "2026-09-17",
+    "primary_category": "Design",
+    "difficulty": "Extensive",
+    "concepts": [
+      "settlement finality",
+      "semantic governance",
+      "oracle design",
+      "market structure"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Polymarket and Kalshi each resolve through layered states — oracle adjudication, adapter consumption and redemption on one side; venue determination, public finalization and REST settlement on the other — so 'settled' is not a shared timestamp. The author proposes a comparison certificate: a cross-venue duration holds only when payoff semantics, endpoints, calendar support, censoring and observation grades align. Evidence spans 108,638 exact-linked Polymarket conditions and 7,357,576 Kalshi MVE endpoints, yet a matched contrast awaits blind adjudication and a semantic registry.",
+    "fetch_status": "web",
+    "share_quote": "polymarket and kalshi do not share one settlement clock — labels aren't mechanisms"
   }
 ]

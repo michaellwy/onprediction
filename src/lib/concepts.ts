@@ -74,6 +74,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "calibration": "information",
   "info finance": "information",
   "superforecasting": "information",
+  "trader specialization": "information",
   "strategic forecasting": "information",
   "scenario planning": "information",
   "value of information": "information",

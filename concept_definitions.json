@@ -108,6 +108,7 @@
   "temporal arbitrage": "Profiting from swings in probability estimates as a prediction market converges toward its binary resolution, trading volatility rather than the final outcome.",
   "time arbitrage": "Profiting from a delay between when information becomes known and when the prediction market price adjusts to reflect it.",
   "toxic flow": "Order flow from informed traders that systematically moves against the market maker's positions.",
+  "trader specialization": "When prediction market participants concentrate their trading in a single topic or category, and whether that concentration reflects genuine informational edge. Specialists outperform generalists only in domains where expertise plausibly confers an advantage.",
   "UMA protocol": "Optimistic oracle system where outcomes are assumed correct unless disputed, using economic bonds for security.",
   "value of information": "A criterion for prioritizing forecasting questions by how much resolving them would change a decision, favoring drivers that are both important and uncertain.",
   "variance risk premium": "The difference between the variance implied by option or event-contract prices and the realized variance of the underlying — the compensation investors demand for bearing volatility risk. In prediction markets, a nonzero variance risk premium means contract prices deviate from true probabilities by a systematic risk component.",
