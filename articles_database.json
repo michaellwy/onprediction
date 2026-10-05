@@ -7025,5 +7025,30 @@
     "editorial_blurb": "Polymarket and Kalshi each resolve through layered states — oracle adjudication, adapter consumption and redemption on one side; venue determination, public finalization and REST settlement on the other — so 'settled' is not a shared timestamp. The author proposes a comparison certificate: a cross-venue duration holds only when payoff semantics, endpoints, calendar support, censoring and observation grades align. Evidence spans 108,638 exact-linked Polymarket conditions and 7,357,576 Kalshi MVE endpoints, yet a matched contrast awaits blind adjudication and a semantic registry.",
     "fetch_status": "web",
     "share_quote": "polymarket and kalshi do not share one settlement clock — labels aren't mechanisms"
+  },
+  {
+    "id": 292,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7552098",
+    "title": "When Can Prediction Market Prices Be Trusted? Price Informativeness, Calibration, and Bias on Polymarket",
+    "author": "Felix Reichenbach, Martin Walther",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "content_type": "Research Paper",
+    "publish_date": "2026-01-01",
+    "primary_category": "Microstructure",
+    "difficulty": "Extensive",
+    "concepts": [
+      "calibration",
+      "forecasting accuracy",
+      "price discovery",
+      "market efficiency",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Reichenbach and Walther ask when a prediction market price should be trusted as a probability. Working through Polymarket's contract history, they separate price informativeness from calibration and bias, testing whether quoted odds track realized outcomes. The paper treats trust in prices as an empirical property rather than a design assumption — and shows where calibration and systematic bias distort the read.",
+    "share_quote": "whether polymarket prices hold up as probability forecasts, tested through calibration and bias",
+    "fetch_status": "pdf"
   }
 ]
