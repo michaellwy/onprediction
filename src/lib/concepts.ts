@@ -46,6 +46,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "legibility": "information",
   "insider trading": "liquidity",
   "toxic flow": "liquidity",
+  "trade classification": "liquidity",
   "basis risk": "liquidity",
   "gap risk": "liquidity",
   "bonding trades": "liquidity",
