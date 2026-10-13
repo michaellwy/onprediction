@@ -7075,5 +7075,53 @@
     "editorial_blurb": "Dubach validates the side reported on Polymarket's trade prints against the taker leg of each print's on-chain settlement. Across twelve days spanning both exchange generations, 92.1% to 100% of prints match a settled taker leg, and side and token agree on all 24.5 million matched pairs. But accuracy is not economic reliability: on 16.4 million identical fills, Lee-Ready direction raises effective spread by 0.429 cents per share, while tick and bulk-volume classifications can flip the sign of five-minute midpoint impact.",
     "share_quote": "a small classification error can have a large economic consequence",
     "fetch_status": "web"
+  },
+  {
+    "id": 294,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7587019",
+    "title": "Combinatorial Arbitrage in Prediction Markets",
+    "author": "Daojing Zhai, Hongjian Shi",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "content_type": "Research Paper",
+    "publish_date": "2026-01-01",
+    "primary_category": "Microstructure",
+    "difficulty": "Extensive",
+    "concepts": [
+      "combinatorial prediction markets",
+      "arbitrage",
+      "market efficiency",
+      "price discovery",
+      "hedging"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Combinatorial prediction markets let traders combine legs across related events, and this paper treats the arbitrage relationships between those legs as the object of study. When contracts constrain one another, prices that each look fair in isolation can still be jointly inconsistent. The authors frame the resulting mispricings as a constrained optimization problem and ask when a bundle of positions admits a riskless profit.",
+    "share_quote": "when related contracts constrain each other, individually fair prices can still disagree",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 295,
+    "url": "https://predictresponsibly.com/blog/event-contracts-swap-definition-circuit-split-cftc-proposal",
+    "title": "The Exchange Won the Preemption Point and Lost on the Product",
+    "author": "Predict Responsibly Team",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "content_type": "Analysis",
+    "publish_date": "2026-10-10",
+    "primary_category": "Regulation",
+    "difficulty": "Extensive",
+    "concepts": [
+      "federal preemption",
+      "event contracts",
+      "regulatory classification",
+      "sports betting",
+      "derivatives"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Two appeals courts held in August and September 2026 that Kalshi's sports event contracts are not swaps. On 9 October the CFTC answered with a pair of rules: an interim final rule excluding casino-style gambling from the swap definition by licence and execution model, and a proposal adding event contracts back in. The piece notes the Ninth Circuit granted preemption and still lost on the product, and argues classification now resolves contract by contract, not firm by firm.",
+    "share_quote": "classification is now a filing obligation, not a theory",
+    "fetch_status": "web"
   }
 ]
