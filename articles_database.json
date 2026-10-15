@@ -7123,5 +7123,64 @@
     "editorial_blurb": "Two appeals courts held in August and September 2026 that Kalshi's sports event contracts are not swaps. On 9 October the CFTC answered with a pair of rules: an interim final rule excluding casino-style gambling from the swap definition by licence and execution model, and a proposal adding event contracts back in. The piece notes the Ninth Circuit granted preemption and still lost on the product, and argues classification now resolves contract by contract, not firm by firm.",
     "share_quote": "classification is now a filing obligation, not a theory",
     "fetch_status": "web"
+  },
+  {
+    "id": 296,
+    "url": "https://www.galaxy.com/insights/research/conditional-markets-decision-markets-impact-markets-mainnet-umia-metadao-proof-branchmap-branchpoint-prediction-markets-futarchy",
+    "title": "Conditional Markets Are Beginning to Blossom: Decision Markets Scale, Impact Markets Head to Mainnet",
+    "author": "Zack Pokorny",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "publish_date": "2026-10-15",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "conditional markets",
+      "decision markets",
+      "impact markets",
+      "conditional tokens",
+      "hedging"
+    ],
+    "platforms_mentioned": [
+      "MetaDAO",
+      "Umia",
+      "Proof",
+      "Lightcone",
+      "If Market",
+      "Polymarket",
+      "Kalshi",
+      "Hyperliquid"
+    ],
+    "editorial_blurb": "Galaxy's follow-up to its decision- and impact-market coverage reframes both as subsets of one category — conditional markets — and finds the sector moving from whitepapers to product. Umia's September launch takes decision markets off Solana: $50.5m now sits in market-governed treasuries across 22 DAOs, MetaDAO holding 78%. Proof, If Market, Lightcone and Branchpoint are racing toward mainnet, and a bespoke hedge on California goat-herding wages shows prediction-market rails underwriting risks no insurer will price.",
+    "fetch_status": "web",
+    "share_quote": "the information these markets produce is a byproduct of a healthy market, not the product"
+  },
+  {
+    "id": 297,
+    "url": "https://thebulletin.org/2026/10/how-prediction-markets-could-distort-drug-approvals/",
+    "title": "How Prediction Markets Could Distort Drug Approvals",
+    "author": "Matt Motta, Timothy Callaghan, Michael Stein",
+    "author_twitter": null,
+    "source_type": "News Article",
+    "publish_date": "2026-10-13",
+    "primary_category": "Applications",
+    "content_type": "Opinion",
+    "difficulty": "None",
+    "concepts": [
+      "clinical trial markets",
+      "event contracts",
+      "insider trading",
+      "market manipulation",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket",
+      "PredictIt"
+    ],
+    "editorial_blurb": "Three Boston University health-policy researchers argue Kalshi's markets on clinical trial endpoints and FDA approvals are a bad bet for public health. Trial participants who follow the odds may drop out, seek off-label treatment, or over-report benefits, degrading the data the markets claim to publicize. Sponsors could set easier endpoints or kill longshot trials to protect share prices. Kalshi bars sponsor employees and enrollees, but the authors say stronger reporting rules would deliver the transparency without the risk.",
+    "fetch_status": "pdf",
+    "share_quote": "pharmaceutical prediction markets are a bad bet for public health"
   }
 ]

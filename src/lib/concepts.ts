@@ -108,6 +108,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "Keynesian Beauty Contest": "mechanism",
 
   // Governance & Decisions
+  "conditional markets": "governance",
   "decision markets": "governance",
   "futarchy": "governance",
   "conditional tokens": "governance",
@@ -126,6 +127,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "election markets": "business",
   "sports betting": "business",
   "weather markets": "business",
+  "clinical trial markets": "business",
   "parlays": "business",
   "multi-outcome markets": "mechanism",
   "binary contracts": "mechanism",
