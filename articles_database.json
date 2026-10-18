@@ -7182,5 +7182,81 @@
     "editorial_blurb": "Three Boston University health-policy researchers argue Kalshi's markets on clinical trial endpoints and FDA approvals are a bad bet for public health. Trial participants who follow the odds may drop out, seek off-label treatment, or over-report benefits, degrading the data the markets claim to publicize. Sponsors could set easier endpoints or kill longshot trials to protect share prices. Kalshi bars sponsor employees and enrollees, but the authors say stronger reporting rules would deliver the transparency without the risk.",
     "fetch_status": "pdf",
     "share_quote": "pharmaceutical prediction markets are a bad bet for public health"
+  },
+  {
+    "id": 298,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7618398",
+    "title": "Miscalibration Without Tradable Alpha: Displayed Prices, Actionable Quotes, and Fees in a Regulated Prediction Market",
+    "author": "Lawton Swan",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "content_type": "Research Paper",
+    "publish_date": "2026-10-16",
+    "primary_category": "Microstructure",
+    "difficulty": "Extensive",
+    "concepts": [
+      "calibration",
+      "execution quality",
+      "bid-ask spread",
+      "market efficiency",
+      "arbitrage"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Kalshi prices are read as forecasts, but calibration and tradability are different estimands. Joining 937 live snapshots to resolutions and 57,808 markets rebuilt from order-book candles, midpoints look nearly perfectly calibrated, yet a 1.98 point gap is statistically real and economically uncapturable. Under standard fees all 20 bucket-direction intervals run below zero, and expectancy stays negative even at zero fees. A displayed probability is a forecast; an actionable quote is an offer.",
+    "share_quote": "a displayed probability is a forecast; an actionable quote is an offer",
+    "fetch_status": "pdf"
+  },
+  {
+    "id": 299,
+    "url": "https://eidos.software/thesis/",
+    "title": "Decision Markets and the Record They Need",
+    "author": "Eidos",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "content_type": "Analysis",
+    "publish_date": "2026-10-14",
+    "primary_category": "Design",
+    "difficulty": "Extensive",
+    "concepts": [
+      "decision markets",
+      "futarchy",
+      "info finance",
+      "AI agents",
+      "causal inference"
+    ],
+    "platforms_mentioned": [
+      "MetaDAO"
+    ],
+    "editorial_blurb": "Eidos's thesis: as AI drives the cost of analysis toward zero, the bottleneck moves from producing plans to choosing among them, and committees built for scarce analysis cannot review thousands of credible proposals. Decision markets price the same outcome under competing actions and let the comparison allocate capital. MetaDAO already runs this on Solana, where the price is the decision. The honest caveat: no controlled, real-money study yet shows a market choosing better than a committee.",
+    "share_quote": "more intelligence widens the set of options without removing the need to choose",
+    "fetch_status": "web"
+  },
+  {
+    "id": 300,
+    "url": "https://www.gensyn.ai/research/nobody-is-paying-for-good-forecasts-on-purpose",
+    "title": "Nobody Is Paying for Good Forecasts on Purpose",
+    "author": "Marx Zang; Gabriel P. Andrade",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "content_type": "Analysis",
+    "publish_date": "2026-10-14",
+    "primary_category": "Microstructure",
+    "difficulty": "Extensive",
+    "concepts": [
+      "screening rent",
+      "market making",
+      "bid-ask spread",
+      "adverse selection",
+      "AMM (automated market maker)"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Over 100,000 Polymarket wallets have lost at least $1,000 since 2025; outside a handful of automated winners, participants are down $131 million. Gensyn reads that as structure, not skill: with no hedgers to pay the spread, makers earn a screening rent instead, carrying the mispriced side to settlement. In 24 hours of five-minute bitcoin markets, 91.4% of persistent makers' profit arrived at resolution, and 407 makers gained $45,300 while 12,749 retail accounts lost $66,700.",
+    "share_quote": "the winners are not the people who know things, but the people who quote them",
+    "fetch_status": "web"
   }
 ]
