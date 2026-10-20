@@ -7258,5 +7258,55 @@
     "editorial_blurb": "Over 100,000 Polymarket wallets have lost at least $1,000 since 2025; outside a handful of automated winners, participants are down $131 million. Gensyn reads that as structure, not skill: with no hedgers to pay the spread, makers earn a screening rent instead, carrying the mispriced side to settlement. In 24 hours of five-minute bitcoin markets, 91.4% of persistent makers' profit arrived at resolution, and 407 makers gained $45,300 while 12,749 retail accounts lost $66,700.",
     "share_quote": "the winners are not the people who know things, but the people who quote them",
     "fetch_status": "web"
+  },
+  {
+    "id": 301,
+    "url": "https://kalshi.com/research/publications/who-calibrates-markets",
+    "title": "Who Calibrates Markets? Evidence from Trader Micro-Data",
+    "author": "Kalshi Research",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "publish_date": "2026-10-19",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "price discovery",
+      "calibration",
+      "forecasting accuracy",
+      "superforecasting",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Kalshi"
+    ],
+    "editorial_blurb": "Kalshi's research arm sorts a billion trades from the year to September 2026 and finds price discovery is remarkably concentrated. At a strict false-discovery threshold, only 0.15 percent of takers beat the markets they trade against, skill that persists out of sample and is largely unrelated to profit. After a skilled taker trades, the weighted midpoint moves 1.7 cents their way by the next order and 3.3 cents by close, most of the 3.8-cent gap to the outcome.",
+    "share_quote": "0.15 percent of takers beat the market, and the midpoint follows them",
+    "fetch_status": "web"
+  },
+  {
+    "id": 302,
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0165176526004933",
+    "title": "Does a Time-Weighted Average Price Deter Settlement Manipulation? Evidence from Polymarket's Five-Minute Bitcoin Markets",
+    "author": "Guangzhe Wang",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2026-10-16",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "market manipulation",
+      "oracle design",
+      "price discovery",
+      "market structure",
+      "market efficiency"
+    ],
+    "platforms_mentioned": [
+      "Polymarket"
+    ],
+    "editorial_blurb": "Polymarket's five-minute bitcoin contract settled on a single Chainlink snapshot until 7 August 2026, then on a 30-second and later a 60-second average, a rare chance to test the standard anti-manipulation remedy outside the lab. Wang measures settlement-window trading under each regime to ask whether averaging the settlement price actually removes the incentive to push it. It is the first direct read on the fix Polymarket adopted after settlement manipulation was documented earlier this year.",
+    "share_quote": "same five-minute contract, two settlement rules, one natural experiment",
+    "fetch_status": "web"
   }
 ]
