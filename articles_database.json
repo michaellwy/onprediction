@@ -7308,5 +7308,31 @@
     "editorial_blurb": "Polymarket's five-minute bitcoin contract settled on a single Chainlink snapshot until 7 August 2026, then on a 30-second and later a 60-second average, a rare chance to test the standard anti-manipulation remedy outside the lab. Wang measures settlement-window trading under each regime to ask whether averaging the settlement price actually removes the incentive to push it. It is the first direct read on the fix Polymarket adopted after settlement manipulation was documented earlier this year.",
     "share_quote": "same five-minute contract, two settlement rules, one natural experiment",
     "fetch_status": "web"
+  },
+  {
+    "id": 303,
+    "url": "https://www.thehastingscenter.org/dear-kalshi-stay-out-of-biopharma/",
+    "title": "Dear Kalshi: Stay Out of Biopharma",
+    "author": "Faith Wershba",
+    "author_twitter": null,
+    "source_type": "Blog",
+    "publish_date": "2026-10-16",
+    "primary_category": "Applications",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "clinical trial markets",
+      "information asymmetry",
+      "wisdom of crowds",
+      "insider trading",
+      "legibility"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Kalshi, Polymarket and a trial-forecasting pilot called Endpoint Arena now let the public bet on clinical readouts and FDA approvals. Kalshi's stated case, that markets would close the \"two-tier information system\" between industry and everyone else, names a real problem. Wershba grants the asymmetry is genuine, then dismantles the fix: platforms can bar insiders but cannot say who actually bets, show volume rather than bettor counts, and would have sponsors and patients reading those prices as evidence.",
+    "share_quote": "if the crowd is a few bettors with cash to burn, there is no wisdom",
+    "fetch_status": "pdf"
   }
 ]
