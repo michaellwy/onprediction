@@ -158,6 +158,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "variance risk premium": "mechanism",
   "over/under markets": "mechanism",
   "payout mechanisms": "mechanism",
+  "prediction market indices": "mechanism",
 };
 
 export function getConceptCluster(concept: string): ConceptCluster {

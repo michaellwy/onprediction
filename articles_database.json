@@ -7458,5 +7458,57 @@
     "editorial_blurb": "An April 2024 Polymarket rule change made each commenter's open position visible beside the comment, and this paper tests what disclosure buys. Comments backed by larger positions draw more replies, and prices move further in their direction - yet positions do not become more predictive of final outcomes, and comment direction does not reliably forecast them either. Larger holders also become likelier to comment, then unwind shortly after posting at better prices: transparency confers influence by talking one's book.",
     "share_quote": "Disclosure lets big bettors talk their book and cash out at better prices",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 309,
+    "url": "https://thekotshow.substack.com/p/nba-gambling-polymarket-kalshi-knicks",
+    "title": "Gambling Money Funds Every Layer of NBA Coverage",
+    "author": "Lee Escobedo",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-10-27",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "sports betting",
+      "event contracts",
+      "parlays",
+      "regulatory classification",
+      "federal preemption"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "On Oct. 26 the NBA named Kalshi and Polymarket its preferred prediction market partners, wiring the exchanges into a gambling money chain that already funds nearly every layer of Knicks coverage. Sportsbooks kept 24.2 cents of every New Jersey parlay dollar, and Kalshi's combos cost users roughly $117 million from January to April - about $15 of every $100. Combos now drive two-thirds of Kalshi's notional volume. Retiring the word bet changes the ledger, not the expected value.",
+    "share_quote": "the exchanges retired the word bet; the ledger changed, not the expected value",
+    "fetch_status": "web"
+  },
+  {
+    "id": 310,
+    "url": "https://supercycle.blog/p/prediction-markets-need-indices",
+    "title": "Prediction Markets Need Indices",
+    "author": "Alan Wu",
+    "author_twitter": null,
+    "source_type": "Substack",
+    "publish_date": "2026-10-21",
+    "primary_category": "Design",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "prediction market indices",
+      "information aggregation",
+      "price discovery",
+      "market structure",
+      "legibility"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Adjacent"
+    ],
+    "editorial_blurb": "Prediction markets price one event at a time; most people want to know whether the Middle East is getting more stable. Alan Wu argues for an index layer - published weights over a basket of contracts - so the reading becomes a persistent, inspectable time series instead of a headline. Adjacent's BLUE and RED indices and Kalshi's American Power Index already disagree on the same markets, transparently. The VIX took eleven years to become tradable; the information value came first.",
+    "share_quote": "an index turns a condition into a time series, not a headline",
+    "fetch_status": "web"
   }
 ]

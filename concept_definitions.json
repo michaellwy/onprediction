@@ -89,6 +89,7 @@
   "peer prediction": "Methods for eliciting honest subjective reports by comparing respondents against each other statistically.",
   "platform competition": "How prediction market platforms differentiate, compete for users, and defend market share.",
   "position collateralization": "Using prediction market positions as collateral to borrow capital, unlocking liquidity without selling. This addresses the capital lock-up problem in long-dated markets and enables composability with the broader DeFi ecosystem.",
+  "prediction market indices": "A published methodology that selects prediction markets, assigns each a weight, and combines their prices into a single measure of a broader condition — e.g. regional stability or party power. Weights are necessarily subjective, but publishing them makes the judgment inspectable and turns a scattered set of event prices into a persistent time series.",
   "price discovery": "The process through which trading activity reveals the fair value or true probability of an event.",
   "probability infrastructure": "The concept of prediction market mechanisms as a general-purpose layer that embeds live probability signals into decision surfaces beyond trading, such as attention, credibility, and demand.",
   "proper scoring rules": "Incentive-compatible functions that reward forecasters most when they report their true beliefs honestly.",
