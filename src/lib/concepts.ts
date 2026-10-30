@@ -159,6 +159,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "over/under markets": "mechanism",
   "payout mechanisms": "mechanism",
   "prediction market indices": "mechanism",
+  "leverage financing": "mechanism",
 };
 
 export function getConceptCluster(concept: string): ConceptCluster {

@@ -7510,5 +7510,32 @@
     "editorial_blurb": "Prediction markets price one event at a time; most people want to know whether the Middle East is getting more stable. Alan Wu argues for an index layer - published weights over a basket of contracts - so the reading becomes a persistent, inspectable time series instead of a headline. Adjacent's BLUE and RED indices and Kalshi's American Power Index already disagree on the same markets, transparently. The VIX took eleven years to become tradable; the information value came first.",
     "share_quote": "an index turns a condition into a time series, not a headline",
     "fetch_status": "web"
+  },
+  {
+    "id": 311,
+    "url": "https://x.com/_drNeyo/status/2116220520232366369",
+    "title": "Can Leverage Really Work in Prediction Markets?",
+    "author": "Eniola",
+    "author_twitter": "@_drNeyo",
+    "source_type": "Twitter",
+    "publish_date": "2026-10-30",
+    "primary_category": "Design",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "leverage financing",
+      "position collateralization",
+      "gap risk",
+      "derivatives",
+      "liquidity provision"
+    ],
+    "platforms_mentioned": [
+      "Lattica",
+      "perp.com",
+      "Gondor"
+    ],
+    "editorial_blurb": "Why prediction markets still lack durable leverage: liquidation is not a guarantee of execution. In an $0.80 contract at 5x, the next bid can sit at $0.35 long before the margin call fills, so lenders cannot rely on timely exits. Eniola surveys collateralized lending, margin trading, event perpetuals and short-epoch financing before landing on insurance-style risk pricing, where Lattica's WARHORSE engine sets a premium against each position's jump risk.",
+    "share_quote": "liquidation is not a guarantee of execution",
+    "fetch_status": "pdf"
   }
 ]
