@@ -7537,5 +7537,30 @@
     "editorial_blurb": "Why prediction markets still lack durable leverage: liquidation is not a guarantee of execution. In an $0.80 contract at 5x, the next bid can sit at $0.35 long before the margin call fills, so lenders cannot rely on timely exits. Eniola surveys collateralized lending, margin trading, event perpetuals and short-epoch financing before landing on insurance-style risk pricing, where Lattica's WARHORSE engine sets a premium against each position's jump risk.",
     "share_quote": "liquidation is not a guarantee of execution",
     "fetch_status": "pdf"
+  },
+  {
+    "id": 312,
+    "url": "https://arxiv.org/abs/2610.40324",
+    "title": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
+    "author": "Zihan Chen, Lei Nico Zheng, Di Zhu",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2026-10-29",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "calibration",
+      "forecasting accuracy",
+      "wisdom of crowds",
+      "information asymmetry",
+      "long-tail markets"
+    ],
+    "platforms_mentioned": [
+      "Manifold"
+    ],
+    "editorial_blurb": "Across 6,150 Manifold markets where 1,660 people asked about their own futures, prices overstated outcomes by 4.4 points, while external markets were nearly calibrated at 0.9. The bias was absent at open: observers' trading created it within a day, and it peaked in the week before close. Only the person supplied the correction, their orders driving 38% of the late move toward the outcome against 9% in external markets.",
+    "share_quote": "the information that would correct the crowd lies with the person",
+    "fetch_status": "web"
   }
 ]
