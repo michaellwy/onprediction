@@ -7562,5 +7562,31 @@
     "editorial_blurb": "Across 6,150 Manifold markets where 1,660 people asked about their own futures, prices overstated outcomes by 4.4 points, while external markets were nearly calibrated at 0.9. The bias was absent at open: observers' trading created it within a day, and it peaked in the week before close. Only the person supplied the correction, their orders driving 38% of the late move toward the outcome against 9% in external markets.",
     "share_quote": "the information that would correct the crowd lies with the person",
     "fetch_status": "web"
+  },
+  {
+    "id": 313,
+    "url": "https://arxiv.org/abs/2611.00338",
+    "title": "Reading the Count: Prediction Markets and Brazil's 2026 Presidential Election",
+    "author": "Raphael Coelho",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2026-10-30",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "information aggregation",
+      "price discovery",
+      "election markets",
+      "calibration",
+      "market efficiency"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Brazil's runoff night gave an exact test of how fast markets absorb a public count: a live projection gave Lula 0.998 at 19:15 with 1.6% of sections tallied, while Kalshi and Polymarket only reached 0.90 at 20:24 with 46% counted. Their prices implied about four times the projection's uncertainty. Takers who bought Lula at 0.78 earned 4 to 18 cents per Kalshi contract after fees — zero against a state-level extrapolation.",
+    "share_quote": "their prices implied about four times the live projection's uncertainty",
+    "fetch_status": "web"
   }
 ]
