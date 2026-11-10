@@ -7588,5 +7588,37 @@
     "editorial_blurb": "Brazil's runoff night gave an exact test of how fast markets absorb a public count: a live projection gave Lula 0.998 at 19:15 with 1.6% of sections tallied, while Kalshi and Polymarket only reached 0.90 at 20:24 with 46% counted. Their prices implied about four times the projection's uncertainty. Takers who bought Lula at 0.78 earned 4 to 18 cents per Kalshi contract after fees — zero against a state-level extrapolation.",
     "share_quote": "their prices implied about four times the live projection's uncertainty",
     "fetch_status": "web"
+  },
+  {
+    "id": 314,
+    "url": "https://newsletter.predicted.co/products/state-of-prediction-markets-q3-2026",
+    "title": "State of Prediction Markets, Q3 2026",
+    "author": "Pet Berisha, Omar El Safy",
+    "author_twitter": null,
+    "source_type": "Company Blog",
+    "publish_date": "2026-11-09",
+    "primary_category": "Business",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "platform competition",
+      "parlays",
+      "retail flow",
+      "institutional adoption",
+      "federal preemption"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket",
+      "Novig",
+      "ProphetX",
+      "Robinhood",
+      "Coinbase",
+      "DraftKings",
+      "FanDuel"
+    ],
+    "editorial_blurb": "Prediction markets traded $194.1bn of notional volume in Q3 2026, up 75% on Q2 and the biggest quarter on record, with US-regulated venues taking 89%. Kalshi and Polymarket split 91% of it, and parlays (44%) overtook single sports events as the largest share of US volume. The 11 states without legal sports betting supply 55% of Kalshi's card deposits, and 18-to-24 year olds are 30% of them, twice their share at DraftKings.",
+    "share_quote": "the biggest quarter ever, and 89% of it ran through regulated US exchanges",
+    "fetch_status": "web"
   }
 ]
