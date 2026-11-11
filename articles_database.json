@@ -7620,5 +7620,31 @@
     "editorial_blurb": "Prediction markets traded $194.1bn of notional volume in Q3 2026, up 75% on Q2 and the biggest quarter on record, with US-regulated venues taking 89%. Kalshi and Polymarket split 91% of it, and parlays (44%) overtook single sports events as the largest share of US volume. The 11 states without legal sports betting supply 55% of Kalshi's card deposits, and 18-to-24 year olds are 30% of them, twice their share at DraftKings.",
     "share_quote": "the biggest quarter ever, and 89% of it ran through regulated US exchanges",
     "fetch_status": "web"
+  },
+  {
+    "id": 315,
+    "url": "https://www.argmin.net/p/no-one-buys-corn-in-the-corn-market",
+    "title": "No One Buys Corn in the Corn Market",
+    "author": "Ben Recht",
+    "author_twitter": "beenwrekt",
+    "source_type": "Substack",
+    "publish_date": "2026-11-10",
+    "primary_category": "Commentary",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "derivatives",
+      "federal preemption",
+      "regulatory classification",
+      "market efficiency",
+      "information aggregation"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Ben Recht's seminar live-blog walks through how the corn futures market actually works — nobody buys corn, only contracts on its price — and argues prediction markets are one abstraction too far: \"derivatives aren't necessarily gambling, but derivatives on derivatives are always gambling.\" He traces the 2008 Science letter asking the CFTC for a safe harbor, the fivefold 2026 volume growth at Polymarket and Kalshi, and why the efficiency case for event contracts collapses in practice.",
+    "share_quote": "derivatives aren't necessarily gambling, but derivatives on derivatives are always gambling",
+    "fetch_status": "web"
   }
 ]
