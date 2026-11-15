@@ -7646,5 +7646,28 @@
     "editorial_blurb": "Ben Recht's seminar live-blog walks through how the corn futures market actually works — nobody buys corn, only contracts on its price — and argues prediction markets are one abstraction too far: \"derivatives aren't necessarily gambling, but derivatives on derivatives are always gambling.\" He traces the 2008 Science letter asking the CFTC for a safe harbor, the fivefold 2026 volume growth at Polymarket and Kalshi, and why the efficiency case for event contracts collapses in practice.",
     "share_quote": "derivatives aren't necessarily gambling, but derivatives on derivatives are always gambling",
     "fetch_status": "web"
+  },
+  {
+    "id": 316,
+    "url": "https://www.lesswrong.com/posts/7xJeaAKTKxbHL6F9a/a-new-kind-of-prediction-market-for-science",
+    "title": "A New Kind of Prediction Market for Science",
+    "author": "William Klett",
+    "author_twitter": null,
+    "source_type": "Forum Post",
+    "publish_date": "2026-11-12",
+    "primary_category": "Design",
+    "content_type": "Opinion",
+    "difficulty": "Some",
+    "concepts": [
+      "continuous prediction markets",
+      "value of information",
+      "incentive compatibility",
+      "information aggregation",
+      "hedging"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Peer review can't keep up with AI-accelerated paper production, so William Klett proposes reviving Hanson's idea futures with a fix for settlement: scientists commit their experiment-market profits to no-expiry puts or calls on a perpetual \"idea\" market, direction preregistered to their result. Options dealers must hedge by buying the perp, so the price forecasts what future experiments will show. Careful work becomes the profitable play.",
+    "share_quote": "scientific questions become perpetuals where the fair price is expected future evidence",
+    "fetch_status": "web"
   }
 ]
