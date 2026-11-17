@@ -7669,5 +7669,30 @@
     "editorial_blurb": "Peer review can't keep up with AI-accelerated paper production, so William Klett proposes reviving Hanson's idea futures with a fix for settlement: scientists commit their experiment-market profits to no-expiry puts or calls on a perpetual \"idea\" market, direction preregistered to their result. Options dealers must hedge by buying the perp, so the price forecasts what future experiments will show. Careful work becomes the profitable play.",
     "share_quote": "scientific questions become perpetuals where the fair price is expected future evidence",
     "fetch_status": "web"
+  },
+  {
+    "id": 317,
+    "url": "https://www.lesswrong.com/posts/zu3YnojJ8dXWzxmWd/manifold-and-polymarket-are-biased-against-nothing-ever-1",
+    "title": "Manifold and Polymarket Are Biased Against \"Nothing Ever Happens\"",
+    "author": "Selfmaker662",
+    "author_twitter": null,
+    "source_type": "Forum Post",
+    "publish_date": "2026-11-16",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "something happens bias",
+      "yes bias",
+      "calibration",
+      "forecasting accuracy"
+    ],
+    "platforms_mentioned": [
+      "Manifold",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Manifold and Polymarket are both biased toward \"something happens\", and the sign of the error flips with the question's default. Where nothing happening resolves NO, a market priced at 50% on Manifold resolved YES just 32% of the time — a 2.1x overprice, versus 40% and 1.5x on Polymarket. Where nothing happening resolves YES, the bias reverses. Still, AUROC of 0.87 and 0.91 says prices rank outcomes well.",
+    "share_quote": "a market priced at 50% resolves yes only 32% of the time",
+    "fetch_status": "web"
   }
 ]

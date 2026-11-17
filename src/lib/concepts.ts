@@ -147,6 +147,7 @@ const conceptToCluster: Record<string, ConceptCluster> = {
   "path dependence": "business",
   "implied correlation": "liquidity",
   "yes bias": "information",
+  "something happens bias": "information",
   "position collateralization": "mechanism",
   "nowcasting": "information",
   "endogeneity": "information",
