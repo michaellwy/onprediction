@@ -7694,5 +7694,56 @@
     "editorial_blurb": "Manifold and Polymarket are both biased toward \"something happens\", and the sign of the error flips with the question's default. Where nothing happening resolves NO, a market priced at 50% on Manifold resolved YES just 32% of the time — a 2.1x overprice, versus 40% and 1.5x on Polymarket. Where nothing happening resolves YES, the bias reverses. Still, AUROC of 0.87 and 0.91 says prices rank outcomes well.",
     "share_quote": "a market priced at 50% resolves yes only 32% of the time",
     "fetch_status": "web"
+  },
+  {
+    "id": 318,
+    "url": "https://www.astralcodexten.com/p/the-ai-forecasting-agenda",
+    "title": "The AI Forecasting Agenda",
+    "author": "Scott Alexander",
+    "author_twitter": "astralcodexten",
+    "source_type": "Substack",
+    "publish_date": "2026-11-19",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "AI agents",
+      "superforecasting",
+      "conditional markets",
+      "causal inference",
+      "forecasting accuracy"
+    ],
+    "platforms_mentioned": [
+      "Metaculus"
+    ],
+    "editorial_blurb": "AI forecasters now equal or beat top humans on standard questions, so Scott Alexander maps the gaps before anyone cashes in: conditional forecasting (a year-old FRI test found models markedly worse), genuinely causal forecasts, AI progress itself — which superforecasters keep underestimating — fifty-year horizons, unresolvable claims like the COVID lab-leak question, automatic crux generation, and whether models can defy respectable consensus. He uses them anyway, as a public bug bounty.",
+    "share_quote": "ai forecasters now equal or beat top human performance at traditional forecasting questions",
+    "fetch_status": "web"
+  },
+  {
+    "id": 319,
+    "url": "https://arxiv.org/abs/2611.23045",
+    "title": "ForecastGym: A Live, Controlled, and Replayable Benchmark for Forecasting Agents",
+    "author": "Yicheng Tao, Yuante Li, Zipei Fan",
+    "author_twitter": null,
+    "source_type": "Academic Paper",
+    "publish_date": "2026-11-17",
+    "primary_category": "Applications",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "AI agents",
+      "forecasting accuracy",
+      "Brier score",
+      "information aggregation",
+      "market efficiency"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "ForecastGym freezes what four commercial search APIs return for 150 open prediction-market questions — recrawled every two days, 614 evidence states — then replays that evidence offline after settlement, so models compete on identical information. On frozen evidence every tested LLM trails the market. Re-running the same queries post-settlement returns results that nearly state the outcome for up to 92% of questions, despite date filters. Swapping the search API moves Brier scores by 0.043, more than the gap across models.",
+    "share_quote": "all tested llms trail the market in forecasting accuracy",
+    "fetch_status": "web"
   }
 ]
