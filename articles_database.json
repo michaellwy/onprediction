@@ -7745,5 +7745,127 @@
     "editorial_blurb": "ForecastGym freezes what four commercial search APIs return for 150 open prediction-market questions — recrawled every two days, 614 evidence states — then replays that evidence offline after settlement, so models compete on identical information. On frozen evidence every tested LLM trails the market. Re-running the same queries post-settlement returns results that nearly state the outcome for up to 92% of questions, despite date filters. Swapping the search API moves Brier scores by 0.043, more than the gap across models.",
     "share_quote": "all tested llms trail the market in forecasting accuracy",
     "fetch_status": "web"
+  },
+  {
+    "id": 320,
+    "url": "https://reason.org/commentary/prediction-market-versus-poll-performance-in-the-2026-midterms/",
+    "title": "Prediction Market Versus Poll Performance in the 2026 Midterms",
+    "author": "Jacob James Rich, Swaroop Bhagavatula",
+    "author_twitter": "",
+    "source_type": "News Article",
+    "publish_date": "2026-11-18",
+    "primary_category": "Commentary",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "election markets",
+      "forecasting accuracy",
+      "information aggregation",
+      "market manipulation",
+      "platform competition"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Compares the last pre-election poll from each of 98 pollsters against Kalshi and Polymarket prices across 381 midterm races. On races a poll actually called, the polls narrowly won: 81.8% correct versus 81.0% for Polymarket and 80.4% for Kalshi. The markets' entire overall edge, 81.4% against 76.6%, came from the 24 polls that showed a tie. Kalshi also called 341 of 344 races that no public poll attempted.",
+    "fetch_status": "web",
+    "share_quote": "the markets' entire edge came from races the polls had called a tie"
+  },
+  {
+    "id": 321,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7705802",
+    "title": "Excess Volatility in Prediction Markets: Evidence from Polymarket and Kalshi",
+    "author": "Jeffrey Adrian, Conor Camerer, Colin F. Camerer",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-11-19",
+    "primary_category": "Microstructure",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "market efficiency",
+      "calibration",
+      "variance risk premium",
+      "noise decomposition",
+      "market structure"
+    ],
+    "platforms_mentioned": [
+      "Kalshi",
+      "Polymarket"
+    ],
+    "editorial_blurb": "Tests whether prediction market prices behave like Bayesian forecasts by checking the martingale property across 2.6 million Polymarket and Kalshi markets resolved by July 2026. At hourly sampling, prices move 39% more on Polymarket and 23% more on Kalshi than the uncertainty they resolve, with much larger gaps at one-minute sampling. Excess volatility rises steeply with market lifetime: in markets lasting 90 days or more, prices move four to five times as much as the uncertainty they resolve.",
+    "fetch_status": "pdf",
+    "share_quote": "prices can move four to five times the uncertainty they resolve"
+  },
+  {
+    "id": 322,
+    "url": "https://kucharski.substack.com/p/do-you-have-a-consistent-concept",
+    "title": "Do You Have a Consistent Concept of Probability?",
+    "author": "Adam Kucharski",
+    "author_twitter": "",
+    "source_type": "Substack",
+    "publish_date": "2026-11-21",
+    "primary_category": "Fundamentals",
+    "content_type": "Analysis",
+    "difficulty": "Some",
+    "concepts": [
+      "framing bias",
+      "calibration",
+      "forecasting accuracy",
+      "AI agents"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Argues that before asking whether a forecast is accurate, ask whether it is internally consistent. A frontier model puts an 80% chance on AI killing 1,000+ people by 2030, then 40% when asked the negated question, violating P(will) = 1 − P(won't). Kucharski then scores roughly 5,000 resolvable probability claims drawn from 15,000 financial reports: 'highly unlikely' resolves less often than 'unlikely', but fund managers' 'highly likely' calls land less often than their 'likely' ones.",
+    "fetch_status": "web",
+    "share_quote": "before we know the answer, we can learn a lot from looking at consistency"
+  },
+  {
+    "id": 323,
+    "url": "https://blog.korolevalab.com/blog/2026/polymarket-accuracy/",
+    "title": "How Accurate Is Polymarket? Calibration, Longshot Bias and a Volume Trap",
+    "author": "Eva Koroleva",
+    "author_twitter": "",
+    "source_type": "Blog",
+    "publish_date": "2026-11-05",
+    "primary_category": "Microstructure",
+    "content_type": "Analysis",
+    "difficulty": "Extensive",
+    "concepts": [
+      "calibration",
+      "longshot bias",
+      "volume inflation",
+      "endogeneity",
+      "market efficiency"
+    ],
+    "platforms_mentioned": [
+      "Polymarket",
+      "Kalshi"
+    ],
+    "editorial_blurb": "Checks nearly three million resolved Polymarket markets against their prices, sampling about 150,000 with real trading. A week before close, liquid markets are calibrated to within 1.8 points and remove 70% of a base-rate forecaster's Brier error, 82% a day out. The platform's advertised 98.7% accuracy flatters, since 78% of markets resolve No. Contracts under 5 cents lose 39% of the stake, and the apparent finding that big markets beat longshots is a volume-selection artefact.",
+    "fetch_status": "web",
+    "share_quote": "a week before the close, liquid prices are off by 1.8 points"
+  },
+  {
+    "id": 324,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7715258",
+    "title": "Profiting From Prediction",
+    "author": "Veronica Root Martinez, Gina-Gail S. Fletcher, Emilie Aguirre",
+    "author_twitter": "",
+    "source_type": "Academic Paper",
+    "publish_date": "2026-11-17",
+    "primary_category": "Regulation",
+    "content_type": "Research Paper",
+    "difficulty": "Extensive",
+    "concepts": [
+      "bounded commodification",
+      "regulatory classification",
+      "event contracts",
+      "derivatives"
+    ],
+    "platforms_mentioned": [],
+    "editorial_blurb": "Argues that prediction markets need a doctrine of bounded commodification rather than a single gambling-or-derivatives classification. Trading event contracts turns harms into revenue for platforms and traders, and the Article sets out when such contracts should be banned, when state or federal regulators should police them, and when platforms themselves must run ex ante internal controls and compliance systems. Draws on contract law doctrine to build that framework.",
+    "fetch_status": "pdf",
+    "share_quote": "law should permit or constrain users and platforms to profit from prediction"
   }
 ]
